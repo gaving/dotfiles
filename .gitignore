@@ -1,0 +1,6 @@
+.zsh/custom
+.screen/custom
+.zsh/history*
+.zsh/cache
+.vim/tmp
+.vim/.netrwhist

@@ -1,0 +1,94 @@
+# .muttngrc configuration
+
+# {{{ Custom paths
+set mbox_type=Maildir
+set folder=$HOME/mail
+set spoolfile=$HOME/mail
+set sendmail="/usr/bin/esmtp"
+set mask="!^\\.[^.]"
+set record="+sent-mail"
+set postponed="+postponed"
+# }}}
+
+# {{{ Settings
+set ascii_chars=yes
+set charset=utf-8
+set copy
+set delete=ask-yes
+set edit_headers
+set editor="vim"
+set fcc_clear
+set fast_reply
+set header_cache="~/.mutt/cache/"
+set maildir_header_cache_verify=no
+set hidden_host
+set hostname=$HOST
+set include
+set index_format="%4C %Z %{%b %d} %-15.15F [%4c] %s"
+set mailcap_path=$HOME/.mailcap:/etc/mailcap
+set mime_forward
+set nobeep
+set noconfirmappend
+set nomarkers
+set nomark_old
+set nomove
+set nopipe_decode
+set nosmart_wrap
+set nostrict_threads
+set pager_context=3
+set pager_stop
+set postpone=ask-no
+set print=ask-yes
+set print_command="muttprint"
+set query_command="lbdbq '%s'"
+set quote_regexp="^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+set read_inc=100
+set sendmail_wait=-1
+set sort_aux=reverse-date-received
+set sort=threads
+set tilde
+set to_chars=" +TCF "
+set write_inc=100
+# }}}
+
+# {{{ Source files 
+source ~/.mutt/auto_views
+source ~/.mutt/folder-hooks
+source ~/.mutt/subscriptions
+source ~/.mutt/mailboxes
+source ~/.mutt/headers
+source ~/.mutt/bindings
+source ~/.mutt/macros
+source ~/.mutt/colours
+# }}}
+
+# {{{ Sidebar
+
+# set up the sidebar, default not visible
+#set sidebar_width=15
+#set sidebar_visible=yes
+
+# color of folders with new mail
+#color sidebar_new yellow default
+#color normal white default
+
+# ctrl-n, ctrl-p to select next, prev folder
+# ctrl-o to open selected folder
+#bind index \CP sidebar-prev
+#bind index \CN sidebar-next
+#bind index \CO sidebar-open
+#bind pager \CP sidebar-prev
+#bind pager \CN sidebar-next
+#bind pager \CO sidebar-open
+
+# b toggles sidebar visibility
+#macro index b '<enter-command>toggle sidebar_visible<enter>'
+#macro pager b '<enter-command>toggle sidebar_visible<enter>'
+
+# }}}
+
+# {{{ Misc 
+alternative_order text/enriched text/plain text/html 
+mime_lookup application/octet-stream
+push <show-version>
+# }}}

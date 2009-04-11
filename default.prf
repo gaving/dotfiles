@@ -1,0 +1,25 @@
+# Unison preferences file
+
+# General
+contactquietly = true
+terse = true
+
+# Roots of the synchronization
+root = /Users/gavin/
+root = ssh://gavin@192.168.1.100:40//mnt/media
+
+# Paths to synchronize 
+path = coding
+path = documents
+
+# Some regexps specifying names and paths to ignore
+ignore = Name {,.}*{.pyc}
+ignore = Name *._*
+ignore = Name *.o
+
+# No silly questions
+auto = true
+
+# Log actions to a file
+log = false
+ignore = Name {entries}

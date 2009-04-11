@@ -1,0 +1,242 @@
+#!/bin/zsh
+# zsh functions
+
+_force_rehash() {
+    (( CURRENT == 1 )) && rehash
+    return 1    # Because we didn't really complete anything
+}
+
+zstyle ':completion:*' insert-tab pending
+zstyle -g completer ':completion:*' completer
+zstyle ':completion:*' completer _listfiles ${completer}
+
+_listfiles() {
+    local ret=1
+    if [[ -z $BUFFER ]]; then
+        _files && ret=0
+    fi
+    return $ret
+}
+
+# let ^W delete to slashes - zsh-users list, 4 Nov 2005
+backward-delete-to-slash() {
+    local WORDCHARS=${WORDCHARS//\//}
+    zle .backward-delete-word
+}
+zle -N backward-delete-to-slash
+bindkey "^W" backward-delete-to-slash
+
+# c-z toggles between suspend and resume
+resume-job() {
+    zle push-input
+    BUFFER="fg"
+    zle accept-line
+}
+zle -N resume-job
+
+bindkey "^Z" resume-job
+
+# Basic command line calculator
+basiccalc() {
+    if [[ ! -f /usr/bin/bc ]] ; then
+        echo "Install bc before trying to use this!"
+        return
+    fi
+
+    if [[ -z "$1" ]] ; then
+        /usr/bin/bc -q
+    else
+        echo "$@" | /usr/bin/bc -l
+    fi
+}
+
+alias calc='noglob basiccalc'
+
+# Grab bug me not password for <site>
+bmn() {
+    lynx --dump http://www.bugmenot.com/view/$1 | egrep "(Username|Password)" | head -6 
+}
+
+# Print out current calendar with highlighted day
+calendar() {
+    if [[ ! -f /usr/bin/cal ]] ; then
+        echo "Please install cal before trying to use it!"
+        return
+    fi
+
+    if [[ "$#" = "0" ]] ; then
+        /usr/bin/cal | egrep -C 40 --color "\<$(date +%e| tr -d ' ')\>"
+    else
+        /usr/bin/cal $@ | egrep -C 40 --color "\<($(date +%B)|$(date +%e | tr -d ' '))\>"
+    fi
+}
+
+alias cal=calendar
+
+# Remove useless files
+clean() {
+    if [ "$1" = "-r" ]; then
+        find . \( -name '#*' -o -name '*~' -o -name '.*~' -o -name 'core*' \
+        -o -name 'dead*' \) -ok rm '{}' ';'
+    else
+        rm -i \#* *~ .*~ core* dead*
+    fi
+}
+
+# rename pictures based on information found in exif headers
+exirename() {
+    if [ $# -lt 1 ] ; then
+       echo 'Usage: jpgrename $FILES' >& 2
+       return 1
+    else
+       echo -n 'Checking for jhead with version newer than 1.9: '
+       jhead_version=`jhead -h | grep 'used by most Digital Cameras.  v.*' | awk '{print $6}' | tr -d v`
+       if [[ $jhead_version > '1.9' ]]; then
+          echo 'success - now running jhead.'
+          jhead -n%Y-%m-%d_%Hh%M_%f $*
+       else
+          echo 'failed - exiting.'
+       fi
+    fi
+}
+
+# Extract most types of archive
+extract() {
+    if [[ -z "$1" ]]; then
+        print -P "usage: \e[1;36mextract\e[1;0m < filename >"
+        print -P "       Extract the file specified based on the extension"
+    elif [[ -f $1 ]]; then
+        case ${(L)1} in
+            *.tar.bz2)  tar -jxvf $1    ;;
+            *.tar.gz)   tar -zxvf $1    ;;
+            *.bz2)      bunzip2 $1     ;;
+            *.gz)       gunzip $1      ;;
+            *.jar)      unzip $1       ;;
+            *.rar)      unrar x $1     ;;
+            *.tar)      tar -xvf $1    ;;
+            *.tbz2)     tar -jxvf $1    ;;
+            *.tgz)      tar -zxvf $1    ;;
+            *.zip)      unzip $1          ;;
+            *.Z)        uncompress $1   ;;
+            *)          echo "Unable to extract '$1' :: Unknown extension"
+        esac
+    else
+        echo "File ('$1') does not exist!"
+    fi
+}
+
+# Usage: smartcompress <file> (<type>)
+# Description: compresses files or a directory.  Defaults to tar.gz
+compress() {
+    if [ $2 ]; then
+            case $2 in
+                    tgz | tar.gz)   tar -zcvf$1.$2 $1 ;;
+                    tbz2 | tar.bz2) tar -jcvf$1.$2 $1 ;;
+                    tar.Z)          tar -Zcvf$1.$2 $1 ;;
+                    tar)            tar -cvf$1.$2  $1 ;;
+                    gz | gzip)      gzip           $1 ;;
+                    bz2 | bzip2)    bzip2          $1 ;;
+                    *)
+                    echo "Error: $2 is not a valid compression type"
+                    ;;
+            esac
+    else
+            compress $1 tar.gz
+    fi
+}
+
+# generate thumbnails
+genthumbs() {
+    echo "
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+    <html><head><title>Images from $PWD</title></head>
+    <body>" > index.html
+    for f in (#i)*.(gif|jpeg|jpg|png)
+    do
+        convert -size 100x200 "$f" -resize 100x200 thumb-"$f"
+        echo "    <a href=\"$f\"><img src=\"thumb-$f\"></a>" >> index.html
+    done
+    echo "</body></html>" >> index.html
+}
+
+# Create a diff
+mdiff() { diff -udrP "$1" "$2" > diff.$(date "+%Y-%m-%d")."$1" }
+
+# Reset current directory to sensible permissions
+saneperms() {
+    find . -type d -print0 | xargs -0 chmod 755
+    find . -type f -print0 | xargs -0 chmod 644
+}
+
+# summarized google, ggogle, mggogle, agoogle and fm
+search() {
+    case "$1" in
+        -g) ${BROWSER:-lynx} http://www.google.com/search\?q=$2
+        ;;
+        -u) ${BROWSER:-lynx} http://groups.google.com/groups\?q=$2
+        ;;
+        -m) ${BROWSER:-lynx} http://groups.google.com/groups\?selm=$2
+        ;;
+        -a) ${BROWSER:-lynx} http://groups.google.com/groups\?as_uauthors=$2
+        ;;
+        -c) ${BROWSER:-lynx} http://search.cpan.org/search\?query=$2\&mode=module
+        ;;
+        -f) ${BROWSER:-lynx} http://freshmeat.net/search/\?q=$2\&section=projects
+        ;;
+        -F) ${BROWSER:-lynx} http://www.filewatcher.com/\?q=$2
+        ;;
+        -G) ${BROWSER:-lynx} http://www.rommel.stw.uni-erlangen.de/~fejf/cgi-bin/pfs-web.pl\?filter-search_file=$2
+        ;;
+        -s) ${BROWSER:-lynx} http://sourceforge.net/search/\?type=soft\&q=$2
+        ;;
+        -w) ${BROWSER:-lynx} http://de.wikipedia.org/wiki/$2
+        ;;
+        -W) ${BROWSER:-lynx} http://en.wikipedia.org/wiki/$2
+        ;;
+        -d) lynx -source "http://dict.leo.org?$2" | grep -i "TABLE.*/TABLE" | sed "s/^.*\(<TABLE.*TABLE>\).*$/<HTML><BODY>\1<\/BODY><\/HTML>/" | lynx -stdin -dump -width=$COLUMNS -nolist;
+        ;;
+        *) 
+        echo "Usage: $0 {-g | -u | -m | -a | -f | -c | -F | -s | -w | -W | -d}"
+        echo "  -g:  Searching for keyword in google.com"
+        echo "  -u:  Searching for keyword in groups.google.com"
+        echo "  -m:  Searching for message-id in groups.google.com"
+        echo "  -a:  Searching for Authors in groups.google.com"
+        echo "  -c:  Searching for Modules on cpan.org."
+        echo "  -f:  Searching for projects on Freshmeat."
+        echo "  -F:  Searching for packages on FileWatcher."
+        echo "  -G:  Gentoo file search."
+        echo "  -s:  Searching for software on Sourceforge."
+        echo "  -w:  Searching for keyword at wikipedia (german)."
+        echo "  -W:  Searching for keyword at wikipedia (english)."
+        echo "  -d:  Query dict.leo.org ;)"
+    esac
+}
+
+# view archive without unpack
+show-archive() {
+    if [[ -f $1 ]]; then
+        case $1 in
+            *.tar.gz)      gunzip -c $1 | tar -tf - -- ;;
+            *.tar)         tar -tf $1 ;;
+            *.tgz)         tar -ztf $1 ;;
+            *.zip)         unzip -l $1 ;;
+            *.bz2)         bzless $1 ;;
+            *)             echo "'$1' Error. Please go away" ;;
+        esac
+    else
+        echo "'$1' is not a valid archive"
+    fi
+}
+
+# Quickly viewlatex file.
+viewlatex() {
+    doc=${1%%.tex}
+    latex $doc.tex && latex $doc.tex && dvipdf $doc.dvi && evince $doc.pdf
+    rm -f $doc.(dvi|aux|log|toc)
+}
+
+# Quick upload function, copying the url to the clipboard
+upload() {
+    scp -r $1 gav@brokentrain.net:~/upload/$(basename $1) \
+    && xclip <<< "http://gavin.brokentrain.net/upload/$(basename $1)"
+}

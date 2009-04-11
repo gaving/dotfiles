@@ -1,0 +1,101 @@
+#!/bin/zsh
+# zsh aliases
+
+# {{{ Standard
+alias sudo="sudo " #Allow aliases to be expanded after sudo
+alias df='df -kh'
+alias du='du -kh'
+alias h='history'
+alias j='jobs -l'
+alias mirror="noglob wget --mirror --no-parent --recursive --timestamping --continue --recursive"
+alias mkdir='mkdir -p'
+alias mmv='noglob zmv -W'
+alias path='echo -e ${PATH//:/\\n}'
+alias :q='exit'
+alias :wq='exit'
+alias tree='tree -Csu'
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+
+# }}}
+
+# {{{ Global
+alias -g V='| vim'
+alias -g L='| less -REF'
+alias -g M='| more'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g G='| grep'
+alias -g C='| wc -l'
+alias -g S='| sort'
+alias -g A='&> /dev/null | at'
+alias -g DN='&> /dev/null'
+alias -g X='| xclip'
+# }}}
+
+# {{{ Suffix
+alias -s avi=mplayer
+alias -s bz2=show-archive
+alias -s tex=${EDITOR:-vim}
+alias -s dvi=xdvi
+alias -s flac=mplayer
+alias -s gz=show-archive
+alias -s htm=${BROWSER:-lynx}
+alias -s html=${BROWSER:-lynx}
+alias -s mpg=mplayer
+alias -s tar=show-archive
+alias -s tex=${EDITOR:-vim}
+alias -s txt=${PAGER:-less}
+alias -s wav=mplayer
+alias -s wmv=mplayer
+alias -s zip=show-archive
+# }}}
+
+# {{{ Families
+
+# less
+
+alias less='less -iM'
+
+# chmod
+alias rw-='chmod 600'
+alias rwx='chmod 700'
+alias r--='chmod 644'
+alias r-x='chmod 755'
+
+# CD
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias .......='cd ../../../../../..'
+
+# ls
+alias ls='ls -hFG --color=auto'      # add colors for filetype recognition
+alias lsa='ls -Al'                   # show hidden files
+alias lsx='ls -lXB'                  # sort by extension
+alias lsk='ls -lSr'                  # sort by size
+alias lsk='ls -lSr'                  # sort by size
+alias lsc='ls -lcr'                  # sort by change time
+alias lsu='ls -lur'                  # sort by access time
+alias lsr='ls -lR'                   # recursive ls
+alias lst='ls -ltr'                  # sort by date
+alias lsl='ls -Al L'                 # pipe through 'less'
+alias lsbig='ls -flh *(.OL[1,10])'   # display the biggest files
+alias lsd='ls -d *(/)'               # only show directories
+alias lse='ls -d *(/^F)'             # only show empty directories
+alias lsnew='ls -rl *(D.om[1,10])'   # display the newest files
+alias lsold='ls -rtlh *(D.om[1,10])' # display the oldest files
+alias lssmall='ls -Srl *(.oL[1,10])' # display the smallest files
+# }}}
+
+# {{{ Typos
+alias xs='cd'
+alias vf='cd'
+alias moer='more'
+alias moew='more'
+alias kk='ll'
+alias cd..='cd ..'
+# }}}
+

@@ -1,0 +1,16 @@
+# -*- muttrc -*-
+
+# Use the global defaults first.
+source ~/.mutt/defaults.global
+
+# This is the index format for non-list folders.
+set index_format="%4C %Z %{%b %d} %-15.15L (%4l) %s"
+
+# Sort by date-sent
+set sort=date-sent
+
+# By default use the default value for abort_nosubject
+reset abort_nosubject
+
+# Always verify signatures by default.
+set pgp_verify_sig

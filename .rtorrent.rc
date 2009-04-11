@@ -1,0 +1,9 @@
+directory = /Users/gavin/Downloads/
+hash_interval = 10
+hash_max_tries = 5
+hash_read_ahead = 8
+port_range = 40000-40009
+schedule = watch_directory,5,5,"load_start=/Users/gavin/Torrents/*.torrent"
+session = ~/.rtorrent/session
+upload_rate = 30
+scgi_local = /Users/gavin/.rtorrent/socket

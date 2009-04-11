@@ -1,0 +1,66 @@
+#######################################################################
+## MUTT COLOR SETTINGS                                               ##
+#######################################################################
+
+#####################
+# Color definitions #
+#####################
+# Format:
+#   color object      foreground   background
+#
+# Objects names for mutt 0.90 are:
+#   attachment, body, bold, error, header, hdrdefault, indicator,
+#   markers, message, normal, quoted, quoted1, ..., quotedN,
+#   search, signature, status, subject, tilde, tree, underline.
+#
+# Color names:
+#   white default green magenta blue cyan yellow red default colorx
+
+# color important headers
+color indicator   black        white 
+color status      brightwhite        black
+color header      brightcyan   default  "^date: "
+color header      brightcyan   default  "^from: "
+color header      brightcyan   default  "^to: "
+color header      brightwhite  default  "^subject: "
+color header      brightcyan   default  "^x-spamprobe: "
+color hdrdefault  cyan         default  
+
+# color nested responses
+color quoted      green        default
+color quoted1     yellow       default
+color quoted2     green        default
+color quoted3     yellow       default
+color quoted4     green        default
+color quoted5     yellow       default
+color quoted6     green        default
+color quoted7     yellow       default
+
+#  Colorize smileys:  :-)  ;-)  :-/  :-(
+color body        brightyellow default    "[;:]-[)/(|]"
+color body        brightyellow default    "[;:][)/(|]"
+
+# colorize urls
+color body        brightblue   default    "\\b[^ ]+://[^ ]+"
+
+# colorize index
+color index       brightwhite  default    ~N      # New
+color index       brightwhite  default    ~O      # Old
+
+# colorize new mail from "important" people
+color index       brightyellow default '~f (torvalds\|alan@lxorguk\|alan@redhat\|matz\|gilbertt\|dave@pr\|marcelo\|rml\|tosatti\|esr@thy\|mingo@\|riel@\|viro@\|andre@linux-ide\|akpm@digeo\|davej@codemonkey\|maguire\|alonzo\|khan\|hhmecca\|hiphopmecca\|my2way)'
+
+color index       white        default    ~R      # read
+color index       default      white      ~T      # Tagged
+color index       default      brightred  ~D      # Deleted
+
+# colorize mail from myself
+color index       brightcyan   default '~f (pabs)'
+
+# colorize signature
+color signature   cyan         default
+
+color tree        red          default
+color tilde       blue         default  # empty pager area
+color normal      white        default  # default 
+

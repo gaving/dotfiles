@@ -1,0 +1,13 @@
+# -*- muttrc -*-
+
+# Use the global defaults first.
+source ~/.mutt/defaults.global
+
+# This is the index format for mailing lists.
+# set index_format="%4C %Z %{%b %d} %-15.15n (%4l) %s"
+
+# Sort on threads
+set sort=threads
+
+# Give mailing lists a more "slrn" like feel.
+set pager_index_lines=12

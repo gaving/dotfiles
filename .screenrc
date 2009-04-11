@@ -1,0 +1,54 @@
+# .screenrc configuration
+
+# {{{ Termcaps
+termcapinfo rxvt-unicode 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+# }}}
+
+# {{{ Settings
+altscreen on
+defutf8 on
+defflow off
+nethack off
+startup_message off
+defscrollback 1000
+vbell on
+silencewait 15
+shell zsh
+activity "activity in %n (%t) [%w:%s]~"
+bell "%C -> %n%f activity!"
+vbell_msg "!"
+msgwait 0
+# }}}
+
+# {{{ Bindings
+bind h prev
+bind l next
+bind ^l next
+bind P paste
+bind K quit
+
+bind -c shiftalt C next
+bind -c shiftalt D prev
+bindkey ^[^[O command -c shiftalt # PuTTY Alt
+bindkey ^[[c next
+bindkey ^[[d prev
+bindkey ^[Oc next
+bindkey ^[Od prev
+
+bindkey "q" quit
+bindkey "w" eval kill
+bindkey "t" screen 1
+bindkey "[Z" next
+# }}}
+
+# {{{ Statusline
+
+sorendition 04 07
+hardstatus on
+hardstatus alwayslastline "%-Lw%{+r}%50> %n%f %t %{-}%+Lw%< %-= %H | %{= kw}%0c, %d/%m/%y%{-} "
+
+# }}}
+
+# {{{ Custom
+source $HOME/.screen/custom
+# }}}

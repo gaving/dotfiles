@@ -1,0 +1,1 @@
+mailboxes `find ~/mail/ -type d -name cur -printf '%h '`
