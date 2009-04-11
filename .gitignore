@@ -4,3 +4,4 @@
 .zsh/cache
 .vim/tmp
 .vim/.netrwhist
+.vimperatorrc
