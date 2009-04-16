@@ -347,7 +347,7 @@ vmap <silent> ie <Plug>CamelCaseMotion_ie
 
 " {{{ NERD_commenter.vim
 
-let g:NERDShutUp=1
+let g:NERDSpaceDelims=1
 
 " }}}
 
