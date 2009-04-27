@@ -79,14 +79,14 @@ endif
   " When using context completion, super tab will fall back to a secondary
   " default completion type set by g:SuperTabContextDefaultCompletionType.
   if !exists("g:SuperTabDefaultCompletionType")
-    let g:SuperTabDefaultCompletionType = "<c-n>"
+    let g:SuperTabDefaultCompletionType = "<c-p>"
   endif
 
   " Sets the default completion type used when g:SuperTabDefaultCompletionType
   " is set to 'context' and the text preceding the cursor does not match any
   " patterns mapped to other specific completion types.
   if !exists("g:SuperTabContextDefaultCompletionType")
-    let g:SuperTabContextDefaultCompletionType = "<c-n>"
+    let g:SuperTabContextDefaultCompletionType = "<c-p>"
   endif
 
   " When 'context' completion is enabled, this setting can be used to fallback
