@@ -268,6 +268,11 @@ cmap w!! %!sudo tee > /dev/null %
 
 " }}}
 
+" {{{ Buffer management
+nmap <tab> :bn<cr>
+nmap <s-tab> :bp<cr>
+" }}}
+
 " {{{ Tab management
 
 nmap <C-tab> :tabnext<CR>
