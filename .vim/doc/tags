@@ -10,7 +10,6 @@
 'NERDRPlace'	NERD_commenter.txt	/*'NERDRPlace'*
 'NERDRemoveAltComs'	NERD_commenter.txt	/*'NERDRemoveAltComs'*
 'NERDRemoveExtraSpaces'	NERD_commenter.txt	/*'NERDRemoveExtraSpaces'*
-'NERDShutUp'	NERD_commenter.txt	/*'NERDShutUp'*
 'NERDSpaceDelims'	NERD_commenter.txt	/*'NERDSpaceDelims'*
 'NERDTreeAutoCenter'	NERD_tree.txt	/*'NERDTreeAutoCenter'*
 'NERDTreeAutoCenterThreshold'	NERD_tree.txt	/*'NERDTreeAutoCenterThreshold'*
@@ -49,10 +48,10 @@ ExtractSnips()	snipMate.txt	/*ExtractSnips()*
 ExtractSnipsFile()	snipMate.txt	/*ExtractSnipsFile()*
 Filename()	snipMate.txt	/*Filename()*
 MatchError	matchit.txt	/*MatchError*
+NERDComAbout	NERD_commenter.txt	/*NERDComAbout*
 NERDComAlignedComment	NERD_commenter.txt	/*NERDComAlignedComment*
 NERDComAltDelim	NERD_commenter.txt	/*NERDComAltDelim*
 NERDComAppendComment	NERD_commenter.txt	/*NERDComAppendComment*
-NERDComAuthor	NERD_commenter.txt	/*NERDComAuthor*
 NERDComChangelog	NERD_commenter.txt	/*NERDComChangelog*
 NERDComComment	NERD_commenter.txt	/*NERDComComment*
 NERDComCredits	NERD_commenter.txt	/*NERDComCredits*
@@ -134,7 +133,7 @@ NERDTreeTodo	NERD_tree.txt	/*NERDTreeTodo*
 NERD_commenter.txt	NERD_commenter.txt	/*NERD_commenter.txt*
 NERD_tree.txt	NERD_tree.txt	/*NERD_tree.txt*
 ODBC	dbext.txt	/*ODBC*
-ResetSnips()	snipMate.txt	/*ResetSnips()*
+ResetSnippets()	snipMate.txt	/*ResetSnippets()*
 [%	matchit.txt	/*[%*
 ]%	matchit.txt	/*]%*
 ack	ack.txt	/*ack*
