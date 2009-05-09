@@ -269,8 +269,8 @@ cmap w!! %!sudo tee > /dev/null %
 " }}}
 
 " {{{ Buffer management
-nmap <tab> :bn<cr>
-nmap <s-tab> :bp<cr>
+nmap <tab> <C-I><cr>
+nmap <s-tab> <C-O><cr>
 " }}}
 
 " {{{ Tab management
