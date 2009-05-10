@@ -322,7 +322,7 @@ map <Leader>mc :FuzzyFinderMruCmd<CR>
 map <Leader>mf :FuzzyFinderMruFile<CR>
 map <Leader>t :FuzzyFinderTag!<CR>
 
-inoremap <Leader>s <Esc>:FuzzyFinderSnippet<CR>
+" inoremap <Leader>s <Esc>:FuzzyFinderSnippet<CR>
 
 " }}}
 

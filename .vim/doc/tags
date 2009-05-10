@@ -413,8 +413,10 @@ g:snippets_dir	snipMate.txt	/*g:snippets_dir*
 g:snips_author	snipMate.txt	/*g:snips_author*
 i_CTRL-G_S	surround.txt	/*i_CTRL-G_S*
 i_CTRL-G_s	surround.txt	/*i_CTRL-G_s*
+i_CTRL-R_<Tab>	snipMate.txt	/*i_CTRL-R_<Tab>*
 ingres	dbext.txt	/*ingres*
 interbase	dbext.txt	/*interbase*
+list-snippets	snipMate.txt	/*list-snippets*
 matchit	matchit.txt	/*matchit*
 matchit-%	matchit.txt	/*matchit-%*
 matchit-\1	matchit.txt	/*matchit-\\1*
