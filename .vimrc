@@ -235,9 +235,11 @@ nmap q: :q
 inoremap jj <Esc>
 imap <C-Space> <C-X><C-O>
 
-map <S-Return> :normal A;<Esc>o
+" map <S-Return> :normal A;<Esc>o
 map <Silent> <Leader><CR> :noh<CR>
-imap <S-Return> <Esc>A;<Esc>o
+" imap <S-Return> <Esc>A;<Esc>o
+map <S-Enter> O<Esc>
+map <CR> o<Esc>
 
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
