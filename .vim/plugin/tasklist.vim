@@ -366,9 +366,9 @@ endfunction
 command! TaskList call s:TaskList()
 
 " Default key map
-if !hasmapto('<Plug>TaskList')
-    map <unique> <Leader>t <Plug>TaskList
-endif
+" if !hasmapto('<Plug>TaskList')
+    " map <unique> <Leader>t <Plug>TaskList
+" endif
 
 " Key map to Command
 nnoremap <unique> <script> <Plug>TaskList :TaskList<CR>
