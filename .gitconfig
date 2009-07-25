@@ -1,0 +1,8 @@
+[user]
+	email = gavin@gavin.la
+	name = Gavin Gilmour
+[color]
+	branch = auto
+	status = auto
+	diff = auto
+	ui = auto
