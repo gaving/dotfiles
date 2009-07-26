@@ -239,7 +239,7 @@ imap <C-Space> <C-X><C-O>
 map <Silent> <Leader><CR> :noh<CR>
 " imap <S-Return> <Esc>A;<Esc>o
 map <S-Enter> O<Esc>
-map <CR> o<Esc>
+" map <CR> o<Esc>
 
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
