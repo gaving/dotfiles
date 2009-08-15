@@ -337,6 +337,34 @@ cmap w!! %!sudo tee > /dev/null %
 " {{{ Buffer management
 nmap <tab> <C-I><cr>
 nmap <s-tab> <C-O><cr>
+
+" Less mode
+function! LessMode()
+  if g:lessmode == 0
+    let g:lessmode = 1
+    let onoff = 'on'
+    " Scroll half a page down
+    noremap <script> d <C-D>
+    " Scroll one line down
+    noremap <script> j <C-E>
+    " Scroll half a page up
+    noremap <script> u <C-U>
+    " Scroll one line up
+    noremap <script> k <C-Y>
+  else
+    let g:lessmode = 0
+    let onoff = 'off'
+    unmap d
+    unmap j
+    unmap u
+    unmap k
+  endif
+  echohl Label | echo "Less mode" onoff | echohl None
+endfunction
+let g:lessmode = 0
+nnoremap <F5> :call LessMode()<CR>
+inoremap <F5> <Esc>:call LessMode()<CR>
+
 " }}}
 
 " {{{ Tab management
@@ -365,7 +393,8 @@ map <A-Right> :tabnext<CR>
 "colorscheme zenburn
 "colorscheme wombat
 "colorscheme darkspectrum
-colorscheme jellybeans
+" colorscheme jellybeans
+colorscheme bclear
 
 " }}}
 
@@ -433,5 +462,6 @@ let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 
 " }}}
+"
 
 " }}}

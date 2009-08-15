@@ -23,3 +23,11 @@ auto = true
 # Log actions to a file
 log = false
 ignore = Name {entries}
+ignore = Name {,.}*{.DS_Store}
+ignore = Name {,.}*{.DS_Store}
+ignore = Name {,.}*{.DS_Store}
+ignore = Name {,.}*{.DS_Store}
+ignore = Name {,.}*{.DS_Store}
+ignore = Name {,.}*{.DS_Store}
+ignore = Path {coding/.DS_Store}
+ignore = Path {coding/bt.net/db/development.sqlite3}
