@@ -291,7 +291,7 @@ elseif has('unix')
     nmap <Leader>v :e $HOME/.vimrc<CR>
 endif
 
-noremap <Space> <C-f>
+" noremap <Space> <C-f>
 noremap <C-d> "_dd
 noremap Y y$
 nmap q: :q
@@ -310,11 +310,19 @@ nnoremap <C-y> 3<C-y>
 
 " }}}
 
-" {{{ Quickfix window
+" {{{ Error windows
 
-map <Leader>o :copen<CR>
-map <Leader>n :cnext<CR>
-map <Leader>p :cprev<CR>
+" Quickfix window
+
+map <Leader>qo :copen<CR>
+map <Leader>qn :cnext<CR>
+map <Leader>qp :cprev<CR>
+
+" Location window
+
+map <Leader>lo :lopen<CR>
+map <Leader>ln :lnext<CR>
+map <Leader>lp :lprev<CR>
 
 " }}}
 
@@ -351,6 +359,8 @@ function! LessMode()
     noremap <script> u <C-U>
     " Scroll one line up
     noremap <script> k <C-Y>
+    " Scroll on space
+    noremap <Space> <C-f>
   else
     let g:lessmode = 0
     let onoff = 'off'
@@ -393,8 +403,12 @@ map <A-Right> :tabnext<CR>
 "colorscheme zenburn
 "colorscheme wombat
 "colorscheme darkspectrum
-" colorscheme jellybeans
-colorscheme bclear
+"colorscheme jellybeans
+"colorscheme bclear
+"colorscheme neon
+"colorscheme molokai
+"colorscheme zmork
+colorscheme mustang
 
 " }}}
 
