@@ -424,15 +424,15 @@ colorscheme mustang
 
 " {{{ Plugins
 
-" {{{ fuzzerfinder.vim
+" {{{ fuf.vim
 
-map <Leader>b :FuzzyFinderBuffer<CR>
-map <Leader>f :FuzzyFinderFile<CR>
-map <Leader>mc :FuzzyFinderMruCmd<CR>
-map <Leader>mf :FuzzyFinderMruFile<CR>
-map <Leader>t :FuzzyFinderTag!<CR>
+map <Leader>b :FufBuffer<CR>
+map <Leader>f :FufFile<CR>
+map <Leader>mc :FufMruCmd<CR>
+map <Leader>mf :FufMruFile<CR>
+map <Leader>t :FufTag!<CR>
 
-" inoremap <Leader>s <Esc>:FuzzyFinderSnippet<CR>
+let g:fuf_modesDisable = []
 
 " }}}
 
