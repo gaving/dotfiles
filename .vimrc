@@ -377,6 +377,14 @@ inoremap <F5> <Esc>:call LessMode()<CR>
 
 " }}}
 
+" {{{ Fkey bindings
+map <silent> <S-F3> :!ctags -R .<CR><CR>
+map <silent> <S-F4> :set hls!<bar>set hls?<CR>
+map <silent> <S-F5> :set paste!<bar>set paste?<CR>
+map <silent> <S-F6> :set wrap!<bar>set wrap?<CR>
+map <silent> <S-F7> :/\<\(\w\+\)\s\+\1\><CR>
+" }}}
+
 " {{{ Tab management
 "
 map <S-Left> :tabprev<CR>
