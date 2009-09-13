@@ -308,6 +308,10 @@ map <S-Enter> O<Esc>
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
+" Experimental: Additional keys to increment/decrement
+nnoremap + <C-a>
+nnoremap - <C-x>
+
 " }}}
 
 " {{{ Error windows
