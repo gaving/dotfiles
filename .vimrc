@@ -88,7 +88,7 @@ set tags=tags;/
 set textwidth=79
 set ttyfast
 set viminfo='100,f1
-set wildignore+=*.o,*.r,*.so,*.sl,*.tar,*.tgz,*.pdf
+set wildignore+=*.o,*.r,*.so,*.sl,*.tar,*.tgz,*.pdf,CVS,.svn,.git
 set wildmode=full
 set wildmenu
 
