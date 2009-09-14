@@ -58,10 +58,26 @@ set history=1000
 set incsearch
 set lazyredraw
 set list
-set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
+
+" Show tabs and trailing whitespace visually
+if (&termencoding == "utf-8") || has("gui_running")
+    if has("gui_running")
+        set list listchars=tab:»·,trail:·,extends:…,nbsp:‗
+    else
+        set list listchars=tab:»·,trail:·,extends:>,nbsp:_
+    endif
+else
+    set list listchars=tab:>-,trail:.,extends:>,nbsp:_
+endif
+
+
+" If possible and in gvim, use cursor row highlighting
+if has("gui_running") && v:version >= 700
+    set cursorline
+end
+
 set noautoread
 set nocompatible
-set nocursorline
 set noerrorbells
 set hidden
 set icon
@@ -308,9 +324,28 @@ map <S-Enter> O<Esc>
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
-" Experimental: Additional keys to increment/decrement
+" Additional keys to increment/decrement
 nnoremap + <C-a>
 nnoremap - <C-x>
+
+" Clear lines
+noremap <Leader>clr :s/^.*$//<CR>:nohls<CR>
+
+" Delete trailing whitespace
+noremap <Leader>dtw :%s/\s\+$//g<CR>:nohls<CR>
+
+" Delete blank lines
+noremap <Leader>dbl :g/^$/d<CR>:nohls<CR>
+
+" Enclose each selected line with markers
+noremap <Leader>enc :<C-w>execute
+            \ substitute(":'<,'>s/^.*/#&#/ \| :nohls", "#", input(">"), "g")<CR>
+
+" Edit something in the current directory
+noremap <Leader>ed :e <C-r>=expand("%:p:h")<CR>/<C-d>
+
+" Select thing just pasted
+noremap gp `[v`]
 
 " }}}
 
@@ -382,11 +417,12 @@ inoremap <F5> <Esc>:call LessMode()<CR>
 " }}}
 
 " {{{ Fkey bindings
-map <silent> <S-F3> :!ctags -R .<CR><CR>
-map <silent> <S-F4> :set hls!<bar>set hls?<CR>
-map <silent> <S-F5> :set paste!<bar>set paste?<CR>
-map <silent> <S-F6> :set wrap!<bar>set wrap?<CR>
-map <silent> <S-F7> :/\<\(\w\+\)\s\+\1\><CR>
+map <silent> <F3> :!ctags -R .<CR><CR>
+map <silent> <F4> :set hls!<bar>set hls?<CR>
+map <silent> <F5> :set paste!<bar>set paste?<CR>
+map <silent> <F6> :set wrap!<bar>set wrap?<CR>
+map <silent> <F7> :/\<\(\w\+\)\s\+\1\><CR>
+map <silent> <F8> :NERDTreeToggle<CR>
 " }}}
 
 " {{{ Tab management
@@ -395,32 +431,6 @@ map <S-Left> :tabprev<CR>
 map <S-Right> :tabnext<CR>
 map <A-Left> :tabprev<CR>
 map <A-Right> :tabnext<CR>
-
-" }}}
-
-" {{{ Colourschemes
-
-"colorscheme darktango
-"colorscheme paintbox
-"colorscheme ir_dark
-"colorscheme desert
-"colorscheme fruit
-"colorscheme moria
-"colorscheme rootwater
-"colorscheme fruidle
-"colorscheme pyte
-"colorscheme rdark
-"colorscheme tango2
-"colorscheme twilight
-"colorscheme zenburn
-"colorscheme wombat
-"colorscheme darkspectrum
-"colorscheme jellybeans
-"colorscheme bclear
-"colorscheme neon
-"colorscheme molokai
-"colorscheme zmork
-colorscheme mustang
 
 " }}}
 
@@ -442,6 +452,13 @@ let g:fuf_modesDisable = []
 
 " {{{ setcolors.vim
 
+let g:mycolors = ['darktango', 'paintbox', 'ir_black', 'desert', 'fruit']
+let g:mycolors += ['moria', 'rootwater', 'fruidle', 'pyte', 'rdark', 'tango2']
+let g:mycolors += ['twilight', 'zenburn', 'wombat', 'darkspectrum']
+let g:mycolors += [ 'jellybeans', 'bclear', 'neon', 'molokai', 'zmrok', 'mustang']
+
+colorscheme mustang
+
 nnoremap <Leader>sn :call NextColor(1)<CR>
 nnoremap <Leader>sp :call NextColor(-1)<CR>
 nnoremap <Leader>sr :call NextColor(0)<CR>
@@ -462,6 +479,10 @@ vmap <silent> ib <Plug>CamelCaseMotion_ib
 omap <silent> ie <Plug>CamelCaseMotion_ie
 vmap <silent> ie <Plug>CamelCaseMotion_ie
 
+" }}}
+
+" {{{ NERD_tree.vim
+let NERDTreeIgnore=['CVS']
 " }}}
 
 " {{{ NERD_commenter.vim
