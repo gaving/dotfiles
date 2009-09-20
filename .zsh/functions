@@ -240,3 +240,6 @@ upload() {
     scp -r $1 gav@brokentrain.net:~/upload/$(basename $1) \
     && xclip <<< "http://gavin.brokentrain.net/upload/$(basename $1)"
 }
+
+# Open up github page for latest commit
+ghc() { /usr/bin/open http://github.com/gaving/${PWD##*/}/commit/$(git log | head -n1 | awk '{print $2}') }
