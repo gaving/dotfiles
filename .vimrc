@@ -70,7 +70,6 @@ else
     set list listchars=tab:>-,trail:.,extends:>,nbsp:_
 endif
 
-
 " If possible and in gvim, use cursor row highlighting
 if has("gui_running") && v:version >= 700
     set cursorline
@@ -317,7 +316,7 @@ imap <C-Space> <C-X><C-O>
 
 " map <S-Return> :normal A;<Esc>o
 map <Silent> <Leader><CR> :noh<CR>
-" imap <S-Return> <Esc>A;<Esc>o
+imap <S-Return> <Esc>A;<Esc>o
 map <S-Enter> O<Esc>
 " map <CR> o<Esc>
 
