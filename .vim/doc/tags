@@ -30,11 +30,19 @@
 'NERDTreeWinPos'	NERD_tree.txt	/*'NERDTreeWinPos'*
 'NERDTreeWinSize'	NERD_tree.txt	/*'NERDTreeWinSize'*
 'NERDUsePlaceHolders'	NERD_commenter.txt	/*'NERDUsePlaceHolders'*
+'b:delimitMate_autoclose'	delimitMate.txt	/*'b:delimitMate_autoclose'*
 'b:delimitMate_expand_cr'	delimitMate.txt	/*'b:delimitMate_expand_cr'*
 'b:delimitMate_expand_space'	delimitMate.txt	/*'b:delimitMate_expand_space'*
 'b:delimitMate_matchpairs'	delimitMate.txt	/*'b:delimitMate_matchpairs'*
 'b:delimitMate_quotes'	delimitMate.txt	/*'b:delimitMate_quotes'*
+'b:delimitMate_visual_leader'	delimitMate.txt	/*'b:delimitMate_visual_leader'*
+'b:loaded_delimitMate'	delimitMate.txt	/*'b:loaded_delimitMate'*
 'delimitMate_autoclose'	delimitMate.txt	/*'delimitMate_autoclose'*
+'delimitMate_excluded_ft'	delimitMate.txt	/*'delimitMate_excluded_ft'*
+'delimitMate_expand_cr'	delimitMate.txt	/*'delimitMate_expand_cr'*
+'delimitMate_expand_space'	delimitMate.txt	/*'delimitMate_expand_space'*
+'delimitMate_matchpairs'	delimitMate.txt	/*'delimitMate_matchpairs'*
+'delimitMate_quotes'	delimitMate.txt	/*'delimitMate_quotes'*
 'delimitMate_visual_leader'	delimitMate.txt	/*'delimitMate_visual_leader'*
 'loaded_delimitMate'	delimitMate.txt	/*'loaded_delimitMate'*
 'loaded_nerd_comments'	NERD_commenter.txt	/*'loaded_nerd_comments'*
@@ -375,6 +383,7 @@ delimitMateBackspace	delimitMate.txt	/*delimitMateBackspace*
 delimitMateCredits	delimitMate.txt	/*delimitMateCredits*
 delimitMateExpansion	delimitMate.txt	/*delimitMateExpansion*
 delimitMateFunctionality	delimitMate.txt	/*delimitMateFunctionality*
+delimitMateHistory	delimitMate.txt	/*delimitMateHistory*
 delimitMateMaintainer	delimitMate.txt	/*delimitMateMaintainer*
 delimitMateOptionDetails	delimitMate.txt	/*delimitMateOptionDetails*
 delimitMateOptionSummary	delimitMate.txt	/*delimitMateOptionSummary*
