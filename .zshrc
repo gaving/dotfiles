@@ -63,10 +63,10 @@ if [ -d ~/.zsh ]; then
     . ~/.zsh/custom
 fi
 
-if [ -x $(where dircolors) ]; then
-    eval  $(dircolors -b)
-    export ZLS_COLORS=$LS_COLORS
-fi
+# if [[ -x $(where dircolors) ]]; then
+    # eval  $(dircolors -b)
+    # export ZLS_COLORS=$LS_COLORS
+# fi
 
 # }}}
 

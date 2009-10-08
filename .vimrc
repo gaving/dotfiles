@@ -54,6 +54,8 @@ set clipboard+=unnamed
 set expandtab
 set foldclose=all
 set foldmethod=marker
+set enc=utf-8
+set gdefault
 set history=1000
 set incsearch
 set lazyredraw
@@ -319,6 +321,11 @@ map <Silent> <Leader><CR> :noh<CR>
 imap <S-Return> <Esc>A;<Esc>o
 map <S-Enter> O<Esc>
 " map <CR> o<Esc>
+
+nnoremap ,w :w<cr>
+nnoremap ,x :x<cr>
+nnoremap ,a <c-^>
+nnoremap ,D :lcd %:p:h<cr>
 
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
