@@ -55,7 +55,7 @@ set expandtab
 set foldclose=all
 set foldmethod=marker
 set enc=utf-8
-set gdefault
+" set gdefault :%s///g inverts this :(
 set history=1000
 set incsearch
 set lazyredraw
