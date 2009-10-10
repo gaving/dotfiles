@@ -100,7 +100,7 @@ alias cd..='cd ..'
 # }}}
 
 # {{{ Git
-alias gst='git status'
+alias gs='git status'
 alias gl='git pull'
 alias gp='git push'
 alias gd='git diff | less'

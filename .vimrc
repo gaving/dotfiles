@@ -488,7 +488,9 @@ vmap <silent> ie <Plug>CamelCaseMotion_ie
 " }}}
 
 " {{{ NERD_tree.vim
+
 let NERDTreeIgnore=['CVS']
+
 " }}}
 
 " {{{ NERD_commenter.vim
@@ -516,5 +518,11 @@ let g:syntastic_auto_loc_list=1
 
 " }}}
 "
+
+" {{{ Local settings
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
+" }}}
 
 " }}}

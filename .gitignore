@@ -2,6 +2,7 @@
 .screen/custom
 .zsh/history*
 .zsh/cache
+.vimrc.local
 .vim/tmp
 .vim/.netrwhist
 .vim/.VimballRecord

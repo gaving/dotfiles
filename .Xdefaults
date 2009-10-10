@@ -46,6 +46,7 @@ urxvt.color12:          #8EACCC
 urxvt.color13:          #CC8ECA
 urxvt.color14:          #8ECCCC
 urxvt.color15:          white
+urxvt.termName:         rxvt
 
 urxvt.perl-ext-common:  default,matcher,macosx-clipboard
 urxvt.keysym.C-M-o:     perl:matcher
