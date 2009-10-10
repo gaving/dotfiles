@@ -1,6 +1,6 @@
 # Unison preferences file
 
-# General
+# General stuff
 contactquietly = true
 terse = true
 
@@ -12,22 +12,15 @@ root = ssh://gavin@192.168.1.100:40//mnt/media
 path = coding
 path = documents
 
-# Some regexps specifying names and paths to ignore
+# Ignore this junk
 ignore = Name {,.}*{.pyc}
 ignore = Name *._*
 ignore = Name *.o
+ignore = Name {entries}
+ignore = Name {,.}*{.DS_Store}
 
 # No silly questions
 auto = true
 
 # Log actions to a file
 log = false
-ignore = Name {entries}
-ignore = Name {,.}*{.DS_Store}
-ignore = Name {,.}*{.DS_Store}
-ignore = Name {,.}*{.DS_Store}
-ignore = Name {,.}*{.DS_Store}
-ignore = Name {,.}*{.DS_Store}
-ignore = Name {,.}*{.DS_Store}
-ignore = Path {coding/.DS_Store}
-ignore = Path {coding/bt.net/db/development.sqlite3}
