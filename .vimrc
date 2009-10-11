@@ -98,14 +98,14 @@ set smarttab
 set softtabstop=4
 set splitright
 set splitbelow
-set suffixes+=.h,.bak,~,.o,.info,.swp,.obj,.class,.gz,.zip,.bz2,.tar
+set suffixes+=.class,.gz,.zip,.bz2,.tar,.pyc
 set t_Co=256
 set timeoutlen=700
 set tags=tags;/
 set textwidth=79
 set ttyfast
 set viminfo='100,f1
-set wildignore+=*.o,*.r,*.so,*.sl,*.tar,*.tgz,*.pdf,CVS,.svn,.git
+set wildignore+=*.o,*.r,*.class,*.pyc,*.so,*.sl,*.tar,*.tgz,*.gz,*.dmg,*.zip,*.pdf,CVS/,.svn/,.git/
 set wildmode=full
 set wildmenu
 
@@ -374,9 +374,6 @@ map <Leader>lp :lprev<CR>
 " {{{ Command window
 
 cabbrev Set set
-cabbrev h tab h
-cabbrev he tab he
-cabbrev help tab help
 
 " oh god emacs styled bindings for command window
 cnoremap <C-A> <Home>
