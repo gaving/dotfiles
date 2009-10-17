@@ -19,6 +19,11 @@ function fuf#givencmd#createHandler(base)
 endfunction
 
 "
+function fuf#givencmd#getSwitchOrder()
+  return -1
+endfunction
+
+"
 function fuf#givencmd#renewCache()
 endfunction
 
@@ -32,11 +37,12 @@ function fuf#givencmd#onInit()
 endfunction
 
 "
-function fuf#givencmd#launch(initialPattern, partialMatching, items)
-  let s:items = map(copy(a:items), '{ "word" : v:val }')
-  let s:items = map(s:items, 'fuf#setBoundariesWithWord(v:val)')
+function fuf#givencmd#launch(initialPattern, partialMatching, prompt, items)
+  let s:prompt = (empty(a:prompt) ? '>' : a:prompt)
+  let s:items = copy(a:items)
+  call map(s:items, 'fuf#makeNonPathItem(v:val, "")')
   call fuf#mapToSetSerialIndex(s:items, 1)
-  let s:items = map(s:items, 'fuf#setAbbrWithFormattedWord(v:val)')
+  call map(s:items, 'fuf#setAbbrWithFormattedWord(v:val)')
   call fuf#launch(s:MODE_NAME, a:initialPattern, a:partialMatching)
 endfunction
 
@@ -59,12 +65,7 @@ endfunction
 
 "
 function s:handler.getPrompt()
-  return g:fuf_givencmd_prompt
-endfunction
-
-"
-function s:handler.getPromptHighlight()
-  return g:fuf_givencmd_promptHighlight
+  return s:prompt
 endfunction
 
 "
@@ -75,8 +76,7 @@ endfunction
 "
 function s:handler.onComplete(patternSet)
   return fuf#filterMatchesAndMapToSetRanks(
-        \ s:items, a:patternSet,
-        \ self.getFilteredStats(a:patternSet.raw), self.targetsPath())
+        \ s:items, a:patternSet, self.getFilteredStats(a:patternSet.raw))
 endfunction
 
 "

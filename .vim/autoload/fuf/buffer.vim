@@ -19,6 +19,11 @@ function fuf#buffer#createHandler(base)
 endfunction
 
 "
+function fuf#buffer#getSwitchOrder()
+  return g:fuf_buffer_switchOrder
+endfunction
+
+"
 function fuf#buffer#renewCache()
 endfunction
 
@@ -52,17 +57,20 @@ endfunction
 
 "
 function s:makeItem(nr)
-  let item = fuf#makePathItem((empty(bufname(a:nr)) ? '[No Name]' : fnamemodify(bufname(a:nr), ':~:.')), 0)
+  let fname = (empty(bufname(a:nr))
+        \      ? '[No Name]'
+        \      : fnamemodify(bufname(a:nr), ':~:.'))
+  let time = (exists('s:bufTimes[a:nr]') ? s:bufTimes[a:nr] : 0)
+  let item = fuf#makePathItem(fname, strftime(g:fuf_timeFormat, time), 0)
   let item.index = a:nr
   let item.bufNr = a:nr
+  let item.time = time
   let item.abbrPrefix = s:getBufIndicator(a:nr) . ' '
-  let item.time = (exists('s:bufTimes[a:nr]') ? s:bufTimes[a:nr] : 0)
-  call fuf#setMenuWithFormattedTime(item)
   return item
 endfunction
 
 "
-function! s:getBufIndicator(bufNr)
+function s:getBufIndicator(bufNr)
   if !getbufvar(a:bufNr, '&modifiable')
     return '[-]'
   elseif getbufvar(a:bufNr, '&modified')
@@ -75,7 +83,7 @@ function! s:getBufIndicator(bufNr)
 endfunction
 
 "
-function! s:compareTimeDescending(i1, i2)
+function s:compareTimeDescending(i1, i2)
   return a:i1.time == a:i2.time ? 0 : a:i1.time > a:i2.time ? -1 : +1
 endfunction
 
@@ -96,11 +104,6 @@ function s:handler.getPrompt()
 endfunction
 
 "
-function s:handler.getPromptHighlight()
-  return g:fuf_buffer_promptHighlight
-endfunction
-
-"
 function s:handler.targetsPath()
   return 1
 endfunction
@@ -108,8 +111,7 @@ endfunction
 "
 function s:handler.onComplete(patternSet)
   return fuf#filterMatchesAndMapToSetRanks(
-        \ self.items, a:patternSet,
-        \ self.getFilteredStats(a:patternSet.raw), self.targetsPath())
+        \ self.items, a:patternSet, self.getFilteredStats(a:patternSet.raw))
 endfunction
 
 "

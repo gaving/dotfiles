@@ -9,8 +9,9 @@ FuzzyFinder                                                *fuzzyfinder* *fuf*
 使い方                          |fuf-usage|
 モード                          |fuf-modes|
 詳細なトピック                  |fuf-detailed-topics|
+コマンド                        |fuf-commands|
 オプション                      |fuf-options|
-VIMRC EXAMPLE                   |fuf-vimrc-sample|
+VIMRC の例                      |fuf-vimrc-example|
 SPECIAL THANKS                  |fuf-thanks|
 CHANGELOG                       |fuf-changelog|
 あばうと                        |fuf-about|
@@ -88,6 +89,9 @@ ZIPファイルをランタイムディレクトリに展開します。
         |:FufBookmark|   - Bookmark モード (|fuf-bookmark-mode|)
         |:FufTag|        - Tag モード (|fuf-tag-mode|)
         |:FufTaggedFile| - Tagged-File モード (|fuf-taggedfile-mode|)
+        |:FufJumpList|   - Jump-List モード (|fuf-jumplist-mode|)
+        |:FufChangeList| - Change-List モード (|fuf-changelist-mode|)
+        |:FufQuickfix|   - Quickfix モード (|fuf-quickfix-mode|)
 
 これらのコマンドを押しやすいキーにマッピングすることを推奨します。
 
@@ -104,6 +108,9 @@ FuzzyFinder は入力されたパターンにマッチするアイテムを検�
 
 補完メニューの最初のアイテムは自動的に選択状態になります。
 
+<C-s> (|g:fuf_keyPrevPattern|) と <C-^> (|g:fuf_keyNextPattern|) で、履歴から
+過去に入力したパターンを呼び出すことができます。
+
 いろいろな方法で、選択されたアイテムを開くことができます:
 
         <CR>  (|g:fuf_keyOpen|)        - 直前のウィンドウで開きます。
@@ -113,28 +120,31 @@ FuzzyFinder は入力されたパターンにマッチするアイテムを検�
 
 キャンセルして直前のウィンドウに戻るには、インサートモードを抜けてください。
 
+<C-t> (|g:fuf_keyNextMode|) と <C-y> (|g:fuf_keyPrevMode|) で、インサートモー
+ドを抜けることなくカレントモードを切り替えることが出来ます。
+
 
 ==============================================================================
-モード                                                              *fuf-modes*
+モード                                                             *fuf-modes*
 
                                                              *fuf-buffer-mode*
-Buffer mode ~
+Buffer モード ~
 
 このモードはバッファを選択して開くインターフェースを提供します。
 
                                                                *fuf-file-mode*
-File mode ~
+File モード ~
 
 このモードはファイルを検索して開くインターフェースを提供します。
 
                                                                 *fuf-dir-mode*
-Directory mode ~
+Directory モード ~
 
 このモードはディレクトリを検索してカレントディレクトリを変更するインターフェー
 スを提供します。
 
                                                             *fuf-mrufile-mode*
-MRU-File mode ~
+MRU-File モード ~
 
 このモードは最近使ったファイルを選択して開くインターフェースを提供します。
 
@@ -142,7 +152,7 @@ MRU-File mode ~
 で、デフォルトでは|g:fuf_modesDisable|で無効化するモードに指定されています。
 
                                                              *fuf-mrucmd-mode*
-MRU-Command mode ~
+MRU-Command モード ~
 
 このモードは最近使ったコマンドラインを選択して開くインターフェースを提供します
 。
@@ -150,10 +160,13 @@ MRU-Command mode ~
 、デフォルトでは|g:fuf_modesDisable|で無効化するモードに指定されています。
 
                                                            *fuf-bookmark-mode*
-Bookmark mode ~
+Bookmark モード ~
 
 このモードは事前に追加したブックマークを選択してその行へジャンプするインターフ
 ェースを提供します。
+
+|:FufAddBookmark|コマンドでカーソルのある行をブックマークに追加できます。この
+コマンドを実行すると、ブックマーク名の入力を求められます。
 
 FuzzyFinder はジャンプする行番号を調整します。ブックマークされた行がブックマー
 クされたときのパターンとマッチしない場合、FuzzyFinder はブックマークされた位置
@@ -161,13 +174,11 @@ FuzzyFinder はジャンプする行番号を調整します。ブックマー�
 ても、そこでジャンプすることができます。ブックマークした行番号へ調整せずにジャ
 ンプしたい場合、|g:fuf_bookmark_searchRange|を 0 に設定してください。
 
-|:FufAddBookmark|コマンドでカーソルのある行をブックマークに追加できます。この
-コマンドを実行すると、ブックマーク名の入力を求められます。
-
-ブックマークを削除するには|:FufEditInfo|コマンドを利用してください。
+Bookmark モード中に <C-]> (|g:fuf_bookmark_keyDelete|) を押すと選択したブックマ
+ークを削除することができます。
 
                                                                 *fuf-tag-mode*
-Tag mode ~
+Tag モード ~
 
 このモードはタグを選択してその定義へジャンプするインターフェースを提供します。
 
@@ -177,33 +188,52 @@ Tag mode ~
 <
 
                                                          *fuf-taggedfile-mode*
-Tagged-File mode ~
+Tagged-File モード ~
 
 このモードはタグファイルに含まれるファイルを選択して開くインターフェースを提供
 します。
 
+                                                           *fuf-jumplist-mode*
+Jump-List モード ~
+
+このモードはカレントウィンドウの|jumplist|から選択した位置へジャンプするインタ
+ーフェースを提供します。
+
+                                                         *fuf-changelist-mode*
+Change-List モード ~
+
+このモードはカレントバッファの|changelist|から選択した位置へジャンプするインタ
+ーフェースを提供します。
+
+                                                         *fuf-quickfix-mode*
+Quickfix モード ~
+
+このモードは|quickfix|リストから選択した位置へジャンプするインターフェースを提
+供します。
+
                                                           *fuf-givenfile-mode*
-Given-File mode ~
+Given-File モード ~
 
 このモードは与えられたリストから選択されたファイルを開く API を提供します。
 
 API 関数:
 >
         function fuf#givenfile#launch(
-              \ initialPattern, partialMatching, items)
+              \ initialPattern, partialMatching, prompt, items)
 <
         initialPattern  - FuzzyFinder 起動直後に挿入される文字列
         partialMatching - あいまい検索ではなく部分一致検索を行うか
+        prompt          - プロンプト文字列
         items           - アイテムのリスト
 
 利用例:
 >
         " ドットファイルを開く
-        call fuf#givenfile#launch('', 0, split(glob('~/.*'), "\n"))
+        call fuf#givenfile#launch('', 0, '>', split(glob('~/.*'), "\n"))
 <
 
                                                            *fuf-givendir-mode*
-Given-Directory mode ~
+Given-Directory モード ~
 
 このモードは与えられたリストから選択されたディレクトリにカレントディレクトリを
 変更する API を提供します。
@@ -211,21 +241,22 @@ Given-Directory mode ~
 API 関数:
 >
         function fuf#givendir#launch(
-              \ initialPattern, partialMatching, items)
+              \ initialPattern, partialMatching, prompt, items)
 <
         initialPattern  - FuzzyFinder 起動直後に挿入される文字列
         partialMatching - あいまい検索ではなく部分一致検索を行うか
+        prompt          - プロンプト文字列
         items           - アイテムのリスト
 
 
 利用例:
 >
         " ランタイムディレクトリのどれかをカレントディレクトリにする
-        call fuf#givendir#launch('', 0, split(&runtimepath, ','))
+        call fuf#givendir#launch('', 0, '>', split(&runtimepath, ','))
 <
 
                                                            *fuf-givencmd-mode*
-Given-Command mode ~
+Given-Command モード ~
 
 このモードは与えられたリストから選択されたコマンドを実行する API を提供します。
 
@@ -235,10 +266,11 @@ Given-Command mode ~
 API 関数:
 >
         function fuf#givencmd#launch(
-              \ initialPattern, partialMatching, items)
+              \ initialPattern, partialMatching, prompt, items)
 <
         initialPattern  - FuzzyFinder 起動直後に挿入される文字列
         partialMatching - あいまい検索ではなく部分一致検索を行うか
+        prompt          - プロンプト文字列
         items           - アイテムのリスト
 
 
@@ -253,22 +285,24 @@ API 関数:
         endfunction
 
         " ユーザー定義コマンドを選択して実行
-        call fuf#givencmd#launch('', 0, GetAllCommands())
+        call fuf#givencmd#launch('', 0, '>', GetAllCommands())
 
 <
 
                                                        *fuf-callbackfile-mode*
-Callback-File mode ~
+Callback-File モード ~
 
 このモードはファイルを検索して選択されたファイルパスを得る API を提供します。
 
 API 関数:
 >
         function fuf#callbackfile#launch(
-              \ initialPattern, partialMatching, listener)
+              \ initialPattern, partialMatching, prompt, exclude, listener)
 <
         initialPattern  - FuzzyFinder 起動直後に挿入される文字列
         partialMatching - あいまい検索ではなく部分一致検索を行うか
+        prompt          - プロンプト文字列
+        exclude         - 補完リストから除外したいアイテムの正規表現パターン
         listener        - 'onComplete' と 'onAbort' を持つ|Dictionary|。これ
                           らは FuzzyFinder 終了時に呼ばれます。
                           listener.onComplete(item, method) は選択が完了したと
@@ -280,23 +314,23 @@ API 関数:
 >
         let listener = {}
 
-        function! listener.onComplete(item, method)
+        function listener.onComplete(item, method)
           echo "Item: " . a:item . "\nMethod: " . a:method
         endfunction
 
-        function! listener.onAbort()
+        function listener.onAbort()
           echo "Abort"
         endfunction
 
         " カレントディレクトリからファイルを選択
-        call fuf#callbackfile#launch('', 0, listener)
+        call fuf#callbackfile#launch('', 0, '>', '', listener)
 
         " ホームディレクトリからファイルを選択
-        call fuf#callbackfile#launch('~/', 0, listener)
+        call fuf#callbackfile#launch('~/', 0, '>', '', listener)
 <
 
                                                        *fuf-callbackitem-mode*
-Callback-Item mode ~
+Callback-Item モード ~
 
 このモードは与えられたリストから選択されたアイテムを得るための API を提供しま
 す。
@@ -304,10 +338,11 @@ Callback-Item mode ~
 API 関数:
 >
         function fuf#callbackitem#launch(
-              \ initialPattern, partialMatching, listener, items, forPath)
+              \ initialPattern, partialMatching, prompt, listener, items, forPath)
 <
         initialPattern  - FuzzyFinder 起動直後に挿入される文字列
         partialMatching - あいまい検索ではなく部分一致検索を行うか
+        prompt          - プロンプト文字列
         listener        - 'onComplete' と 'onAbort' を持つ|Dictionary|。これ
                           らは FuzzyFinder 終了時に呼ばれます。
                           listener.onComplete(item, method) は選択が完了したと
@@ -321,19 +356,19 @@ API 関数:
 >
         let listener = {}
 
-        function! listener.onComplete(item, method)
+        function listener.onComplete(item, method)
           echo "Item: " . a:item . "\nMethod: " . a:method
         endfunction
 
-        function! listener.onAbort()
+        function listener.onAbort()
           echo "Abort"
         endfunction
 
         " 与えられたリストからアイテムを選択
-        call fuf#callbackitem#launch('', 0, listener, ['ed', 'vi', 'vim'], 0)
+        call fuf#callbackitem#launch('', 0, '>', listener, ['ed', 'vi', 'vim'], 0)
 
         " 与えられたリストからファイルを選択
-        call fuf#callbackitem#launch('', 0, listener, ['../foo/bar', 'baz'], 1)
+        call fuf#callbackitem#launch('', 0, '>', listener, ['../foo/bar', 'baz'], 1)
 <
 
 ==============================================================================
@@ -360,7 +395,7 @@ API 関数:
 チングはパスの末尾の部分だけに対して行われます。絞り込みパターンはパス全体に対
 して行われます。
 
-                                                *fuf-sort-of-completion-items*
+                                             *fuf-sorting-of-completion-items*
 補完アイテムのソート ~
 
 FuzzyFinder は幾つかのルールに従って補完アイテムをソートします。
@@ -403,7 +438,7 @@ FuzzyFinder は幾つかのルールに従って補完アイテムをソート�
 
 例えば次のように設定したとします:
 >
-        let g:FuzzyFinderOptions.Base.abbrev_map  = {
+        let g:fuf_abbrevMap = {
               \   "^doc:" : [
               \     "~/project/**/doc/",
               \     ".vim/doc/",
@@ -454,7 +489,7 @@ Migemo とは ~
 ==============================================================================
 コマンド                                                        *fuf-commands*
 
-See also: |fuf-vimrc-sample|
+See also: |fuf-vimrc-example|
 
                                                                   *:FufBuffer*
 :FufBuffer [{pattern}]
@@ -552,6 +587,33 @@ See also: |fuf-vimrc-sample|
 
         FuzzyFinder 起動後に {pattern} が挿入されます。
 
+                                                                *:FufJumpList*
+:FufJumpList [{pattern}]
+        Jump-List モードを起動します。
+
+        ! 修飾子を付けて実行した場合、あいまい検索ではなく部分一致検索を行うよ
+        うになります。
+
+        FuzzyFinder 起動後に {pattern} が挿入されます。
+
+                                                              *:FufChangeList*
+:FufChangeList [{pattern}]
+        Change-List モードを起動します。
+
+        ! 修飾子を付けて実行した場合、あいまい検索ではなく部分一致検索を行うよ
+        うになります。
+
+        FuzzyFinder 起動後に {pattern} が挿入されます。
+
+                                                                *:FufQuickfix*
+:FufQuickfix [{pattern}]
+        Quickfix モードを起動します。
+
+        ! 修飾子を付けて実行した場合、あいまい検索ではなく部分一致検索を行うよ
+        うになります。
+
+        FuzzyFinder 起動後に {pattern} が挿入されます。
+
                                                                 *:FufEditInfo*
 :FufEditInfo
         情報ファイルを編集するためのバッファを開きます。詳しくは
@@ -574,7 +636,7 @@ See also: |fuf-vimrc-sample|
 
 
 ==============================================================================
-オプション                                *fuf-options* *g:FuzzyFinderOptions*
+オプション                                                       *fuf-options*
 
                                                    *fuf-options-for-all-modes*
 全モード用 ~
@@ -606,6 +668,26 @@ See also: |fuf-vimrc-sample|
 <
         補完を確定し、バッファ/ファイルを別タブページ開くキー。
 
+                                                        *g:fuf_keyNextMode*  >
+  let g:fuf_keyNextMode = '<C-t>'
+<
+        次のモードに切り替えるキー。
+
+                                                        *g:fuf_keyPrevMode*  >
+  let g:fuf_keyPrevMode = '<C-y>'
+<
+        前のモードに切り替えるキー。
+
+                                                     *g:fuf_keyPrevPattern*  >
+  let g:fuf_keyPrevPattern = '<C-s>'
+<
+        履歴から前の入力パターンを呼び出すキー。
+
+                                                     *g:fuf_keyNextPattern*  >
+  let g:fuf_keyNextPattern = '<C-^>'
+<
+        履歴から次の入力パターンを呼び出すキー。
+
                                                            *g:fuf_infoFile*  >
   let g:fuf_infoFile = '~/.vim-fuf'
 <
@@ -622,6 +704,11 @@ See also: |fuf-vimrc-sample|
   let g:fuf_patternSeparator = ';'
 <
         入力パターンをプライマリパターンと絞り込みパターン列に区切る文字列。
+
+                                                    *g:fuf_promptHighlight*  >
+  let g:fuf_promptHighlight = 'Question'
+<
+        プロンプトをハイライトするグループ名。
 
                                                          *g:fuf_ignoreCase*  >
   let g:fuf_ignoreCase = 1
@@ -676,10 +763,11 @@ Buffer モード用 ~
 <
         プロンプト文字列。
 
-                                             *g:fuf_buffer_promptHighlight*  >
-  let g:fuf_buffer_promptHighlight = 'Question'
+                                                 *g:fuf_buffer_switchOrder*  >
+  let g:fuf_buffer_switchOrder = 10
 <
-        プロンプトをハイライトするグループ名。
+        次/前のモードに切り替えるときの、モードの順位です。負数ならこのモード
+        には切り替えません。
 
                                                     *g:fuf_buffer_mruOrder*  >
   let g:fuf_buffer_mruOrder = 1
@@ -694,10 +782,11 @@ File モード用 ~
 <
         プロンプト文字列。
 
-                                               *g:fuf_file_promptHighlight*  >
-  let g:fuf_file_promptHighlight = 'Question'
+                                                   *g:fuf_file_switchOrder*  >
+  let g:fuf_file_switchOrder = 20
 <
-        プロンプトをハイライトするグループ名。
+        次/前のモードに切り替えるときの、モードの順位です。負数ならこのモード
+        には切り替えません。
 
                                                        *g:fuf_file_exclude*  >
   let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp$'
@@ -712,10 +801,11 @@ Directory モード用 ~
 <
         プロンプト文字列。
 
-                                                *g:fuf_dir_promptHighlight*  >
-  let g:fuf_dir_promptHighlight = 'Question'
+                                                    *g:fuf_dir_switchOrder*  >
+  let g:fuf_dir_switchOrder = 30
 <
-        プロンプトをハイライトするグループ名。
+        次/前のモードに切り替えるときの、モードの順位です。負数ならこのモード
+        には切り替えません。
 
                                                         *g:fuf_dir_exclude*  >
   let g:fuf_dir_exclude = ''
@@ -726,14 +816,15 @@ Directory モード用 ~
 Mru-File モード用 ~
 
                                                      *g:fuf_mrufile_prompt*  >
-  let g:fuf_mrufile_prompt = '>MruFile>'
+  let g:fuf_mrufile_prompt = '>Mru-File>'
 <
         プロンプト文字列。
 
-                                            *g:fuf_mrufile_promptHighlight*  >
-  let g:fuf_mrufile_promptHighlight = 'Question'
+                                                *g:fuf_mrufile_switchOrder*  >
+  let g:fuf_mrufile_switchOrder = 40
 <
-        プロンプトをハイライトするグループ名。
+        次/前のモードに切り替えるときの、モードの順位です。負数ならこのモード
+        には切り替えません。
 
                                                     *g:fuf_mrufile_exclude*  >
   let g:fuf_mrufile_exclude = '\v\~$|\.bak$|\.swp$'
@@ -749,14 +840,15 @@ Mru-File モード用 ~
 Mru-Cmd モード用 ~
 
                                                       *g:fuf_mrucmd_prompt*  >
-  let g:fuf_mrucmd_prompt = '>MruCmd>'
+  let g:fuf_mrucmd_prompt = '>Mru-Cmd>'
 <
         プロンプト文字列。
 
-                                             *g:fuf_mrucmd_promptHighlight*  >
-  let g:fuf_mrucmd_promptHighlight = 'Question'
+                                                 *g:fuf_mrucmd_switchOrder*  >
+  let g:fuf_mrucmd_switchOrder = 50
 <
-        プロンプトをハイライトするグループ名。
+        次/前のモードに切り替えるときの、モードの順位です。負数ならこのモード
+        には切り替えません。
 
                                                      *g:fuf_mrucmd_exclude*  >
   let g:fuf_mrucmd_exclude = '^$'
@@ -776,16 +868,22 @@ Bookmark モード用 ~
 <
         プロンプト文字列。
 
-                                           *g:fuf_bookmark_promptHighlight*  >
-  let g:fuf_bookmark_promptHighlight = 'Question'
+                                               *g:fuf_bookmark_switchOrder*  >
+  let g:fuf_bookmark_switchOrder = 60
 <
-        プロンプトをハイライトするグループ名。
+        次/前のモードに切り替えるときの、モードの順位です。負数ならこのモード
+        には切り替えません。
 
-                                            *g:fuf_bookmark_searchingRange*  >
-  let g:fuf_bookmark_searchingRange = 400
+                                               *g:fuf_bookmark_searchRange*  >
+  let g:fuf_bookmark_searchRange = 400
 <
         ジャンプするとき、ブックマークした位置からこの行数の範囲内でブックマー
         クしたときのパターンとマッチする行を探します。
+
+                                                 *g:fuf_bookmark_keyDelete*  >
+  let g:fuf_bookmark_keyDelete = '<C-]>'
+<
+        選択したブックマークを削除するキー。
 
                                                     *fuf-options-for-tag-mode*
 Tag モード用 ~
@@ -795,23 +893,67 @@ Tag モード用 ~
 <
         プロンプト文字列。
 
-                                                *g:fuf_tag_promptHighlight*  >
-  let g:fuf_tag_promptHighlight = 'Question'
+                                                    *g:fuf_tag_switchOrder*  >
+  let g:fuf_tag_switchOrder = 70
 <
-        プロンプトをハイライトするグループ名。
+        次/前のモードに切り替えるときの、モードの順位です。負数ならこのモード
+        には切り替えません。
 
                                              *fuf-options-for-taggedfile-mode*
 Tagged-File モード用 ~
 
                                                   *g:fuf_taggedfile_prompt*  >
-  let g:fuf_taggedfile_prompt = '>TaggedFile>'
+  let g:fuf_taggedfile_prompt = '>Tagged-File>'
 <
         プロンプト文字列。
 
-                                         *g:fuf_taggedfile_promptHighlight*  >
-  let g:fuf_taggedfile_promptHighlight = 'Question'
+                                             *g:fuf_taggedfile_switchOrder*  >
+  let g:fuf_taggedfile_switchOrder = 80
 <
-        プロンプトをハイライトするグループ名。
+        次/前のモードに切り替えるときの、モードの順位です。負数ならこのモード
+        には切り替えません。
+
+                                               *fuf-options-for-jumplist-mode*
+Jump-List モード用 ~
+
+                                                    *g:fuf_jumplist_prompt*  >
+  let g:fuf_jumplist_prompt = '>Jump-List>'
+<
+        プロンプト文字列。
+
+                                               *g:fuf_jumplist_switchOrder*  >
+  let g:fuf_jumplist_switchOrder = 90
+<
+        次/前のモードに切り替えるときの、モードの順位です。負数ならこのモード
+        には切り替えません。
+
+                                             *fuf-options-for-changelist-mode*
+Change-List モード用 ~
+
+                                                  *g:fuf_changelist_prompt*  >
+  let g:fuf_changelist_prompt = '>Change-List>'
+<
+        プロンプト文字列。
+
+                                             *g:fuf_changelist_switchOrder*  >
+  let g:fuf_changelist_switchOrder = 100
+<
+        次/前のモードに切り替えるときの、モードの順位です。負数ならこのモード
+        には切り替えません。
+
+                                             *fuf-options-for-quickfix-mode*
+Quickfix モード用 ~
+
+                                                  *g:fuf_quickfix_prompt*  >
+  let g:fuf_quickfix_prompt = '>Quickfix>'
+<
+        プロンプト文字列。
+
+                                             *g:fuf_quickfix_switchOrder*  >
+  let g:fuf_quickfix_switchOrder = 110
+<
+        次/前のモードに切り替えるときの、モードの順位です。負数ならこのモード
+        には切り替えません。
 
 
 ==============================================================================
@@ -839,6 +981,9 @@ vimrc の例                                                 *fuf-vimrc-example*
   nnoremap <silent> <C-f>t     :FufTag!<CR>
   noremap  <silent> g]         :FufTagWithCursorWord!<CR>
   nnoremap <silent> <C-f><C-f> :FufTaggedFile<CR>
+  nnoremap <silent> <C-f><C-j> :FufJumpList<CR>
+  nnoremap <silent> <C-f><C-g> :FufChangeList<CR>
+  nnoremap <silent> <C-f><C-q> :FufQuickfix<CR>
   nnoremap <silent> <C-f><C-b> :FufAddBookmark<CR>
   vnoremap <silent> <C-f><C-b> :FufAddBookmarkAsSelectedText<CR>
   nnoremap <silent> <C-f><C-e> :FufEditInfo<CR>
@@ -855,8 +1000,7 @@ URL:        http://www.vim.org/scripts/script.php?script_id=1984
 
 バグや要望など ~
 
-http://bitbucket.org/ns9tks/vim-fuzzyfinder/issues/ に登録してもらえると助かり
-ます。
+こちらへどうぞ: http://bitbucket.org/ns9tks/vim-fuzzyfinder/issues/
 
 ==============================================================================
  vim:tw=78:ts=8:ft=help:norl:

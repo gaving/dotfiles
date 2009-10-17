@@ -19,6 +19,11 @@ function fuf#tag#createHandler(base)
 endfunction
 
 "
+function fuf#tag#getSwitchOrder()
+  return g:fuf_tag_switchOrder
+endfunction
+
+"
 function fuf#tag#renewCache()
   let s:cache = {}
 endfunction
@@ -49,8 +54,7 @@ function s:enumTags(tagFiles)
   " cache not created or tags file updated? 
   if !exists('s:cache[key]') || max(map(copy(a:tagFiles), 'getftime(v:val) >= s:cache[key].time'))
     let items = fuf#unique(fuf#concat(map(copy(a:tagFiles), 's:getTagList(v:val)')))
-    let items = map(items, '{ "word" : v:val }')
-    let items = map(items, 'fuf#setBoundariesWithWord(v:val)')
+    let items = map(items, 'fuf#makeNonPathItem(v:val, "")')
     call fuf#mapToSetSerialIndex(items, 1)
     let items = map(items, 'fuf#setAbbrWithFormattedWord(v:val)')
     let s:cache[key] = { 'time'  : localtime(), 'items' : items }
@@ -59,7 +63,7 @@ function s:enumTags(tagFiles)
 endfunction
 
 "
-function! s:getTagList(tagfile)
+function s:getTagList(tagfile)
   let result = map(readfile(a:tagfile), 'matchstr(v:val, ''^[^!\t][^\t]*'')')
   return filter(result, 'v:val =~ ''\S''')
 endfunction
@@ -81,20 +85,15 @@ function s:handler.getPrompt()
 endfunction
 
 "
-function s:handler.getPromptHighlight()
-  return g:fuf_tag_promptHighlight
-endfunction
-
-"
 function s:handler.targetsPath()
   return 0
 endfunction
 
 "
 function s:handler.onComplete(patternSet)
+  let items = s:enumTags(self.tagFiles)
   return fuf#filterMatchesAndMapToSetRanks(
-        \ s:enumTags(self.tagFiles), a:patternSet,
-        \ self.getFilteredStats(a:patternSet.raw), self.targetsPath())
+        \ items, a:patternSet, self.getFilteredStats(a:patternSet.raw))
 endfunction
 
 "

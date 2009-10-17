@@ -19,6 +19,11 @@ function fuf#mrufile#createHandler(base)
 endfunction
 
 "
+function fuf#mrufile#getSwitchOrder()
+  return g:fuf_mrufile_switchOrder
+endfunction
+
+"
 function fuf#mrufile#renewCache()
   let s:cache = {}
 endfunction
@@ -46,7 +51,7 @@ let s:MODE_NAME = expand('<sfile>:t:r')
 
 "
 function s:updateInfo()
-  if !empty(&buftype) || expand('%') !~ '\S'
+  if !empty(&buftype) || !filereadable(expand('%'))
     return
   endif
   let info = fuf#loadInfoFile(s:MODE_NAME)
@@ -73,9 +78,8 @@ function s:formatItemUsingCache(item)
   endif
   if !exists('s:cache[a:item.word]')
     if filereadable(a:item.word)
-      let s:cache[a:item.word] = fuf#makePathItem(fnamemodify(a:item.word, ':~'), 0)
-      let s:cache[a:item.word].time = a:item.time
-      call fuf#setMenuWithFormattedTime(s:cache[a:item.word])
+      let s:cache[a:item.word] = fuf#makePathItem(
+            \ fnamemodify(a:item.word, ':~'), strftime(g:fuf_timeFormat, a:item.time), 0)
     else
       let s:cache[a:item.word] = {}
     endif
@@ -100,11 +104,6 @@ function s:handler.getPrompt()
 endfunction
 
 "
-function s:handler.getPromptHighlight()
-  return g:fuf_mrufile_promptHighlight
-endfunction
-
-"
 function s:handler.targetsPath()
   return 1
 endfunction
@@ -112,8 +111,7 @@ endfunction
 "
 function s:handler.onComplete(patternSet)
   return fuf#filterMatchesAndMapToSetRanks(
-        \ self.items, a:patternSet,
-        \ self.getFilteredStats(a:patternSet.raw), self.targetsPath())
+        \ self.items, a:patternSet, self.getFilteredStats(a:patternSet.raw))
 endfunction
 
 "

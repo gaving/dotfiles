@@ -19,6 +19,11 @@ function fuf#dir#createHandler(base)
 endfunction
 
 "
+function fuf#dir#getSwitchOrder()
+  return g:fuf_dir_switchOrder
+endfunction
+
+"
 function fuf#dir#renewCache()
   let s:cache = {}
 endfunction
@@ -48,7 +53,7 @@ function s:enumItems(dir)
     let s:cache[key] = fuf#enumExpandedDirsEntries(a:dir, g:fuf_dir_exclude)
     call filter(s:cache[key], 'v:val.word =~ ''[/\\]$''')
     if isdirectory(a:dir)
-      call insert(s:cache[key], fuf#makePathItem(a:dir . '.', 0))
+      call insert(s:cache[key], fuf#makePathItem(a:dir . '.', '', 0))
     endif
     call fuf#mapToSetSerialIndex(s:cache[key], 1)
     call fuf#mapToSetAbbrWithSnippedWordAsPath(s:cache[key])
@@ -73,20 +78,15 @@ function s:handler.getPrompt()
 endfunction
 
 "
-function s:handler.getPromptHighlight()
-  return g:fuf_dir_promptHighlight
-endfunction
-
-"
 function s:handler.targetsPath()
   return 1
 endfunction
 
 "
 function s:handler.onComplete(patternSet)
+  let items = s:enumItems(fuf#splitPath(a:patternSet.raw).head)
   return fuf#filterMatchesAndMapToSetRanks(
-        \ s:enumItems(a:patternSet.rawHead), a:patternSet,
-        \ self.getFilteredStats(a:patternSet.raw), self.targetsPath())
+        \ items, a:patternSet, self.getFilteredStats(a:patternSet.raw))
 endfunction
 
 "
