@@ -25,7 +25,7 @@ augroup END
 
 " {{{ Behaviour
 
-set guioptions=acM
+set guioptions=cM
 
 filetype indent on
 filetype plugin on
@@ -476,12 +476,13 @@ let g:fuf_modesDisable = []
 
 " {{{ setcolors.vim
 
-let g:mycolors = ['darktango', 'paintbox', 'ir_black', 'desert', 'fruit']
-let g:mycolors += ['moria', 'rootwater', 'fruidle', 'pyte', 'rdark', 'tango2']
+let g:mycolors = ['hornet', 'paintbox', 'ir_black', 'whitebox', 'darkburn']
+let g:mycolors += ['fruidle', 'pyte', 'rdark']
 let g:mycolors += ['twilight', 'zenburn', 'wombat', 'darkspectrum']
-let g:mycolors += [ 'jellybeans', 'bclear', 'neon', 'molokai', 'zmrok', 'mustang']
+let g:mycolors += [ 'jellybeans', 'bclear', 'molokai', 'zmrok', 'mustang']
+" let g:mycolors += [ 'darktango', 'moria', 'rootwater', 'tango2', 'neon']
 
-colorscheme mustang
+colorscheme hornet
 
 nnoremap <Leader>sn :call NextColor(1)<CR>
 nnoremap <Leader>sp :call NextColor(-1)<CR>
