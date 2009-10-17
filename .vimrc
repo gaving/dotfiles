@@ -380,6 +380,17 @@ cnoremap <C-A> <Home>
 cnoremap <ESC>b <S-Left>
 cnoremap <ESC>f <S-Right>
 
+
+func! DeleteTillSlash()
+  let cmd = getcmdline()
+  let cmd_edited = substitute(cmd, "\\(.*/\\).*", "\\1", "")
+  if cmd == cmd_edited
+    let cmd_edited = substitute(cmd, "\\(.*/\\).*/", "\\1", "")
+  endif
+  return cmd_edited
+endfunc
+cmap <C-q> <C-\>eDeleteTillSlash()<CR>
+
 cmap w!! %!sudo tee > /dev/null %
 
 " }}}
