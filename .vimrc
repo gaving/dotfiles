@@ -25,6 +25,8 @@ augroup END
 
 " {{{ Behaviour
 
+set guioptions=acM
+
 filetype indent on
 filetype plugin on
 
@@ -322,10 +324,10 @@ imap <S-Return> <Esc>A;<Esc>o
 map <S-Enter> O<Esc>
 " map <CR> o<Esc>
 
-nnoremap ,w :w<cr>
-nnoremap ,x :x<cr>
-nnoremap ,a <c-^>
-nnoremap ,D :lcd %:p:h<cr>
+nnoremap <Leader>w :w<cr>
+nnoremap <Leader>x :x<cr>
+nnoremap <Leader>a <c-^>
+nnoremap <Leader>D :lcd %:p:h<cr>
 
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
@@ -353,6 +355,14 @@ noremap <Leader>ed :e <C-r>=expand("%:p:h")<CR>/<C-d>
 " Select thing just pasted
 noremap gp `[v`]
 
+" Toggle paste
+nmap <silent> <Leader>p :set invpaste<CR>:set paste?<CR>
+
+" Swap two words
+nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
+
+" Underline the current line with '='
+nmap <silent> <Leader>ul :t.\|s/./=/g\|set nohls<cr>
 " }}}
 
 " {{{ Error windows
@@ -504,6 +514,7 @@ let NERDTreeIgnore=['CVS']
 " {{{ NERD_commenter.vim
 
 let g:NERDSpaceDelims=1
+let NERDMenuMode=0
 
 " }}}
 
@@ -525,7 +536,10 @@ let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 
 " }}}
-"
+
+" {{{ Align
+let g:DrChipTopLvlMenu=""
+" }}}
 
 " {{{ Local settings
 if filereadable(expand("~/.vimrc.local"))
