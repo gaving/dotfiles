@@ -48,7 +48,12 @@ endif
 
 " }}}
 
-set autochdir
+if exists('+autochdir')
+    set autochdir
+else
+    autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
+endif
+
 set autoindent
 set autowriteall " Watch this!
 set backspace=start,indent,eol
