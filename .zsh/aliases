@@ -17,6 +17,10 @@ alias tree='tree -Csu'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 
+if which htop >/dev/null; then
+    alias top='htop'
+fi
+
 # }}}
 
 # {{{ Global
