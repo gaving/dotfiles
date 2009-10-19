@@ -134,7 +134,6 @@ function! ChangeSqlCase()
 	\both\|
 	\breadth\|
 	\by\|
-	\c\|
 	\cache\|
 	\call\|
 	\called\|
@@ -415,7 +414,6 @@ function! ChangeSqlCase()
 	\isolation\|
 	\iterate\|
 	\join\|
-	\k\|
 	\key\|
 	\key_member\|
 	\key_type\|
@@ -462,7 +460,6 @@ function! ChangeSqlCase()
 	\lower\|
 	\lpad\|
 	\ltrim\|
-	\m\|
 	\make_set\|
 	\makedate\|
 	\maketime\|
