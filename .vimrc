@@ -103,6 +103,11 @@ set smartcase
 set smartindent
 set smarttab
 set softtabstop=4
+
+if exists('+shellslash')
+    set shellslash
+endif
+
 set splitright
 set splitbelow
 set suffixes+=.class,.gz,.zip,.bz2,.tar,.pyc
