@@ -1,10 +1,9 @@
-.zsh/custom
 .screen/custom
-.zsh/history*
-.zsh/cache
-.vimrc.local
-.vim/tmp
-.vim/.netrwhist
 .vim/.VimballRecord
+.vim/.netrwhist
+.vim/tmp
 .vimperatorrc
-*vimmpc*
+.vimrc.local
+.zsh/cache
+.zsh/custom
+.zsh/history*
