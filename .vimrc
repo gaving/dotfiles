@@ -1,15 +1,58 @@
 " .vimrc configuration
 
+" {{{ GUI
+
+if has('gui_running')
+
+    " Window size
+    set lines=70
+    set columns=100
+    set guioptions=cM
+
+    " Use cursor row highlighting
+    if v:version >= 700
+        set cursorline
+    end
+
+    if has("gui_win32")
+        " set guifont=Andale_Mono:h8:cDEFAULT
+        " set guifont=Lucida_Console:h10:cDEFAULT
+        " set guifont=Lucida_Sans_Typewriter:h8:cDEFAULT
+        " set guifont=Courier_New:h10:cDEFAULT
+        set guifont=DejaVu_Sans_Mono:h10:cDEFAULT
+        " set guifont=Liberation_Mono:h10:cDEFAULT
+    elseif has("gui_macvim")
+        "set guifont=cattleless
+        set guifont=Monaco:h12.00
+    endif
+
+    " {{{ Spelling
+
+    if has('spell')
+        set spell
+        set spelllang=en_gb
+        if has('win32')
+            set spellfile=~/vimfiles/spell/spellfile.add
+        elseif has('unix')
+            set spellfile=~/.vim/spell/spellfile.add
+        endif
+        set spellsuggest=best,10
+    endif
+
+    " }}}
+
+endif
+
+" }}}
+
 " {{{ Autocmds
 
 augroup vimrcEx
 
 if has('win32')
     autocmd! BufWritePost _vimrc source %
-    autocmd! BufWritePost _gvimrc source %
 elseif has('unix')
     autocmd! BufWritePost .vimrc source %
-    autocmd! BufWritePost .gvimrc source %
 endif
 
 autocmd BufReadPost *
@@ -24,8 +67,6 @@ augroup END
 " {{{ Options
 
 " {{{ Behaviour
-
-set guioptions=cM
 
 filetype indent on
 filetype plugin on
@@ -62,7 +103,6 @@ set expandtab
 set foldclose=all
 set foldmethod=marker
 set enc=utf-8
-" set gdefault :%s///g inverts this :(
 set history=1000
 set incsearch
 set lazyredraw
@@ -78,11 +118,6 @@ if (&termencoding == "utf-8") || has("gui_running")
 else
     set list listchars=tab:>-,trail:.,extends:>,nbsp:_
 endif
-
-" If possible and in gvim, use cursor row highlighting
-if has("gui_running") && v:version >= 700
-    set cursorline
-end
 
 set noautoread
 set nocompatible
@@ -124,7 +159,6 @@ set wildmenu
 " Dictionary completion!
 if has('unix')
     set dictionary=/usr/share/dict/words
-    "set complete=.,w,b,u,t,i,k
 endif
 
 set complete=.,w,b,u,t,i
@@ -288,21 +322,6 @@ endif
 
 " }}}
 
-" {{{ Spelling
-
-if has('spell') && has('gui_running')
-    set spell
-    set spelllang=en_gb
-    if has('win32')
-        set spellfile=~/vimfiles/spell/spellfile.add
-    elseif has('unix')
-        set spellfile=~/.vim/spell/spellfile.add
-    endif
-    set spellsuggest=best,10
-endif
-
-" }}}
-
 " }}}
 
 " {{{ Mappings
@@ -328,11 +347,9 @@ nmap q: :q
 inoremap jj <Esc>
 imap <C-Space> <C-X><C-O>
 
-" map <S-Return> :normal A;<Esc>o
 map <Silent> <Leader><CR> :noh<CR>
 imap <S-Return> <Esc>A;<Esc>o
 map <S-Enter> O<Esc>
-" map <CR> o<Esc>
 
 nnoremap <Leader>w :w<cr>
 nnoremap <Leader>x :x<cr>
@@ -373,21 +390,6 @@ nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
 
 " Underline the current line with '='
 nmap <silent> <Leader>ul :t.\|s/./=/g\|set nohls<cr>
-" }}}
-
-" {{{ Error windows
-
-" Quickfix window
-
-map <Leader>qo :copen<CR>
-map <Leader>qn :cnext<CR>
-map <Leader>qp :cprev<CR>
-
-" Location window
-
-map <Leader>lo :lopen<CR>
-map <Leader>ln :lnext<CR>
-map <Leader>lp :lprev<CR>
 
 " }}}
 
@@ -400,22 +402,12 @@ cnoremap <C-A> <Home>
 cnoremap <ESC>b <S-Left>
 cnoremap <ESC>f <S-Right>
 
-
-func! DeleteTillSlash()
-  let cmd = getcmdline()
-  let cmd_edited = substitute(cmd, "\\(.*/\\).*", "\\1", "")
-  if cmd == cmd_edited
-    let cmd_edited = substitute(cmd, "\\(.*/\\).*/", "\\1", "")
-  endif
-  return cmd_edited
-endfunc
-cmap <C-q> <C-\>eDeleteTillSlash()<CR>
-
 cmap w!! %!sudo tee > /dev/null %
 
 " }}}
 
 " {{{ Buffer management
+
 nmap <tab> <C-I><cr>
 nmap <s-tab> <C-O><cr>
 
@@ -457,15 +449,6 @@ map <silent> <F5> :set paste!<bar>set paste?<CR>
 map <silent> <F6> :set wrap!<bar>set wrap?<CR>
 map <silent> <F7> :/\<\(\w\+\)\s\+\1\><CR>
 map <silent> <F8> :NERDTreeToggle<CR>
-" }}}
-
-" {{{ Tab management
-"
-map <S-Left> :tabprev<CR>
-map <S-Right> :tabnext<CR>
-map <A-Left> :tabprev<CR>
-map <A-Right> :tabnext<CR>
-
 " }}}
 
 " }}}
@@ -549,7 +532,13 @@ let g:syntastic_auto_loc_list=1
 " }}}
 
 " {{{ Align
+
 let g:DrChipTopLvlMenu=""
+
+" }}}
+
+" {{{ vcscommand.vim
+let VCSCommandSplit='vertical'
 " }}}
 
 " {{{ Local settings
