@@ -1284,20 +1284,6 @@ if !VCSCommandGetOption('VCSCommandDisableMappings', 0)
 	endfor
 endif
 
-" Section: Menu items {{{1
-amenu <silent> &Plugin.VCS.&Add        <Plug>VCSAdd
-amenu <silent> &Plugin.VCS.A&nnotate   <Plug>VCSAnnotate
-amenu <silent> &Plugin.VCS.&Commit     <Plug>VCSCommit
-amenu <silent> &Plugin.VCS.Delete      <Plug>VCSDelete
-amenu <silent> &Plugin.VCS.&Diff       <Plug>VCSDiff
-amenu <silent> &Plugin.VCS.&Info       <Plug>VCSInfo
-amenu <silent> &Plugin.VCS.&Log        <Plug>VCSLog
-amenu <silent> &Plugin.VCS.Revert      <Plug>VCSRevert
-amenu <silent> &Plugin.VCS.&Review     <Plug>VCSReview
-amenu <silent> &Plugin.VCS.&Status     <Plug>VCSStatus
-amenu <silent> &Plugin.VCS.&Update     <Plug>VCSUpdate
-amenu <silent> &Plugin.VCS.&VimDiff    <Plug>VCSVimDiff
-
 " Section: Autocommands to restore vimdiff state {{{1
 augroup VimDiffRestore
 	au!
