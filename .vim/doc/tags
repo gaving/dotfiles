@@ -147,6 +147,7 @@ EasyGrepOptionPrefix	EasyGrep.txt	/*EasyGrepOptionPrefix*
 EasyGrepRecursive	EasyGrep.txt	/*EasyGrepRecursive*
 EasyGrepReplaceAllPerFile	EasyGrep.txt	/*EasyGrepReplaceAllPerFile*
 EasyGrepReplaceWindowMode	EasyGrep.txt	/*EasyGrepReplaceWindowMode*
+EasyGrepSearchCurrentBufferDir	EasyGrep.txt	/*EasyGrepSearchCurrentBufferDir*
 EasyGrepWindow	EasyGrep.txt	/*EasyGrepWindow*
 EasyGrep_Author	EasyGrep.txt	/*EasyGrep_Author*
 EasyGrep_Bugs	EasyGrep.txt	/*EasyGrep_Bugs*

@@ -678,7 +678,6 @@ function! ChangeSqlCase()
 	\specific\|
 	\specific_name\|
 	\specifictype\|
-	\sql\|
 	\sql_big_result\|
 	\sql_calc_found_rows\|
 	\sql_small_result\|
