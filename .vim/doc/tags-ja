@@ -118,6 +118,7 @@ g:fuf_quickfix_prompt	fuf.jax	/*g:fuf_quickfix_prompt*
 g:fuf_quickfix_switchOrder	fuf.jax	/*g:fuf_quickfix_switchOrder*
 g:fuf_reuseWindow	fuf.jax	/*g:fuf_reuseWindow*
 g:fuf_smartBs	fuf.jax	/*g:fuf_smartBs*
+g:fuf_splitPathMatching	fuf.jax	/*g:fuf_splitPathMatching*
 g:fuf_tag_prompt	fuf.jax	/*g:fuf_tag_prompt*
 g:fuf_tag_switchOrder	fuf.jax	/*g:fuf_tag_switchOrder*
 g:fuf_taggedfile_prompt	fuf.jax	/*g:fuf_taggedfile_prompt*
