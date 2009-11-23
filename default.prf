@@ -1,8 +1,12 @@
 # Unison preferences file
 
 # General stuff
+diff = diff -y -W 79 --suppress-common-lines
 contactquietly = true
 terse = true
+sortnewfirst = true
+rshargs = -C
+prefer = /Users/gavin/
 
 # Roots of the synchronization
 root = /Users/gavin/
