@@ -1,4 +1,4 @@
-#!/bin/zsh
+ #!/bin/zsh
 # zsh functions
 
 _force_rehash() {
@@ -178,6 +178,16 @@ saneperms() {
     find . -type d -print0 | xargs -0 chmod 755
     find . -type f -print0 | xargs -0 chmod 644
 }
+
+rationalise-dot() {
+  if [[ $LBUFFER = *.. ]]; then
+    LBUFFER+=/..
+  else
+    LBUFFER+=.
+  fi
+}
+zle -N rationalise-dot
+bindkey . rationalise-dot
 
 # re-run the previous command with sudo
 rerun-with-sudo () {

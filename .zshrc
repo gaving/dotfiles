@@ -42,7 +42,8 @@ setopt \
     notify                  \
     path_dirs               \
     rec_exact               \
-    rm_star_silent
+    rm_star_silent          \
+    share_history
 
 autoload -U compinit && compinit
 autoload -U promptinit && promptinit
@@ -110,6 +111,7 @@ bindkey '^Q' push-line
 bindkey '^[a' beginning-of-line
 bindkey '^[e' end-of-line
 bindkey "^@"  _history-complete-older
+bindkey '^xw' backward-kill-line
 
 # interactive editing of command line in $EDITOR
 autoload -U edit-command-line

@@ -64,14 +64,6 @@ alias rwx='chmod 700'
 alias r--='chmod 644'
 alias r-x='chmod 755'
 
-# CD
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
-alias .......='cd ../../../../../..'
-
 # ls
 alias ls='ls -hFG --color=auto'      # add colors for filetype recognition
 alias lsa='ls -Al'                   # show hidden files
