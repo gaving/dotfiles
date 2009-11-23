@@ -2,20 +2,22 @@
 # zsh aliases
 
 # {{{ Standard
-alias sudo="sudo " #Allow aliases to be expanded after sudo
+alias :q='exit'
+alias :wq='exit'
 alias df='df -kh'
 alias du='du -kh'
+alias egrep='egrep --color=auto'
+alias grep='grep --color=auto'
 alias h='history'
 alias j='jobs -l'
 alias mirror="noglob wget --mirror --no-parent --recursive --timestamping --continue --recursive"
 alias mkdir='mkdir -p'
 alias mmv='noglob zmv -W'
 alias path='echo -e ${PATH//:/\\n}'
-alias :q='exit'
-alias :wq='exit'
+alias psg="ps aux | grep"
+alias sudo="sudo " #This just allows aliases to be expanded after sudo
+alias trail="tail -n 300 -f"
 alias tree='tree -Csu'
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
 
 if which htop >/dev/null; then
     alias top='htop'
@@ -38,20 +40,15 @@ alias -g X='| xclip'
 # }}}
 
 # {{{ Suffix
-alias -s avi=mplayer
 alias -s bz2=show-archive
 alias -s tex=${EDITOR:-vim}
 alias -s dvi=xdvi
-alias -s flac=mplayer
 alias -s gz=show-archive
 alias -s htm=${BROWSER:-lynx}
 alias -s html=${BROWSER:-lynx}
-alias -s mpg=mplayer
 alias -s tar=show-archive
 alias -s tex=${EDITOR:-vim}
 alias -s txt=${PAGER:-less}
-alias -s wav=mplayer
-alias -s wmv=mplayer
 alias -s zip=show-archive
 # }}}
 
@@ -104,13 +101,13 @@ alias cd..='cd ..'
 # }}}
 
 # {{{ Git
-alias gs='git status'
-alias gl='git pull'
-alias gp='git push'
-alias gd='git diff | less'
-alias gc='git commit -v'
-alias gca='git commit -v -a'
 alias gb='git branch'
 alias gba='git branch -a'
+alias gc='git commit -v'
+alias gca='git commit -v -a'
+alias gd='git diff | less'
+alias gl='git pull'
+alias gp='git push'
 alias gpcd='git push && cap deploy'
+alias gs='git status'
 # }}}

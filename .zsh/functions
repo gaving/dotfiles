@@ -83,6 +83,26 @@ clean() {
     fi
 }
 
+# Usage: smartcompress <file> (<type>)
+# Description: compresses files or a directory.  Defaults to tar.gz
+compress() {
+    if [ $2 ]; then
+            case $2 in
+                    tgz | tar.gz)   tar -zcvf$1.$2 $1 ;;
+                    tbz2 | tar.bz2) tar -jcvf$1.$2 $1 ;;
+                    tar.Z)          tar -Zcvf$1.$2 $1 ;;
+                    tar)            tar -cvf$1.$2  $1 ;;
+                    gz | gzip)      gzip           $1 ;;
+                    bz2 | bzip2)    bzip2          $1 ;;
+                    *)
+                    echo "Error: $2 is not a valid compression type"
+                    ;;
+            esac
+    else
+            compress $1 tar.gz
+    fi
+}
+
 # rename pictures based on information found in exif headers
 exirename() {
     if [ $# -lt 1 ] ; then
@@ -125,26 +145,6 @@ extract() {
     fi
 }
 
-# Usage: smartcompress <file> (<type>)
-# Description: compresses files or a directory.  Defaults to tar.gz
-compress() {
-    if [ $2 ]; then
-            case $2 in
-                    tgz | tar.gz)   tar -zcvf$1.$2 $1 ;;
-                    tbz2 | tar.bz2) tar -jcvf$1.$2 $1 ;;
-                    tar.Z)          tar -Zcvf$1.$2 $1 ;;
-                    tar)            tar -cvf$1.$2  $1 ;;
-                    gz | gzip)      gzip           $1 ;;
-                    bz2 | bzip2)    bzip2          $1 ;;
-                    *)
-                    echo "Error: $2 is not a valid compression type"
-                    ;;
-            esac
-    else
-            compress $1 tar.gz
-    fi
-}
-
 # generate thumbnails
 genthumbs() {
     echo "
@@ -159,6 +159,17 @@ genthumbs() {
     echo "</body></html>" >> index.html
 }
 
+# Commit, push and open the commit on github if possible
+gcp() {
+    gca -m $1 && gp && ghc
+}
+
+# Open up github page for latest commit
+ghc() {
+    LATEST_COMMIT=$(git log 2>/dev/null | head -n1 | awk '{print $2}')
+    [[ -n $LATEST_COMMIT ]] && open http://github.com/gaving/${PWD##*/}/commit/$LATEST_COMMIT
+}
+
 # Create a diff
 mdiff() { diff -udrP "$1" "$2" > diff.$(date "+%Y-%m-%d")."$1" }
 
@@ -168,49 +179,13 @@ saneperms() {
     find . -type f -print0 | xargs -0 chmod 644
 }
 
-# summarized google, ggogle, mggogle, agoogle and fm
-search() {
-    case "$1" in
-        -g) ${BROWSER:-lynx} http://www.google.com/search\?q=$2
-        ;;
-        -u) ${BROWSER:-lynx} http://groups.google.com/groups\?q=$2
-        ;;
-        -m) ${BROWSER:-lynx} http://groups.google.com/groups\?selm=$2
-        ;;
-        -a) ${BROWSER:-lynx} http://groups.google.com/groups\?as_uauthors=$2
-        ;;
-        -c) ${BROWSER:-lynx} http://search.cpan.org/search\?query=$2\&mode=module
-        ;;
-        -f) ${BROWSER:-lynx} http://freshmeat.net/search/\?q=$2\&section=projects
-        ;;
-        -F) ${BROWSER:-lynx} http://www.filewatcher.com/\?q=$2
-        ;;
-        -G) ${BROWSER:-lynx} http://www.rommel.stw.uni-erlangen.de/~fejf/cgi-bin/pfs-web.pl\?filter-search_file=$2
-        ;;
-        -s) ${BROWSER:-lynx} http://sourceforge.net/search/\?type=soft\&q=$2
-        ;;
-        -w) ${BROWSER:-lynx} http://de.wikipedia.org/wiki/$2
-        ;;
-        -W) ${BROWSER:-lynx} http://en.wikipedia.org/wiki/$2
-        ;;
-        -d) lynx -source "http://dict.leo.org?$2" | grep -i "TABLE.*/TABLE" | sed "s/^.*\(<TABLE.*TABLE>\).*$/<HTML><BODY>\1<\/BODY><\/HTML>/" | lynx -stdin -dump -width=$COLUMNS -nolist;
-        ;;
-        *) 
-        echo "Usage: $0 {-g | -u | -m | -a | -f | -c | -F | -s | -w | -W | -d}"
-        echo "  -g:  Searching for keyword in google.com"
-        echo "  -u:  Searching for keyword in groups.google.com"
-        echo "  -m:  Searching for message-id in groups.google.com"
-        echo "  -a:  Searching for Authors in groups.google.com"
-        echo "  -c:  Searching for Modules on cpan.org."
-        echo "  -f:  Searching for projects on Freshmeat."
-        echo "  -F:  Searching for packages on FileWatcher."
-        echo "  -G:  Gentoo file search."
-        echo "  -s:  Searching for software on Sourceforge."
-        echo "  -w:  Searching for keyword at wikipedia (german)."
-        echo "  -W:  Searching for keyword at wikipedia (english)."
-        echo "  -d:  Query dict.leo.org ;)"
-    esac
+# re-run the previous command with sudo
+rerun-with-sudo () {
+  LBUFFER="sudo !!"
+  zle accept-line
 }
+zle -N rerun-with-sudo
+bindkey '\C-x\C-x' rerun-with-sudo
 
 # view archive without unpack
 show-archive() {
@@ -228,18 +203,8 @@ show-archive() {
     fi
 }
 
-# Quickly viewlatex file.
-viewlatex() {
-    doc=${1%%.tex}
-    latex $doc.tex && latex $doc.tex && dvipdf $doc.dvi && evince $doc.pdf
-    rm -f $doc.(dvi|aux|log|toc)
-}
-
 # Quick upload function, copying the url to the clipboard
 upload() {
     scp -r $1 gav@brokentrain.net:~/upload/$(basename $1) \
-    && xclip <<< "http://gavin.brokentrain.net/upload/$(basename $1)"
+    && pbcopy <<< "http://gavin.brokentrain.net/upload/$(basename $1)"
 }
-
-# Open up github page for latest commit
-ghc() { /usr/bin/open http://github.com/gaving/${PWD##*/}/commit/$(git log | head -n1 | awk '{print $2}') }

@@ -21,6 +21,7 @@ periodic() { rehash }
 
 setopt \
     auto_cd                 \
+    auto_list               \
     auto_name_dirs          \
     auto_pushd              \
     braceccl                \
@@ -31,12 +32,16 @@ setopt \
     extended_glob           \
     hist_ignore_all_dups    \
     hist_ignore_space       \
+    hist_reduce_blanks      \
     ignore_eof              \
-    no_flow_control         \
-    notify                  \
     list_types              \
     mark_dirs               \
+    menu_complete           \
+    no_beep                 \
+    no_flow_control         \
+    notify                  \
     path_dirs               \
+    rec_exact               \
     rm_star_silent
 
 autoload -U compinit && compinit
@@ -45,6 +50,8 @@ autoload -U zcalc
 autoload -U zmv
 autoload -U url-quote-magic && zle -N self-insert url-quote-magic
 autoload -U tetris && zle -N tetris && bindkey "^T" tetris
+autoload -U insert-files && zle -N insert-files && bindkey "^Xf" insert-files
+autoload -U zsh-mime-setup && zsh-mime-setup
 
 autoload -U incremental-complete-word predict-on
 zle -N incremental-complete-word
@@ -54,19 +61,27 @@ bindkey '^XI'  incremental-complete-word
 bindkey '^XZ'  predict-on
 bindkey '^X^Z' predict-off
 
-autoload -U insert-files
-zle -N insert-files
-bindkey "^Xf" insert-files
-
-# Custom environmental variables
+# Load host specific stuff
 if [ -d ~/.zsh ]; then
     . ~/.zsh/custom
 fi
 
-# if [[ -x $(where dircolors) ]]; then
-    # eval  $(dircolors -b)
-    # export ZLS_COLORS=$LS_COLORS
-# fi
+# Use dircolors where available
+if which dircolors > /dev/null; then
+    eval $(dircolors -b)
+else
+    LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=33:so=01;35:bd=01;33:cd=01;33:
+    ex=01;32:*.c=36:*.cc=36:*.h=33:*.cmd=01;32:*.exe=01;32:*.com=01;32:
+    *.btm=01;32:*.bat=01;32:*.app=01;32:*.tar=00;31:*.tgz=00;31:*.arj=00;31:
+    *.taz=00;31:*.lzh=00;31:*.zip=00;31:*.z=00;31:*.Z=00;31:*.gz=00;31:
+    *.sit=00;31:*.sitX=00;31:*.zip=00;31:*.bin=00;31:*.hqx=00;31:*.jpg=00;35:
+    *.jpeg=00;35:*.gif=00;35:*.bmp=00;35:*.xbm=00;35:*.xpm=00;35:*.tif=00;35:
+    *.tiff=00;35:*.pdf=00;35:*.avi=00;35:*.mov=00;35:*.mpg=00;35:*.mpeg=00;35:
+    *.asf=00;35:*.wmv=00;35:*.rm=00;35:*.swf=00;35:*.mp3=00;35:*.aiff=00;35:
+    *.aif=00;35:*.snd=00;35:*.wav=00;35:';
+    export LS_COLORS
+fi
+export ZLS_COLORS=$LS_COLORS
 
 # }}}
 
