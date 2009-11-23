@@ -46,11 +46,10 @@ urxvt.color12:          #8EACCC
 urxvt.color13:          #CC8ECA
 urxvt.color14:          #8ECCCC
 urxvt.color15:          white
-urxvt.termName:         rxvt
+urxvt.termName:          rxvt
 
 urxvt.perl-ext-common:  default,matcher,macosx-clipboard
 urxvt.keysym.C-M-o:     perl:matcher
-
-urxvt.urlLauncher:      open -a /Applications/Firefox.app/
+urxvt.urlLauncher:      open
 urxvt.matcher.button:   1
 urxvt.matcher.pattern.0:    \\b(?:(?:https?|ftp|news|file):\/\/|mailto:)[ab-zA-Z0-9\-\@;\/?:&=%\$_.+!*\x27(),~#]+ [ab-zA-Z0-9\-\@;\/?:&=%\$_+!*\x27()~]
