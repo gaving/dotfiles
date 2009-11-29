@@ -8,6 +8,7 @@ if has('gui_running')
     set lines=70
     set columns=100
     set guioptions=cM
+    set guicursor=a:blinkon0
 
     " Use cursor row highlighting
     if v:version >= 700
@@ -391,6 +392,9 @@ nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
 " Underline the current line with '='
 nmap <silent> <Leader>ul :t.\|s/./=/g\|set nohls<cr>
 
+" Toggle invisibles
+nmap <Leader>i :set list!<CR>
+
 " }}}
 
 " {{{ Command window
@@ -470,7 +474,7 @@ let g:fuf_modesDisable = []
 " {{{ setcolors.vim
 
 let g:mycolors = ['hornet', 'paintbox', 'ir_black', 'whitebox', 'darkburn']
-let g:mycolors += ['fruidle', 'pyte', 'rdark']
+let g:mycolors += ['fruidle', 'pyte', 'rdark', 'darkrobot']
 let g:mycolors += ['twilight', 'zenburn', 'wombat', 'darkspectrum']
 let g:mycolors += [ 'jellybeans', 'bclear', 'molokai', 'zmrok', 'mustang']
 " let g:mycolors += [ 'darktango', 'moria', 'rootwater', 'tango2', 'neon']
