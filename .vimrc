@@ -395,6 +395,10 @@ nmap <silent> <Leader>ul :t.\|s/./=/g\|set nohls<cr>
 " Toggle invisibles
 nmap <Leader>i :set list!<CR>
 
+" Start substitution with word under cursor
+nmap <leader>z :%s/\<<c-r><c-w>\>/
+vmap <leader>z :<c-u>%s/\<<c-r>*\>/
+
 " }}}
 
 " {{{ Command window
@@ -468,6 +472,7 @@ map <Leader>mf :FufMruFile<CR>
 map <Leader>t :FufTag!<CR>
 
 let g:fuf_modesDisable = []
+let g:fuf_previewHeight = 0
 
 " }}}
 

@@ -3,7 +3,7 @@
 
 # {{{ Settings
 
-export CC=gcc
+# export CC=gcc
 export COLORTERM=yes
 export EDITOR=vim
 export HISTFILE=~/.zsh/history
