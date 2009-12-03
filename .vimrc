@@ -468,10 +468,13 @@ map <silent> <F8> :NERDTreeToggle<CR>
 
 " {{{ fuf.vim
 
+map <Leader>q :FufQuickfix<CR>
 map <Leader>b :FufBuffer<CR>
 map <Leader>f :FufFile<CR>
 map <Leader>mc :FufMruCmd<CR>
 map <Leader>mf :FufMruFile<CR>
+map <Leader>l :FufLine<CR>
+map <Leader>h :FufHelp<CR>
 map <Leader>t :FufTag!<CR>
 
 let g:fuf_modesDisable = []
@@ -553,10 +556,11 @@ let g:DrChipTopLvlMenu=""
 let VCSCommandSplit='vertical'
 " }}}
 
+" }}}
+
 " {{{ Local settings
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
 " }}}
 
-" }}}
