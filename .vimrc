@@ -20,8 +20,9 @@ if has('gui_running')
         " set guifont=Lucida_Console:h10:cDEFAULT
         " set guifont=Lucida_Sans_Typewriter:h8:cDEFAULT
         " set guifont=Courier_New:h10:cDEFAULT
-        set guifont=DejaVu_Sans_Mono:h10:cDEFAULT
+        " set guifont=DejaVu_Sans_Mono:h10:cDEFAULT
         " set guifont=Liberation_Mono:h10:cDEFAULT
+        set guifont=Consolas:h10:cDEFAULT
     elseif has("gui_macvim")
         "set guifont=cattleless
         set guifont=Monaco:h12.00
@@ -50,7 +51,7 @@ endif
 
 augroup vimrcEx
 
-if has('win32')
+if (has("win32") || has("win64"))
     autocmd! BufWritePost _vimrc source %
 elseif has('unix')
     autocmd! BufWritePost .vimrc source %
@@ -130,6 +131,7 @@ set nojoinspaces
 set novisualbell
 set nowrap
 set number
+let &sbr = nr2char(8618).' '
 set scrolljump=5
 set scrolloff=3
 set shiftwidth=4
@@ -147,6 +149,7 @@ endif
 set splitright
 set splitbelow
 set suffixes+=.class,.gz,.zip,.bz2,.tar,.pyc
+set suffixes-=.h
 set t_Co=256
 set timeoutlen=700
 set tags=tags;/
