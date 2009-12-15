@@ -485,7 +485,7 @@ let g:fuf_previewHeight = 0
 " {{{ setcolors.vim
 
 let g:mycolors = ['hornet', 'paintbox', 'ir_black', 'whitebox', 'darkburn']
-let g:mycolors += ['fruidle', 'pyte', 'rdark', 'darkrobot']
+let g:mycolors += ['fruidle', 'pyte', 'rdark', 'darkrobot', 'manuscript']
 let g:mycolors += ['twilight', 'zenburn', 'wombat', 'darkspectrum']
 let g:mycolors += [ 'jellybeans', 'bclear', 'molokai', 'zmrok', 'mustang']
 " let g:mycolors += [ 'darktango', 'moria', 'rootwater', 'tango2', 'neon']
