@@ -1,9 +1,9 @@
 "============================================================================
 "File:        syntastic.vim
 "Description: vim plugin for on the fly syntax checking
-"Maintainer:  Martin Grenfell <martin_grenfell at msn dot com>
-"Version:     1.0.0
-"Last Change: 11 Aug, 2009
+"Maintainer:  Martin Grenfell <martin.grenfell at gmail dot com>
+"Version:     1.1.0
+"Last Change: 16 Dec, 2009
 "License:     This program is free software. It comes without any warranty,
 "             to the extent permitted by applicable law. You can redistribute
 "             it and/or modify it under the terms of the Do What The Fuck You
@@ -29,6 +29,10 @@ endif
 
 if !exists("g:syntastic_quiet_warnings")
     let g:syntastic_quiet_warnings = 0
+endif
+
+if !exists("g:syntastic_disabled_filetypes")
+    let g:syntastic_disabled_filetypes = []
 endif
 
 "load all the syntax checkers
@@ -61,11 +65,13 @@ endfunction
 function! s:CacheErrors()
     let b:syntastic_loclist = []
 
-    for ft in split(&ft, '\.')
-        if exists("*SyntaxCheckers_". ft ."_GetLocList") && filereadable(expand("%"))
-            let b:syntastic_loclist = extend(b:syntastic_loclist, SyntaxCheckers_{ft}_GetLocList())
-        endif
-    endfor
+    if filereadable(expand("%"))
+        for ft in split(&ft, '\.')
+            if s:Checkable(ft)
+                let b:syntastic_loclist = extend(b:syntastic_loclist, SyntaxCheckers_{ft}_GetLocList())
+            endif
+        endfor
+    endif
 endfunction
 
 "return true if there are cached errors/warnings for this buf
@@ -226,6 +232,33 @@ function! SyntasticMake(options)
     let &shellpipe=old_shellpipe
 
     return errors
+endfunction
+
+function! s:Checkable(ft)
+    return exists("*SyntaxCheckers_". a:ft ."_GetLocList") &&
+                \ index(g:syntastic_disabled_filetypes, a:ft) == -1
+endfunction
+
+command! -nargs=? SyntasticEnable call s:Enable(<f-args>)
+command! -nargs=? SyntasticDisable call s:Disable(<f-args>)
+
+"disable syntax checking for the given filetype (defaulting to current ft)
+function! s:Disable(...)
+    let ft = a:0 ? a:1 : &filetype
+
+    if !empty(ft) && index(g:syntastic_disabled_filetypes, ft) == -1
+        call add(g:syntastic_disabled_filetypes, ft)
+    endif
+endfunction
+
+"enable syntax checking for the given filetype (defaulting to current ft)
+function! s:Enable(...)
+    let ft = a:0 ? a:1 : &filetype
+
+    let i = index(g:syntastic_disabled_filetypes, ft)
+    if i != -1
+        call remove(g:syntastic_disabled_filetypes, i)
+    endif
 endfunction
 
 " vim: set et sts=4 sw=4:

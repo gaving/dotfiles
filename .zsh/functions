@@ -18,6 +18,14 @@ _listfiles() {
     return $ret
 }
 
+# insert wget with clipbaord content
+wget-clipboard() {
+    LBUFFER="wget '$(pbpaste)' -O "
+}
+zle -N wget-clipboard
+bindkey "^Xh" wget-clipboard
+
+
 # let ^W delete to slashes - zsh-users list, 4 Nov 2005
 backward-delete-to-slash() {
     local WORDCHARS=${WORDCHARS//\//}
