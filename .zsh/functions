@@ -19,12 +19,18 @@ _listfiles() {
 }
 
 # insert wget with clipbaord content
+paste-clipboard() {
+    LBUFFER="$(pbpaste)"
+}
+zle -N paste-clipboard
+bindkey "^Xp" paste-clipboard
+
+# insert wget with clipbaord content
 wget-clipboard() {
     LBUFFER="wget '$(pbpaste)' -O "
 }
 zle -N wget-clipboard
 bindkey "^Xh" wget-clipboard
-
 
 # let ^W delete to slashes - zsh-users list, 4 Nov 2005
 backward-delete-to-slash() {

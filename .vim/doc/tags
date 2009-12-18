@@ -50,6 +50,7 @@
 'loaded_nerd_tree'	NERD_tree.txt	/*'loaded_nerd_tree'*
 'snippets'	snipMate.txt	/*'snippets'*
 'syntastic_auto_loc_list'	syntastic.txt	/*'syntastic_auto_loc_list'*
+'syntastic_disabled_filetypes'	syntastic.txt	/*'syntastic_disabled_filetypes'*
 'syntastic_enable_signs'	syntastic.txt	/*'syntastic_enable_signs'*
 'syntastic_quiet_warnings'	syntastic.txt	/*'syntastic_quiet_warnings'*
 ,b	camelcasemotion.txt	/*,b*
@@ -108,6 +109,8 @@
 :Narrow	narrow.txt	/*:Narrow*
 :S	abolish.txt	/*:S*
 :Subvert	abolish.txt	/*:Subvert*
+:SyntasticDisable	syntastic.txt	/*:SyntasticDisable*
+:SyntasticEnable	syntastic.txt	/*:SyntasticEnable*
 :VCSAdd	vcscommand.txt	/*:VCSAdd*
 :VCSAnnotate	vcscommand.txt	/*:VCSAnnotate*
 :VCSBlame	vcscommand.txt	/*:VCSBlame*
@@ -803,7 +806,10 @@ surround-targets	surround.txt	/*surround-targets*
 surround.txt	surround.txt	/*surround.txt*
 syntastic	syntastic.txt	/*syntastic*
 syntastic-about	syntastic.txt	/*syntastic-about*
+syntastic-changelog	syntastic.txt	/*syntastic-changelog*
+syntastic-commands	syntastic.txt	/*syntastic-commands*
 syntastic-contents	syntastic.txt	/*syntastic-contents*
+syntastic-credits	syntastic.txt	/*syntastic-credits*
 syntastic-error-signs	syntastic.txt	/*syntastic-error-signs*
 syntastic-error-window	syntastic.txt	/*syntastic-error-window*
 syntastic-functionality	syntastic.txt	/*syntastic-functionality*
