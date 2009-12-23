@@ -527,6 +527,13 @@ let NERDMenuMode=0
 
 " }}}
 
+" {{{ surround.vim
+
+autocmd FileType php let b:surround_45 = "<?php \r ?>"
+autocmd FileType php let b:surround_99 = "try { \r } catch(Exception $e) { }"
+
+" }}}
+
 " {{{ toggle_words.vim
 
 map <Leader><Space> :ToggleWord<CR>
@@ -553,14 +560,18 @@ let g:DrChipTopLvlMenu=""
 " }}}
 
 " {{{ vcscommand.vim
+
 let VCSCommandSplit='vertical'
+
 " }}}
 
 " }}}
 
 " {{{ Local settings
+
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
+
 endif
 " }}}
 
