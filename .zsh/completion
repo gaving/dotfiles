@@ -2,21 +2,16 @@
 # zsh completion rules
 
 zstyle ':completion:*' _force_rehash
-
 zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS'
 zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
-
 zstyle ':completion:*:(g|)vim:*' ignored-patterns '*.(o|a|so|aux|dvi|log|swp|fig|bbl|blg|bst|idx|ind|out|toc|class|pdf|ps|eps|pyc)'
 zstyle ':completion:*:*:vtex:*' file-patterns '*.tex:tex-files' '*.toc:toc-files *.dvi:dvi-files' '%p:all-files'
 zstyle ':completion:*:less:*' ignored-patterns '*.(o|a|so|dvi|fig|out|class|pdf|ps)'
 zstyle ':completion:*:zless:*' ignored-patterns '*.(o|a|so|dvi|fig|out|class|pdf|ps)'
-
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
-
 zstyle ':completion:*' menu select=1
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-
 zstyle ':completion:*:cd:*' ignored-patterns '(*/)#lost+found'
 zstyle ':completion:*:manuals'       separate-sections true
 zstyle ':completion:*:manuals.(^1*)' insert-sections   true
@@ -62,5 +57,5 @@ lp operator portage postfix postgres postmaster qmaild qmaill \
 qmailp qmailq qmailr qmails shutdown smmsp squid sshd sync \
 uucp vpopmail xfs
 
-
+# Add any user configured accounts to the completion
 [[ -n $my_accounts ]] && zstyle ':completion:*:my-accounts' users-hosts $my_accounts

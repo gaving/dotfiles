@@ -18,19 +18,13 @@ _listfiles() {
     return $ret
 }
 
-# insert wget with clipbaord content
-paste-clipboard() {
-    LBUFFER="$(pbpaste)"
+# put the output of the last command on the command line
+zmodload -i zsh/parameter
+insert-last-command-output() {
+    LBUFFER+="$(eval $history[$((HISTCMD-1))])"
 }
-zle -N paste-clipboard
-bindkey "^Xp" paste-clipboard
-
-# insert wget with clipbaord content
-wget-clipboard() {
-    LBUFFER="wget '$(pbpaste)' -O "
-}
-zle -N wget-clipboard
-bindkey "^Xh" wget-clipboard
+zle -N insert-last-command-output
+bindkey "^X^L" insert-last-command-output
 
 # let ^W delete to slashes - zsh-users list, 4 Nov 2005
 backward-delete-to-slash() {
@@ -65,11 +59,6 @@ basiccalc() {
 }
 
 alias calc='noglob basiccalc'
-
-# Grab bug me not password for <site>
-bmn() {
-    lynx --dump http://www.bugmenot.com/view/$1 | egrep "(Username|Password)" | head -6 
-}
 
 # Print out current calendar with highlighted day
 calendar() {
@@ -209,7 +198,7 @@ rerun-with-sudo () {
   zle accept-line
 }
 zle -N rerun-with-sudo
-bindkey '\C-x\C-x' rerun-with-sudo
+bindkey '^Xx' rerun-with-sudo
 
 # view archive without unpack
 show-archive() {
@@ -232,3 +221,25 @@ upload() {
     scp -r $1 gav@brokentrain.net:~/upload/$(basename $1) \
     && pbcopy <<< "http://gavin.brokentrain.net/upload/$(basename $1)"
 }
+
+# {{{ Platform specific
+
+if which pbpaste > /dev/null; then
+
+# insert wget with clipbaord content
+    paste-clipboard() {
+        LBUFFER="$(pbpaste)"
+    }
+    zle -N paste-clipboard
+    bindkey "^Xv" paste-clipboard
+
+# insert wget with clipboard content
+    wget-clipboard() {
+        LBUFFER="wget '$(pbpaste)' -O "
+    }
+    zle -N wget-clipboard
+    bindkey "^Xg" wget-clipboard
+
+fi
+
+# }}}

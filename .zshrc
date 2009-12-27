@@ -3,21 +3,32 @@
 
 # {{{ Settings
 
-# export CC=gcc
+export ACK_PAGER="less -r"
 export COLORTERM=yes
 export EDITOR=vim
 export HISTFILE=~/.zsh/history
 export HISTSIZE=6000
 export MANPATH=$HOME/man:$MANPATH
 export SAVEHIST=5000
-export SPROMPT='...you meant %r, right? [yn] '
+export SPROMPT='...huh? you meant "%r", right? [yn] '
 export HOST=${HOST:-$HOSTNAME}
+
+if [[ -x `which lesspipe.sh` ]]; then
+    export LESS="-R -M --shift 5"
+    export LESSOPEN="|lesspipe.sh %s"
+    export LESSCOLOR=1
+fi
 
 limit coredumpsize 0
 umask 022
 
 PERIOD=3600
 periodic() { rehash }
+
+typeset -g -A key
+stty pass8
+KEYTIMEOUT=1
+bindkey -e
 
 setopt \
     auto_cd                 \
@@ -49,9 +60,9 @@ autoload -U promptinit && promptinit
 autoload -U zcalc
 autoload -U zmv
 autoload -U url-quote-magic && zle -N self-insert url-quote-magic
-autoload -U tetris && zle -N tetris && bindkey "^T" tetris
 autoload -U insert-files && zle -N insert-files && bindkey "^Xf" insert-files
 autoload -U zsh-mime-setup && zsh-mime-setup
+autoload -U edit-command-line && zle -N edit-command-line && bindkey "^Xe" edit-command-line
 
 autoload -U incremental-complete-word predict-on
 zle -N incremental-complete-word
@@ -60,6 +71,10 @@ zle -N predict-off
 bindkey '^XI'  incremental-complete-word
 bindkey '^XZ'  predict-on
 bindkey '^X^Z' predict-off
+
+for c in cp rm chmod chown rename; do
+    alias $c="$c -v"
+done
 
 # Load host specific stuff
 if [ -d ~/.zsh ]; then
@@ -85,14 +100,7 @@ export ZLS_COLORS=$LS_COLORS
 
 # }}}
 
-# {{{ Keybindings
-
-typeset -g -A key
-
-stty pass8
-KEYTIMEOUT=1
-
-bindkey -e
+# {{{ Custom keybindings
 
 bindkey '^?' backward-delete-char
 bindkey '^[[1~' beginning-of-line
@@ -111,11 +119,7 @@ bindkey '^[a' beginning-of-line
 bindkey '^[e' end-of-line
 bindkey "^@"  _history-complete-older
 bindkey '^xw' backward-kill-line
-
-# interactive editing of command line in $EDITOR
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey "\ee" edit-command-line
+bindkey -s '^Xp' '^Upopd >/dev/null; dirs -v^M'
 
 # }}}
 
