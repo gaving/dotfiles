@@ -25,7 +25,7 @@ function s:initialize()
         \   'bookmark', 'tag', 'taggedfile',
         \   'jumplist', 'changelist', 'quickfix', 'line', 'help',
         \   'givenfile', 'givendir', 'givencmd',
-        \   'callbackfile', 'callbackitem',
+        \   'callbackfile', 'callbackitem', 'snippet',
         \ ])
   call s:defineOption('g:fuf_modesDisable'     , [ 'mrufile', 'mrucmd', ])
   call s:defineOption('g:fuf_keyOpen'          , '<CR>')
@@ -103,6 +103,9 @@ function s:initialize()
   call s:defineOption('g:fuf_help_prompt'     , '>Help[]>')
   call s:defineOption('g:fuf_help_switchOrder', 130)
   call s:defineOption('g:fuf_help_cache_dir'  , '~/.vim-fuf-cache/help')
+  "---------------------------------------------------------------------------
+  call s:defineOption('g:fuf_snippet_prompt'     , '>Snippet[]>')
+  call s:defineOption('g:fuf_snippet_switchOrder', 140)
   "---------------------------------------------------------------------------
   call filter(g:fuf_modes, 'count(g:fuf_modesDisable, v:val) == 0')
   for m in g:fuf_modes

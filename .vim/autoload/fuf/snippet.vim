@@ -1,0 +1,1 @@
+/Users/gavin/Coding/fuf-snippet/snippet.vim

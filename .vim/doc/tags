@@ -269,6 +269,9 @@ NERDTreeRender()	NERD_tree.txt	/*NERDTreeRender()*
 NERD_commenter.txt	NERD_commenter.txt	/*NERD_commenter.txt*
 NERD_tree.txt	NERD_tree.txt	/*NERD_tree.txt*
 ODBC	dbext.txt	/*ODBC*
+ReloadAllSnippets()	snipMate.txt	/*ReloadAllSnippets()*
+ReloadAllSnippets()	snipMate.txt	/*ReloadAllSnippets()*
+ResetAllSnippets()	snipMate.txt	/*ResetAllSnippets()*
 ResetSnippets()	snipMate.txt	/*ResetSnippets()*
 SyntasticMake()	syntastic.txt	/*SyntasticMake()*
 VCSCommandCVSDiffOpt	vcscommand.txt	/*VCSCommandCVSDiffOpt*

@@ -16,15 +16,8 @@ if has('gui_running')
     end
 
     if has("gui_win32")
-        " set guifont=Andale_Mono:h8:cDEFAULT
-        " set guifont=Lucida_Console:h10:cDEFAULT
-        " set guifont=Lucida_Sans_Typewriter:h8:cDEFAULT
-        " set guifont=Courier_New:h10:cDEFAULT
-        " set guifont=DejaVu_Sans_Mono:h10:cDEFAULT
-        " set guifont=Liberation_Mono:h10:cDEFAULT
         set guifont=Consolas:h10:cDEFAULT
     elseif has("gui_macvim")
-        "set guifont=cattleless
         set guifont=Monaco:h12.00
     endif
 
@@ -328,6 +321,25 @@ endif
 
 " }}}
 
+" {{{ Abbreviations
+
+ia teh the
+ia htis this
+ia tihs this
+ia eariler earlier
+ia funciton function
+ia funtion function
+ia fucntion function
+ia retunr return
+ia reutrn return
+ia foreahc foreach
+ia !+ !=
+ca eariler earlier
+ca !+ !=
+ca ~? ~/
+
+" }}}
+
 " {{{ Mappings
 
 " {{{ General
@@ -336,7 +348,7 @@ endif
 let mapleader = ","
 
 if has('win32')
-    nmap <Leader>s :source $HOME/_vimrc<CR>
+    " nmap <Leader>s :source $HOME/_vimrc<CR>
     nmap <Leader>v :e $HOME/_vimrc<CR>
 elseif has('unix')
     nmap <Leader>s :source $HOME/.vimrc<CR>
@@ -354,6 +366,8 @@ imap <C-Space> <C-X><C-O>
 map <Silent> <Leader><CR> :noh<CR>
 imap <S-Return> <Esc>A;<Esc>o
 map <S-Enter> O<Esc>
+
+xno <bs> "_x
 
 nnoremap <Leader>w :w<cr>
 nnoremap <Leader>x :x<cr>
@@ -476,6 +490,8 @@ map <Leader>mf :FufMruFile<CR>
 map <Leader>l :FufLine<CR>
 map <Leader>h :FufHelp<CR>
 map <Leader>t :FufTag!<CR>
+map <Leader>s :FufSnippet<CR>
+
 
 let g:fuf_modesDisable = []
 let g:fuf_previewHeight = 0
@@ -488,13 +504,12 @@ let g:mycolors = ['hornet', 'paintbox', 'ir_black', 'whitebox', 'darkburn']
 let g:mycolors += ['fruidle', 'pyte', 'rdark', 'darkrobot', 'manuscript']
 let g:mycolors += ['twilight', 'zenburn', 'wombat', 'darkspectrum']
 let g:mycolors += [ 'jellybeans', 'bclear', 'molokai', 'zmrok', 'mustang']
-" let g:mycolors += [ 'darktango', 'moria', 'rootwater', 'tango2', 'neon']
 
 colorscheme hornet
 
-nnoremap <Leader>sn :call NextColor(1)<CR>
-nnoremap <Leader>sp :call NextColor(-1)<CR>
-nnoremap <Leader>sr :call NextColor(0)<CR>
+nnoremap <Leader>un :call NextColor(1)<CR>
+nnoremap <Leader>up :call NextColor(-1)<CR>
+nnoremap <Leader>ur :call NextColor(0)<CR>
 
 " }}}
 
@@ -571,7 +586,7 @@ let VCSCommandSplit='vertical'
 
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
-
 endif
+
 " }}}
 
