@@ -123,6 +123,7 @@ set ignorecase
 set nojoinspaces
 set novisualbell
 set nowrap
+set nrformats=hex,octal,alpha
 set number
 let &sbr = nr2char(8618).' '
 set scrolljump=5
