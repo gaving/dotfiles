@@ -18,6 +18,7 @@ alias psg="ps aux | grep"
 alias sudo="sudo " #This just allows aliases to be expanded after sudo
 alias trail="tail -n 300 -f"
 alias tree='tree -Csu'
+alias e='print -l'
 alias cp='nocorrect cp'
 alias mv='nocorrect mv'
 alias mkdir='nocorrect mkdir'
