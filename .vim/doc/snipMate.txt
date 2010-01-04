@@ -210,6 +210,9 @@ ReloadAllSnippets()                                     *ReloadAllSnippets()*
 ReloadAllSnippets() reloads all snippets for all filetypes. This is useful for
 testing and debugging.
 
+ReloadSnippets({filetype})                                 *ReloadSnippets()*
+ReloadSnippets() reloads all snippets for the given filetype.
+
                                              *list-snippets* *i_CTRL-R_<Tab>*
 If you would like to see what snippets are available, simply type <c-r><tab>
 in the current buffer to show a list via |popupmenu-completion|.

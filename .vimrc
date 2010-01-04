@@ -581,6 +581,12 @@ let VCSCommandSplit='vertical'
 
 " }}}
 
+" {{{ space.vim
+
+let g:space_disable_select_mode = 1
+
+" }}}
+
 " }}}
 
 " {{{ Local settings
