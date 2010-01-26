@@ -361,7 +361,9 @@ noremap <Return> <C-e>
 " noremap <Space> <C-f>
 noremap <C-d> "_dd
 noremap Y y$
-nmap q: :q
+noremap q: :q
+noremap ; :
+noremap , ;
 
 inoremap jj <Esc>
 imap <C-Space> <C-X><C-O>
