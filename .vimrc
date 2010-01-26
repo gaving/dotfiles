@@ -356,6 +356,8 @@ elseif has('unix')
     nmap <Leader>v :e $HOME/.vimrc<CR>
 endif
 
+noremap <Backspace> <C-y>
+noremap <Return> <C-e>
 " noremap <Space> <C-f>
 noremap <C-d> "_dd
 noremap Y y$
