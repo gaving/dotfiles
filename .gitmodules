@@ -67,3 +67,6 @@
 [submodule ".vim/bundles/ack"]
 	path = .vim/bundles/ack
 	url = git://github.com/mileszs/ack.vim.git
+[submodule ".vim/bundles/scratch"]
+	path = .vim/bundles/scratch
+	url = git://github.com/jkramer/vim-scratch.git
