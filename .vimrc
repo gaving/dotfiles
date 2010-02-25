@@ -1,5 +1,8 @@
 " .vimrc configuration
 
+let $VIMHOME = split(&rtp, ',')[0]
+silent! call pathogen#runtime_prepend_subdirectories($VIMHOME.'/bundles')
+
 " {{{ GUI
 
 if has('gui_running')
