@@ -2,6 +2,7 @@
 # zsh aliases
 
 # {{{ Standard
+alias a='ack -i'
 alias :q='exit'
 alias :wq='exit'
 alias df='df -kh'

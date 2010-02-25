@@ -6,3 +6,5 @@
 	status = auto
 	diff = auto
 	ui = auto
+[alias]
+	export = !git cherry | sed -n 's/^+ //p' | xargs git cvsexportcommit -c -p -v -u -k
