@@ -500,7 +500,6 @@ map <Leader>h :FufHelp<CR>
 map <Leader>t :FufTag!<CR>
 map <Leader>s :FufSnippet<CR>
 
-
 let g:fuf_modesDisable = []
 let g:fuf_previewHeight = 0
 
@@ -554,12 +553,6 @@ let NERDMenuMode=0
 
 autocmd FileType php let b:surround_45 = "<?php \r ?>"
 autocmd FileType php let b:surround_99 = "try { \r } catch(Exception $e) { }"
-
-" }}}
-
-" {{{ toggle_words.vim
-
-map <Leader><Space> :ToggleWord<CR>
 
 " }}}
 

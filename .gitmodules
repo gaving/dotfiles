@@ -67,3 +67,6 @@
 [submodule ".vim/bundles/ack"]
 	path = .vim/bundles/ack
 	url = git://github.com/mileszs/ack.vim.git
+[submodule ".vim/bundles/vcscommand"]
+	path = .vim/bundles/vcscommand
+	url = git://repo.or.cz/vcscommand.git
