@@ -3,6 +3,8 @@
 let $VIMHOME = split(&rtp, ',')[0]
 silent! call pathogen#runtime_prepend_subdirectories($VIMHOME.'/bundles')
 
+let g:sparkup=$VIMHOME.'/bundles/sparkup/sparkup.py'
+
 " {{{ GUI
 
 if has('gui_running')

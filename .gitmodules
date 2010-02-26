@@ -34,9 +34,6 @@
 [submodule ".vim/bundles/repeat"]
 	path = .vim/bundles/repeat
 	url = git://github.com/tpope/vim-repeat.git
-[submodule ".vim/bundles/space"]
-	path = .vim/bundles/space
-	url = git://github.com/spiiph/vim-space.git
 [submodule ".vim/bundles/speeddating"]
 	path = .vim/bundles/speeddating
 	url = git://github.com/tpope/vim-speeddating.git
