@@ -2,6 +2,7 @@
 .vim/.VimballRecord
 .vim/.netrwhist
 .vim/tmp
+.vim/bundles/**/doc/tags
 .vimperatorrc
 .vimrc.local
 .zsh/cache

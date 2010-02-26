@@ -76,14 +76,14 @@ endif
 " {{{ Platform
 
 if has('win32')
-    helptags ~/vimfiles/doc/
     set backupdir=$HOME/_vim/tmp
     set directory=$HOME/_vim/tmp
 elseif has('unix')
-    helptags ~/.vim/doc/
     set backupdir=$HOME/.vim/tmp
     set directory=$HOME/.vim/tmp
 endif
+
+silent! call pathogen#helptags()
 
 " }}}
 
