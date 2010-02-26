@@ -3,8 +3,6 @@
 let $VIMHOME = split(&rtp, ',')[0]
 silent! call pathogen#runtime_prepend_subdirectories($VIMHOME.'/bundles')
 
-let g:sparkup=$VIMHOME.'/bundles/sparkup/sparkup.py'
-
 " {{{ GUI
 
 if has('gui_running')
@@ -586,6 +584,12 @@ let VCSCommandSplit='vertical'
 " {{{ space.vim
 
 let g:space_disable_select_mode = 1
+
+" }}}
+
+" {{{ sparkup.vim
+
+let g:sparkup=$VIMHOME.'/bundles/sparkup/sparkup.py'
 
 " }}}
 
