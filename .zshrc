@@ -46,7 +46,6 @@ setopt \
     ignore_eof              \
     list_types              \
     mark_dirs               \
-    menu_complete           \
     no_beep                 \
     no_flow_control         \
     notify                  \

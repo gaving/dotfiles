@@ -1,61 +1,70 @@
 #!/bin/zsh
 # zsh completion rules
 
-zstyle ':completion:*' _force_rehash
-zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS'
-zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
-zstyle ':completion:*:(g|)vim:*' ignored-patterns '*.(o|a|so|aux|dvi|log|swp|fig|bbl|blg|bst|idx|ind|out|toc|class|pdf|ps|eps|pyc)'
-zstyle ':completion:*:*:vtex:*' file-patterns '*.tex:tex-files' '*.toc:toc-files *.dvi:dvi-files' '%p:all-files'
-zstyle ':completion:*:less:*' ignored-patterns '*.(o|a|so|dvi|fig|out|class|pdf|ps)'
-zstyle ':completion:*:zless:*' ignored-patterns '*.(o|a|so|dvi|fig|out|class|pdf|ps)'
-zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
-zstyle ':completion:*' menu select=1
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:cd:*' ignored-patterns '(*/)#lost+found'
-zstyle ':completion:*:manuals'       separate-sections true
-zstyle ':completion:*:manuals.(^1*)' insert-sections   true
-zstyle ':completion::complete:*' use-cache on
-zstyle ':completion::complete:*' cache-path ~/.zsh/cache/$HOST
-zstyle ':completion:*:match:*' original only
-zstyle ':completion::prefix-1:*' completer _complete
-zstyle ':completion:predict:*' completer _complete
-zstyle ':completion:incremental:*' completer _complete _correct
-zstyle ':completion:*' completer _complete _prefix _correct _prefix _match _approximate
-zstyle ':completion:*:functions' ignored-patterns '_*'
-zstyle ':completion:*:complete:-command-::commands' ignored-patterns '*\~'
-zstyle ':completion:*' expand 'yes'
-zstyle ':completion:*' squeeze-shlashes 'yes'
-zstyle ':completion::complete:*' '\\'
 zstyle '*' single-ignored show
+zstyle ':completion:*' _force_rehash
+zstyle ':completion:*' completer _complete _prefix _correct _prefix _match _approximate
+zstyle ':completion:*' expand 'yes'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{A-Z}={a-z}' 'm:{a-z}={A-Z}' 'r:|[._-]=** r:|=**' 'l:|=* r:|=*'
-zstyle ':completion:*:matches' group 'yes'
-zstyle ':completion:*:options' description 'yes'
-zstyle ':completion:*:options' auto-description '%d'
-zstyle ':completion:*:descriptions' format $'\e[01;33m -- %d --\e[0m'
-zstyle ':completion:*:messages' format $'\e[01;35m -- %d --\e[0m'
-zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found --\e[0m'
-zstyle ':completion:*:rm:*' ignore-line yes
-zstyle ':completion:*:scp:*' ignore-line yes
-zstyle ':completion:*:ls:*' ignore-line yes
-zstyle ':completion:*:*:kill:*' menu yes select
-zstyle ':completion:*:kill:*' force-list always
-zstyle ':completion:*:processes' command 'ps --forest -A -o pid,user,cmd'
-zstyle ':completion:*:processes' insert-ids menu yes select 
-zstyle ':completion:*:*:*:hosts-host' ignored-patterns '*.*' loopback localhost
+zstyle ':completion:*' menu select=1
+zstyle ':completion:*' squeeze-shlashes 'yes'
+zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS'
+zstyle ':completion:*:(g|)vim:*' ignored-patterns '*.(o|a|so|aux|dvi|log|swp|fig|bbl|blg|bst|idx|ind|out|toc|class|pdf|ps|eps|pyc)'
 zstyle ':completion:*:*:*:hosts-domain' ignored-patterns '<->.<->.<->.<->' '^*.*' '*@*'
+zstyle ':completion:*:*:*:hosts-host' ignored-patterns '*.*' loopback localhost
 zstyle ':completion:*:*:*:hosts-ipaddr' ignored-patterns '^<->.<->.<->.<->' '127.0.0.<->'
-zstyle -e ':completion:*:(ssh|scp):*' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
-zstyle ':completion:*:scp:*' tag-order files users 'hosts:-host hosts:-domain:domain hosts:-ipaddr"IP\ Address *'
-zstyle ':completion:*:scp:*' group-order files all-files users hosts-domain hosts-host hosts-ipaddr
-zstyle ':completion:*:ssh:*' tag-order users 'hosts:-host hosts:-domain:domain hosts:-ipaddr"IP\ Address *'
-zstyle ':completion:*:ssh:*' group-order hosts-domain hosts-host users hosts-ipaddr
 zstyle ':completion:*:*:*:users' ignored-patterns \
 adm alias apache at bin cron cyrus daemon ftp games gdm guest \
 haldaemon halt mail man messagebus mysql named news nobody nut \
 lp operator portage postfix postgres postmaster qmaild qmaill \
 qmailp qmailq qmailr qmails shutdown smmsp squid sshd sync \
 uucp vpopmail xfs
+
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:*:vtex:*' file-patterns '*.tex:tex-files' '*.toc:toc-files *.dvi:dvi-files' '%p:all-files'
+zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
+zstyle ':completion:*:cd:*' ignored-patterns '(*/)#lost+found'
+zstyle ':completion:*:complete:-command-::commands' ignored-patterns '*\~'
+zstyle ':completion:*:descriptions' format $'\e[01;33m -- %d --\e[0m'
+zstyle ':completion:*:functions' ignored-patterns '_*'
+zstyle ':completion:*:kill:*' force-list always
+zstyle ':completion:*:less:*' ignored-patterns '*.(o|a|so|dvi|fig|out|class|pdf|ps)'
+zstyle ':completion:*:ls:*' ignore-line yes
+zstyle ':completion:*:manuals'       separate-sections true
+zstyle ':completion:*:manuals.(^1*)' insert-sections   true
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:matches' group 'yes'
+zstyle ':completion:*:messages' format $'\e[01;35m -- %d --\e[0m'
+zstyle ':completion:*:options' auto-description '%d'
+zstyle ':completion:*:options' description 'yes'
+
+if [[ $(uname) == "Darwin" ]] ; then
+    zstyle ':completion:*:*:kill:*:processes' command 'ps ax'
+    zstyle ':completion:*:*:killall:*:processes' command 'ps ax'
+else
+    zstyle ':completion:*:*:kill:*:processes' command 'ps --forest -A -o pid,user,cmd'
+    zstyle ':completion:*:*:killall:*:processes' command 'ps --forest -A -o pid,user,cmd'
+fi
+
+zstyle ':completion:*:processes' insert-ids menu yes select 
+zstyle ':completion:*:rm:*' ignore-line yes
+zstyle ':completion:*:scp:*' group-order files all-files users hosts-domain hosts-host hosts-ipaddr
+zstyle ':completion:*:scp:*' ignore-line yes
+zstyle ':completion:*:scp:*' tag-order files users 'hosts:-host hosts:-domain:domain hosts:-ipaddr"IP\ Address *'
+zstyle ':completion:*:ssh:*' group-order hosts-domain hosts-host users hosts-ipaddr
+zstyle ':completion:*:ssh:*' tag-order users 'hosts:-host hosts:-domain:domain hosts:-ipaddr"IP\ Address *'
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found --\e[0m'
+zstyle ':completion:*:zless:*' ignored-patterns '*.(o|a|so|dvi|fig|out|class|pdf|ps)'
+zstyle ':completion::complete:*' '\\'
+zstyle ':completion::complete:*' cache-path ~/.zsh/cache/$HOST
+zstyle ':completion::complete:*' use-cache on
+zstyle ':completion::prefix-1:*' completer _complete
+zstyle ':completion:incremental:*' completer _complete _correct
+zstyle ':completion:predict:*' completer _complete
+zstyle -e ':completion:*:(ssh|scp):*' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
 
 # Add any user configured accounts to the completion
 [[ -n $my_accounts ]] && zstyle ':completion:*:my-accounts' users-hosts $my_accounts
