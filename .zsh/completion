@@ -8,9 +8,10 @@ zstyle ':completion:*' expand 'yes'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{A-Z}={a-z}' 'm:{a-z}={A-Z}' 'r:|[._-]=** r:|=**' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select=1
-zstyle ':completion:*' squeeze-shlashes 'yes'
+zstyle ':completion:*' squeeze-slashes 'yes'
+
 zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS'
-zstyle ':completion:*:(g|)vim:*' ignored-patterns '*.(o|a|so|aux|dvi|log|swp|fig|bbl|blg|bst|idx|ind|out|toc|class|pdf|ps|eps|pyc)'
+zstyle ':completion:*:(gvim|vim|vi):*' ignored-patterns '*.(o|a|so|aux|dvi|log|swp|fig|bbl|blg|bst|idx|ind|out|toc|class|pdf|ps|eps|pyc)'
 zstyle ':completion:*:*:*:hosts-domain' ignored-patterns '<->.<->.<->.<->' '^*.*' '*@*'
 zstyle ':completion:*:*:*:hosts-host' ignored-patterns '*.*' loopback localhost
 zstyle ':completion:*:*:*:hosts-ipaddr' ignored-patterns '^<->.<->.<->.<->' '127.0.0.<->'
