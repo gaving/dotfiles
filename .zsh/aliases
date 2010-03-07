@@ -22,6 +22,8 @@ alias tree='tree -Csu'
 alias e='print -l'
 alias cp='nocorrect cp'
 alias mv='nocorrect mv'
+alias rscp="rsync -aP --no-whole-file --inplace"
+alias rsmv="rscp --remove-source-files"
 
 if which htop >/dev/null; then
     alias top='htop'
