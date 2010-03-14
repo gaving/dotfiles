@@ -218,8 +218,7 @@ show-archive() {
 
 # Quick upload function, copying the url to the clipboard
 upload() {
-    scp -r $1 gav@brokentrain.net:~/upload/$(basename $1) \
-    && pbcopy <<< "http://gavin.brokentrain.net/upload/$(basename $1)"
+    rscp -r -e ssh "$@" gav@brokentrain.net:~/upload/
 }
 
 if which pbpaste > /dev/null; then
