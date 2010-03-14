@@ -60,7 +60,7 @@
 	url = git://github.com/tpope/vim-markdown.git
 [submodule ".vim/bundles/snipmate"]
 	path = .vim/bundles/snipmate
-	url = git://github.com/jmcantrell/snipmate.vim.git
+	url = git://github.com/msanders/snipmate.vim.git
 [submodule ".vim/bundles/ack"]
 	path = .vim/bundles/ack
 	url = git://github.com/mileszs/ack.vim.git

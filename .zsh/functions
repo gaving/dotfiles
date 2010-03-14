@@ -222,8 +222,6 @@ upload() {
     && pbcopy <<< "http://gavin.brokentrain.net/upload/$(basename $1)"
 }
 
-# {{{ Platform specific
-
 if which pbpaste > /dev/null; then
 
 # insert wget with clipbaord content
@@ -241,5 +239,3 @@ if which pbpaste > /dev/null; then
     bindkey "^Xg" wget-clipboard
 
 fi
-
-# }}}
