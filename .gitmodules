@@ -70,6 +70,3 @@
 [submodule ".vim/bundles/delimitmate"]
 	path = .vim/bundles/delimitmate
 	url = git://github.com/Raimondi/delimitMate.git
-[submodule ".vim/bundles/snipmate"]
-	path = .vim/bundles/snipmate
-	url = git://github.com/msanders/snipmate.vim.git
