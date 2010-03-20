@@ -6,36 +6,37 @@
 alias :q='exit'
 alias :wq='exit'
 alias a='ack -i'
-alias e='print -l'
+alias e='print -l **/*'
 alias h='history'
 alias j='jobs -l'
 alias u='uptime'
 alias v='vim'
 alias x='exit'
 
-alias mkdir='nocorrect mkdir -p'
-alias man='nocorrect man'
-alias find='noglob find'
-
 for c in cp rm mv chmod chown rename; do
     alias $c="nocorrect $c -v"
+done
+
+for c in alias expr find wget which; do
+    alias $c="noglob $c"
 done
 
 alias egrep='egrep -I --color=auto'
 alias grep='grep -I --color=auto'
 alias less='less -iM'
+alias man='nocorrect man'
 alias mirror="noglob wget --mirror --no-parent --recursive --timestamping --continue --recursive"
+alias mkdir='nocorrect mkdir -p'
 alias mmv='noglob zmv -W'
 alias path='echo -e ${PATH//:/\\n}'
 alias po="popd"
-alias pu="pushd"
 alias psg="ps aux | grep"
+alias pu="pushd"
 alias rscp="nocorrect rsync -aP --no-whole-file --inplace"
 alias rsmv="nocorrect rscp --remove-source-files"
 alias sudo="sudo " # allow alias expansion
 alias trail="tail -n 300 -f"
 alias tree='tree --noreport --dirsfirst -FCsu'
-
 if which htop >/dev/null; then
     alias top='htop'
 fi
