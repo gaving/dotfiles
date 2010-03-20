@@ -1,6 +1,23 @@
 #!/bin/zsh
 # zsh completion rules
 
+_force_rehash() {
+    (( CURRENT == 1 )) && rehash
+    return 1    # Because we didn't really complete anything
+}
+
+zstyle ':completion:*' insert-tab pending
+zstyle -g completer ':completion:*' completer
+zstyle ':completion:*' completer _listfiles ${completer}
+
+_listfiles() {
+    local ret=1
+    if [[ -z $BUFFER ]]; then
+        _files && ret=0
+    fi
+    return $ret
+}
+
 zstyle '*' single-ignored show
 zstyle ':completion:*' _force_rehash
 zstyle ':completion:*' completer _complete _prefix _correct _prefix _match _approximate

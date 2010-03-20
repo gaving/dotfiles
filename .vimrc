@@ -352,28 +352,28 @@ ca ~? ~/
 let mapleader = ","
 
 if has('win32')
-    " nmap <Leader>s :source $HOME/_vimrc<CR>
     nmap <Leader>v :e $HOME/_vimrc<CR>
 elseif has('unix')
     nmap <Leader>s :source $HOME/.vimrc<CR>
     nmap <Leader>v :e $HOME/.vimrc<CR>
 endif
 
-noremap <Backspace> <C-y>
-noremap <Return> <C-e>
-" noremap <Space> <C-f>
-noremap <C-d> "_dd
-noremap Y y$
-noremap q: :q
-noremap ; :
-noremap , ;
-
 inoremap jj <Esc>
-imap <C-Space> <C-X><C-O>
+inoremap <C-Space> <C-X><C-O>
+inoremap <S-Return> <Esc>A;<Esc>o
+inoremap <S-Up> <C-o><C-y>
+inoremap <S-Down> <C-o><C-e>
 
-map <Silent> <Leader><CR> :noh<CR>
-imap <S-Return> <Esc>A;<Esc>o
-map <S-Enter> O<Esc>
+nnoremap <Backspace> <C-y>
+nnoremap <Return> <C-e>
+" nnoremap <Space> <C-f>
+nnoremap <C-d> "_dd
+nnoremap Y y$
+nnoremap q: :q
+nnoremap ; :
+nnoremap , ;
+
+nnoremap <Silent> <Leader><CR> :noh<CR>
 
 xno <bs> "_x
 

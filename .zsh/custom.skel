@@ -1,60 +1,20 @@
 #!/bin/zsh
-# skeleton zsh custom file
+# zsh custom file depending on host
 
-# {{{ Environment
-export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:$LD_LIBRARY_PATH
-export PKG_CONFIG_PATH=/usr/lib/pkgconfig/:/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
-export PATH=$HOME/local/bin:$PATH
+# {{{1 environment
+
 export LANG="en_GB.UTF-8"
 export LC_ALL="en_GB.UTF-8"
 export LC="en_GB.UTF-8"
 export LESSCHARSET="UTF-8"
-export ACK_PAGER="less -r"
-# }}}
+export TERM=rxvt
 
-# {{{ Prompt
-fg_green=$'%{\e[0;32m%}'
-fg_blue=$'%{\e[0;34m%}'
-fg_cyan=$'%{\e[0;36m%}'
-fg_red=$'%{\e[0;31m%}'
-fg_brown=$'%{\e[0;33m%}'
-fg_purple=$'%{\e[0;35m%}'
+# {{{1 aliases
 
-fg_light_gray=$'%{\e[0;37m%}'
-fg_dark_gray=$'%{\e[1;30m%}'
-fg_light_blue=$'%{\e[1;34m%}'
-fg_light_green=$'%{\e[1;32m%}'
-fg_light_cyan=$'%{\e[1;36m%}'
-fg_light_red=$'%{\e[1;31m%}'
-fg_light_purple=$'%{\e[1;35m%}'
-fg_no_colour=$'%{\e[0m%}'
+alias scp='scp -r'
+alias sokar='ssh -C -p 40 gavin@sokar'
+alias rodeo='ssh -C gav@brokentrain.net'
 
-fg_white=$'%{\e[1;37m%}'
-fg_black=$'%{\e[0;30m%}'
+# {{{1 completion
 
-if test `whoami` != "root"; then
-    PS1="${fg_light_gray}%m:${fg_white}%~%#${fg_no_colour} "
-else
-    PS1="${fg_light_red}%m:${fg_white}%~%#${fg_no_colour} "
-fi
-
-# }}}
-
-# {{{ Quick dirs
-#hash -d backups=~/backups
-# }}}
-
-# {{{ Custom functions
-# http://git.tabularazor.org/~derf/zsh/plain/etc/functions/rtab
-# put in ftpath+=(~/.zsh/functions)
-# %{^[[0;36m%}%m:%{^[[1;37m%}$(rtab)#%{^[[0m%}
-
-# }}}
-
-# {{{ Completion
-my_accounts=(
-    {tom,dick,harry,root}@10.0.1.201
-    {tom,dick,harry,root}@othermachine.com
-    user@12.345.678.90
-)
-# }}}
+my_accounts=(gav@brokentrain.net gavin@sokar)

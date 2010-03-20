@@ -1,0 +1,217 @@
+#!/bin/zsh
+# zsh config
+
+# {{{1 environment
+
+ACK_PAGER="less -r"
+COLORTERM=yes
+EDITOR=vim
+HISTFILE=~/.zsh/history
+HISTSIZE=6000
+HOST=${HOST:-$HOSTNAME}
+LISTPROMPT=''
+LOGCHECK=30
+PAGER='less'
+REPORTTIME=5
+SAVEHIST=5000
+SPROMPT='...huh? you meant "%r", right? [yn] '
+
+if [[ -x `which lesspipe.sh` ]]; then
+    LESS="-R -M --shift 5"
+    LESSOPEN="|lesspipe.sh %s"
+    LESSCOLOR=1
+fi
+
+# {{{1 paths
+
+path=($HOME/local/bin/ /bin /usr/bin $path)
+path=($path /usr/local/bin)
+
+if (( EUID == 0 )); then
+    path=($path /sbin /usr/sbin /usr/local/sbin /opt/local/sbin/)
+fi
+
+if [[ "$VENDOR" == "apple" ]]; then
+    path=(/opt/local/bin $path)
+fi
+
+manpath=(/usr/local/man /usr/share/man)
+manpath=($manpath /usr/man /usr/lib/perl5/man $HOME/local/man)
+if [[ "$VENDOR" == "apple" ]]; then
+    manpath=($manpath /opt/local/share/man)
+fi
+
+typeset -gU path cdpath manpath fpath
+
+fpath=(~/.zsh/functions $fpath)
+autoload -U ~/.zsh/functions/*(:t)
+
+unlimit
+limit coredumpsize 0
+umask 022
+
+PERIOD=3600
+periodic() { rehash }
+
+# {{{1 options
+
+setopt \
+    all_export              \
+    auto_cd                 \
+    auto_name_dirs          \
+    auto_pushd              \
+    braceccl                \
+    chase_links             \
+    clobber                 \
+    complete_aliases        \
+    correctall              \
+    extended_glob           \
+    hist_ignore_all_dups    \
+    hist_find_no_dups       \
+    hist_save_no_dups       \
+    hist_ignore_space       \
+    hist_reduce_blanks      \
+    ignore_eof              \
+    list_packed             \
+    list_types              \
+    mark_dirs               \
+    no_beep                 \
+    no_hup                  \
+    no_flow_control         \
+    notify                  \
+    path_dirs               \
+    rec_exact               \
+    rm_star_silent          \
+    share_history
+
+# {{{1 autoload
+
+autoload -U compinit && compinit
+autoload -U promptinit && promptinit
+autoload -U zcalc
+autoload -U zmv
+autoload -U url-quote-magic && zle -N self-insert url-quote-magic
+autoload -U insert-files && zle -N insert-files && bindkey "^Xf" insert-files
+autoload -U zsh-mime-setup && zsh-mime-setup
+autoload -U edit-command-line && zle -N edit-command-line && bindkey "^Xe" edit-command-line
+autoload -U incremental-complete-word predict-on
+zle -N incremental-complete-word
+zle -N predict-on
+zle -N predict-off
+bindkey '^XI'  incremental-complete-word
+bindkey '^XZ'  predict-on
+bindkey '^X^Z' predict-off
+
+# {{{1 keys
+
+typeset -g -A key
+stty pass8
+KEYTIMEOUT=1
+
+bindkey -e
+bindkey '^?' backward-delete-char
+bindkey '^[[1~' beginning-of-line
+bindkey '^[[5~' up-line-or-history
+bindkey '^[[3~' delete-char
+bindkey '^[[4~' end-of-line
+bindkey '^[[8~' end-of-line
+bindkey '^[OF' end-of-line
+bindkey '^[[6~' down-line-or-history
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
+bindkey '^[[C' forward-char
+bindkey '^[[D' backward-char
+bindkey '^Q' push-line
+bindkey '^[a' beginning-of-line
+bindkey '^[e' end-of-line
+bindkey "^@"  _history-complete-older
+bindkey '^xw' backward-kill-line
+bindkey -s '^Xp' '^Upopd >/dev/null; dirs -v^M'
+
+# let ^W delete to slashes - zsh-users list, 4 Nov 2005
+backward-delete-to-slash() {
+    local WORDCHARS=${WORDCHARS//\//}
+    zle .backward-delete-word
+}
+zle -N backward-delete-to-slash
+bindkey "^W" backward-delete-to-slash
+
+# put the output of the last command on the command line
+zmodload -i zsh/parameter
+insert-last-command-output() {
+    LBUFFER+="$(eval $history[$((HISTCMD-1))])"
+}
+zle -N insert-last-command-output
+bindkey "^X^L" insert-last-command-output
+
+rationalise-dot() {
+  if [[ $LBUFFER = *.. ]]; then
+    LBUFFER+=/..
+  else
+    LBUFFER+=.
+  fi
+}
+zle -N rationalise-dot
+bindkey . rationalise-dot
+
+# re-run the previous command with sudo
+rerun-with-sudo () {
+  LBUFFER="sudo !!"
+  zle accept-line
+}
+zle -N rerun-with-sudo
+bindkey '^Xx' rerun-with-sudo
+
+if which pbpaste > /dev/null; then
+
+    # insert wget with clipbaord content
+    paste-clipboard() {
+        LBUFFER="$(pbpaste)"
+    }
+    zle -N paste-clipboard
+    bindkey "^Xv" paste-clipboard
+
+    # insert wget with clipboard content
+    wget-clipboard() {
+        LBUFFER="wget '$(pbpaste)' -O "
+    }
+    zle -N wget-clipboard
+    bindkey "^Xg" wget-clipboard
+fi
+
+# c-z toggles between suspend and resume
+resume-job() {
+    zle push-input
+    BUFFER="fg"
+    zle accept-line
+}
+zle -N resume-job
+bindkey "^Z" resume-job
+
+# {{{1 title
+watch=notme
+WATCHFMT="[%B%t%b] %B%n%b has %a %B%l%b from %B%M%b"
+
+precmd() {
+    title zsh "$PWD"
+}
+
+preexec() {
+    emulate -L zsh
+    local -a cmd; cmd=(${(z)1})
+    title $cmd[1]:t "$cmd[2,-1]"
+}
+
+title() {
+    if [[ $TERM == "screen" ]]; then
+        # set hard status to last used command
+        # and main window title to the current directory
+        print -n "\eP\e]0;${@}\C-G\e\\"
+        print -nR $'\033k'$1$'\033'\\
+
+        #print -nR $'\033]0;'$2$'\a'
+    elif [[ $TERM == "xterm" || $TERM == "rxvt" || $TERM == "rxvt-unicode" ]]; then
+        # use this one instead for xterms:
+        print -nR $'\033]0;'$*$'\a'
+    fi
+}
