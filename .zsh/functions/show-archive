@@ -1,0 +1,17 @@
+
+# view archive without unpack
+show-archive() {
+    if [[ -f $1 ]]; then
+        case $1 in
+            *.tar.gz)      gunzip -c $1 | tar -tf - -- ;;
+            *.tar)         tar -tf $1 ;;
+            *.tgz)         tar -ztf $1 ;;
+            *.zip)         unzip -l $1 ;;
+            *.bz2)         bzless $1 ;;
+            *)             echo "'$1' Error. Please go away" ;;
+        esac
+    else
+        echo "'$1' is not a valid archive"
+    fi
+}
+

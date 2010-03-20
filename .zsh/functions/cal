@@ -1,0 +1,17 @@
+
+# Print out current calendar with highlighted day
+calendar() {
+    if [[ ! -f /usr/bin/cal ]] ; then
+        echo "Please install cal before trying to use it!"
+        return
+    fi
+
+    if [[ "$#" = "0" ]] ; then
+        /usr/bin/cal | egrep -C 40 --color "\<$(date +%e| tr -d ' ')\>"
+    else
+        /usr/bin/cal $@ | egrep -C 40 --color "\<($(date +%B)|$(date +%e | tr -d ' '))\>"
+    fi
+}
+
+alias cal=calendar
+

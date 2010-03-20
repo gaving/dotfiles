@@ -1,0 +1,11 @@
+
+# Remove useless files
+clean() {
+    if [ "$1" = "-r" ]; then
+        find . \( -name '#*' -o -name '*~' -o -name '.*~' -o -name 'core*' \
+        -o -name 'dead*' \) -ok rm '{}' ';'
+    else
+        rm -i \#* *~ .*~ core* dead*
+    fi
+}
+

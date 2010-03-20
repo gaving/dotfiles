@@ -1,0 +1,16 @@
+
+# Basic command line calculator
+basiccalc() {
+    if [[ ! -f /usr/bin/bc ]] ; then
+        echo "Install bc before trying to use this!"
+        return
+    fi
+
+    if [[ -z "$1" ]] ; then
+        /usr/bin/bc -q
+    else
+        echo "$@" | /usr/bin/bc -l
+    fi
+}
+
+alias calc='noglob basiccalc'
