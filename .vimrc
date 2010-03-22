@@ -343,27 +343,27 @@ cnoremap w!! %!sudo tee > /dev/null %
 
 " {{{2 F-keys
 
-map <silent> <F3> :!ctags -R .<CR><CR>
-map <silent> <F4> :set hls!<bar>set hls?<CR>
-map <silent> <F5> :set paste!<bar>set paste?<CR>
-map <silent> <F6> :set wrap!<bar>set wrap?<CR>
-map <silent> <F7> :/\<\(\w\+\)\s\+\1\><CR>
-map <silent> <F8> :NERDTreeToggle<CR>
-map <silent> <F9> :call LessMode()<CR>
+nnoremap <silent> <F3> :!ctags -R .<CR><CR>
+nnoremap <silent> <F4> :set hls!<bar>set hls?<CR>
+nnoremap <silent> <F5> :set paste!<bar>set paste?<CR>
+nnoremap <silent> <F6> :set wrap!<bar>set wrap?<CR>
+nnoremap <silent> <F7> :/\<\(\w\+\)\s\+\1\><CR>
+nnoremap <silent> <F8> :NERDTreeToggle<CR>
+nnoremap <silent> <F9> :call LessMode()<CR>
 
 " {{{1 Plugins
 
 " {{{2 fuf.vim
 
-map <Leader>q :FufQuickfix<CR>
-map <Leader>b :FufBuffer<CR>
-map <Leader>f :FufFile<CR>
-map <Leader>mc :FufMruCmd<CR>
-map <Leader>mf :FufMruFile<CR>
-map <Leader>l :FufLine<CR>
-map <Leader>h :FufHelp<CR>
-map <Leader>t :FufTag!<CR>
-map <Leader>s :FufSnippet<CR>
+nnoremap <Leader>q :FufQuickfix<CR>
+nnoremap <Leader>b :FufBuffer<CR>
+nnoremap <Leader>f :FufFile<CR>
+nnoremap <Leader>mc :FufMruCmd<CR>
+nnoremap <Leader>mf :FufMruFile<CR>
+nnoremap <Leader>l :FufLine<CR>
+nnoremap <Leader>h :FufHelp<CR>
+nnoremap <Leader>t :FufTag!<CR>
+nnoremap <Leader>s :FufSnippet<CR>
 
 let g:fuf_modesDisable = []
 let g:fuf_previewHeight = 0
