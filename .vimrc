@@ -243,9 +243,16 @@ noremap <S-TAB> <C-O><cr>
 
 noremap <silent> g<backspace> <c-o>
 noremap <silent> g<return> <c-i>
+
 noremap <silent> gb :bnext<cr>
 noremap <silent> gB :bprev<cr>
+noremap <silent> gd :bd<cr>
+noremap <silent> gD :bd!<cr>
 noremap <silent> g<space> :b#<cr>
+
+" Remap old behavior
+noremap <silent> <leader>gd gd
+noremap <silent> <leader>gD gD
 
 " noremap <Space> <C-f>
 noremap gp `[v`]
@@ -256,6 +263,10 @@ noremap ; :
 noremap , ;
 xno <bs> "_x
 
+" Write changes and delete buffer
+" Similar to ZZ for windows
+noremap <silent> XX :w<bar>bd<cr>
+
 noremap <Leader>w :w<cr>
 noremap <Leader>D :lcd %:p:h<cr>
 noremap <Leader><CR> :noh<CR>
@@ -264,19 +275,6 @@ noremap <C-e> 3<C-e>
 noremap <C-y> 3<C-y>
 noremap + <C-a>
 noremap - <C-x>
-
-" Write changes and delete buffer
-" Similar to ZZ for windows
-noremap <silent> XX :w<bar>bd<cr>
-
-" Delete buffer if there are no unsaved changes
-noremap <silent> gd :bd<cr>
-" Delete buffer even if there are unsaved changes
-noremap <silent> gD :bd!<cr>
-
-" Remap old behavior
-noremap <silent> <leader>gd gd
-noremap <silent> <leader>gD gD
 
 " Clear lines
 noremap <Leader>clr :s/^.*$//<CR>:nohls<CR>
@@ -288,7 +286,7 @@ noremap <Leader>dtw :%s/\s\+$//g<CR>:nohls<CR>
 noremap <Leader>dbl :g/^$/d<CR>:nohls<CR>
 
 " Enclose each selected line with markers
-noremap <Leader>enc :<C-w>execute
+map <Leader>enc :<C-w>execute
             \ substitute(":'<,'>s/^.*/#&#/ \| :nohls", "#", input(">"), "g")<CR>
 
 " Edit something in the current directory
@@ -298,7 +296,7 @@ noremap <Leader>ed :e <C-r>=expand("%:p:h")<CR>/<C-d>
 noremap <silent> <Leader>p :set invpaste<CR>:set paste?<CR>
 
 " Swap two words
-noremap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
+noremap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>``
 
 " Underline the current line with '='
 noremap <silent> <Leader>ul :t.\|s/./=/g\|set nohls<cr>
@@ -370,10 +368,11 @@ let g:fuf_previewHeight = 0
 
 " {{{2 setcolors.vim
 
-let g:mycolors = ['hornet', 'paintbox', 'ir_black', 'whitebox', 'darkburn']
+let g:mycolors  = ['hornet', 'paintbox', 'ir_black', 'whitebox', 'darkburn']
 let g:mycolors += ['fruidle', 'pyte', 'rdark', 'darkrobot', 'manuscript']
 let g:mycolors += ['twilight', 'zenburn', 'wombat', 'darkspectrum']
-let g:mycolors += [ 'jellybeans', 'bclear', 'molokai', 'zmrok', 'mustang']
+let g:mycolors += ['jellybeans', 'bclear', 'molokai', 'zmrok', 'mustang']
+let g:mycolors += ['vilight']
 
 colorscheme hornet
 
@@ -434,10 +433,6 @@ let g:space_disable_select_mode = 1
 " {{{2 sparkup.vim
 
 let g:sparkup=$VIMHOME.'/bundles/sparkup/sparkup.py'
-
-" {{{2 toggle_words.vim
-
-nnoremap <Leader><Space> :ToggleWord<CR>
 
 " {{{1 Local settings
 
