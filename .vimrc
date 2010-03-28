@@ -360,7 +360,7 @@ nnoremap <Leader>mc :FufMruCmd<CR>
 nnoremap <Leader>mf :FufMruFile<CR>
 nnoremap <Leader>l :FufLine<CR>
 nnoremap <Leader>h :FufHelp<CR>
-nnoremap <Leader>t :FufTag!<CR>
+nnoremap <Leader>T :FufTag!<CR>
 nnoremap <Leader>s :FufSnippet<CR>
 
 let g:fuf_modesDisable = []
@@ -433,6 +433,14 @@ let g:space_disable_select_mode = 1
 " {{{2 sparkup.vim
 
 let g:sparkup=$VIMHOME.'/bundles/sparkup/sparkup.py'
+
+" {{{2 command-t
+
+let g:CommandTMatchWindowAtTop = 1
+
+" {{{2 delimitMate
+
+let g:loaded_delimitMate = 1
 
 " {{{1 Local settings
 
