@@ -76,3 +76,6 @@
 [submodule ".vim/bundles/command-t"]
 	path = .vim/bundles/command-t
 	url = git://github.com/wincent/Command-T.git
+[submodule ".vim/bundles/javascript"]
+	path = .vim/bundles/javascript
+	url = git://github.com/pangloss/vim-javascript.git
