@@ -3,7 +3,6 @@
 setopt prompt_subst
 autoload colors; colors
 autoload -Uz vcs_info
-# unset LSCOLORS
 
 # set some colors
 for COLOR in RED GREEN YELLOW WHITE BLACK CYAN; do
@@ -46,11 +45,11 @@ function lprompt {
     fi
 
     # Show the user if we're sshd in from somwhere
-    if [[ -n $SSH_CONNECTION ]]; then
-        PROMPT="${PR_RESET}${color1}%n@%m:${color2}%~%#${PR_RESET} "
-    else
+    # if [[ -n $SSH_CONNECTION ]]; then
+        # PROMPT="${PR_RESET}${color1}%n@%m:${color2}%~%#${PR_RESET} "
+    # else
         PROMPT="${PR_RESET}${color1}%m:${color2}%~%#${PR_RESET} "
-    fi
+    # fi
 }
 
 function rprompt {
@@ -58,5 +57,5 @@ function rprompt {
     RPROMPT="${PR_RESET}${git}${PR_RESET}"
 }
 
-lprompt $PR_BRIGHT_CYAN $PR_WHITE
+lprompt $(eval echo \$$(echo PR_BRIGHT_$(echo ${PROMPT_COLOUR:-CYAN}))) $PR_WHITE
 rprompt
