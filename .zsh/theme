@@ -2,7 +2,10 @@
 
 setopt prompt_subst
 autoload colors; colors
-autoload -Uz vcs_info
+
+if [[ $ZSH_VERSION > 4.3.6 ]]; then
+    autoload -Uz vcs_info
+fi
 
 # set some colors
 for COLOR in RED GREEN YELLOW WHITE BLACK CYAN; do
@@ -32,7 +35,9 @@ zstyle ':vcs_info:*:prompt:*' formats       "[${FMT_BRANCH}]"            "${FMT_
 zstyle ':vcs_info:*:prompt:*' nvcsformats   ""                             "%~"
 
 function precmd {
-    vcs_info 'prompt'
+    if [[ $ZSH_VERSION > 4.3.6 ]]; then
+        vcs_info 'prompt'
+    fi
 }
 
 function lprompt {
