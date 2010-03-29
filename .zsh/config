@@ -128,6 +128,9 @@ bindkey "^@"  _history-complete-older
 bindkey '^xw' backward-kill-line
 bindkey -s '^Xp' '^Upopd >/dev/null; dirs -v^M'
 
+zmodload -i zsh/complist
+bindkey -M menuselect '^M' .accept-line # enter on the menu accepts the line
+
 # let ^W delete to slashes - zsh-users list, 4 Nov 2005
 backward-delete-to-slash() {
     local WORDCHARS=${WORDCHARS//\//}
