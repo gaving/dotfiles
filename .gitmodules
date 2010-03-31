@@ -79,3 +79,6 @@
 [submodule ".vim/bundles/javascript"]
 	path = .vim/bundles/javascript
 	url = git://github.com/pangloss/vim-javascript.git
+[submodule ".vim/bundles/cocoa"]
+	path = .vim/bundles/cocoa
+	url = git://github.com/msanders/cocoa.vim.git
