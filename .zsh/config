@@ -126,7 +126,8 @@ bindkey '^[a' beginning-of-line
 bindkey '^[e' end-of-line
 bindkey "^@"  _history-complete-older
 bindkey '^xw' backward-kill-line
-bindkey -s '^Xp' '^Upopd >/dev/null; dirs -v^M'
+bindkey -s '^F' '^Upushd >/dev/null; dirs -v^M'
+bindkey -s '^B' '^Upopd >/dev/null; dirs -v^M'
 
 zmodload -i zsh/complist
 bindkey -M menuselect '^M' .accept-line # enter on the menu accepts the line
