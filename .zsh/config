@@ -177,10 +177,19 @@ if which pbpaste > /dev/null; then
 
     # insert wget with clipboard content
     wget-clipboard() {
-        LBUFFER="wget '$(pbpaste)' -O "
+        LBUFFER="nocorrect wget '$(pbpaste)' -O "
     }
     zle -N wget-clipboard
-    bindkey "^Xg" wget-clipboard
+    bindkey "^Xw" wget-clipboard
+
+    # build a git clone url
+    git-clone-clipboard() {
+        REPO_URL="$(pbpaste)"
+        REPO_BASE_NAME=${$(basename $REPO_URL)%.git}
+        LBUFFER="nocorrect git clone $REPO_URL $REPO_BASE_NAME"
+    }
+    zle -N git-clone-clipboard
+    bindkey "^Xg" git-clone-clipboard
 fi
 
 # c-z toggles between suspend and resume
