@@ -177,7 +177,9 @@ if which pbpaste > /dev/null; then
 
     # insert wget with clipboard content
     wget-clipboard() {
-        LBUFFER="nocorrect wget '$(pbpaste)' -O "
+        URL="$(pbpaste)"
+        URL_BASE_NAME=$(basename $URL)
+        LBUFFER="nocorrect wget '$(pbpaste)' -O $URL_BASE_NAME"
     }
     zle -N wget-clipboard
     bindkey "^Xw" wget-clipboard
