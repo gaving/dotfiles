@@ -7,4 +7,6 @@
 	diff = auto
 	ui = auto
 [alias]
-	export = !git cherry | sed -n 's/^+ //p' | xargs git cvsexportcommit -c -p -v -u -k
+    export = !git cherry | sed -n 's/^+ //p' | xargs git cvsexportcommit -c -p -v -u -k
+    out = !git log --boundary $(git rev-list --max-count=1 --simplify-by-decoration HEAD^)..
+

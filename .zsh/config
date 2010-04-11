@@ -182,7 +182,7 @@ if which pbpaste > /dev/null; then
     zle -N wget-clipboard
     bindkey "^Xw" wget-clipboard
 
-    # build a git clone url
+    # build git clone command from clipboard
     git-clone-clipboard() {
         REPO_URL="$(pbpaste)"
         REPO_BASE_NAME=${$(basename $REPO_URL)%.git}

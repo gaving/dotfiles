@@ -442,6 +442,12 @@ let g:CommandTMatchWindowAtTop = 1
 
 let g:loaded_delimitMate = 1
 
+" {{{2 php-doc
+
+inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
+nnoremap <C-P> :call PhpDocSingle()<CR>
+vnoremap <C-P> :call PhpDocRange()<CR>
+
 " {{{1 Local settings
 
 if filereadable(expand("~/.vimrc.local"))
