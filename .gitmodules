@@ -82,3 +82,6 @@
 [submodule ".vim/bundles/cocoa"]
 	path = .vim/bundles/cocoa
 	url = git://github.com/msanders/cocoa.vim.git
+[submodule ".vim/bundles/space"]
+	path = .vim/bundles/space
+	url = git://github.com/spiiph/vim-space.git
