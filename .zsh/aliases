@@ -77,7 +77,6 @@ alias -s tex=${EDITOR:-vim}
 alias -s txt=${PAGER:-less}
 alias -s zip=show-archive
 
-
 # chmod {{{1
 
 alias rw-='chmod 600'
@@ -87,10 +86,27 @@ alias r-x='chmod 755'
 
 # ls {{{1
 
+typeset -A lsMap
+lsMap[lsa]='show hidden'
+lsMap[lsx]='sort by extension'
+lsMap[lsk]='sort by size'
+lsMap[lsc]='sort by change time'
+lsMap[lsu]='sort by access time'
+lsMap[lsr]='recursive ls'
+lsMap[lst]='sort by date'
+lsMap[lsl]='pipe through less'
+lsMap[lsbig]='display the biggest files'
+lsMap[lsd]='only show directories'
+lsMap[lse]='only show empty directories'
+lsMap[lsnew]='display the newest files'
+lsMap[lsold]='display the oldest files'
+lsMap[lssmall]='display the smallest files'
+ls_() { for i in ${(k)lsMap}; printf "%s - %s\n" $i $lsMap[$i] }
+alias ls?=ls_
+
 alias ls='ls -hFG --color=auto --group-directories-first'
 alias lsa='ls -Al'                   # show hidden files
 alias lsx='ls -lXB'                  # sort by extension
-alias lsk='ls -lSr'                  # sort by size
 alias lsk='ls -lSr'                  # sort by size
 alias lsc='ls -lcr'                  # sort by change time
 alias lsu='ls -lur'                  # sort by access time
