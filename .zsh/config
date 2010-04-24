@@ -3,23 +3,23 @@
 
 # {{{1 environment
 
-ACK_PAGER="less -r"
-COLORTERM=yes
-EDITOR=vim
-HISTFILE=~/.zsh/history
-HISTSIZE=6000
-HOST=${HOST:-$HOSTNAME}
-LISTPROMPT=''
-LOGCHECK=30
-PAGER='less'
-REPORTTIME=5
-SAVEHIST=5000
-SPROMPT='...huh? you meant "%r", right? [yn] '
+export ACK_PAGER="less -r"
+export COLORTERM=yes
+export EDITOR=vim
+export HISTFILE=~/.zsh/history
+export HISTSIZE=6000
+export HOST=${HOST:-$HOSTNAME}
+export LISTPROMPT=''
+export LOGCHECK=30
+export PAGER='less'
+export REPORTTIME=5
+export SAVEHIST=5000
+export SPROMPT='...huh? you meant "%r", right? [yn] '
 
 if [[ -x `which lesspipe.sh` ]]; then
-    LESS="-R -M --shift 5"
-    LESSOPEN="|lesspipe.sh %s"
-    LESSCOLOR=1
+    export LESS="-R -M --shift 5"
+    export LESSOPEN="|lesspipe.sh %s"
+    export LESSCOLOR=1
 fi
 
 # {{{1 paths
@@ -193,6 +193,10 @@ if which pbpaste > /dev/null; then
     zle -N git-clone-clipboard
     bindkey "^Xg" git-clone-clipboard
 fi
+
+# git clone suffix
+git-clone-suffix() { git clone $1 ${$(basename $1)%.git} }
+alias -s 'git'='git-clone-suffix'
 
 # c-z toggles between suspend and resume
 resume-job() {
