@@ -37,6 +37,7 @@ alias rsmv="nocorrect rscp --remove-source-files"
 alias sudo="sudo " # allow alias expansion
 alias trail="tail -n 300 -f"
 alias tree='tree --noreport --dirsfirst -FCsu'
+
 if which htop >/dev/null; then
     alias top='htop'
 fi
@@ -45,9 +46,6 @@ fi
 
 alias xs='cd'
 alias vf='cd'
-alias moer='more'
-alias moew='more'
-alias kk='ll'
 alias cd..='cd ..'
 
 # global {{{1
@@ -62,20 +60,23 @@ alias -g C='| wc -l'
 alias -g S='| sort'
 alias -g A='&> /dev/null | at'
 alias -g DN='&> /dev/null'
-alias -g X='| xclip'
+
+if which pbcopy > /dev/null; then
+    alias -g X='| pbcopy'
+else
+    alias -g X='| xclip'
+fi
 
 # suffix {{{1
 
-alias -s bz2=show-archive
-alias -s tex=${EDITOR:-vim}
-alias -s dvi=xdvi
-alias -s gz=show-archive
 alias -s htm=${BROWSER:-lynx}
 alias -s html=${BROWSER:-lynx}
-alias -s tar=show-archive
 alias -s tex=${EDITOR:-vim}
 alias -s txt=${PAGER:-less}
-alias -s zip=show-archive
+
+for c in bz2 gz tar zip tgz; do
+    alias -s $c=show-archive
+done
 
 # chmod {{{1
 
@@ -105,20 +106,20 @@ ls_() { for i in ${(k)lsMap}; printf "%s - %s\n" $i $lsMap[$i] }
 alias ls?=ls_
 
 alias ls='ls -hFG --color=auto --group-directories-first'
-alias lsa='ls -Al'                   # show hidden files
+alias lsa='ls -Al'                 # show hidden files
 alias lsb='ls -flh *(.OL[1,10])'   # display the biggest files
-alias lsc='ls -lcr'                  # sort by change time
-alias lsd='ls -d *(/)'               # only show directories
-alias lse='ls -d *(/^F)'             # only show empty directories
-alias lsk='ls -lSr'                  # sort by size
-alias lsl='ls -Al L'                 # pipe through 'less'
+alias lsc='ls -lcr'                # sort by change time
+alias lsd='ls -d *(/)'             # only show directories
+alias lse='ls -d *(/^F)'           # only show empty directories
+alias lsk='ls -lSr'                # sort by size
+alias lsl='ls -Al L'               # pipe through 'less'
 alias lsn='ls -rl *(D.om[1,10])'   # display the nest files
 alias lso='ls -rtlh *(D.om[1,10])' # display the oldest files
-alias lsr='ls -lR'                   # recursive ls
-alias lss='ls -Srl *(.oL[1,10])' # display the smallest files
-alias lst='ls -ltr'                  # sort by date
-alias lsu='ls -lur'                  # sort by access time
-alias lsx='ls -lXB'                  # sort by extension
+alias lsr='ls -lR'                 # recursive ls
+alias lss='ls -Srl *(.oL[1,10])'   # display the smallest files
+alias lst='ls -ltr'                # sort by date
+alias lsu='ls -lur'                # sort by access time
+alias lsx='ls -lXB'                # sort by extension
 
 # du {{{1
 
