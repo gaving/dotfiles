@@ -8,10 +8,10 @@ alias :wq='exit'
 alias a='ack -i'
 alias e='print -l **/*'
 alias h='history'
-# alias j='jobs -l'
+alias j='jobs -l'
 alias u='uptime'
 alias v='vim'
-alias x='exit'
+alias x='extract'
 
 for c in cp rm mv chmod chown rename; do
     alias $c="nocorrect $c -v"
