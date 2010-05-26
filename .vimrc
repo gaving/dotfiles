@@ -309,6 +309,8 @@ noremap <leader>z :%s/\<<c-r><c-w>\>//g<Left><Left>
 noremap <leader>Z :%S/<c-r><c-w>//g<Left><Left>
 vmap <leader>z :<c-u>%s/\<<c-r>*\>/
 
+"-vmap P p :call setreg('"', getreg('0')) <CR>
+
 " Less mode
 function! LessMode()
   if g:lessmode == 0
