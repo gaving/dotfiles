@@ -129,6 +129,7 @@ alias dub='du -slb'
 alias duk='du -slk'
 alias dum='du -slm'
 alias dug='du -sl --block-size=1G'
+alias duf='du -sk * | sort -n | perl -ne '\''($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'
 
 # df {{{1
 
