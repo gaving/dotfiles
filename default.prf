@@ -10,7 +10,7 @@ prefer = /Users/gavin/
 
 # Roots of the synchronization
 root = /Users/gavin/
-root = ssh://gavin@192.168.1.100:40//mnt/media
+root = ssh://gavin@sokar.local:40//mnt/media
 
 # Paths to synchronize 
 path = coding
