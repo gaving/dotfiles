@@ -309,6 +309,21 @@ noremap <leader>z :%s/\<<c-r><c-w>\>//g<Left><Left>
 noremap <leader>Z :%S/<c-r><c-w>//g<Left><Left>
 vmap <leader>z :<c-u>%s/\<<c-r>*\>/
 
+
+" Fix commas without a following space
+map <leader>x, :%s/,\zs\ze[^\s]/ /gc<cr>
+" Fix ( foo ) to (foo)
+map <leader>x( :%s/(\s\+/(/gc<cr>
+map <leader>x) :%s/\s\+)/)/gc<cr>
+" Fix ; with leading spaces
+map <leader>x; :%s/\s\+;/;/gc<cr>
+" Fix , with leading spaces
+map <leader>x, :%s/\s\+,/,/gc<cr>
+" Fix trailing spaces
+map <leader>xs :%s/\s\+$//gc<cr>
+" Remove carriage returns
+map <leader>xr :%s/\r//gc<cr>
+
 "-vmap P p :call setreg('"', getreg('0')) <CR>
 
 " Less mode
@@ -335,6 +350,7 @@ let g:lessmode = 0
 
 " {{{2 Command
 
+abbrev :E :e
 cabbrev Set set
 cnoremap <C-A> <Home>
 cnoremap <ESC>b <S-Left>

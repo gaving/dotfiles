@@ -72,7 +72,7 @@
 	url = git://github.com/Raimondi/delimitMate.git
 [submodule ".vim/bundles/snipmate"]
 	path = .vim/bundles/snipmate
-	url = git://github.com/msanders/snipmate.vim.git
+	url = git@github.com:gaving/snipmate.vim.git
 [submodule ".vim/bundles/command-t"]
 	path = .vim/bundles/command-t
 	url = git://github.com/wincent/Command-T.git
