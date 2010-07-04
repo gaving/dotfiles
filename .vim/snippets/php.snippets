@@ -15,3 +15,9 @@ snippet fun
 	}
 snippet log
 	error_log(var_export(${1:expr}, true));
+snippet linfo
+	Logger::getRootLogger()->info(${1:message});
+snippet lwarn
+	Logger::getRootLogger()->warn(${1:message});
+snippet ldebug
+	Logger::getRootLogger()->debug(${1:message});
