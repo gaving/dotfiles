@@ -8,4 +8,5 @@
 .zsh/cache
 .zsh/custom
 .zsh/history*
+*eclim*
 tags
