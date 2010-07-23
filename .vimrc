@@ -1,5 +1,11 @@
 " .vimrc configuration
 
+" use .vim folder instead of vimfiles on windows.
+if !has("unix")
+  set rtp&
+  let &rtp = expand('~/.vim').','.&rtp.','.expand('~/.vim/after')
+endif
+
 let $VIMHOME = split(&rtp, ',')[0]
 silent! call pathogen#runtime_prepend_subdirectories($VIMHOME.'/bundles')
 
