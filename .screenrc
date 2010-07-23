@@ -1,27 +1,28 @@
 # .screenrc configuration
 
-# {{{ Termcaps
+# {{{1 term
+
 termcapinfo rxvt-unicode 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
 term screen
-# }}}
 
-# {{{ Settings
-altscreen on
-defutf8 on
-defflow off
-nethack off
-startup_message off
-defscrollback 1000
-vbell on
-silencewait 15
-shell zsh
+# {{{1 options
+
 activity "activity in %n (%t) [%w:%s]~"
+altscreen on
 bell "%C -> %n%f activity!"
-vbell_msg "!"
+defflow off
+defscrollback 1000
+defutf8 on
 msgwait 0
-# }}}
+nethack off
+shell zsh
+silencewait 15
+startup_message off
+vbell on
+vbell_msg "!"
 
-# {{{ Bindings
+# {{{1 binds
+
 bind h prev
 bind l next
 bind ^l next
@@ -40,16 +41,13 @@ bindkey "q" quit
 bindkey "w" eval kill
 bindkey "t" screen 1
 bindkey "[Z" next
-# }}}
 
-# {{{ Statusline
+# {{{1 status
 
 sorendition 04 07
 hardstatus on
 hardstatus alwayslastline "%-Lw%{+r}%50> %n%f %t %{-}%+Lw%< %-= %H | %{= kw}%0c, %d/%m/%y%{-} "
 
-# }}}
+# {{{1 custom
 
-# {{{ Custom
 source $HOME/.screen/custom
-# }}}

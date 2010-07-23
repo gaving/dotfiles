@@ -43,6 +43,7 @@ zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:*:vtex:*' file-patterns '*.tex:tex-files' '*.toc:toc-files *.dvi:dvi-files' '%p:all-files'
 zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
+
 zstyle ':completion:*:cd:*' ignored-patterns '(*/)#lost+found'
 zstyle ':completion:*:complete:-command-::commands' ignored-patterns '*\~'
 zstyle ':completion:*:descriptions' format $'\e[01;33m -- %d --\e[0m'
@@ -86,3 +87,8 @@ zstyle -e ':completion:*:(ssh|scp):*' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,
 
 # Add any user configured accounts to the completion
 [[ -n $my_accounts ]] && zstyle ':completion:*:my-accounts' users-hosts $my_accounts
+
+zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS'
+zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
+zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)SVN'
+zstyle ':completion:*:cd:*' ignored-patterns '(*/)#SVN'
