@@ -102,6 +102,9 @@ bindkey '^XI'  incremental-complete-word
 bindkey '^XZ'  predict-on
 bindkey '^X^Z' predict-off
 
+zcalc () { print $(( ans = ${@:-ans} )) }
+alias calc='noglob zcalc'
+
 # {{{1 keys
 
 typeset -g -A key
