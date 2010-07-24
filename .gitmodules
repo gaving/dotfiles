@@ -91,3 +91,6 @@
 [submodule ".vim/bundles/align"]
 	path = .vim/bundles/align
 	url = http://github.com/tsaleh/vim-align.git
+[submodule ".vim/bundles/matchit"]
+	path = .vim/bundles/matchit
+	url = http://github.com/tsaleh/vim-matchit.git
