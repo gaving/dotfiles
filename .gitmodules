@@ -94,3 +94,6 @@
 [submodule ".vim/bundles/matchit"]
 	path = .vim/bundles/matchit
 	url = http://github.com/tsaleh/vim-matchit.git
+[submodule ".vim/bundles/camelcasemotion"]
+	path = .vim/bundles/camelcasemotion
+	url = git://github.com/ujihisa/camelcasemotion.git
