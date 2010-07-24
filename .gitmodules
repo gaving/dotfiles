@@ -88,3 +88,6 @@
 [submodule ".vim/bundles/supertab"]
 	path = .vim/bundles/supertab
 	url = http://github.com/ervandew/supertab.git
+[submodule ".vim/bundles/align"]
+	path = .vim/bundles/align
+	url = http://github.com/tsaleh/vim-align.git
