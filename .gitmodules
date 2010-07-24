@@ -85,3 +85,6 @@
 [submodule ".vim/bundles/space"]
 	path = .vim/bundles/space
 	url = git://github.com/spiiph/vim-space.git
+[submodule ".vim/bundles/supertab"]
+	path = .vim/bundles/supertab
+	url = http://github.com/ervandew/supertab.git
