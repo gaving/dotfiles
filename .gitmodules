@@ -97,3 +97,6 @@
 [submodule ".vim/bundles/camelcasemotion"]
 	path = .vim/bundles/camelcasemotion
 	url = git://github.com/ujihisa/camelcasemotion.git
+[submodule ".vim/bundles/easygrep"]
+	path = .vim/bundles/easygrep
+	url = git://github.com/gaving/vim-easygrep.git
