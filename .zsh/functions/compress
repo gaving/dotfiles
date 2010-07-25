@@ -1,21 +1,23 @@
-
 # Usage: smartcompress <file> (<type>)
 # Description: compresses files or a directory.  Defaults to tar.gz
 compress() {
-    if [ $2 ]; then
-        case $2 in
-            tgz | tar.gz)   tar -zcvf$1.$2 $1 ;;
-            tbz2 | tar.bz2) tar -jcvf$1.$2 $1 ;;
-            tar.Z)          tar -Zcvf$1.$2 $1 ;;
-            tar)            tar -cvf$1.$2  $1 ;;
-            gz | gzip)      gzip           $1 ;;
-            bz2 | bzip2)    bzip2          $1 ;;
-            *)
-            echo "Error: $2 is not a valid compression type"
-            ;;
-        esac
+    if [[ -e $1 ]]; then
+        if [ $2 ]; then
+            case $2 in
+                tgz | tar.gz)   tar -zcvf$1.$2 $1 ;;
+                tbz2 | tar.bz2) tar -jcvf$1.$2 $1 ;;
+                tar.Z)          tar -Zcvf$1.$2 $1 ;;
+                tar)            tar -cvf$1.$2  $1 ;;
+                gz | gzip)      gzip           $1 ;;
+                bz2 | bzip2)    bzip2          $1 ;;
+                *)
+                echo "Error: $2 is not a valid compression type"
+                ;;
+            esac
+        else
+            compress $1 tar.gz
+        fi
     else
-        compress $1 tar.gz
+        echo "File ('$1') does not exist!"
     fi
 }
-
