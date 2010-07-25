@@ -1,0 +1,3 @@
+bman () {
+    gunzip < `man -w $@` | groff -Thtml -man | bcat
+}
