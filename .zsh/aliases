@@ -105,7 +105,10 @@ lsMap[lsx]='sort by extension'
 ls_() { for i in ${(k)lsMap}; printf "%s - %s\n" $i $lsMap[$i] }
 alias ls?=ls_
 
-alias ls='ls -hFG --color=auto --group-directories-first'
+# compatibility check for --group-directories-first
+ls --group-directories-first -d . >/dev/null 2>&1 && gdf=--group-directories-first
+
+alias ls="ls -hFG --color=auto $gdf"
 alias lsa='ls -Al'                 # show hidden files
 alias lsb='ls -flh *(.OL[1,10])'   # display the biggest files
 alias lsc='ls -lcr'                # sort by change time
