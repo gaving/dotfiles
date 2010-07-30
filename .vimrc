@@ -184,6 +184,8 @@ ca eariler earlier
 ca !+ !=
 ca ~? ~/
 
+command! -bang -nargs=* -complete=file E :e <args>
+
 " {{{1 Mappings
 
 " {{{2 General
