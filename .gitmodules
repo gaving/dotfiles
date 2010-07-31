@@ -102,4 +102,4 @@
 	url = git://github.com/gaving/vim-easygrep.git
 [submodule ".vim/bundles/scratch"]
 	path = .vim/bundles/scratch
-	url = http://github.com/duff/vim-scratch.git
+	url = git://github.com/duff/vim-scratch.git
