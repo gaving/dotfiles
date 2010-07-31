@@ -31,13 +31,14 @@ if (( EUID == 0 )); then
     path=($path /sbin /usr/sbin /usr/local/sbin /opt/local/sbin/)
 fi
 
-if [[ "$VENDOR" == "apple" ]]; then
+if [[ -e "/opt/local/bin" ]]; then
     path=(/opt/local/bin $path)
 fi
 
 manpath=(/usr/local/man /usr/share/man)
 manpath=($manpath /usr/man /usr/lib/perl5/man $HOME/local/man)
-if [[ "$VENDOR" == "apple" ]]; then
+
+if [[ -e "/opt/local/share/man" ]]; then
     manpath=($manpath /opt/local/share/man)
 fi
 
@@ -56,32 +57,32 @@ periodic() { rehash }
 # {{{1 options
 
 setopt \
-    all_export              \
-    auto_cd                 \
-    auto_name_dirs          \
-    auto_pushd              \
-    braceccl                \
-    chase_links             \
-    clobber                 \
-    complete_aliases        \
-    correctall              \
-    extended_glob           \
-    hist_ignore_all_dups    \
-    hist_find_no_dups       \
-    hist_save_no_dups       \
-    hist_ignore_space       \
-    hist_reduce_blanks      \
-    ignore_eof              \
-    list_packed             \
-    list_types              \
-    mark_dirs               \
-    no_beep                 \
-    no_hup                  \
-    no_flow_control         \
-    notify                  \
-    path_dirs               \
-    rec_exact               \
-    rm_star_silent          \
+    all_export           \
+    auto_cd              \
+    auto_name_dirs       \
+    auto_pushd           \
+    braceccl             \
+    chase_links          \
+    clobber              \
+    complete_aliases     \
+    correctall           \
+    extended_glob        \
+    hist_ignore_all_dups \
+    hist_find_no_dups    \
+    hist_save_no_dups    \
+    hist_ignore_space    \
+    hist_reduce_blanks   \
+    ignore_eof           \
+    list_packed          \
+    list_types           \
+    mark_dirs            \
+    no_beep              \
+    no_hup               \
+    no_flow_control      \
+    notify               \
+    path_dirs            \
+    rec_exact            \
+    rm_star_silent       \
     share_history
 
 # {{{1 autoload
@@ -94,13 +95,6 @@ autoload -U url-quote-magic && zle -N self-insert url-quote-magic
 autoload -U insert-files && zle -N insert-files && bindkey "^Xf" insert-files
 autoload -U zsh-mime-setup && zsh-mime-setup
 autoload -U edit-command-line && zle -N edit-command-line && bindkey "^Xe" edit-command-line
-autoload -U incremental-complete-word predict-on
-zle -N incremental-complete-word
-zle -N predict-on
-zle -N predict-off
-bindkey '^XI'  incremental-complete-word
-bindkey '^XZ'  predict-on
-bindkey '^X^Z' predict-off
 
 zcalc () { print $(( ans = ${@:-ans} )) }
 alias calc='noglob zcalc'
@@ -135,13 +129,11 @@ bindkey -s '^B' '^Upopd >/dev/null; dirs -v^M'
 zmodload -i zsh/complist
 bindkey -M menuselect '^M' .accept-line # enter on the menu accepts the line
 
-# let ^W delete to slashes - zsh-users list, 4 Nov 2005
-backward-delete-to-slash() {
-    local WORDCHARS=${WORDCHARS//\//}
-    zle .backward-delete-word
-}
-zle -N backward-delete-to-slash
-bindkey "^W" backward-delete-to-slash
+autoload -U backward-kill-word-match
+zle -N backward-kill-word-match
+bindkey '^W' backward-kill-word-match
+zstyle ':zle:*' word-style normal
+zstyle ':zle:*' word-chars ${WORDCHARS//\//}
 
 # put the output of the last command on the command line
 zmodload -i zsh/parameter
