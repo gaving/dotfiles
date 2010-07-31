@@ -1,14 +1,14 @@
 #!/bin/zsh
 # zsh aliases
 
-# general {{{1
+# general
 
 alias :q='exit'
 alias :wq='exit'
 alias a='ack -i'
 alias e='print -l **/*'
 alias h='history'
-# alias j='jobs -l'
+alias g='git'
 alias u='uptime'
 alias v='vim'
 alias x='extract'
@@ -39,16 +39,16 @@ alias trail="tail -n 300 -f"
 alias tree='tree --noreport --dirsfirst -FCshu'
 
 if which htop >/dev/null; then
-    alias top='htop'
+    alias top='htop --sort-key PERCENT_CPU'
 fi
 
-# typos {{{1
+# typos
 
 alias xs='cd'
 alias vf='cd'
 alias cd..='cd ..'
 
-# global {{{1
+# global
 
 alias -g V='| vim'
 alias -g L='| less -REF'
@@ -67,7 +67,7 @@ else
     alias -g X='| xclip'
 fi
 
-# suffix {{{1
+# suffix
 
 alias -s htm=${BROWSER:-lynx}
 alias -s html=${BROWSER:-lynx}
@@ -78,14 +78,14 @@ for c in bz2 gz tar zip tgz; do
     alias -s $c=show-archive
 done
 
-# chmod {{{1
+# chmod
 
 alias rw-='chmod 600'
 alias rwx='chmod 700'
 alias r--='chmod 644'
 alias r-x='chmod 755'
 
-# ls {{{1
+# ls
 
 typeset -A lsMap
 lsMap[lsa]='show hidden'
@@ -124,7 +124,7 @@ alias lst='ls -ltr'                # sort by date
 alias lsu='ls -lur'                # sort by access time
 alias lsx='ls -lXB'                # sort by extension
 
-# du {{{1
+# du
 
 alias du='du -kh'
 alias duh='du -slh'
@@ -134,7 +134,7 @@ alias dum='du -slm'
 alias dug='du -sl --block-size=1G'
 alias duf='du -sk * | sort -n | perl -ne '\''($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'
 
-# df {{{1
+# df
 
 alias df='df -kh'
 alias dfh='df -PTh'
@@ -143,7 +143,7 @@ alias dfk='df -PTk'
 alias dfm='df -PTm'
 alias dfg='df -PT --block-size=1G'
 
-# git {{{1
+# git
 
 alias gb='git branch'
 alias gba='git branch -a'
@@ -156,3 +156,9 @@ alias gp='git push'
 alias gpcd='git push && cap deploy'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias gs='git status'
+alias gsa="git submodule add"
+
+# gpg
+
+alias encrypt='gpg --encrypt-files --default-recipient-self'
+alias decrypt='gpg --decrypt-files'
