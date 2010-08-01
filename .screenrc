@@ -3,7 +3,8 @@
 # {{{1 term
 
 termcapinfo rxvt-unicode 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
-term screen
+# term screen
+term rxvt-256color
 
 # {{{1 options
 
@@ -11,6 +12,7 @@ activity "activity in %n (%t) [%w:%s]~"
 altscreen on
 bell "%C -> %n%f activity!"
 defflow off
+nonblock on
 defscrollback 1000
 defutf8 on
 msgwait 0
@@ -47,6 +49,9 @@ bindkey "[Z" next
 sorendition 04 07
 hardstatus on
 hardstatus alwayslastline "%-Lw%{+r}%50> %n%f %t %{-}%+Lw%< %-= %H | %{= kw}%0c, %d/%m/%y%{-} "
+
+screen -t " zsh" 1 # Spawn 1 before screen spawns 0
+bind c screen 1
 
 # {{{1 custom
 
