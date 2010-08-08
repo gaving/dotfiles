@@ -28,6 +28,7 @@ alias man='nocorrect man'
 alias mirror="noglob wget --mirror --no-parent --recursive --timestamping --continue --recursive"
 alias mkdir='nocorrect mkdir -p'
 alias mmv='noglob zmv -W'
+alias myip='curl http://ifconfig.me/ip'
 alias path='echo -e ${PATH//:/\\n}'
 alias po="popd"
 alias psg="ps aux | grep"
@@ -41,6 +42,19 @@ alias tree='tree --noreport --dirsfirst -FCshu'
 if which htop >/dev/null; then
     alias top='htop --sort-key PERCENT_CPU'
 fi
+
+# Make head/tail output fill screen
+alias head='head -n $((LINES-2))'
+alias tail='tail -n $((LINES-2))'
+
+# zmv
+
+alias zcp='zmv -C'
+alias zln='zmv -L'
+
+# python
+
+alias web='python -m SimpleHTTPServer'
 
 # typos
 

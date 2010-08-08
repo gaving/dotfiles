@@ -1,0 +1,4 @@
+mine() {
+    chown -R ${UID}:${GID} $@
+    chmod -R u=rwX,go=rX $@
+}

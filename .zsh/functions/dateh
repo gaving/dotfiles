@@ -1,0 +1,14 @@
+dateh()
+{
+    # Valid flags:
+    # - Do not pad
+    # _ Pad
+    # 0 Pad with zeros
+    # ^ Use upper case
+    # # Use opposite case
+
+    local f
+    for f in {a-z} {A-Z} :z ::z :::z; do
+        printf "%-5s %s\n" "$f:" "$(date +%$1$f)"
+    done | grep -v '%' | grep -v '[[:space:]]$'
+}

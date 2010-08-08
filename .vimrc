@@ -211,7 +211,7 @@ inoremap <S-Down> <C-o><C-e>
 " {{{2 Normal
 
 noremap <Backspace> <C-y>
-noremap <Return> <C-e>
+" noremap <Return> <C-e>
 noremap <TAB> <C-I><cr>
 noremap <S-TAB> <C-O><cr>
 
@@ -351,7 +351,7 @@ nnoremap <Leader>mf :FufMruFile<CR>
 nnoremap <Leader>l :FufLine<CR>
 nnoremap <Leader>h :FufHelp<CR>
 nnoremap <Leader>T :FufTag!<CR>
-nnoremap <Leader>s :FufSnippet<CR>
+" nnoremap <Leader>s :FufSnippet<CR>
 
 let g:fuf_modesDisable = []
 let g:fuf_previewHeight = 0
@@ -437,6 +437,10 @@ let g:loaded_delimitMate = 1
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-P> :call PhpDocSingle()<CR>
 vnoremap <C-P> :call PhpDocRange()<CR>
+
+" {{{2 scratch.vim
+
+nnoremap <Leader>s :Scratch<CR>
 
 " {{{1 Local settings
 

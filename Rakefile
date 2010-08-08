@@ -1,3 +1,8 @@
+require 'rake/clean'
+require 'rake/testtask'
+require 'fileutils'
+require 'date'
+require 'git'
 
 def stop_error(message)
     puts "ERROR: #{message}"
@@ -24,4 +29,28 @@ task :install do
     FileList['.*'].exclude(/^(\.{1,2}|.git)$/).each do |file|
         symlink("#{pwd}/#{file}", "#{home}/#{file}")
     end
+end
+
+desc "Copy to home directory (windows)"
+task :copy do
+    puts "Copying files to home"
+    home = ENV['HOME'] || '~'
+    dir = "#{home}/Dotfiles"
+
+    sh "mv #{dir} #{dir}_bak_#{Date.today.to_s}"
+
+    sh <<-SH
+        rsync \
+        --exclude=.git \
+        --exclude=custom \
+        --exclude=history \
+        --delete \
+        --copy-links \
+        -ruv \
+        . \
+        #{dir}
+    SH
+
+    sh "rsync --delete -ruv #{dir}/.vim/ #{home}/.vim"
+    sh "cp #{dir}/.vimrc #{home}/.vimrc"
 end

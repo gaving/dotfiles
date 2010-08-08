@@ -1,0 +1,5 @@
+dut() # dut == du top (top disk usage offenders)
+{
+    du -sb .* * | sort -nr | head |
+    awk -F'\t' '{print $2}' | xargs du -sh
+}

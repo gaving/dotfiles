@@ -35,6 +35,7 @@ zstyle ':vcs_info:*:prompt:*' formats       "[${FMT_BRANCH}]"            "${FMT_
 zstyle ':vcs_info:*:prompt:*' nvcsformats   ""                             "%~"
 
 function precmd {
+    title zsh "$PWD"
     if [[ $ZSH_VERSION > 4.3.6 ]]; then
         vcs_info 'prompt'
     fi
@@ -59,7 +60,7 @@ function lprompt {
 
 function rprompt {
     local git='$vcs_info_msg_0_'
-    RPROMPT="${PR_RESET}${git}${PR_RESET}"
+    RPROMPT="${PR_BRIGHT_RED}%(?..:()%}${PR_RESET} ${PR_RESET}${git}${PR_RESET} %T"
 }
 
 lprompt $(eval echo \$$(echo PR_BRIGHT_$(echo ${PROMPT_COLOUR:-CYAN}))) $PR_WHITE
