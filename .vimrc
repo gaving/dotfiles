@@ -46,12 +46,7 @@ endif
 " {{{1 Autocmds
 
 augroup vimrcEx
-
-if (has("win32") || has("win64"))
-    autocmd! BufWritePost _vimrc source %
-elseif has('unix')
-    autocmd! BufWritePost .vimrc source %
-endif
+autocmd! BufWritePost .vimrc source %
 
 autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -148,7 +143,7 @@ set tags=tags;/
 set textwidth=79
 set ttyfast
 set viminfo='100,f1
-set wildignore+=*.o,*.r,*.class,*.pyc,*.so,*.sl,*.tar,*.tgz,*.gz,*.dmg,*.zip,*.pdf,CVS/,.svn/,.git/
+set wildignore+=*.o,*.r,*.class,*.pyc,*.so,*.sl,*.tar,*.tgz,*.gz,*.dmg,*.zip,*.pdf,*CVS/*,*.svn/*,*.git/*,*.toc,*.aux,*.dvi,*.log
 set wildmode=full
 set wildmenu
 

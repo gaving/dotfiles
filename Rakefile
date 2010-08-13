@@ -37,7 +37,7 @@ task :copy do
     home = ENV['HOME'] || '~'
     dir = "#{home}/Dotfiles"
 
-    sh "mv #{dir} #{dir}_bak_#{Date.today.to_s}"
+    sh "cp -r #{dir} #{dir}_bak_#{Date.today.to_s}"
 
     sh <<-SH
         rsync \
