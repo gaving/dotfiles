@@ -33,11 +33,7 @@ if has('gui_running')
     if has('spell')
         set spell
         set spelllang=en_gb
-        if has('win32')
-            set spellfile=~/vimfiles/spell/spellfile.add
-        elseif has('unix')
-            set spellfile=~/.vim/spell/spellfile.add
-        endif
+        set spellfile=~/.vim/spell/spellfile.add
         set spellsuggest=best,10
     endif
 
@@ -64,13 +60,8 @@ endif
 
 " {{{1 Platform
 
-if has('win32')
-    set backupdir=$HOME/_vim/tmp
-    set directory=$HOME/_vim/tmp
-elseif has('unix')
-    set backupdir=$HOME/.vim/tmp
-    set directory=$HOME/.vim/tmp
-endif
+set backupdir=$HOME/.vim/tmp
+set directory=$HOME/.vim/tmp
 
 silent! call pathogen#helptags()
 
@@ -78,6 +69,11 @@ if exists('+autochdir')
     set autochdir
 else
     autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
+endif
+
+if has('persistent_undo')
+    set undofile
+    set undodir=$HOME/.vim/tmp
 endif
 
 " {{{1 Settings
@@ -188,12 +184,8 @@ command! -bang -nargs=* -complete=file E :e <args>
 let mapleader = ","
 let maplocalleader = ","
 
-if has('win32')
-    nmap <Leader>v :e $HOME/_vimrc<CR>
-elseif has('unix')
-    nmap <Leader>s :source $HOME/.vimrc<CR>
-    nmap <Leader>v :e $HOME/.vimrc<CR>
-endif
+nmap <Leader>s :source $HOME/.vimrc<CR>
+nmap <Leader>v :e $HOME/.vimrc<CR>
 
 " {{{2 Insert
 
