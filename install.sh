@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DOMAIN=http://brokentrain.net/dotfiles.tar.gz
+DOMAIN=http://gavin.la/dotfiles.tar.gz
 HOME=/tmp/.gavin
 export HOME
 mkdir -p "$HOME" || exit 1
