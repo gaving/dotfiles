@@ -10,12 +10,13 @@
     relativePaths = false
 [core]
     excludesfile = ~/.gitignore
-[alias]
-    export = !git cherry | sed -n 's/^+ //p' | xargs git cvsexportcommit -c -p -v -u -k
-    out = !git log --boundary $(git rev-list --max-count=1 --simplify-by-decoration HEAD^)..
-    github = !open http://github.com/gaving/
-    prettylog = !git log --decorate --stat --graph --pretty=format:'%Cgreen%h%Creset (%ar - %Cred%an%Creset), %s%n'
-    ; ${PWD##*/}/commit/$(git log 2>/dev/null | head -n1 | awk '{print $2}')
-
-[core]
     editor = /usr/bin/vim
+    pager = less -FRSX
+[alias]
+    d = diff
+    dc = diff --cached
+    lc = log ORIG_HEAD.. --stat --no-merges
+    export = !git cherry | sed -n 's/^+ //p' | xargs git cvsexportcommit -c -p -v -u -k
+    hub = !open http://github.com/gaving/
+    out = !git log --boundary $(git rev-list --max-count=1 --simplify-by-decoration HEAD^)..
+    prettylog = !git log --decorate --stat --graph --pretty=format:'%Cgreen%h%Creset (%ar - %Cred%an%Creset), %s%n'
