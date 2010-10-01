@@ -176,6 +176,7 @@ ca !+ !=
 ca ~? ~/
 
 command! -bang -nargs=* -complete=file E :e <args>
+command! -bang -nargs=* -complete=help He :he <args>
 
 " {{{1 Mappings
 
