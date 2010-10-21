@@ -103,3 +103,6 @@
 [submodule ".vim/bundles/scratch"]
 	path = .vim/bundles/scratch
 	url = git://github.com/duff/vim-scratch.git
+[submodule ".vim/bundles/gundo"]
+	path = .vim/bundles/gundo
+	url = http://github.com/sjl/gundo.vim.git
