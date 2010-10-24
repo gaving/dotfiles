@@ -201,8 +201,6 @@ inoremap <S-Down> <C-o><C-e>
 
 noremap <Backspace> <C-y>
 " noremap <Return> <C-e>
-noremap <TAB> <C-I><cr>
-noremap <S-TAB> <C-O><cr>
 
 noremap <silent> g<backspace> <c-o>
 noremap <silent> g<return> <c-i>
@@ -409,13 +407,14 @@ let VCSCommandSplit='vertical'
 
 let g:space_disable_select_mode = 1
 
-" {{{2 sparkup.vim
-
-let g:sparkup=$VIMHOME.'/bundles/sparkup/sparkup.py'
-
 " {{{2 command-t
 
 let g:CommandTMatchWindowAtTop = 1
+
+" {{{2 snipmate
+iunmap `
+ino <silent> ` <c-r>=TriggerSnippet()<cr>
+snor <silent> ` <esc>i<right><c-r>=TriggerSnippet()<cr>
 
 " {{{2 delimitMate
 
