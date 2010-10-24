@@ -412,7 +412,6 @@ let g:space_disable_select_mode = 1
 let g:CommandTMatchWindowAtTop = 1
 
 " {{{2 snipmate
-iunmap `
 ino <silent> ` <c-r>=TriggerSnippet()<cr>
 snor <silent> ` <esc>i<right><c-r>=TriggerSnippet()<cr>
 
