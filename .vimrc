@@ -385,7 +385,7 @@ let NERDMenuMode=0
 autocmd FileType php let b:surround_{char2nr("-")} = "<?php \r ?>"
 autocmd FileType php let b:surround_{char2nr("p")} = "print_r(\r);"
 autocmd FileType php let b:surround_{char2nr("l")} = "error_log(var_export(\r, true));"
-autocmd FileType php let b:surround_{char2nr("e")} = "try { \r } catch(Exception $e) { }"
+autocmd FileType php let b:surround_{char2nr("e")} = "try { \r } catch(Exception $e) { \r }"
 
 " {{{2 changesqlcase.vim
 
