@@ -109,3 +109,9 @@
 [submodule ".vim/bundles/indenttextobj"]
 	path = .vim/bundles/indenttextobj
 	url = http://github.com/michaeljsmith/vim-indent-object.git
+[submodule ".vim/bundles/fuzzyfinder"]
+	path = .vim/bundles/fuzzyfinder
+	url = http://github.com/vim-scripts/FuzzyFinder.git
+[submodule ".vim/bundles/L9"]
+	path = .vim/bundles/L9
+	url = http://github.com/vim-scripts/L9.git
