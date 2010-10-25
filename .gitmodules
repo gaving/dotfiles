@@ -115,3 +115,6 @@
 [submodule ".vim/bundles/L9"]
 	path = .vim/bundles/L9
 	url = http://github.com/vim-scripts/L9.git
+[submodule ".vim/bundles/sqlcase"]
+	path = .vim/bundles/sqlcase
+	url = http://github.com/gaving/vim-sqlcase.git
