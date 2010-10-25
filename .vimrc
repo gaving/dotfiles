@@ -308,6 +308,25 @@ function! LessMode()
 endfunction
 let g:lessmode = 0
 
+if has("gui_mac") || has("gui_macvim") || exists("$SECURITYSESSIONID")
+    command! -bar -nargs=1 OpenURL :!open <args>
+elseif has("gui_win32")
+    command! -bar -nargs=1 OpenURL :!start cmd /cstart /b <args>
+elseif executable("sensible-browser")
+    command! -bar -nargs=1 OpenURL :!sensible-browser <args>
+endif
+
+function! HandleURI()
+    let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
+    echo s:uri
+    if s:uri != ""
+        exe 'OpenURL '.s:uri
+    else
+        echo "No URI found in line."
+    endif
+endfunction
+map <silent> <Leader>o :call HandleURI()<CR>
+
 function! Rename(name, bang)
     let l:curfile = expand("%:p")
     let v:errmsg = ""
