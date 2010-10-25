@@ -270,7 +270,6 @@ noremap <leader>z :%s/\<<c-r><c-w>\>//g<Left><Left>
 noremap <leader>Z :%S/<c-r><c-w>//g<Left><Left>
 vmap <leader>z :<c-u>%s/\<<c-r>*\>/
 
-
 " Fix commas without a following space
 map <leader>x, :%s/,\zs\ze[^\s]/ /gc<cr>
 " Fix ( foo ) to (foo)
@@ -308,6 +307,23 @@ function! LessMode()
   echohl Label | echo "Less mode" onoff | echohl None
 endfunction
 let g:lessmode = 0
+
+function! Rename(name, bang)
+    let l:curfile = expand("%:p")
+    let v:errmsg = ""
+    silent! exe "saveas" . a:bang . " " . a:name
+    if v:errmsg =~# '^$\|^E329'
+        if expand("%:p") !=# l:curfile && filewritable(expand("%:p"))
+            silent exe "bwipe! " . l:curfile
+            if delete(l:curfile)
+                echoerr "Could not delete " . l:curfile
+            endif
+        endif
+    else
+        echoerr v:errmsg
+    endif
+endfunction
+command! -nargs=* -complete=file -bang Rename :call Rename("<args>", "<bang>")
 
 " {{{2 Command
 
