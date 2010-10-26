@@ -75,10 +75,12 @@ alias -g S='| sort'
 alias -g A='&> /dev/null | at'
 alias -g DN='&> /dev/null'
 
-if which pbcopy > /dev/null; then
+if which pbcopy >/dev/null 2>&1 ; then
     alias -g X='| pbcopy'
-else
-    alias -g X='| xclip'
+elif which xsel >/dev/null 2>&1 ; then
+    alias -g X='| xsel --input --clipboard'
+elif which putclip >/dev/null 2>&1 ; then
+    alias -g X='| putclip'
 fi
 
 # suffix
