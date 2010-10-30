@@ -1,0 +1,79 @@
+" .vimperatorrc configuration
+
+" {{{1 Options
+
+set titlestring="Firefox"
+set focuscontent
+set visualbell
+set newtab=all
+set showtabline=1
+set guioptions=
+set wildoptions=auto
+
+set nextpattern+='\bolder\b'
+set previouspattern+='\bnewer\b'
+
+" {{{1 Mappings
+
+let mapleader=","
+
+nnoremap j 5j
+nnoremap k 5k
+nnoremap h H
+nnoremap l L
+nnoremap H 3H
+nnoremap L 3L
+
+nnoremap <silent> <Leader>r :restart<CR>
+nnoremap <silent> <Leader>s :source! ~/.vimperatorrc<CR>
+nnoremap <silent> <Leader>t :set guioptions!=mT<CR>
+
+" {{{2 about:config
+
+set! browser.sessionstore.max_tabs_undo=20
+set! browser.tabs.closeButtons=2
+set! browser.tabs.closeWindowWithLastTab=false
+set! browser.tabs.loadDivertedInBackground=true
+set! browser.urlbar.filter.javascript=false
+set! browser.urlbar.maxRichResults=20
+set! dom.disable_window_move_resize=true
+set! dom.popup_maximum=500
+set! general.autoScroll=false
+set! mousewheel.withnokey.numlines=6
+set! mousewheel.withnokey.sysnumlines=false
+set! ui.key.generalAccessKey=0
+
+autocmd LocationChange .* :js modes.passAllKeys = /gmail\.com/.test(buffer.URL)
+
+" {{{1 Quickmarks
+
+silent qmark d http://richarddawkins.net/
+silent qmark e http://www.netvibes.com/
+silent qmark f http://flickr.com/
+silent qmark g http://www.google.com/
+silent qmark l http://last.fm/user/gaving/
+silent qmark m http://mail.google.com/
+silent qmark n http://news.bbc.co.uk/
+silent qmark o http://www.o2.co.uk/
+silent qmark p http://planet.gnome.org/
+silent qmark r https://www.rbsdigital.com/
+silent qmark s http://stackoverflow.com/
+silent qmark t http://twitter.com/
+silent qmark v http://www.vim.org/scripts/index.php
+silent qmark x http://live.xbox.com/
+silent qmark y http://www.youtube.com/
+
+silent qmark F http://facebook.com/
+silent qmark G http://github.com/gaving/
+silent qmark M http://maps.google.co.uk/
+
+" {{{1 Bookmarks
+
+silent bmark -k imdb http://www.imdb.com/find?s=all&q=%s&x=0&y=0
+silent bmark -k youtube http://www.youtube.com/results?search_type=&search_query=%s&aq=f
+
+" {{{1 Source local config
+
+source! ~/.vimperatorrc.local
+
+" vim: fdm=marker ft=vimperator nospell
