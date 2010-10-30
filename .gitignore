@@ -3,7 +3,7 @@
 .vim/.netrwhist
 .vim/tmp
 .vim/bundles/**/doc/tags
-.vimperatorrc
+.vimperatorrc.local
 .vimrc.local
 .zsh/cache
 .zsh/custom
