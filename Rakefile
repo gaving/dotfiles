@@ -4,21 +4,26 @@ require 'fileutils'
 require 'date'
 require 'git'
 
-def stop_error(message)
-    puts "ERROR: #{message}"
-    exit(1)
+class String
+    def red; colorize(self, "\e[1m\e[31m"); end
+    def green; colorize(self, "\e[1m\e[32m"); end
+    def dark_green; colorize(self, "\e[32m"); end
+    def yellow; colorize(self, "\e[1m\e[33m"); end
+    def blue; colorize(self, "\e[1m\e[34m"); end
+    def dark_blue; colorize(self, "\e[34m"); end
+    def pur; colorize(self, "\e[1m\e[35m"); end
+    def colorize(text, color_code)  "#{color_code}#{text}\e[0m" end
 end
 
 def symlink(target, link)
-    puts "Linking #{link} => #{target}"
+    puts "Linking #{link} => #{target}".green
     if File.symlink?(link)
-        puts " * deleting existing symlink #{link}"
         File.unlink(link)
     elsif File.exist?(link)
-        stop_error("File exists: #{link}")
+        puts "File exists: #{link}".red
+        return
     end
     File.symlink(target, link)
-    puts
 end
 
 desc "Install all dotfiles"
@@ -33,7 +38,7 @@ end
 
 desc "Copy to home directory (windows)"
 task :copy do
-    puts "Copying files to home"
+    puts "Copying files to home".green
     home = ENV['HOME'] || '~'
     dir = "#{home}/Dotfiles"
 
