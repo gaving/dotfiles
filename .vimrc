@@ -424,7 +424,7 @@ autocmd FileType php let b:surround_{char2nr("e")} = "try { \r } catch(Exception
 
 " {{{2 changesqlcase.vim
 
-vmap <silent> <leader>uc :call ChangeSqlCase()<cr>
+vmap <silent> <leader>uc :FixSQLCase<CR>
 
 " {{{2 syntastic.vim
 
