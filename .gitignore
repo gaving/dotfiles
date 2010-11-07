@@ -1,12 +1,11 @@
+*eclim*
 .screen/custom
 .vim/.VimballRecord
 .vim/.netrwhist
-.vim/tmp
 .vim/bundles/**/doc/tags
 .vimperatorrc.local
 .vimrc.local
 .zsh/cache
 .zsh/custom
 .zsh/history*
-*eclim*
 tags
