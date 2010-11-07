@@ -21,8 +21,6 @@ nnoremap j 5j
 nnoremap k 5k
 nnoremap h H
 nnoremap l L
-nnoremap H 3H
-nnoremap L 3L
 
 nnoremap <silent> <Leader>r :restart<CR>
 nnoremap <silent> <Leader>s :source! ~/.vimperatorrc<CR>
