@@ -96,7 +96,7 @@
 	url = http://github.com/ujihisa/camelcasemotion.git
 [submodule ".vim/bundles/easygrep"]
 	path = .vim/bundles/easygrep
-	url = http://github.com/gaving/vim-easygrep.git
+    url = http://github.com/vim-scripts/EasyGrep.git
 [submodule ".vim/bundles/scratch"]
 	path = .vim/bundles/scratch
 	url = http://github.com/duff/vim-scratch.git
