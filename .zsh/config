@@ -162,26 +162,32 @@ zle -N rerun-with-sudo
 bindkey '^Xx' rerun-with-sudo
 
 if which pbpaste > /dev/null; then
+    CLIPBOARD=pbpaste
+elif which getclip > /dev/null; then
+    CLIPBOARD=getclip
+fi
+
+if [ -n "${CLIPBOARD+x}" ]; then
 
     # insert wget with clipbaord content
     paste-clipboard() {
-        LBUFFER="$(pbpaste)"
+        LBUFFER="$($CLIPBOARD)"
     }
     zle -N paste-clipboard
     bindkey "^Xv" paste-clipboard
 
     # insert wget with clipboard content
     wget-clipboard() {
-        URL="$(pbpaste)"
+        URL="$($CLIPBOARD)"
         URL_BASE_NAME=$(basename $URL)
-        LBUFFER="nocorrect wget '$(pbpaste)' -O $URL_BASE_NAME"
+        LBUFFER="nocorrect wget '$($CLIPBOARD)' -O $URL_BASE_NAME"
     }
     zle -N wget-clipboard
     bindkey "^Xw" wget-clipboard
 
     # build git clone command from clipboard
     git-clone-clipboard() {
-        REPO_URL="$(pbpaste)"
+        REPO_URL="$($CLIPBOARD)"
         REPO_BASE_NAME=${$(basename $REPO_URL)%.git}
         LBUFFER="nocorrect git clone $REPO_URL $REPO_BASE_NAME"
     }
