@@ -22,6 +22,8 @@ nnoremap k 5k
 nnoremap h H
 nnoremap l L
 
+nnoremap <silent> gr :tabprevious<CR>
+
 nnoremap <silent> <Leader>r :restart<CR>
 nnoremap <silent> <Leader>s :source! ~/.vimperatorrc<CR>
 nnoremap <silent> <Leader>t :set guioptions!=mT<CR>
