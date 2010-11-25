@@ -8,7 +8,7 @@ set visualbell
 set newtab=all
 set showtabline=1
 set guioptions=
-set wildoptions=auto
+set wildmode=list:full
 
 set nextpattern+='\bolder\b'
 set previouspattern+='\bnewer\b'
@@ -66,6 +66,7 @@ silent qmark y http://www.youtube.com/
 silent qmark F http://facebook.com/
 silent qmark G http://github.com/gaving/
 silent qmark M http://maps.google.co.uk/
+silent qmark W http://wallbase.net/
 
 " {{{1 Bookmarks
 
