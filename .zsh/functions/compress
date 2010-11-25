@@ -8,6 +8,7 @@ compress() {
                 tbz2 | tar.bz2) tar -jcvf$1.$2 $1                  ;;
                 tar.Z)          tar -Zcvf$1.$2 $1                  ;;
                 tar)            tar -cvf$1.$2  $1                  ;;
+                zip)            zip -r $1.$2   $1                  ;;
                 gz | gzip)      gzip           $1                  ;;
                 bz2 | bzip2)    bzip2          $1                  ;;
                 gpg)            gpg -e --default-recipient-self $1 ;;
