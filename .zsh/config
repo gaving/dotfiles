@@ -169,7 +169,7 @@ fi
 
 if [ -n "${CLIPBOARD+x}" ]; then
 
-    # insert wget with clipbaord content
+    # insert wget with clipboard content
     paste-clipboard() {
         LBUFFER="$($CLIPBOARD)"
     }
@@ -193,6 +193,13 @@ if [ -n "${CLIPBOARD+x}" ]; then
     }
     zle -N git-clone-clipboard
     bindkey "^Xg" git-clone-clipboard
+
+    # mplayer youtube url from clipboard
+    youtube-dl-clipboard() {
+        LBUFFER="mplayer \$(noglob youtube-dl -g $($CLIPBOARD))"
+    }
+    zle -N youtube-dl-clipboard
+    bindkey "^Xy" youtube-dl-clipboard
 fi
 
 # git clone suffix
