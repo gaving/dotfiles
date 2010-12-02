@@ -272,7 +272,7 @@ noremap <silent> <Leader>ul :t.\|s/./=/g\|set nohls<cr>
 " Toggle invisibles
 noremap <Leader>i :set list!<CR>
 
-" Delete surrounding bloc
+" Delete surrounding block
 noremap dsb VaImk$%dkV`kj<`kdd
 
 " Start substitution with word under cursor
