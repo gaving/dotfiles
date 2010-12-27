@@ -2,7 +2,6 @@ require 'rake/clean'
 require 'rake/testtask'
 require 'fileutils'
 require 'date'
-require 'git'
 
 class String
     def red; colorize(self, "\e[1m\e[31m"); end
