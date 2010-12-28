@@ -58,9 +58,6 @@
 [submodule ".vim/bundles/ack"]
 	path = .vim/bundles/ack
 	url = http://github.com/mileszs/ack.vim.git
-[submodule ".vim/bundles/vcscommand"]
-	path = .vim/bundles/vcscommand
-	url = http://repo.or.cz/vcscommand.git
 [submodule ".vim/bundles/diffchanges"]
 	path = .vim/bundles/diffchanges
 	url = http://github.com/jmcantrell/vim-diffchanges.git
