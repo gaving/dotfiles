@@ -24,7 +24,7 @@ hi DiffText     guifg=#000000 guibg=#8ee5ee gui=NONE
 hi Directory    guifg=#1e90ff guibg=bg      gui=NONE
 hi ErrorMsg     guifg=#ff6a6a guibg=NONE    gui=bold
 hi FoldColumn   guifg=#68838b guibg=#4B4B4B gui=bold
-hi Folded       guifg=#99aacc guibg=#40403c gui=NONE
+hi Folded       guifg=#406060 guibg=#232c2c gui=NONE
 hi IncSearch    guifg=#ffffff guibg=#ff4500 gui=bold
 hi LineNr       guifg=#686858 guibg=#000000 gui=NONE
 hi MatchParen   guifg=#fff000 guibg=#000000 gui=bold

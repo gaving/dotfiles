@@ -394,9 +394,10 @@ let g:mycolors  = ['hornet', 'paintbox', 'ir_black', 'whitebox', 'darkburn']
 let g:mycolors += ['fruidle', 'pyte', 'rdark', 'darkrobot', 'manuscript']
 let g:mycolors += ['twilight', 'zenburn', 'wombat', 'darkspectrum']
 let g:mycolors += ['jellybeans', 'bclear', 'molokai', 'zmrok', 'mustang']
-let g:mycolors += ['vilight']
+let g:mycolors += ['vilight', 'perfect', 'southwest-fog', 'underwater-mod']
+let g:mycolors += ['mrpink', 'lilypink', 'vydark', 'up', 'sonofobsidian', 'lodestone']
 
-colorscheme hornet
+" colorscheme hornet
 
 nnoremap <Leader>un :call NextColor(1)<CR>
 nnoremap <Leader>up :call NextColor(-1)<CR>
