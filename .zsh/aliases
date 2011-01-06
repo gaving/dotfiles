@@ -36,9 +36,9 @@ alias psg="ps aux | grep"
 alias pu="pushd"
 alias rscp="nocorrect rsync -aP --no-whole-file --inplace"
 alias rsmv="nocorrect rscp --remove-source-files"
-alias sudo="sudo " # allow alias expansion
 alias trail="tail -n 300 -f"
 alias tree='tree --noreport --dirsfirst -FCshu'
+alias sudo='noglob do_sudo '
 
 if which htop >/dev/null; then
     alias top='htop --sort-key PERCENT_CPU'
