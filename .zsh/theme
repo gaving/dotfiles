@@ -60,7 +60,7 @@ function lprompt {
 
 function rprompt {
     local git='$vcs_info_msg_0_'
-    RPROMPT="${PR_BRIGHT_RED}%(?..:()%}${PR_RESET} ${PR_RESET}${git}${PR_RESET} %T"
+    RPROMPT="${PR_BRIGHT_RED}%(?..ツ)%}${PR_RESET} ${PR_RESET}${git}${PR_RESET} %T"
 }
 
 lprompt $(eval echo \$$(echo PR_BRIGHT_$(echo ${PROMPT_COLOUR:-CYAN}))) $PR_WHITE

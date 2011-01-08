@@ -176,6 +176,7 @@ ca eariler earlier
 ca !+ !=
 ca ~? ~/
 
+command! -bang -nargs=* -complete=file W :w <args>
 command! -bang -nargs=* -complete=file E :e <args>
 command! -bang -nargs=* -complete=help He :he <args>
 command! -bang -nargs=* Retab :retab <args>
