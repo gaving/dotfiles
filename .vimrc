@@ -404,6 +404,10 @@ nnoremap <Leader>un :call NextColor(1)<CR>
 nnoremap <Leader>up :call NextColor(-1)<CR>
 nnoremap <Leader>ur :call NextColor(0)<CR>
 
+" {{{2 Ack.vim
+
+nnoremap <Leader>a :Ack<space>
+
 " {{{2 camelcasemotion.vim
 
 " Watch this! Could be troublesome.
@@ -475,6 +479,10 @@ vnoremap <C-P> :call PhpDocRange()<CR>
 " {{{2 scratch.vim
 
 nnoremap <Leader>s :Scratch<CR>
+
+" {{{2 markdown-preview
+
+nnoremap <Leader>m :Mm<CR>
 
 " {{{1 Local settings
 

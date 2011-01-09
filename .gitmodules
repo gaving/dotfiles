@@ -115,3 +115,6 @@
 [submodule ".vim/bundles/easygrep"]
 	path = .vim/bundles/easygrep
 	url = https://github.com/vim-scripts/EasyGrep.git
+[submodule ".vim/bundles/markdown-preview"]
+	path = .vim/bundles/markdown-preview
+	url = https://github.com/robgleeson/vim-markdown-preview.git
