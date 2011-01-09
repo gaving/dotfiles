@@ -10,3 +10,4 @@
 .zsh/history*
 tags
 .DS_Store
+.gitconfig
