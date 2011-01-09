@@ -1,0 +1,3 @@
+buildgif() {
+    convert -verbose -delay 15 -loop 0 -resize 500 -layers OptimizeTransparency $* animated.gif
+}
