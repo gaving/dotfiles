@@ -22,8 +22,9 @@ for c in alias expr find wget which; do
 done
 
 alias egrep='egrep -I --color=auto'
-alias grep='grep -I --color=auto'
 alias gack='nocorrect noglob ack --pager=cat -g'
+alias grep='grep -I --color=auto'
+alias stats="last | sed 's/ .*//' | sort | uniq -c | sort -n -r"
 alias less='less -iM'
 alias man='nocorrect man'
 alias mirror="noglob wget --mirror --no-parent --recursive --timestamping --continue --recursive"
@@ -36,9 +37,9 @@ alias psg="ps aux | grep"
 alias pu="pushd"
 alias rscp="nocorrect rsync -aP --no-whole-file --inplace"
 alias rsmv="nocorrect rscp --remove-source-files"
+alias sudo='noglob do_sudo '
 alias trail="tail -n 300 -f"
 alias tree='tree --noreport --dirsfirst -FCshu'
-alias sudo='noglob do_sudo '
 
 if which htop >/dev/null; then
     alias top='htop --sort-key PERCENT_CPU'
@@ -71,10 +72,13 @@ alias -g M='| more'
 alias -g H='| head'
 alias -g T='| tail'
 alias -g G='| grep'
+alias -g GI='| grep -i'
 alias -g C='| wc -l'
 alias -g S='| sort'
 alias -g A='&> /dev/null | at'
+alias -g CO='./configure --prefix=$HOME/local && make && sudo make install'
 alias -g DN='&> /dev/null'
+alias -g HE='2>>( sed -ue "s/.*/$fg_bold[red]&$reset_color/" 1>&2 )' # Highlight Errors
 
 if which pbcopy >/dev/null 2>&1 ; then
     alias -g X='| pbcopy'
