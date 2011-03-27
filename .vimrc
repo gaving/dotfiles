@@ -12,8 +12,6 @@ silent! call pathogen#runtime_prepend_subdirectories($VIMHOME.'/bundles')
 " {{{1 GUI
 
 if has('gui_running')
-
-    " Window size
     set lines=70
     set columns=100
     set guioptions=cM
@@ -28,6 +26,7 @@ if has('gui_running')
         set guifont=Consolas:h10:cDEFAULT
     elseif has("gui_macvim")
         set guifont=Monaco:h12.00
+        map <D-t> :CommandT<CR>
     endif
 
     if has('spell')
@@ -36,7 +35,6 @@ if has('gui_running')
         set spellfile=~/.vim/spell/spellfile.add
         set spellsuggest=best,10
     endif
-
 endif
 
 " {{{1 Autocmds
@@ -194,15 +192,13 @@ nmap <Leader>v :e $HOME/.vimrc<CR>
 " {{{2 Insert
 
 inoremap jj <Esc>
-inoremap <C-Space> <C-X><C-O>
-inoremap <S-Return> <Esc>A;<Esc>o
 inoremap <S-Up> <C-o><C-y>
 inoremap <S-Down> <C-o><C-e>
 
 " {{{2 Normal
 
 noremap <Backspace> <C-y>
-" noremap <Return> <C-e>
+noremap <Return> <C-e>
 
 noremap <silent> g<backspace> <c-o>
 noremap <silent> g<return> <c-i>
@@ -376,14 +372,14 @@ nnoremap <silent> <F9> :call LessMode()<CR>
 
 " {{{2 fuf.vim
 
-nnoremap <Leader>q :FufQuickfix<CR>
-nnoremap <Leader>b :FufBuffer<CR>
-nnoremap <Leader>f :FufFile<CR>
-nnoremap <Leader>mc :FufMruCmd<CR>
-nnoremap <Leader>mf :FufMruFile<CR>
-nnoremap <Leader>l :FufLine<CR>
-nnoremap <Leader>h :FufHelp<CR>
-nnoremap <Leader>T :FufTag!<CR>
+nmap <Leader>q :FufQuickfix<CR>
+nmap <Leader>b :FufBuffer<CR>
+nmap <Leader>f :FufFile<CR>
+nmap <Leader>mc :FufMruCmd<CR>
+nmap <Leader>mf :FufMruFile<CR>
+nmap <Leader>l :FufLine<CR>
+nmap <Leader>h :FufHelp<CR>
+nmap <Leader>T :FufTag!<CR>
 " nnoremap <Leader>s :FufSnippet<CR>
 
 let g:fuf_modesDisable = []
@@ -430,13 +426,6 @@ let NERDTreeIgnore=['CVS']
 let g:NERDSpaceDelims=1
 let NERDMenuMode=0
 
-" {{{2 surround.vim
-
-autocmd FileType php let b:surround_{char2nr("-")} = "<?php \r ?>"
-autocmd FileType php let b:surround_{char2nr("p")} = "print_r(\r);"
-autocmd FileType php let b:surround_{char2nr("l")} = "error_log(var_export(\r, true));"
-autocmd FileType php let b:surround_{char2nr("e")} = "try { \r } catch(Exception $e) { \r }"
-
 " {{{2 changesqlcase.vim
 
 vmap <silent> <leader>uc :FixSQLCase<CR>
@@ -458,10 +447,6 @@ let VCSCommandSplit='vertical'
 
 let g:space_disable_select_mode = 1
 
-" {{{2 command-t
-
-let g:CommandTMatchWindowAtTop = 1
-
 " {{{2 snipmate
 ino <silent> ` <c-r>=TriggerSnippet()<cr>
 snor <silent> ` <esc>i<right><c-r>=TriggerSnippet()<cr>
@@ -479,10 +464,6 @@ vnoremap <C-P> :call PhpDocRange()<CR>
 " {{{2 scratch.vim
 
 nnoremap <Leader>s :Scratch<CR>
-
-" {{{2 markdown-preview
-
-nnoremap <Leader>m :Mm<CR>
 
 " {{{1 Local settings
 
