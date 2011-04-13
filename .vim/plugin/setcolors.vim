@@ -1,8 +1,8 @@
-" Change the color scheme from a list of color scheme names.
+" Change the color scheme from a list of color
+" sch/Volumes/WD/Sandbox/upstream/server.js
 " Version 2008-11-02 from http://vim.wikia.com/wiki/VimTip341
 " Set the list of color schemes used by the above (default is 'all'):
 "   :SetColors all              (all $VIMRUNTIME/colors/*.vim)
-"   :SetColors custom               (names built into script)
 "   :SetColors blue slate ron   (these schemes)
 "   :SetColors                  (display current scheme names)
 if v:version < 700 || exists('loaded_setcolors') || &cp
@@ -24,15 +24,6 @@ function! s:SetColors(args)
     elseif a:args == 'all'
         let paths = split(globpath(&runtimepath, 'colors/*.vim'), "\n")
         let s:mycolors = map(paths, 'fnamemodify(v:val, ":t:r")')
-    elseif a:args == 'custom'
-        echo 'List of colors set from built-in names'
-        if !exists('g:colors_name')
-            let c1 = 'default elflord peachpuff desert256 breeze morning'
-            let c2 = 'darkblue gothic aqua earth black_angus relaxedgreen'
-            let c3 = 'darkblack freya motus impact less chocolateliquor'
-            let g:mycolors = split(c1.' '.c2.' '.c3)
-        endif
-        let s:mycolors = g:mycolors
     else
         let s:mycolors = split(a:args)
         "echo 'List of colors set from argument (space-separated names)'
@@ -45,7 +36,7 @@ command! -nargs=* SetColors call <SID>SetColors('<args>')
 " Global (no 's:') so can easily call from command line.
 function! NextColor(how)
     if len(s:mycolors) == 0
-        call s:SetColors('custom')
+        call s:SetColors('all')
     endif
     if exists('g:colors_name')
         let current = index(s:mycolors, g:colors_name)
@@ -75,5 +66,7 @@ function! NextColor(how)
     if len(missing) > 0
         echo 'Error: colorscheme not found:' join(missing)
     endif
-    echo g:colors_name
+    if exists('g:colors_name')
+        echo g:colors_name
+    endif
 endfunction
