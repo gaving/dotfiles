@@ -127,3 +127,6 @@
 [submodule ".vim/bundles/increment"]
 	path = .vim/bundles/increment
 	url = https://github.com/vim-scripts/increment.vim--Natter.git
+[submodule ".vim/bundles/tabular"]
+	path = .vim/bundles/tabular
+	url = https://github.com/godlygeek/tabular.git
