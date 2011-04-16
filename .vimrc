@@ -16,11 +16,7 @@ if has('gui_running')
     set columns=100
     set guioptions=cM
     set guicursor=a:blinkon0
-
-    " Use cursor row highlighting
-    if v:version >= 700
-        set cursorline
-    end
+    set cursorline
 
     if has("gui_win32")
         set guifont=Consolas:h10:cDEFAULT
@@ -293,64 +289,6 @@ map <leader>xr :%s/\r//gc<cr>
 
 "-vmap P p :call setreg('"', getreg('0')) <CR>
 
-" Less mode
-function! LessMode()
-  if g:lessmode == 0
-    let g:lessmode = 1
-    let onoff = 'on'
-    noremap <script> d <C-D>
-    noremap <script> j <C-E>
-    noremap <script> u <C-U>
-    noremap <script> k <C-Y>
-    noremap <Space> <C-f>
-  else
-    let g:lessmode = 0
-    let onoff = 'off'
-    unmap d
-    unmap j
-    unmap u
-    unmap k
-  endif
-  echohl Label | echo "Less mode" onoff | echohl None
-endfunction
-let g:lessmode = 0
-
-if has("gui_mac") || has("gui_macvim") || exists("$SECURITYSESSIONID")
-    command! -bar -nargs=1 OpenURL :!open <args>
-elseif has("gui_win32")
-    command! -bar -nargs=1 OpenURL :!start cmd /cstart /b <args>
-elseif executable("sensible-browser")
-    command! -bar -nargs=1 OpenURL :!sensible-browser <args>
-endif
-
-function! HandleURI()
-    let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
-    echo s:uri
-    if s:uri != ""
-        exe 'OpenURL '.s:uri
-    else
-        echo "No URI found in line."
-    endif
-endfunction
-map <silent> <Leader>o :call HandleURI()<CR>
-
-function! Rename(name, bang)
-    let l:curfile = expand("%:p")
-    let v:errmsg = ""
-    silent! exe "saveas" . a:bang . " " . a:name
-    if v:errmsg =~# '^$\|^E329'
-        if expand("%:p") !=# l:curfile && filewritable(expand("%:p"))
-            silent exe "bwipe! " . l:curfile
-            if delete(l:curfile)
-                echoerr "Could not delete " . l:curfile
-            endif
-        endif
-    else
-        echoerr v:errmsg
-    endif
-endfunction
-command! -nargs=* -complete=file -bang Rename :call Rename("<args>", "<bang>")
-
 " {{{2 Command
 
 cnoremap <C-A> <Home>
@@ -366,7 +304,7 @@ nnoremap <silent> <F5> :set paste!<bar>set paste?<CR>
 nnoremap <silent> <F6> :set wrap!<bar>set wrap?<CR>
 nnoremap <silent> <F7> :/\<\(\w\+\)\s\+\1\><CR>
 nnoremap <silent> <F8> :NERDTreeToggle<CR>
-nnoremap <silent> <F9> :call LessMode()<CR>
+nnoremap <silent> <F9> :LessModeToggle<CR>
 
 " {{{1 Plugins
 
@@ -380,7 +318,6 @@ nmap <Leader>mf :FufMruFile<CR>
 nmap <Leader>l :FufLine<CR>
 nmap <Leader>h :FufHelp<CR>
 nmap <Leader>T :FufTag!<CR>
-" nnoremap <Leader>s :FufSnippet<CR>
 
 let g:fuf_modesDisable = []
 let g:fuf_previewHeight = 0
@@ -397,7 +334,6 @@ nnoremap <Leader>a :Ack<space>
 
 " {{{2 camelcasemotion.vim
 
-" Watch this! Could be troublesome.
 nmap <silent> w <Plug>CamelCaseMotion_w
 nmap <silent> b <Plug>CamelCaseMotion_b
 nmap <silent> e <Plug>CamelCaseMotion_e
@@ -426,10 +362,6 @@ vmap <silent> <leader>uc :FixSQLCase<CR>
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 
-" {{{2 Align
-
-let g:DrChipTopLvlMenu=""
-
 " {{{2 vcscommand.vim
 
 let VCSCommandSplit='vertical'
@@ -455,6 +387,13 @@ vnoremap <C-P> :call PhpDocRange()<CR>
 " {{{2 scratch.vim
 
 nnoremap <Leader>s :Scratch<CR>
+
+" {{{2 easymotion.vim
+
+let g:EasyMotion_leader_key = '<Leader>,'
+
+" {{{2 misc.vim
+map <silent> <Leader>o :call HandleURI()<CR>
 
 " {{{1 Local settings
 
