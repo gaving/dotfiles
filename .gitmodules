@@ -1,15 +1,9 @@
 [submodule ".vim/bundles/abolish"]
 	path = .vim/bundles/abolish
 	url = http://github.com/tpope/vim-abolish.git
-[submodule ".vim/bundles/afterimage"]
-	path = .vim/bundles/afterimage
-	url = http://github.com/tpope/vim-afterimage.git
 [submodule ".vim/bundles/fugitive"]
 	path = .vim/bundles/fugitive
 	url = http://github.com/tpope/vim-fugitive.git
-[submodule ".vim/bundles/gist"]
-	path = .vim/bundles/gist
-	url = http://github.com/mattn/gist-vim.git
 [submodule ".vim/bundles/git"]
 	path = .vim/bundles/git
 	url = http://github.com/tpope/vim-git.git
@@ -19,15 +13,9 @@
 [submodule ".vim/bundles/nerdtree"]
 	path = .vim/bundles/nerdtree
 	url = http://github.com/scrooloose/nerdtree.git
-[submodule ".vim/bundles/pastie"]
-	path = .vim/bundles/pastie
-	url = http://github.com/tpope/vim-pastie.git
 [submodule ".vim/bundles/pathogen"]
 	path = .vim/bundles/pathogen
 	url = http://github.com/tpope/vim-pathogen.git
-[submodule ".vim/bundles/pyflakes"]
-	path = .vim/bundles/pyflakes
-	url = http://github.com/kevinw/pyflakes-vim.git
 [submodule ".vim/bundles/ragtag"]
 	path = .vim/bundles/ragtag
 	url = http://github.com/tpope/vim-ragtag.git
@@ -40,9 +28,6 @@
 [submodule ".vim/bundles/surround"]
 	path = .vim/bundles/surround
 	url = http://github.com/tpope/vim-surround.git
-[submodule ".vim/bundles/swapit"]
-	path = .vim/bundles/swapit
-	url = http://github.com/mjbrownie/swapit.git
 [submodule ".vim/bundles/syntastic"]
 	path = .vim/bundles/syntastic
 	url = http://github.com/scrooloose/syntastic.git
@@ -55,21 +40,6 @@
 [submodule ".vim/bundles/markdown"]
 	path = .vim/bundles/markdown
 	url = http://github.com/tpope/vim-markdown.git
-[submodule ".vim/bundles/ack"]
-	path = .vim/bundles/ack
-	url = http://github.com/mileszs/ack.vim.git
-[submodule ".vim/bundles/diffchanges"]
-	path = .vim/bundles/diffchanges
-	url = http://github.com/jmcantrell/vim-diffchanges.git
-[submodule ".vim/bundles/delimitmate"]
-	path = .vim/bundles/delimitmate
-	url = http://github.com/Raimondi/delimitMate.git
-[submodule ".vim/bundles/snipmate"]
-	path = .vim/bundles/snipmate
-	url = http://github.com/gaving/snipmate.vim.git
-[submodule ".vim/bundles/command-t"]
-	path = .vim/bundles/command-t
-	url = http://github.com/wincent/Command-T.git
 [submodule ".vim/bundles/javascript"]
 	path = .vim/bundles/javascript
 	url = http://github.com/pangloss/vim-javascript.git
@@ -121,9 +91,6 @@
 [submodule ".vim/bundles/vim-easymotion"]
 	path = .vim/bundles/vim-easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
-[submodule ".vim/bundles/increment"]
-	path = .vim/bundles/increment
-	url = https://github.com/vim-scripts/increment.vim--Natter.git
 [submodule ".vim/bundles/tabular"]
 	path = .vim/bundles/tabular
 	url = https://github.com/godlygeek/tabular.git

@@ -328,10 +328,6 @@ nnoremap <Leader>un :call NextColor(1)<CR>
 nnoremap <Leader>up :call NextColor(-1)<CR>
 nnoremap <Leader>ur :call NextColor(0)<CR>
 
-" {{{2 Ack.vim
-
-nnoremap <Leader>a :Ack<space>
-
 " {{{2 camelcasemotion.vim
 
 nmap <silent> w <Plug>CamelCaseMotion_w
@@ -369,14 +365,6 @@ let VCSCommandSplit='vertical'
 " {{{2 space.vim
 
 let g:space_disable_select_mode = 1
-
-" {{{2 snipmate
-ino <silent> ` <c-r>=TriggerSnippet()<cr>
-snor <silent> ` <esc>i<right><c-r>=TriggerSnippet()<cr>
-
-" {{{2 delimitMate
-
-let g:loaded_delimitMate = 1
 
 " {{{2 php-doc
 
