@@ -8,6 +8,6 @@
 .zsh/cache
 .zsh/custom
 .zsh/history*
-tags
+tags*
 .DS_Store
 .gitconfig
