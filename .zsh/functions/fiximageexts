@@ -1,0 +1,7 @@
+fiximageexts()
+{
+    zmv '(*).(#i)(jpeg|jpg)' '$1.jpg'
+    zmv '(*).(#i)(gif)' '$1.gif'
+    zmv '(*).(#i)(png)' '$1.png'
+    zmv '(*).(#i)(bmp)' '$1.bmp'
+}

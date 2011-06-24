@@ -1,0 +1,10 @@
+md5name()
+{
+    if [[ -z $* ]]; then
+        echo "$0: Provide at least one input file, you lemonade head."
+    else
+        for i in $@; do
+            mv $i ${$(md5sum $i)[1]}.${i##*.}
+    done
+        fi
+}
