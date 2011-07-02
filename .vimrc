@@ -37,7 +37,6 @@ endif
 
 augroup vimrcEx
 autocmd! BufWritePost .vimrc source %
-" au FocusLost * :wa
 
 autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
