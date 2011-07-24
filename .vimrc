@@ -342,11 +342,8 @@ vmap <silent> ie <Plug>CamelCaseMotion_ie
 " {{{2 NERD_tree.vim
 
 let NERDTreeIgnore=['CVS']
-
-" {{{2 NERD_commenter.vim
-
-let g:NERDSpaceDelims=1
-let NERDMenuMode=0
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
 
 " {{{2 changesqlcase.vim
 
