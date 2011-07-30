@@ -193,7 +193,7 @@ inoremap <S-Down> <C-o><C-e>
 " {{{2 Normal
 
 noremap <Backspace> <C-y>
-noremap <Return> <C-e>
+"noremap <CR> <C-e>
 
 noremap <silent> g<backspace> <c-o>
 noremap <silent> g<return> <c-i>
