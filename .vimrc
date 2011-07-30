@@ -345,6 +345,10 @@ let NERDTreeIgnore=['CVS']
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 
+" {{{2 NERD_commenter.vim
+
+let NERDMenuMode=0
+
 " {{{2 changesqlcase.vim
 
 vmap <silent> <leader>uc :FixSQLCase<CR>
