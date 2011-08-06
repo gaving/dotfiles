@@ -64,4 +64,4 @@ function rprompt {
 }
 
 lprompt $(eval echo \$$(echo PR_BRIGHT_$(echo ${PROMPT_COLOUR:-CYAN}))) $PR_WHITE
-rprompt
+#rprompt
