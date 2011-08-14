@@ -339,6 +339,10 @@ vmap <silent> ib <Plug>CamelCaseMotion_ib
 omap <silent> ie <Plug>CamelCaseMotion_ie
 vmap <silent> ie <Plug>CamelCaseMotion_ie
 
+" {{{2 supertab.vim
+
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
 " {{{2 NERD_tree.vim
 
 let NERDTreeIgnore=['CVS']
