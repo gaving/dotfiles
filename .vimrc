@@ -65,6 +65,8 @@ else
     autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 endif
 
+autocmd FileType help wincmd L
+
 if has('persistent_undo')
     set undofile
     set undodir=$HOME/.vim/tmp
@@ -80,7 +82,6 @@ set expandtab
 set foldclose=all
 set foldmethod=marker
 set enc=utf-8
-set history=1000
 set incsearch
 set lazyredraw
 set list
@@ -113,11 +114,14 @@ set scrolloff=3
 set shiftwidth=4
 set shortmess+=I
 set showcmd
+set sidescroll=1
+set sidescrolloff=10
 set smartcase
 set smartindent
 set smarttab
 set softtabstop=4
 set laststatus=2
+set history=1000
 
 if exists('+shellslash')
     set shellslash
@@ -217,6 +221,9 @@ noremap ; :
 noremap , ;
 xno <bs> "_x
 
+
+nnoremap ` <C-^>
+
 " Write changes and delete buffer
 " Similar to ZZ for windows
 noremap <silent> XX :w<bar>bd<cr>
@@ -224,6 +231,10 @@ noremap <silent> XX :w<bar>bd<cr>
 noremap <Leader>w :w<cr>
 noremap <Leader>D :lcd %:p:h<cr>
 noremap <Leader><CR> :noh<CR>
+
+nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
+vnoremap <silent> in( :<C-U>normal! f(vi(<cr>
+onoremap <silent> in( :<C-U>normal! f(vi(<cr>
 
 noremap <C-e> 3<C-e>
 noremap <C-y> 3<C-y>
