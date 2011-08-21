@@ -1,3 +1,0 @@
-folder-hook brokentrain 'my_hdr From: Gavin Gilmour <gavin@brokentrain.net>'
-folder-hook gmail 'my_hdr From: Gavin Gilmour <gavin@brokentrain.net>'
-folder-hook unsorted 'my_hdr From: Gavin Gilmour <gavin@brokentrain.net>'
