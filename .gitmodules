@@ -43,12 +43,6 @@
 [submodule ".vim/bundles/javascript"]
 	path = .vim/bundles/javascript
 	url = http://github.com/pangloss/vim-javascript.git
-[submodule ".vim/bundles/cocoa"]
-	path = .vim/bundles/cocoa
-	url = http://github.com/msanders/cocoa.vim.git
-[submodule ".vim/bundles/space"]
-	path = .vim/bundles/space
-	url = http://github.com/spiiph/vim-space.git
 [submodule ".vim/bundles/supertab"]
 	path = .vim/bundles/supertab
 	url = http://github.com/ervandew/supertab.git
@@ -82,12 +76,6 @@
 [submodule ".vim/bundles/easygrep"]
 	path = .vim/bundles/easygrep
 	url = https://github.com/vim-scripts/EasyGrep.git
-[submodule ".vim/bundles/vim-jade"]
-	path = .vim/bundles/vim-jade
-	url = https://github.com/digitaltoad/vim-jade.git
-[submodule ".vim/bundles/vim-coffee-script"]
-	path = .vim/bundles/vim-coffee-script
-	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule ".vim/bundles/vim-easymotion"]
 	path = .vim/bundles/vim-easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
