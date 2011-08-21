@@ -85,6 +85,3 @@
 [submodule ".vim/bundles/vim-commentary"]
 	path = .vim/bundles/vim-commentary
 	url = http://github.com/tpope/vim-commentary.git
-[submodule ".vim/bundles/snipmate"]
-	path = .vim/bundles/snipmate
-	url = https://github.com/garbas/vim-snipmate.git
