@@ -373,10 +373,6 @@ vmap <silent> <leader>uc :FixSQLCase<CR>
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 
-" {{{2 space.vim
-
-let g:space_disable_select_mode = 1
-
 " {{{2 php-doc
 
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
