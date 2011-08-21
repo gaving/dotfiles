@@ -85,3 +85,6 @@
 [submodule ".vim/bundles/vim-commentary"]
 	path = .vim/bundles/vim-commentary
 	url = http://github.com/tpope/vim-commentary.git
+[submodule ".vim/bundles/commandt"]
+	path = .vim/bundles/commandt
+	url = https://github.com/wincent/Command-T.git
