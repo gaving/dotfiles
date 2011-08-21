@@ -212,7 +212,7 @@ noremap <silent> g<space> :b#<cr>
 noremap <silent> <leader>gd gd
 noremap <silent> <leader>gD gD
 
-" noremap <Space> <C-f>
+noremap <Space> <C-f>
 noremap gp `[v`]
 noremap <C-d> "_dd
 noremap Y y$
