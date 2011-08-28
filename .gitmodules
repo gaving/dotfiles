@@ -88,3 +88,6 @@
 [submodule ".vim/bundles/commandt"]
 	path = .vim/bundles/commandt
 	url = https://github.com/wincent/Command-T.git
+[submodule ".vim/bundles/ultisnips"]
+	path = .vim/bundles/ultisnips
+	url = https://github.com/rygwdn/ultisnips.git
