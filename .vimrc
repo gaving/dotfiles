@@ -37,12 +37,6 @@ endif
 
 augroup vimrcEx
 autocmd! BufWritePost .vimrc source %
-
-autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-
 augroup END
 
 filetype indent on
