@@ -1,6 +1,4 @@
-
-# Print out current calendar with highlighted day
-calendar() {
+cal() {
     if [[ ! -f /usr/bin/cal ]] ; then
         echo "Please install cal before trying to use it!"
         return
@@ -12,6 +10,3 @@ calendar() {
         /usr/bin/cal $@ | egrep -C 40 --color "\<($(date +%B)|$(date +%e | tr -d ' '))\>"
     fi
 }
-
-alias cal=calendar
-
