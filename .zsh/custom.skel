@@ -10,6 +10,8 @@ export LESSCHARSET="UTF-8"
 export TERM=rxvt
 export PROMPT_COLOUR='GREEN' # RED GREEN YELLOW WHITE BLACK CYAN
 
+# path=($path /usr/local/Cellar/ruby/1.9.3-p0/bin/)
+
 # {{{1 aliases
 
 alias scp='scp -r'

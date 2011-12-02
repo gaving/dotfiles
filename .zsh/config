@@ -24,8 +24,7 @@ fi
 
 # {{{1 paths
 
-path=($HOME/local/bin/ /bin /usr/bin $path)
-path=($path /usr/local/bin)
+path=($HOME/local/bin/ /bin /usr/local/bin /usr/bin $path)
 
 if (( EUID == 0 )); then
     path=($path /sbin /usr/sbin /usr/local/sbin /opt/local/sbin/)
@@ -34,6 +33,8 @@ fi
 if [[ -e "/opt/local/bin" ]]; then
     path=(/opt/local/bin $path)
 fi
+
+typeset -U path
 
 manpath=(/usr/local/man /usr/share/man)
 manpath=($manpath /usr/man /usr/lib/perl5/man $HOME/local/man)

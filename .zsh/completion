@@ -18,6 +18,7 @@ _listfiles() {
     return $ret
 }
 
+zstyle ":completion:*:commands" rehash 1
 zstyle '*' single-ignored show
 zstyle ':completion:*' _force_rehash
 zstyle ':completion:*' completer _complete _prefix _correct _prefix _match _approximate
