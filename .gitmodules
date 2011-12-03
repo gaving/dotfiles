@@ -91,3 +91,6 @@
 [submodule ".vim/bundles/ultisnips"]
 	path = .vim/bundles/ultisnips
 	url = https://github.com/rygwdn/ultisnips.git
+[submodule ".vim/bundles/vim-coffee-script"]
+	path = .vim/bundles/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
