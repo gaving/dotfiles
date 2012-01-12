@@ -97,3 +97,6 @@
 [submodule ".vim/bundles/hammer"]
 	path = .vim/bundles/hammer
 	url = https://github.com/robgleeson/hammer.vim.git
+[submodule ".vim/bundles/vim-powerline"]
+	path = .vim/bundles/vim-powerline
+	url = https://github.com/Lokaltog/vim-powerline
