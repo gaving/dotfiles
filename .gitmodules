@@ -64,27 +64,15 @@
 [submodule ".vim/bundles/indenttextobj"]
 	path = .vim/bundles/indenttextobj
 	url = http://github.com/michaeljsmith/vim-indent-object.git
-[submodule ".vim/bundles/fuzzyfinder"]
-	path = .vim/bundles/fuzzyfinder
-	url = http://github.com/vim-scripts/FuzzyFinder.git
-[submodule ".vim/bundles/L9"]
-	path = .vim/bundles/L9
-	url = http://github.com/vim-scripts/L9.git
 [submodule ".vim/bundles/sqlcase"]
 	path = .vim/bundles/sqlcase
 	url = http://github.com/gaving/vim-sqlcase.git
 [submodule ".vim/bundles/easygrep"]
 	path = .vim/bundles/easygrep
 	url = https://github.com/vim-scripts/EasyGrep.git
-[submodule ".vim/bundles/vim-easymotion"]
-	path = .vim/bundles/vim-easymotion
-	url = https://github.com/Lokaltog/vim-easymotion.git
 [submodule ".vim/bundles/tabular"]
 	path = .vim/bundles/tabular
 	url = https://github.com/godlygeek/tabular.git
-[submodule ".vim/bundles/vim-commentary"]
-	path = .vim/bundles/vim-commentary
-	url = http://github.com/tpope/vim-commentary.git
 [submodule ".vim/bundles/commandt"]
 	path = .vim/bundles/commandt
 	url = https://github.com/wincent/Command-T.git
@@ -100,3 +88,6 @@
 [submodule ".vim/bundles/vim-powerline"]
 	path = .vim/bundles/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline
+[submodule ".vim/bundles/ctrlp"]
+	path = .vim/bundles/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git
