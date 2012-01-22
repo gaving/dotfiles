@@ -120,7 +120,7 @@ set tags=tags;/
 set textwidth=79
 set ttyfast
 set viminfo='100,f1
-set wildignore+=*.o,*.r,*.class,*.pyc,*.so,*.sl,*.tar,*.tgz,*.gz,*.dmg,*.zip,*.pdf,*CVS/*,*.svn/*,*.git/*,*.toc,*.aux,*.dvi,*.log
+set wildignore+=*.o,*.r,*.class,*.pyc,*.so,*.sl,*.tar,*.tgz,*.gz,*.dmg,*.zip,*.pdf,*CVS/*,*.svn/*,*.toc,*.aux,*.dvi,*.log
 set wildmode=full
 set wildmenu
 
@@ -166,6 +166,13 @@ noremap <silent> g<space> :b#<cr>
 " Remap old behavior
 noremap <silent> <leader>gd gd
 noremap <silent> <leader>gD gD
+
+" Diff commands
+nnoremap <Leader>du :diffupdate<CR>
+nnoremap <Leader>dg :diffget<CR>
+nnoremap <Leader>dp :diffput<CR>
+nnoremap <Leader>do :diffof<CR>
+nnoremap <Leader>ds :vertical diffsplit <C-r>=expand("%:p:h")<CR>/<C-d>
 
 nnoremap ` <C-^>
 noremap <Space> <C-f>
