@@ -244,10 +244,13 @@ cnoremap w!! %!sudo tee > /dev/null %
 
 " {{{2 ctrlp.vim
 
+let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir']
+
 nmap <Leader>b :CtrlPBuffer<CR>
 nmap <Leader>f :CtrlP<CR>
 nmap <Leader>m :CtrlPMRU<CR>
-nmap <Leader>T :FufTag!<CR>
+
+nmap <Leader>T :CtrlPTag<CR>
 
 " {{{2 setcolors.vim
 
