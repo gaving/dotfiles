@@ -1,93 +1,93 @@
-[submodule ".vim/bundles/abolish"]
-	path = .vim/bundles/abolish
+[submodule ".vim/bundle/abolish"]
+	path = .vim/bundle/abolish
 	url = http://github.com/tpope/vim-abolish.git
-[submodule ".vim/bundles/fugitive"]
-	path = .vim/bundles/fugitive
+[submodule ".vim/bundle/fugitive"]
+	path = .vim/bundle/fugitive
 	url = http://github.com/tpope/vim-fugitive.git
-[submodule ".vim/bundles/git"]
-	path = .vim/bundles/git
+[submodule ".vim/bundle/git"]
+	path = .vim/bundle/git
 	url = http://github.com/tpope/vim-git.git
-[submodule ".vim/bundles/nerdcommenter"]
-	path = .vim/bundles/nerdcommenter
+[submodule ".vim/bundle/nerdcommenter"]
+	path = .vim/bundle/nerdcommenter
 	url = http://github.com/scrooloose/nerdcommenter.git
-[submodule ".vim/bundles/nerdtree"]
-	path = .vim/bundles/nerdtree
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
 	url = http://github.com/scrooloose/nerdtree.git
-[submodule ".vim/bundles/pathogen"]
-	path = .vim/bundles/pathogen
+[submodule ".vim/bundle/pathogen"]
+	path = .vim/bundle/pathogen
 	url = http://github.com/tpope/vim-pathogen.git
-[submodule ".vim/bundles/ragtag"]
-	path = .vim/bundles/ragtag
+[submodule ".vim/bundle/ragtag"]
+	path = .vim/bundle/ragtag
 	url = http://github.com/tpope/vim-ragtag.git
-[submodule ".vim/bundles/repeat"]
-	path = .vim/bundles/repeat
+[submodule ".vim/bundle/repeat"]
+	path = .vim/bundle/repeat
 	url = http://github.com/tpope/vim-repeat.git
-[submodule ".vim/bundles/speeddating"]
-	path = .vim/bundles/speeddating
+[submodule ".vim/bundle/speeddating"]
+	path = .vim/bundle/speeddating
 	url = http://github.com/tpope/vim-speeddating.git
-[submodule ".vim/bundles/surround"]
-	path = .vim/bundles/surround
+[submodule ".vim/bundle/surround"]
+	path = .vim/bundle/surround
 	url = http://github.com/tpope/vim-surround.git
-[submodule ".vim/bundles/syntastic"]
-	path = .vim/bundles/syntastic
+[submodule ".vim/bundle/syntastic"]
+	path = .vim/bundle/syntastic
 	url = http://github.com/scrooloose/syntastic.git
-[submodule ".vim/bundles/unimpaired"]
-	path = .vim/bundles/unimpaired
+[submodule ".vim/bundle/unimpaired"]
+	path = .vim/bundle/unimpaired
 	url = http://github.com/tpope/vim-unimpaired.git
-[submodule ".vim/bundles/endwise"]
-	path = .vim/bundles/endwise
+[submodule ".vim/bundle/endwise"]
+	path = .vim/bundle/endwise
 	url = http://github.com/tpope/vim-endwise.git
-[submodule ".vim/bundles/markdown"]
-	path = .vim/bundles/markdown
+[submodule ".vim/bundle/markdown"]
+	path = .vim/bundle/markdown
 	url = http://github.com/tpope/vim-markdown.git
-[submodule ".vim/bundles/javascript"]
-	path = .vim/bundles/javascript
+[submodule ".vim/bundle/javascript"]
+	path = .vim/bundle/javascript
 	url = http://github.com/pangloss/vim-javascript.git
-[submodule ".vim/bundles/supertab"]
-	path = .vim/bundles/supertab
+[submodule ".vim/bundle/supertab"]
+	path = .vim/bundle/supertab
 	url = http://github.com/ervandew/supertab.git
-[submodule ".vim/bundles/matchit"]
-	path = .vim/bundles/matchit
+[submodule ".vim/bundle/matchit"]
+	path = .vim/bundle/matchit
 	url = http://github.com/tsaleh/vim-matchit.git
-[submodule ".vim/bundles/camelcasemotion"]
-	path = .vim/bundles/camelcasemotion
+[submodule ".vim/bundle/camelcasemotion"]
+	path = .vim/bundle/camelcasemotion
 	url = http://github.com/ujihisa/camelcasemotion.git
-[submodule ".vim/bundles/scratch"]
-	path = .vim/bundles/scratch
+[submodule ".vim/bundle/scratch"]
+	path = .vim/bundle/scratch
 	url = http://github.com/duff/vim-scratch.git
-[submodule ".vim/bundles/gundo"]
-	path = .vim/bundles/gundo
+[submodule ".vim/bundle/gundo"]
+	path = .vim/bundle/gundo
 	url = http://github.com/sjl/gundo.vim.git
-[submodule ".vim/bundles/argtextobj"]
-	path = .vim/bundles/argtextobj
+[submodule ".vim/bundle/argtextobj"]
+	path = .vim/bundle/argtextobj
 	url = http://github.com/vim-scripts/argtextobj.vim.git
-[submodule ".vim/bundles/indenttextobj"]
-	path = .vim/bundles/indenttextobj
+[submodule ".vim/bundle/indenttextobj"]
+	path = .vim/bundle/indenttextobj
 	url = http://github.com/michaeljsmith/vim-indent-object.git
-[submodule ".vim/bundles/sqlcase"]
-	path = .vim/bundles/sqlcase
+[submodule ".vim/bundle/sqlcase"]
+	path = .vim/bundle/sqlcase
 	url = http://github.com/gaving/vim-sqlcase.git
-[submodule ".vim/bundles/easygrep"]
-	path = .vim/bundles/easygrep
+[submodule ".vim/bundle/easygrep"]
+	path = .vim/bundle/easygrep
 	url = https://github.com/vim-scripts/EasyGrep.git
-[submodule ".vim/bundles/tabular"]
-	path = .vim/bundles/tabular
+[submodule ".vim/bundle/tabular"]
+	path = .vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
-[submodule ".vim/bundles/commandt"]
-	path = .vim/bundles/commandt
+[submodule ".vim/bundle/commandt"]
+	path = .vim/bundle/commandt
 	url = https://github.com/wincent/Command-T.git
-[submodule ".vim/bundles/ultisnips"]
-	path = .vim/bundles/ultisnips
+[submodule ".vim/bundle/ultisnips"]
+	path = .vim/bundle/ultisnips
 	url = https://github.com/rygwdn/ultisnips.git
-[submodule ".vim/bundles/vim-coffee-script"]
-	path = .vim/bundles/vim-coffee-script
+[submodule ".vim/bundle/vim-coffee-script"]
+	path = .vim/bundle/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule ".vim/bundles/hammer"]
-	path = .vim/bundles/hammer
+[submodule ".vim/bundle/hammer"]
+	path = .vim/bundle/hammer
 	url = https://github.com/robgleeson/hammer.vim.git
-[submodule ".vim/bundles/vim-powerline"]
-	path = .vim/bundles/vim-powerline
+[submodule ".vim/bundle/vim-powerline"]
+	path = .vim/bundle/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline
-[submodule ".vim/bundles/ctrlp"]
-	path = .vim/bundles/ctrlp
+[submodule ".vim/bundle/ctrlp"]
+	path = .vim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git

@@ -3,9 +3,8 @@ if !has("unix")
   let &rtp = expand('~/.vim').','.&rtp.','.expand('~/.vim/after')
 endif
 
-let $VIMHOME = split(&rtp, ',')[0]
-silent! call pathogen#runtime_prepend_subdirectories($VIMHOME.'/bundles')
-silent! call pathogen#helptags()
+call pathogen#infect()
+call pathogen#helptags()
 
 " {{{1 GUI
 
