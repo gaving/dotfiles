@@ -46,9 +46,6 @@
 [submodule ".vim/bundle/supertab"]
 	path = .vim/bundle/supertab
 	url = http://github.com/ervandew/supertab.git
-[submodule ".vim/bundle/matchit"]
-	path = .vim/bundle/matchit
-	url = http://github.com/tsaleh/vim-matchit.git
 [submodule ".vim/bundle/camelcasemotion"]
 	path = .vim/bundle/camelcasemotion
 	url = http://github.com/ujihisa/camelcasemotion.git
