@@ -12,8 +12,6 @@ call pathogen#helptags()
 " {{{1 GUI
 
 if has('gui_running')
-    set lines=70
-    set columns=100
     set guioptions=cM
     set cursorline
 endif
@@ -81,17 +79,19 @@ else
     set list listchars=tab:>-,trail:.,extends:>,nbsp:_
 endif
 
-set noautoread
-set noerrorbells
+let &sbr = nr2char(8618).' '
 set hidden
+set history=1000
 set icon
 set ignorecase
+set laststatus=2
+set noautoread
+set noerrorbells
 set nojoinspaces
 set novisualbell
 set nowrap
 set nrformats=hex,octal,alpha
 set number
-let &sbr = nr2char(8618).' '
 set scrolljump=5
 set scrolloff=3
 set shiftwidth=4
@@ -103,8 +103,6 @@ set smartcase
 set smartindent
 set smarttab
 set softtabstop=4
-set laststatus=2
-set history=1000
 
 if exists('+shellslash')
     set shellslash
