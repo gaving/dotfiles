@@ -67,9 +67,6 @@
 [submodule ".vim/bundle/tabular"]
 	path = .vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
-[submodule ".vim/bundle/commandt"]
-	path = .vim/bundle/commandt
-	url = https://github.com/wincent/Command-T.git
 [submodule ".vim/bundle/ultisnips"]
 	path = .vim/bundle/ultisnips
 	url = https://github.com/rygwdn/ultisnips.git
