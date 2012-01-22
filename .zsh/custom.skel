@@ -16,8 +16,7 @@ export PROMPT_COLOUR='GREEN' # RED GREEN YELLOW WHITE BLACK CYAN
 
 alias scp='scp -r'
 alias sokar='ssh -C -p 40 gavin@sokar'
-alias rodeo='ssh -C gav@brokentrain.net'
 
 # {{{1 completion
 
-my_accounts=(gav@brokentrain.net gavin@sokar)
+my_accounts=(gavin@sokar)
