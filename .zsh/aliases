@@ -5,7 +5,7 @@
 
 alias :q='exit'
 alias :wq='exit'
-alias a='ack -i'
+alias a='ack -iar'
 alias e='print -l **/*'
 alias h='history'
 alias g='git'
