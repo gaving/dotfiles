@@ -48,7 +48,7 @@
 	url = http://github.com/ervandew/supertab.git
 [submodule ".vim/bundle/camelcasemotion"]
 	path = .vim/bundle/camelcasemotion
-	url = http://github.com/ujihisa/camelcasemotion.git
+	url = http://github.com/vim-scripts/camelcasemotion.git
 [submodule ".vim/bundle/scratch"]
 	path = .vim/bundle/scratch
 	url = http://github.com/duff/vim-scratch.git
