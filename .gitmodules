@@ -82,9 +82,6 @@
 [submodule ".vim/bundle/ctrlp"]
 	path = .vim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule ".vim/bundle/commandt"]
-	path = .vim/bundle/commandt
-	url = https://github.com/wincent/Command-T.git
 [submodule ".vim/bundle/vim-pasta"]
 	path = .vim/bundle/vim-pasta
 	url = https://github.com/sickill/vim-pasta.git
