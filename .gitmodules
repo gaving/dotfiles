@@ -49,9 +49,6 @@
 [submodule ".vim/bundle/camelcasemotion"]
 	path = .vim/bundle/camelcasemotion
 	url = http://github.com/vim-scripts/camelcasemotion.git
-[submodule ".vim/bundle/scratch"]
-	path = .vim/bundle/scratch
-	url = http://github.com/duff/vim-scratch.git
 [submodule ".vim/bundle/gundo"]
 	path = .vim/bundle/gundo
 	url = http://github.com/sjl/gundo.vim.git
