@@ -9,7 +9,10 @@ runtime ftplugin/man.vim
 call pathogen#infect()
 call pathogen#helptags()
 
-" {{{1 GUI
+filetype on
+filetype indent on
+filetype plugin on
+syntax on
 
 if has('gui_running')
     set guioptions=cM
@@ -23,27 +26,9 @@ if has('spell')
     set spellsuggest=best,10
 endif
 
-" {{{1 Autocmds
-
-set nocompatible
-set nomodeline
-
-filetype on
-filetype indent on
-filetype plugin on
-syntax on
-
-" {{{1 Platform
-
 if has('unix')
     set backupdir=$HOME/.vim/tmp
     set directory=$HOME/.vim/tmp
-endif
-
-if exists('+autochdir')
-    set autochdir
-else
-    autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 endif
 
 if has('persistent_undo')
@@ -51,15 +36,18 @@ if has('persistent_undo')
     set undodir=$HOME/.vim/tmp
 endif
 
+autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 autocmd FileType help wincmd L
 
 " {{{1 Settings
+
+set nocompatible
+set nomodeline
 
 set autoindent
 set autowriteall " Watch this!
 set backspace=start,indent,eol
 set clipboard+=unnamed
-set complete=.,w,b,u,t,i
 set expandtab
 set foldclose=all
 set foldmethod=marker
@@ -81,14 +69,11 @@ endif
 
 let &sbr = nr2char(8618).' '
 set hidden
-set history=1000
+set history=5000
 set icon
 set ignorecase
 set laststatus=2
-set noautoread
-set noerrorbells
 set nojoinspaces
-set novisualbell
 set nowrap
 set nrformats=hex,octal,alpha
 set number
@@ -134,12 +119,19 @@ command! -bang -nargs=* Retab :retab <args>
 
 " {{{1 Mappings
 
-" {{{2 General
-
 let mapleader = ","
 let maplocalleader = ","
 
-nmap <Leader>v :e $HOME/.vimrc<CR>
+noremap <Leader>v :e $HOME/.vimrc<CR>
+noremap <Leader>vl :e $HOME/.vimrc.local<CR>
+
+noremap <Leader>w :w<cr>
+noremap <Leader>d :lcd %:p:h<cr>
+noremap <Leader>e :e <C-r>=expand("%:p:h")<CR>/<C-d>
+
+noremap <Leader><CR> :noh<CR>
+nnoremap <silent> <Leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
+noremap <silent> XX :w<bar>bd<cr>
 
 " {{{2 Insert
 
@@ -150,7 +142,6 @@ inoremap <S-Down> <C-o><C-e>
 " {{{2 Normal
 
 noremap <Backspace> <C-y>
-"noremap <CR> <C-e> (breaks quickfix)
 
 noremap <silent> g<backspace> <c-o>
 noremap <silent> g<return> <c-i>
@@ -162,8 +153,8 @@ noremap <silent> gD :bd!<cr>
 noremap <silent> g<space> :b#<cr>
 
 " Remap old behavior
-noremap <silent> <leader>gd gd
-noremap <silent> <leader>gD gD
+noremap <silent> <Leader>gd gd
+noremap <silent> <Leader>gD gD
 
 " Diff commands
 nnoremap <Leader>du :diffupdate<CR>
@@ -183,24 +174,16 @@ noremap ; :
 noremap , ;
 xno <bs> "_x
 
-noremap <silent> XX :w<bar>bd<cr>
-
-noremap <Leader>w :w<cr>
-noremap <Leader>D :lcd %:p:h<cr>
-noremap <Leader><CR> :noh<CR>
-
-nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
-
 noremap <C-e> 3<C-e>
 noremap <C-y> 3<C-y>
 noremap + <C-a>
 noremap - <C-x>
 
 " Window navigation
-nmap <silent> <A-Up> :wincmd k<CR>
-nmap <silent> <A-Down> :wincmd j<CR>
-nmap <silent> <A-Left> :wincmd h<CR>
-nmap <silent> <A-Right> :wincmd l<CR>
+nnoremap <silent> <A-Up> :wincmd k<CR>
+nnoremap <silent> <A-Down> :wincmd j<CR>
+nnoremap <silent> <A-Left> :wincmd h<CR>
+nnoremap <silent> <A-Right> :wincmd l<CR>
 
 " Delete trailing whitespace
 noremap <Leader>dtw :%s/\s\+$//g<CR>:nohls<CR>
@@ -208,38 +191,18 @@ noremap <Leader>dtw :%s/\s\+$//g<CR>:nohls<CR>
 " Delete blank lines
 noremap <Leader>dbl :g/^$/d<CR>:nohls<CR>
 
-" Edit something in the current directory
-noremap <Leader>ed :e <C-r>=expand("%:p:h")<CR>/<C-d>
-
 " Swap two words
 noremap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>``
 
-" Toggle paste
-noremap <silent> <Leader>p :set invpaste<CR>:set paste?<CR>
-
-" Toggle invisibles
+" Toggles
+noremap <silent> <Leader>p :set paste!<CR>:set paste?<CR>
 noremap <silent> <Leader>i :set list!<CR>:set list?<CR>
-
-" Underline the current line with '='
-noremap <silent> <Leader>ul :t.\|s/./=/g\|set nohls<cr>
-
-" Delete surrounding block
-noremap dsb VaImk$%dkV`kj<`kdd
+noremap <silent> <Leader>s :set spell!<CR>:set spell?<CR>
 
 " Start substitution with word under cursor
-noremap <leader>z :%s/\<<c-r><c-w>\>//g<Left><Left>
-noremap <leader>Z :%S/<c-r><c-w>//g<Left><Left>
-vmap <leader>z :<c-u>%s/\<<c-r>*\>/
-
-" Fix ( foo ) to (foo)
-map <leader>x( :%s/(\s\+/(/gc<cr>
-map <leader>x) :%s/\s\+)/)/gc<cr>
-
-" Fix ; with leading spaces
-map <leader>x; :%s/\s\+;/;/gc<cr>
-
-" Fix , with leading spaces
-map <leader>x, :%s/\s\+,/,/gc<cr>
+noremap <Leader>z :%s/\<<c-r><c-w>\>//g<Left><Left>
+noremap <Leader>Z :%S/<c-r><c-w>//g<Left><Left>
+vmap <Leader>z :<c-u>%s/\<<c-r>*\>/
 
 " {{{2 Command
 
@@ -248,16 +211,16 @@ cnoremap <ESC>b <S-Left>
 cnoremap <ESC>f <S-Right>
 cnoremap w!! %!sudo tee > /dev/null %
 
-" {{{1 Plugins
+" {{{1 Extensions
 
 " {{{2 ctrlp.vim
 
 let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'mixed']
 
-nmap <Leader>b :CtrlPBuffer<CR>
-nmap <Leader>f :CtrlP<CR>
-nmap <Leader>m :CtrlPMixed<CR>
-nmap <Leader>t :CtrlPTag<CR>
+nnoremap <Leader>b :CtrlPBuffer<CR>
+nnoremap <Leader>f :CtrlP<CR>
+nnoremap <Leader>m :CtrlPMixed<CR>
+nnoremap <Leader>t :CtrlPTag<CR>
 
 " {{{2 setcolors.vim
 
@@ -267,25 +230,9 @@ nnoremap <Leader>ur :call NextColor(0)<CR>
 
 " {{{2 camelcasemotion.vim
 
-nmap <silent> w <Plug>CamelCaseMotion_w
-nmap <silent> b <Plug>CamelCaseMotion_b
-nmap <silent> e <Plug>CamelCaseMotion_e
-omap <silent> iw <Plug>CamelCaseMotion_iw
-vmap <silent> iw <Plug>CamelCaseMotion_iw
-omap <silent> ib <Plug>CamelCaseMotion_ib
-vmap <silent> ib <Plug>CamelCaseMotion_ib
-omap <silent> ie <Plug>CamelCaseMotion_ie
-vmap <silent> ie <Plug>CamelCaseMotion_ie
-
-" {{{2 supertab.vim
-
-let g:SuperTabDefaultCompletionType = "<c-n>"
-
-" {{{2 NERD_tree.vim
-
-let NERDTreeIgnore=['CVS']
-let NERDTreeMinimalUI=1
-let NERDTreeDirArrows=1
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
 
 " {{{2 NERD_commenter.vim
 
@@ -293,16 +240,7 @@ let NERDMenuMode=0
 
 " {{{2 changesqlcase.vim
 
-vmap <silent> <leader>uc :FixSQLCase<CR>
-
-" {{{2 syntastic.vim
-
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=1
-
-" {{{2 scratch.vim
-
-nnoremap <Leader>s :Scratch<CR>
+vmap <silent> <Leader>uc :FixSQLCase<CR>
 
 " {{{1 Local settings
 
