@@ -122,16 +122,17 @@ command! -bang -nargs=* Retab :retab <args>
 let mapleader = ","
 let maplocalleader = ","
 
-noremap <Leader>v :e $HOME/.vimrc<CR>
-noremap <Leader>vl :e $HOME/.vimrc.local<CR>
+nnoremap <Leader>v :e $HOME/.vimrc<CR>
+nnoremap <Leader>vl :e $HOME/.vimrc.local<CR>
 
-noremap <Leader>w :w<cr>
-noremap <Leader>d :lcd %:p:h<cr>
-noremap <Leader>e :e <C-r>=expand("%:p:h")<CR>/<C-d>
+nnoremap <Leader>w :w<cr>
+nnoremap <Leader>d :lcd %:p:h<cr>
+nnoremap <leader>o <C-w>o
+nnoremap <Leader>E :e <C-r>=expand("%:p:h")<CR>/<C-d>
 
-noremap <Leader><CR> :noh<CR>
+nnoremap <Leader><CR> :noh<CR>
 nnoremap <silent> <Leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
-noremap <silent> XX :w<bar>bd<cr>
+nnoremap <silent> XX :w<bar>bd<cr>
 
 " {{{2 Insert
 
@@ -233,6 +234,9 @@ nnoremap <Leader>ur :call NextColor(0)<CR>
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
 map <silent> e <Plug>CamelCaseMotion_e
+
+" {{{2 syntastic.vim
+nnoremap <leader>e :Errors<CR><C-w>j
 
 " {{{2 NERD_commenter.vim
 
