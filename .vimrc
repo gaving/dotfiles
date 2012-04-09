@@ -235,8 +235,13 @@ map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
 map <silent> e <Plug>CamelCaseMotion_e
 
+" {{{2 ack.vim
+
+nnoremap <Leader>a :Ack
+
 " {{{2 syntastic.vim
-nnoremap <leader>e :Errors<CR><C-w>j
+
+nnoremap <Leader>e :Errors<CR><C-w>j
 
 " {{{2 NERD_commenter.vim
 

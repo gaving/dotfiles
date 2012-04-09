@@ -82,3 +82,6 @@
 [submodule ".vim/bundle/vim-pasta"]
 	path = .vim/bundle/vim-pasta
 	url = https://github.com/sickill/vim-pasta.git
+[submodule ".vim/bundle/ack"]
+	path = .vim/bundle/ack
+	url = https://github.com/mileszs/ack.vim.git
