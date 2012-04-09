@@ -131,7 +131,6 @@ nnoremap <leader>o <C-w>o
 nnoremap <Leader>E :e <C-r>=expand("%:p:h")<CR>/<C-d>
 
 nnoremap <Leader><CR> :noh<CR>
-nnoremap <silent> <Leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 nnoremap <silent> XX :w<bar>bd<cr>
 
 " {{{2 Insert
@@ -223,12 +222,6 @@ nnoremap <Leader>f :CtrlP<CR>
 nnoremap <Leader>m :CtrlPMixed<CR>
 nnoremap <Leader>t :CtrlPTag<CR>
 
-" {{{2 setcolors.vim
-
-nnoremap <Leader>un :call NextColor(1)<CR>
-nnoremap <Leader>up :call NextColor(-1)<CR>
-nnoremap <Leader>ur :call NextColor(0)<CR>
-
 " {{{2 camelcasemotion.vim
 
 map <silent> w <Plug>CamelCaseMotion_w
@@ -238,6 +231,7 @@ map <silent> e <Plug>CamelCaseMotion_e
 " {{{2 ack.vim
 
 nnoremap <Leader>a :Ack
+nnoremap <silent> <Leader>/ :AckFromSearch<CR>
 
 " {{{2 syntastic.vim
 
