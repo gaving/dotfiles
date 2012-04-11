@@ -88,3 +88,6 @@
 [submodule ".vim/bundle/vim-schemery"]
 	path = .vim/bundle/vim-schemery
 	url = https://github.com/gaving/vim-schemery
+[submodule ".vim/bundle/eunuch"]
+	path = .vim/bundle/eunuch
+	url = https://github.com/tpope/vim-eunuch

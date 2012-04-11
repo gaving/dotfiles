@@ -117,23 +117,6 @@ command! -bang -nargs=* -complete=file E :e <args>
 command! -bang -nargs=* -complete=help He :he <args>
 command! -bang -nargs=* Retab :retab <args>
 
-function! Rename(name, bang)
-    let l:curfile = expand("%:p")
-    let v:errmsg = ""
-    silent! exe "saveas" . a:bang . " " . a:name
-    if v:errmsg =~# '^$\|^E329'
-        if expand("%:p") !=# l:curfile && filewritable(expand("%:p"))
-            silent exe "bwipe! " . l:curfile
-            if delete(l:curfile)
-                echoerr "Could not delete " . l:curfile
-            endif
-        endif
-    else
-        echoerr v:errmsg
-    endif
-endfunction
-command! -nargs=* -complete=file -bang Rename :call Rename("<args>", "<bang>")
-
 " {{{1 Mappings
 
 let mapleader = ","
@@ -226,7 +209,6 @@ vmap <Leader>z :<c-u>%s/\<<c-r>*\>/
 cnoremap <C-A> <Home>
 cnoremap <ESC>b <S-Left>
 cnoremap <ESC>f <S-Right>
-cnoremap w!! %!sudo tee > /dev/null %
 
 " {{{1 Extensions
 
