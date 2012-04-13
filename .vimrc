@@ -1,3 +1,5 @@
+set nocompatible
+
 if !has("unix")
   set rtp&
   let &rtp = expand('~/.vim').','.&rtp.','.expand('~/.vim/after')
@@ -10,11 +12,8 @@ call pathogen#infect()
 call pathogen#helptags()
 
 let mapleader = ","
-let maplocalleader = ","
 
-filetype on
-filetype indent on
-filetype plugin on
+filetype plugin indent on
 syntax on
 
 autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
@@ -44,8 +43,6 @@ if has('spell')
     set spellsuggest=best,10
 endif
 
-set nocompatible
-set nomodeline
 set autoindent
 set autowriteall " Watch this!
 set backspace=start,indent,eol
@@ -53,6 +50,7 @@ set clipboard+=unnamed
 set expandtab
 set foldclose=all
 set foldmethod=marker
+set gcr=n:blinkon0
 set enc=utf-8
 set incsearch
 set lazyredraw
@@ -94,7 +92,6 @@ set splitbelow
 set suffixes+=.class,.gz,.zip,.bz2,.tar,.pyc
 set suffixes-=.h
 set timeoutlen=700
-set tags=tags;/
 set textwidth=79
 set ttyfast
 set viminfo='100,f1
@@ -102,21 +99,17 @@ set wildignore+=*.o,*.r,*.class,*.pyc,*.so,*.sl,*.tar,*.tgz,*.gz,*.dmg,*.zip,*.p
 set wildmode=full
 set wildmenu
 
-cabbrev Set set
 cabbrev ~? ~/
+cnoremap <C-A> <Home>
 
 command! -bang -nargs=* -complete=file W :w <args>
 command! -bang -nargs=* -complete=file E :e <args>
 command! -bang -nargs=* -complete=help He :he <args>
-command! -bang -nargs=* Retab :retab <args>
+command! -bang -nargs=* -complete=option Set :set <args>
 
 inoremap jj <Esc>
 inoremap <S-Up> <C-o><C-y>
 inoremap <S-Down> <C-o><C-e>
-
-cnoremap <C-A> <Home>
-cnoremap <ESC>b <S-Left>
-cnoremap <ESC>f <S-Right>
 
 nnoremap ` <C-^>
 noremap Y y$
@@ -129,16 +122,19 @@ noremap <Space> <C-f>
 noremap <C-d> "_dd
 noremap <Backspace> <C-y>
 xno <Backspace> "_x
+nnoremap <silent> XX :w<bar>bd<cr>
 
-nnoremap <Leader>v :e $HOME/.vimrc<CR>
+nnoremap <Leader>v :e $MYVIMRC<CR>
 nnoremap <Leader>V :e $HOME/.vimrc.local<CR>
 nnoremap <Leader>w :w<cr>
 nnoremap <Leader>d :lcd %:p:h<cr>
 nnoremap <Leader>o <C-w>o
 nnoremap <Leader>E :e <C-r>=expand("%:p:h")<CR>/<C-d>
-nnoremap <Leader><CR> :noh<CR>
+nnoremap <Leader>h :set hls!<CR>
 
-nnoremap <silent> XX :w<bar>bd<cr>
+noremap <silent> <Leader>p :set paste!<CR>:set paste?<CR>
+noremap <silent> <Leader>i :set list!<CR>:set list?<CR>
+noremap <silent> <Leader>s :set spell!<CR>:set spell?<CR>
 
 noremap <silent> g<backspace> <c-o>
 noremap <silent> g<return> <c-i>
@@ -168,19 +164,12 @@ noremap <Leader>dtw :%s/\s\+$//g<CR>:nohls<CR>
 noremap <Leader>dbl :g/^$/d<CR>:nohls<CR>
 noremap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>``
 
-noremap <silent> <Leader>p :set paste!<CR>:set paste?<CR>
-noremap <silent> <Leader>i :set list!<CR>:set list?<CR>
-noremap <silent> <Leader>s :set spell!<CR>:set spell?<CR>
-
 nnoremap <Leader>z :%s/\<<c-r><c-w>\>//g<Left><Left>
 nnoremap <Leader>Z :%S/<c-r><c-w>//g<Left><Left>
 vmap <Leader>z :<c-u>%s/\<<c-r>*\>/
 
-" Plugins {{{
-
-let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'mixed']
 nnoremap <Leader>b :CtrlPBuffer<CR>
-nnoremap <Leader>f :CtrlP<CR>
+nnoremap <Leader>f :CtrlPCurFile<CR>
 nnoremap <Leader>m :CtrlPMixed<CR>
 nnoremap <Leader>t :CtrlPTag<CR>
 
@@ -191,7 +180,6 @@ map <silent> e <Plug>CamelCaseMotion_e
 nnoremap <Leader>a :Ack
 nnoremap <silent> <Leader>/ :AckFromSearch<CR>
 nnoremap <Leader>e :Errors<CR><C-w>j
-vmap <silent> <Leader>uc :FixSQLCase<CR>
 
 let NERDMenuMode=0
 
