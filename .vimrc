@@ -166,7 +166,7 @@ noremap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>``
 
 nnoremap <Leader>z :%s/\<<c-r><c-w>\>//g<Left><Left>
 nnoremap <Leader>Z :%S/<c-r><c-w>//g<Left><Left>
-test <Leader>z :<c-u>%s/\<<c-r>*\>/
+nnoremap <Leader>z :<c-u>%s/\<<c-r>*\>/
 
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>f :CtrlPCurFile<CR>
