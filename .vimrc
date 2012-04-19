@@ -166,16 +166,16 @@ noremap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>``
 
 nnoremap <Leader>z :%s/\<<c-r><c-w>\>//g<Left><Left>
 nnoremap <Leader>Z :%S/<c-r><c-w>//g<Left><Left>
-vmap <Leader>z :<c-u>%s/\<<c-r>*\>/
+test <Leader>z :<c-u>%s/\<<c-r>*\>/
 
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>f :CtrlPCurFile<CR>
 nnoremap <Leader>m :CtrlPMixed<CR>
 nnoremap <Leader>t :CtrlPTag<CR>
 
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
+nmap <silent> w <Plug>CamelCaseMotion_w
+nmap <silent> b <Plug>CamelCaseMotion_b
+nmap <silent> e <Plug>CamelCaseMotion_e
 
 nnoremap <Leader>a :Ack
 nnoremap <silent> <Leader>/ :AckFromSearch<CR>
