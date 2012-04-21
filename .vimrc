@@ -112,11 +112,18 @@ inoremap <S-Up> <C-o><C-y>
 inoremap <S-Down> <C-o><C-e>
 
 nnoremap ` <C-^>
+noremap Q gqap
 noremap Y y$
 noremap q: :q
 noremap ; :
 noremap , ;
 noremap gp `[v`]
+nnoremap <silent> H :bp<CR>
+nnoremap <silent> L :bn<CR>
+
+nmap <silent> w <Plug>CamelCaseMotion_w
+nmap <silent> b <Plug>CamelCaseMotion_b
+nmap <silent> e <Plug>CamelCaseMotion_e
 
 noremap <Space> <C-f>
 noremap <C-d> "_dd
@@ -170,16 +177,15 @@ nnoremap <Leader>z :<c-u>%s/\<<c-r>*\>/
 
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>f :CtrlPCurFile<CR>
-nnoremap <Leader>m :CtrlPMixed<CR>
+nnoremap <Leader>m :CtrlPMRUFiles<CR>
+nnoremap <Leader>M :CtrlPMixed<CR>
 nnoremap <Leader>t :CtrlPTag<CR>
-
-nmap <silent> w <Plug>CamelCaseMotion_w
-nmap <silent> b <Plug>CamelCaseMotion_b
-nmap <silent> e <Plug>CamelCaseMotion_e
 
 nnoremap <Leader>a :Ack
 nnoremap <silent> <Leader>/ :AckFromSearch<CR>
 nnoremap <Leader>e :Errors<CR><C-w>j
+
+let g:EasyMotion_leader_key = '<Space>'
 
 let NERDMenuMode=0
 
