@@ -107,7 +107,6 @@ set wildmenu
 cabbrev ~? ~/
 cnoremap <C-A> <Home>
 
-command! -bang -nargs=* -complete=file W :w <args>
 command! -bang -nargs=* -complete=file E :e <args>
 command! -bang -nargs=* -complete=help He :he <args>
 command! -bang -nargs=* -complete=option Set :set <args>
