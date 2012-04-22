@@ -16,7 +16,12 @@ let mapleader = ","
 filetype plugin indent on
 syntax on
 
-autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
+if exists('+autochdir')
+    set autochdir
+else
+    autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
+endif
+
 autocmd FileType help wincmd L
 
 if has('gui_running')
