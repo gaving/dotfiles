@@ -161,6 +161,7 @@ noremap <silent> <Leader>gD gD
 nnoremap <Leader>du :diffupdate<CR>
 nnoremap <Leader>do :diffof<CR>
 nnoremap <Leader>ds :vertical diffsplit <C-r>=expand("%:p:h")<CR>/<C-d>
+nnoremap <Leader>vs :vsplit <C-r>=expand("%:p:h")<CR>/<C-d>
 
 noremap <C-e> 3<C-e>
 noremap <C-y> 3<C-y>
