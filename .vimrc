@@ -153,6 +153,7 @@ noremap <silent> gb :bnext<cr>
 noremap <silent> gB :bprev<cr>
 noremap <silent> gd :bd<cr>
 noremap <silent> gD :bd!<cr>
+noremap <silent> <Leader>da :exec "1," . bufnr('$') . "bd"<cr>
 
 noremap <silent> <Leader>gd gd
 noremap <silent> <Leader>gD gD
@@ -166,10 +167,10 @@ noremap <C-y> 3<C-y>
 noremap + <C-a>
 noremap - <C-x>
 
-nnoremap <silent> <A-Up> :wincmd k<CR>
-nnoremap <silent> <A-Down> :wincmd j<CR>
-nnoremap <silent> <A-Left> :wincmd h<CR>
-nnoremap <silent> <A-Right> :wincmd l<CR>
+nnoremap <silent> <S-Up> :wincmd k<CR>
+nnoremap <silent> <S-Down> :wincmd j<CR>
+nnoremap <silent> <S-Left> :wincmd h<CR>
+nnoremap <silent> <S-Right> :wincmd l<CR>
 
 noremap <Leader>dtw :%s/\s\+$//g<CR>:nohls<CR>
 noremap <Leader>dbl :g/^$/d<CR>:nohls<CR>
