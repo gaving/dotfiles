@@ -155,9 +155,6 @@ noremap <silent> gd :bd<cr>
 noremap <silent> gD :bd!<cr>
 noremap <silent> <Leader>da :exec "1," . bufnr('$') . "bd"<cr>
 
-noremap <silent> <Leader>gd gd
-noremap <silent> <Leader>gD gD
-
 nnoremap <Leader>du :diffupdate<CR>
 nnoremap <Leader>do :diffof<CR>
 nnoremap <Leader>ds :vertical diffsplit <C-r>=expand("%:p:h")<CR>/<C-d>
