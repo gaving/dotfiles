@@ -188,6 +188,7 @@ nnoremap <Leader>t :CtrlPTag<CR>
 nnoremap <Leader>a :Ack
 nnoremap <silent> <Leader>/ :AckFromSearch<CR>
 nnoremap <Leader>e :Errors<CR><C-w>j
+vnoremap <silent> <Leader>y "+y:let @+ = join(map(split(@+, '\n'), 'substitute(v:val, "^\\s\\+", "", "")'), " ")<CR>
 
 let g:EasyMotion_leader_key = '<Space>'
 
