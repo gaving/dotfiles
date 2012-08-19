@@ -178,6 +178,7 @@ nnoremap <Leader>z :%s/\<<c-r><c-w>\>//g<Left><Left>
 nnoremap <Leader>Z :%S/<c-r><c-w>//g<Left><Left>
 nnoremap <Leader>z :<c-u>%s/\<<c-r>*\>/
 
+nnoremap <Leader>q 1z=<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>f :CtrlPCurFile<CR>
 nnoremap <Leader>m :CtrlPMRUFiles<CR>
