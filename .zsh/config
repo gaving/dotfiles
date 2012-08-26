@@ -24,10 +24,10 @@ fi
 
 # {{{1 paths
 
-path=($HOME/local/bin/ /bin /usr/local/bin /usr/bin $path)
+path=($HOME/local/bin /bin /usr/local/bin /usr/bin $path)
 
 if (( EUID == 0 )); then
-    path=($path /sbin /usr/sbin /usr/local/sbin /opt/local/sbin/)
+    path=($path /sbin /usr/sbin /usr/local/sbin /opt/local/sbin)
 fi
 
 if [[ -e "/opt/local/bin" ]]; then
