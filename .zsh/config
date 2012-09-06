@@ -90,6 +90,7 @@ setopt \
 
 autoload -U compinit && compinit
 autoload -U promptinit && promptinit
+autoload -U zargs
 autoload -U zcalc
 autoload -U zmv
 autoload -U url-quote-magic && zle -N self-insert url-quote-magic
