@@ -112,3 +112,9 @@
 [submodule ".vim/bundle/php.vim"]
 	path = .vim/bundle/php.vim
 	url = https://github.com/StanAngeloff/php.vim.git
+[submodule ".vim/bundle/vim-sleuth"]
+	path = .vim/bundle/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth.git
+[submodule ".vim/bundle/vim-rsi"]
+	path = .vim/bundle/vim-rsi
+	url = https://github.com/tpope/vim-rsi.git
