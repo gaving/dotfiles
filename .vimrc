@@ -13,9 +13,6 @@ call pathogen#helptags()
 
 let mapleader = ","
 
-filetype plugin indent on
-syntax on
-
 if exists('+autochdir')
     set autochdir
 else
@@ -48,16 +45,12 @@ if has('spell')
     set spellsuggest=best,10
 endif
 
-set autoindent
 set autowriteall " Watch this!
-set backspace=start,indent,eol
 set clipboard+=unnamed
-set expandtab
 set foldclose=all
 set foldmethod=marker
 set gcr=n:blinkon0
 set enc=utf-8
-set incsearch
 set lazyredraw
 set list
 
@@ -76,22 +69,16 @@ set hidden
 set history=5000
 set icon
 set ignorecase
-set laststatus=2
 set nojoinspaces
 set nowrap
 set nrformats=hex,octal,alpha
 set number
 set scrolljump=5
 set scrolloff=3
-set shiftwidth=4
 set shortmess+=I
-set showcmd
 set sidescroll=1
 set sidescrolloff=10
-set smartcase
 set smartindent
-set smarttab
-set softtabstop=4
 set splitright
 set splitbelow
 set suffixes+=.class,.gz,.zip,.bz2,.tar,.pyc
@@ -102,7 +89,6 @@ set ttyfast
 set viminfo='100,f1
 set wildignore+=*.o,*.r,*.class,*.pyc,*.so,*.sl,*.tar,*.tgz,*.gz,*.dmg,*.zip,*.pdf,*CVS/*,*.svn/*,*.toc,*.aux,*.dvi,*.log
 set wildmode=full
-set wildmenu
 
 cabbrev ~? ~/
 cnoremap <C-A> <Home>
@@ -117,7 +103,6 @@ inoremap <S-Down> <C-o><C-e>
 
 nnoremap ` <C-^>
 noremap Q gqap
-noremap Y y$
 noremap q: :q
 noremap ; :
 noremap , ;
