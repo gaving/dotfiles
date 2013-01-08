@@ -5,7 +5,6 @@ if !has("unix")
   let &rtp = expand('~/.vim').','.&rtp.','.expand('~/.vim/after')
 endif
 
-runtime macros/matchit.vim
 runtime ftplugin/man.vim
 
 call pathogen#infect()
@@ -26,16 +25,8 @@ if has('gui_running')
     set cursorline
 endif
 
-if has('unix')
-    set backupdir=$HOME/.vim/tmp
-    set directory=$HOME/.vim/tmp
-elseif exists('+shellslash')
+if exists('+shellslash')
     set shellslash
-endif
-
-if has('persistent_undo')
-    set undofile
-    set undodir=$HOME/.vim/tmp
 endif
 
 if has('spell')
@@ -53,17 +44,6 @@ set gcr=n:blinkon0
 set enc=utf-8
 set lazyredraw
 set list
-
-if (&termencoding == "utf-8") || has("gui_running")
-    if has("gui_running")
-        set list listchars=tab:»·,trail:·,extends:…,nbsp:‗
-    else
-        set list listchars=tab:»·,trail:·,extends:>,nbsp:_
-    endif
-else
-    set list listchars=tab:>-,trail:.,extends:>,nbsp:_
-endif
-
 let &sbr = nr2char(8618).' '
 set hidden
 set history=5000
@@ -74,10 +54,7 @@ set nowrap
 set nrformats=hex,octal,alpha
 set number
 set scrolljump=5
-set scrolloff=3
 set shortmess+=I
-set sidescroll=1
-set sidescrolloff=10
 set smartindent
 set splitright
 set splitbelow
