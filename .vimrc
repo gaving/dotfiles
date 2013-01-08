@@ -91,7 +91,6 @@ set wildignore+=*.o,*.r,*.class,*.pyc,*.so,*.sl,*.tar,*.tgz,*.gz,*.dmg,*.zip,*.p
 set wildmode=full
 
 cabbrev ~? ~/
-cnoremap <C-A> <Home>
 
 command! -bang -nargs=* -complete=file E :e <args>
 command! -bang -nargs=* -complete=help He :he <args>
