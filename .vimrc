@@ -104,7 +104,6 @@ nnoremap ` <C-^>
 noremap Q gqap
 noremap q: :q
 noremap ; :
-noremap , ;
 noremap gp `[v`]
 nnoremap <silent> H :bp<CR>
 nnoremap <silent> L :bn<CR>
