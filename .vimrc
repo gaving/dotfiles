@@ -95,18 +95,6 @@ noremap <Backspace> <C-y>
 xno <Backspace> "_x
 nnoremap <silent> XX :w<bar>bd<cr>
 
-nnoremap <Leader>v :e $MYVIMRC<CR>
-nnoremap <Leader>V :e $HOME/.vimrc.local<CR>
-nnoremap <Leader>w :w<cr>
-nnoremap <Leader>d :lcd %:p:h<cr>
-nnoremap <Leader>o <C-w>o
-nnoremap <Leader>E :e <C-r>=expand("%:p:h")<CR>/<C-d>
-nnoremap <Leader>h :set hls!<CR>
-
-noremap <silent> <Leader>p :set paste!<CR>:set paste?<CR>
-noremap <silent> <Leader>i :set list!<CR>:set list?<CR>
-noremap <silent> <Leader>s :set spell!<CR>:set spell?<CR>
-
 noremap <silent> g<backspace> <c-o>
 noremap <silent> g<return> <c-i>
 noremap <silent> gb :bnext<cr>
@@ -130,27 +118,37 @@ nnoremap <silent> <S-Down> :wincmd j<CR>
 nnoremap <silent> <S-Left> :wincmd h<CR>
 nnoremap <silent> <S-Right> :wincmd l<CR>
 
-noremap <Leader>dtw :%s/\s\+$//g<CR>:nohls<CR>
-noremap <Leader>dbl :g/^$/d<CR>:nohls<CR>
+nnoremap <Leader>dtw :%s/\s\+$//g<CR>:nohls<CR>
+nnoremap <Leader>dbl :g/^$/d<CR>:nohls<CR>
 
-nnoremap <Leader>z :%s/\<<c-r><c-w>\>//g<Left><Left>
+nnoremap <Leader>/ :AckFromSearch<CR>
+nnoremap <Leader>E :e <C-r>=expand("%:p:h")<CR>/<C-d>
 nnoremap <Leader>Z :%S/<c-r><c-w>//g<Left><Left>
-
+nnoremap <Leader>a :Ack
+nnoremap <Leader>d :lcd %:p:h<cr>
+nnoremap <Leader>e :Errors<CR><C-w>j
+nnoremap <Leader>o <C-w>o
 nnoremap <Leader>q 1z=<CR>
+nnoremap <Leader>v :e $MYVIMRC<CR>
+nnoremap <Leader>V :e $HOME/.vimrc.local<CR>
+nnoremap <Leader>w :w<cr>
+nnoremap <Leader>z :%s/\<<c-r><c-w>\>//g<Left><Left>
+
+nnoremap <Leader>p :set paste!<CR>:set paste?<CR>
+nnoremap <Leader>i :set list!<CR>:set list?<CR>
+nnoremap <Leader>s :set spell!<CR>:set spell?<CR>
+nnoremap <Leader>h :set hls!<CR>:set hls?<CR>
+
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>f :CtrlPCurFile<CR>
 nnoremap <Leader>m :CtrlPMRUFiles<CR>
 nnoremap <Leader>M :CtrlPMixed<CR>
 nnoremap <Leader>t :CtrlPTag<CR>
 
-nnoremap <Leader>a :Ack
-nnoremap <silent> <Leader>/ :AckFromSearch<CR>
-nnoremap <Leader>e :Errors<CR><C-w>j
-vnoremap <silent> <Leader>y "+y:let @+ = join(map(split(@+, '\n'), 'substitute(v:val, "^\\s\\+", "", "")'), " ")<CR>
-vnoremap <silent> <Leader>Y "+y:let @+ = join(map(split(@+, '\n'), 'substitute(v:val, "^\\s\\+\\\|\\s\\+$", "", "g")'), ",")<CR>
+vnoremap <Leader>y "+y:let @+ = join(map(split(@+, '\n'), 'substitute(v:val, "^\\s\\+", "", "")'), " ")<CR>
+vnoremap <Leader>Y "+y:let @+ = join(map(split(@+, '\n'), 'substitute(v:val, "^\\s\\+\\\|\\s\\+$", "", "g")'), ",")<CR>
 
 let g:EasyMotion_leader_key = '<Space>'
-
 let NERDMenuMode=0
 
 if filereadable(expand("~/.vimrc.local"))
