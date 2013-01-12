@@ -107,6 +107,8 @@ nnoremap <Leader>du :diffupdate<CR>
 nnoremap <Leader>do :diffof<CR>
 nnoremap <Leader>ds :vertical diffsplit <C-r>=expand("%:p:h")<CR>/<C-d>
 nnoremap <Leader>vs :vsplit <C-r>=expand("%:p:h")<CR>/<C-d>
+nnoremap <Leader>dtw :%s/\s\+$//g<CR>:nohls<CR>
+nnoremap <Leader>dbl :g/^$/d<CR>:nohls<CR>
 
 noremap <C-e> 3<C-e>
 noremap <C-y> 3<C-y>
@@ -117,9 +119,6 @@ nnoremap <silent> <S-Up> :wincmd k<CR>
 nnoremap <silent> <S-Down> :wincmd j<CR>
 nnoremap <silent> <S-Left> :wincmd h<CR>
 nnoremap <silent> <S-Right> :wincmd l<CR>
-
-nnoremap <Leader>dtw :%s/\s\+$//g<CR>:nohls<CR>
-nnoremap <Leader>dbl :g/^$/d<CR>:nohls<CR>
 
 nnoremap <Leader>/ :AckFromSearch<CR>
 nnoremap <Leader>E :e <C-r>=expand("%:p:h")<CR>/<C-d>
