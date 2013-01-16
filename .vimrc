@@ -82,8 +82,10 @@ noremap Q gqap
 noremap q: :q
 noremap ; :
 noremap gp `[v`]
+
 nnoremap <silent> H :bp<CR>
 nnoremap <silent> L :bn<CR>
+nnoremap <silent> R <Plug>(operator-replace)
 
 nmap <silent> w <Plug>CamelCaseMotion_w
 nmap <silent> b <Plug>CamelCaseMotion_b
@@ -109,6 +111,7 @@ nnoremap <Leader>ds :vertical diffsplit <C-r>=expand("%:p:h")<CR>/<C-d>
 nnoremap <Leader>vs :vsplit <C-r>=expand("%:p:h")<CR>/<C-d>
 nnoremap <Leader>dtw :%s/\s\+$//g<CR>:nohls<CR>
 nnoremap <Leader>dbl :g/^$/d<CR>:nohls<CR>
+nnoremap  <Leader>dsb VaImk$%dkV`kj<`kdd
 
 noremap <C-e> 3<C-e>
 noremap <C-y> 3<C-y>
@@ -123,6 +126,7 @@ nnoremap <silent> <S-Right> :wincmd l<CR>
 nnoremap <Leader>/ :AckFromSearch<CR>
 nnoremap <Leader>E :e <C-r>=expand("%:p:h")<CR>/<C-d>
 nnoremap <Leader>Z :%S/<c-r><c-w>//g<Left><Left>
+nnoremap <Leader>H :Hammer<CR>
 nnoremap <Leader>a :Ack
 nnoremap <Leader>d :lcd %:p:h<cr>
 nnoremap <Leader>e :Errors<CR><C-w>j
