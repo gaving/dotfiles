@@ -46,12 +46,11 @@ set lazyredraw
 set list
 let &sbr = nr2char(8618).' '
 set hidden
-set history=5000
 set icon
 set ignorecase
 set nojoinspaces
 set nowrap
-set nrformats=hex,octal,alpha
+set nrformats+=alpha
 set number
 set scrolljump=5
 set shortmess+=I
