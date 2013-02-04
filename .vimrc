@@ -136,11 +136,6 @@ nnoremap <Leader>V :e $HOME/.vimrc.local<CR>
 nnoremap <Leader>w :w<cr>
 nnoremap <Leader>z :%s/\<<c-r><c-w>\>//g<Left><Left>
 
-nnoremap <Leader>p :set paste!<CR>:set paste?<CR>
-nnoremap <Leader>i :set list!<CR>:set list?<CR>
-nnoremap <Leader>s :set spell!<CR>:set spell?<CR>
-nnoremap <Leader>h :set hls!<CR>:set hls?<CR>
-
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>f :CtrlPCurFile<CR>
 nnoremap <Leader>m :CtrlPMRUFiles<CR>
