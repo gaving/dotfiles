@@ -81,7 +81,6 @@ nnoremap gp `[v`]
 noremap <Backspace> <C-y>
 xnoremap <Backspace> "_x
 
-nnoremap <C-d> "_dd
 nnoremap <silent> XX :w<bar>bd<cr>
 
 nnoremap <silent> g<backspace> <c-o>
@@ -93,18 +92,12 @@ nnoremap <silent> gD :bd!<cr>
 nnoremap <silent> <Leader>da :exec "1," . bufnr('$') . "bd"<cr>
 
 nnoremap <Leader>du :diffupdate<CR>
-nnoremap <Leader>do :diffof<CR>
 nnoremap <Leader>ds :vertical diffsplit <C-r>=expand("%:p:h")<CR>/<C-d>
 nnoremap <Leader>vs :vsplit <C-r>=expand("%:p:h")<CR>/<C-d>
 
 nnoremap <Leader>dtw :%s/\s\+$//g<CR>:nohls<CR>
 nnoremap <Leader>dbl :g/^$/d<CR>:nohls<CR>
 nnoremap <Leader>dsb VaImk$%dkV`kj<`kdd
-
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
-nnoremap + <C-a>
-nnoremap - <C-x>
 
 nnoremap <Leader>E :e <C-r>=expand("%:p:h")<CR>/<C-d>
 nnoremap <Leader>Z :%S/<c-r><c-w>//g<Left><Left>
