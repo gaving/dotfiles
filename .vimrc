@@ -82,10 +82,6 @@ noremap q: :q
 noremap ; :
 noremap gp `[v`]
 
-nnoremap <silent> H :bp<CR>
-nnoremap <silent> L :bn<CR>
-nnoremap <silent> R <Plug>(operator-replace)
-
 nmap <silent> w <Plug>CamelCaseMotion_w
 nmap <silent> b <Plug>CamelCaseMotion_b
 nmap <silent> e <Plug>CamelCaseMotion_e
