@@ -59,7 +59,6 @@ set splitright
 set splitbelow
 set suffixes+=.class,.gz,.zip,.bz2,.tar,.pyc
 set suffixes-=.h
-set timeoutlen=700
 set textwidth=79
 set ttyfast
 set viminfo='100,f1
@@ -77,52 +76,40 @@ inoremap <S-Up> <C-o><C-y>
 inoremap <S-Down> <C-o><C-e>
 
 nnoremap ` <C-^>
-noremap Q gqap
-noremap q: :q
-noremap ; :
-noremap gp `[v`]
+nnoremap Q gqap
+nnoremap q: :q
+nnoremap gp `[v`]
 
-nmap <silent> w <Plug>CamelCaseMotion_w
-nmap <silent> b <Plug>CamelCaseMotion_b
-nmap <silent> e <Plug>CamelCaseMotion_e
-
-noremap <Space> <C-f>
-noremap <C-d> "_dd
 noremap <Backspace> <C-y>
-xno <Backspace> "_x
+xnoremap <Backspace> "_x
+
+nnoremap <C-d> "_dd
 nnoremap <silent> XX :w<bar>bd<cr>
 
-noremap <silent> g<backspace> <c-o>
-noremap <silent> g<return> <c-i>
-noremap <silent> gb :bnext<cr>
-noremap <silent> gB :bprev<cr>
-noremap <silent> gd :bd<cr>
-noremap <silent> gD :bd!<cr>
-noremap <silent> <Leader>da :exec "1," . bufnr('$') . "bd"<cr>
+nnoremap <silent> g<backspace> <c-o>
+nnoremap <silent> g<return> <c-i>
+nnoremap <silent> gb :bnext<cr>
+nnoremap <silent> gB :bprev<cr>
+nnoremap <silent> gd :bd<cr>
+nnoremap <silent> gD :bd!<cr>
+nnoremap <silent> <Leader>da :exec "1," . bufnr('$') . "bd"<cr>
 
 nnoremap <Leader>du :diffupdate<CR>
 nnoremap <Leader>do :diffof<CR>
 nnoremap <Leader>ds :vertical diffsplit <C-r>=expand("%:p:h")<CR>/<C-d>
 nnoremap <Leader>vs :vsplit <C-r>=expand("%:p:h")<CR>/<C-d>
+
 nnoremap <Leader>dtw :%s/\s\+$//g<CR>:nohls<CR>
 nnoremap <Leader>dbl :g/^$/d<CR>:nohls<CR>
-nnoremap  <Leader>dsb VaImk$%dkV`kj<`kdd
+nnoremap <Leader>dsb VaImk$%dkV`kj<`kdd
 
-noremap <C-e> 3<C-e>
-noremap <C-y> 3<C-y>
-noremap + <C-a>
-noremap - <C-x>
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+nnoremap + <C-a>
+nnoremap - <C-x>
 
-nnoremap <silent> <S-Up> :wincmd k<CR>
-nnoremap <silent> <S-Down> :wincmd j<CR>
-nnoremap <silent> <S-Left> :wincmd h<CR>
-nnoremap <silent> <S-Right> :wincmd l<CR>
-
-nnoremap <Leader>/ :AckFromSearch<CR>
 nnoremap <Leader>E :e <C-r>=expand("%:p:h")<CR>/<C-d>
 nnoremap <Leader>Z :%S/<c-r><c-w>//g<Left><Left>
-nnoremap <Leader>H :Hammer<CR>
-nnoremap <Leader>a :Ack
 nnoremap <Leader>d :lcd %:p:h<cr>
 nnoremap <Leader>e :Errors<CR><C-w>j
 nnoremap <Leader>o <C-w>o
@@ -132,14 +119,22 @@ nnoremap <Leader>V :e $HOME/.vimrc.local<CR>
 nnoremap <Leader>w :w<cr>
 nnoremap <Leader>z :%s/\<<c-r><c-w>\>//g<Left><Left>
 
+vnoremap <Leader>y "+y:let @+ = join(map(split(@+, '\n'), 'substitute(v:val, "^\\s\\+", "", "")'), " ")<CR>
+vnoremap <Leader>Y "+y:let @+ = join(map(split(@+, '\n'), 'substitute(v:val, "^\\s\\+\\\|\\s\\+$", "", "g")'), ",")<CR>
+
+nnoremap <Leader>H :Hammer<CR>
+nnoremap <Leader>a :Ack
+nnoremap <Leader>/ :AckFromSearch<CR>
+
+nmap <silent> w <Plug>CamelCaseMotion_w
+nmap <silent> b <Plug>CamelCaseMotion_b
+nmap <silent> e <Plug>CamelCaseMotion_e
+
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>f :CtrlPCurFile<CR>
 nnoremap <Leader>m :CtrlPMRUFiles<CR>
 nnoremap <Leader>M :CtrlPMixed<CR>
 nnoremap <Leader>t :CtrlPTag<CR>
-
-vnoremap <Leader>y "+y:let @+ = join(map(split(@+, '\n'), 'substitute(v:val, "^\\s\\+", "", "")'), " ")<CR>
-vnoremap <Leader>Y "+y:let @+ = join(map(split(@+, '\n'), 'substitute(v:val, "^\\s\\+\\\|\\s\\+$", "", "g")'), ",")<CR>
 
 let g:EasyMotion_leader_key = '<Space>'
 let NERDMenuMode=0
