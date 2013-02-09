@@ -5,8 +5,6 @@ if !has("unix")
   let &rtp = expand('~/.vim').','.&rtp.','.expand('~/.vim/after')
 endif
 
-runtime ftplugin/man.vim
-
 call pathogen#infect()
 call pathogen#helptags()
 
