@@ -121,3 +121,6 @@
 [submodule ".vim/bundle/vim-powerline"]
 	path = .vim/bundle/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline
+[submodule ".vim/bundle/vim-textobj-argument"]
+	path = .vim/bundle/vim-textobj-argument
+	url = https://github.com/gaving/vim-textobj-argument
