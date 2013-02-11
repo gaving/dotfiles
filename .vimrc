@@ -23,10 +23,6 @@ if has('gui_running')
     set cursorline
 endif
 
-if exists('+shellslash')
-    set shellslash
-endif
-
 if has('spell')
     set spell
     set spelllang=en_gb
