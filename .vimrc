@@ -77,34 +77,34 @@ nnoremap gp `[v`]
 noremap <Backspace> <C-y>
 xnoremap <Backspace> "_x
 
-nnoremap <silent> XX :w<bar>bd<cr>
+nnoremap XX :w<bar>bd<cr>
 
-nnoremap <silent> g<backspace> <c-o>
-nnoremap <silent> g<return> <c-i>
-nnoremap <silent> gb :bnext<cr>
-nnoremap <silent> gB :bprev<cr>
-nnoremap <silent> gd :bd<cr>
-nnoremap <silent> gD :bd!<cr>
-nnoremap <silent> <Leader>da :exec "1," . bufnr('$') . "bd"<cr>
+nnoremap g<backspace> <c-o>
+nnoremap g<return> <c-i>
+nnoremap gb :bnext<cr>
+nnoremap gB :bprev<cr>
+nnoremap gd :bd<cr>
+nnoremap gD :bd!<cr>
 
+nnoremap <Leader>da :exec "1," . bufnr('$') . "bd"<cr>
 nnoremap <Leader>du :diffupdate<CR>
 nnoremap <Leader>ds :vertical diffsplit <C-r>=expand("%:p:h")<CR>/<C-d>
 nnoremap <Leader>vs :vsplit <C-r>=expand("%:p:h")<CR>/<C-d>
 
 nnoremap <Leader>dtw :%s/\s\+$//g<CR>:nohls<CR>
 nnoremap <Leader>dbl :g/^$/d<CR>:nohls<CR>
-nnoremap <Leader>dsb VaImk$%dkV`kj<`kdd
 
-nnoremap <Leader>E :e <C-r>=expand("%:p:h")<CR>/<C-d>
-nnoremap <Leader>Z :%S/<c-r><c-w>//g<Left><Left>
-nnoremap <Leader>d :lcd %:p:h<cr>
 nnoremap <Leader>e :Errors<CR><C-w>j
+nnoremap <Leader>E :e <C-r>=expand("%:p:h")<CR>/<C-d>
+nnoremap <Leader>z :%s/\<<c-r><c-w>\>//g<Left><Left>
+nnoremap <Leader>Z :%S/<c-r><c-w>//g<Left><Left>
+
+nnoremap <Leader>d :lcd %:p:h<cr>
 nnoremap <Leader>o <C-w>o
 nnoremap <Leader>q 1z=<CR>
 nnoremap <Leader>v :e $MYVIMRC<CR>
 nnoremap <Leader>V :e $HOME/.vimrc.local<CR>
 nnoremap <Leader>w :w<cr>
-nnoremap <Leader>z :%s/\<<c-r><c-w>\>//g<Left><Left>
 
 vnoremap <Leader>y "+y:let @+ = join(map(split(@+, '\n'), 'substitute(v:val, "^\\s\\+", "", "")'), " ")<CR>
 vnoremap <Leader>Y "+y:let @+ = join(map(split(@+, '\n'), 'substitute(v:val, "^\\s\\+\\\|\\s\\+$", "", "g")'), ",")<CR>

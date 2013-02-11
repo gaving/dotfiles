@@ -52,9 +52,6 @@
 [submodule ".vim/bundle/gundo"]
 	path = .vim/bundle/gundo
 	url = http://github.com/sjl/gundo.vim.git
-[submodule ".vim/bundle/argtextobj"]
-	path = .vim/bundle/argtextobj
-	url = http://github.com/vim-scripts/argtextobj.vim.git
 [submodule ".vim/bundle/indenttextobj"]
 	path = .vim/bundle/indenttextobj
 	url = http://github.com/michaeljsmith/vim-indent-object.git
