@@ -35,7 +35,6 @@ set clipboard+=unnamed
 set foldclose=all
 set foldmethod=marker
 set gcr=n:blinkon0
-set enc=utf-8
 set lazyredraw
 set list
 let &sbr = nr2char(8618).' '
