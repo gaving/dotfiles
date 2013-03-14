@@ -136,3 +136,6 @@
 [submodule ".vim/bundle/vim-tablify"]
 	path = .vim/bundle/vim-tablify
 	url = https://github.com/Stormherz/tablify
+[submodule ".vim/bundle/vim-unconditionalpaste"]
+	path = .vim/bundle/vim-unconditionalpaste
+	url = https://github.com/vim-scripts/UnconditionalPaste.git
