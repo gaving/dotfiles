@@ -127,3 +127,12 @@
 [submodule ".vim/bundle/vim-seek"]
 	path = .vim/bundle/vim-seek
 	url = https://github.com/goldfeld/vim-seek
+[submodule ".vim/bundle/vim-csv"]
+	path = .vim/bundle/vim-csv
+	url = https://github.com/chrisbra/csv.vim
+[submodule ".vim/bundle/vim-obsession"]
+	path = .vim/bundle/vim-obsession
+	url = https://github.com/tpope/vim-obsession
+[submodule ".vim/bundle/vim-tablify"]
+	path = .vim/bundle/vim-tablify
+	url = https://github.com/Stormherz/tablify
