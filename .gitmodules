@@ -136,3 +136,6 @@
 [submodule ".vim/bundle/vim-unconditionalpaste"]
 	path = .vim/bundle/vim-unconditionalpaste
 	url = https://github.com/vim-scripts/UnconditionalPaste.git
+[submodule ".vim/bundle/vim-unimpaired"]
+	path = .vim/bundle/vim-unimpaired
+	url = http://github.com/tpope/vim-unimpaired.git
