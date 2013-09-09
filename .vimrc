@@ -104,6 +104,7 @@ nnoremap <Leader>q 1z=<CR>
 nnoremap <Leader>v :e $MYVIMRC<CR>
 nnoremap <Leader>V :e $HOME/.vimrc.local<CR>
 nnoremap <Leader>w :w<cr>
+nnoremap Y y$
 
 vnoremap <Leader>y "+y:let @+ = join(map(split(@+, '\n'), 'substitute(v:val, "^\\s\\+", "", "")'), " ")<CR>
 vnoremap <Leader>Y "+y:let @+ = join(map(split(@+, '\n'), 'substitute(v:val, "^\\s\\+\\\|\\s\\+$", "", "g")'), ",")<CR>
