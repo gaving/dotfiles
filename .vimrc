@@ -121,7 +121,12 @@ nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>f :CtrlPCurFile<CR>
 nnoremap <Leader>m :CtrlPMRUFiles<CR>
 nnoremap <Leader>M :CtrlPMixed<CR>
-nnoremap <Leader>t :CtrlPTag<CR>
+nnoremap <Leader>t :CtrlPBufTagAll<CR>
+nnoremap <Leader>T :CtrlPTag<CR>
+nnoremap <Leader>p :CtrlPRoot<CR>
+
+let g:ctrlp_root_markers = ['.ctrlp']
+let g:ctrlp_working_path_mode = 'ra'
 
 let g:EasyMotion_leader_key = '<Space>'
 let NERDMenuMode=0
