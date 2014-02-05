@@ -128,7 +128,6 @@ nnoremap <Leader>p :CtrlPRoot<CR>
 let g:ctrlp_root_markers = ['.ctrlp']
 let g:ctrlp_working_path_mode = 'ra'
 
-let g:EasyMotion_leader_key = '<Space>'
 let g:UltiSnipsNoPythonWarning = 1
 let NERDMenuMode=0
 
