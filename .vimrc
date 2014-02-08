@@ -72,11 +72,11 @@ nnoremap ` <C-^>
 nnoremap Q gqap
 nnoremap q: :q
 nnoremap gp `[v`]
+nnoremap XX :w<bar>bd<cr>
+nnoremap XQ :bd!<cr>
 
 noremap <Backspace> <C-y>
 xnoremap <Backspace> "_x
-
-nnoremap XX :w<bar>bd<cr>
 
 nnoremap g<backspace> <c-o>
 nnoremap g<return> <c-i>
@@ -95,11 +95,10 @@ nnoremap <Leader>dbl :g/^$/d<CR>:nohls<CR>
 
 nnoremap <Leader>e :Errors<CR><C-w>j
 nnoremap <Leader>E :e <C-r>=expand("%:p:h")<CR>/<C-d>
-nnoremap <Leader>z :%s/\<<c-r><c-w>\>//g<Left><Left>
-nnoremap <Leader>Z :%S/<c-r><c-w>//g<Left><Left>
+nnoremap <Leader>r :%s/\<<c-r><c-w>\>//g<Left><Left>
+nnoremap <Leader>R :%S/<c-r><c-w>//g<Left><Left>
 
 nnoremap <Leader>d :lcd %:p:h<cr>
-nnoremap <Leader>o <C-w>o
 nnoremap <Leader>q 1z=<CR>
 nnoremap <Leader>v :e $MYVIMRC<CR>
 nnoremap <Leader>V :e $HOME/.vimrc.local<CR>
@@ -108,10 +107,6 @@ nnoremap Y y$
 
 vnoremap <Leader>y "+y:let @+ = join(map(split(@+, '\n'), 'substitute(v:val, "^\\s\\+", "", "")'), " ")<CR>
 vnoremap <Leader>Y "+y:let @+ = join(map(split(@+, '\n'), 'substitute(v:val, "^\\s\\+\\\|\\s\\+$", "", "g")'), ",")<CR>
-
-nnoremap <Leader>H :Hammer<CR>
-nnoremap <Leader>a :Ack
-nnoremap <Leader>/ :AckFromSearch<CR>
 
 nmap <silent> w <Plug>CamelCaseMotion_w
 nmap <silent> b <Plug>CamelCaseMotion_b
