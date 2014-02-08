@@ -24,7 +24,7 @@ fi
 
 # {{{1 paths
 
-path=($HOME/local/bin /bin /usr/local/bin /usr/bin $path)
+path=($HOME/local/bin /bin /usr/local/bin /usr/bin)
 
 if (( EUID == 0 )); then
     path=($path /sbin /usr/sbin /usr/local/sbin /opt/local/sbin)
