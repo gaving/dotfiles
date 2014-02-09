@@ -139,6 +139,3 @@
 [submodule ".vim/bundle/vim-airline"]
 	path = .vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline
-[submodule ".vim/bundle/vim-vinegar"]
-	path = .vim/bundle/vim-vinegar
-	url = https://github.com/tpope/vim-vinegar.git
