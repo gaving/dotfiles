@@ -32,8 +32,9 @@ fi
 # zmv
 
 alias mmv='noglob zmv -W'
-alias zcp='zmv -C'
-alias zln='zmv -L'
+alias zmv='noglob zmv'
+alias zcp='noglob zmv -C'
+alias zln='noglob zmv -L'
 
 # global
 

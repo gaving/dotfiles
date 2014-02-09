@@ -3,57 +3,36 @@
 
 # {{{1 environment
 
-export ACK_PAGER="less -r"
-export COLORTERM=yes
+unlimit
+limit coredumpsize 0
+umask 022
+
 export EDITOR=vim
 export HISTFILE=~/.zsh/history
 export HISTSIZE=1000000
 export HOST=${HOST:-$HOSTNAME}
-export LISTPROMPT=''
 export LOGCHECK=30
 export PAGER='less'
 export REPORTTIME=5
 export SAVEHIST=$HISTSIZE
 export SPROMPT='...huh? you meant "%r", right? [yn] '
-
-if [[ -x `which lesspipe.sh` ]]; then
-    export LESS="-R -M --shift 5"
-    export LESSOPEN="|lesspipe.sh %s"
-    export LESSCOLOR=1
-fi
+export LESS="-R -M --shift 5"
+export LESSCOLOR=1
+unset LESSOPEN
 
 # {{{1 paths
 
 path=($HOME/local/bin /bin /usr/local/bin /usr/bin)
+manpath=($HOME/local/man /usr/man /usr/local/man /usr/share/man)
+fpath=(~/.zsh/functions $fpath)
 
 if (( EUID == 0 )); then
-    path=($path /sbin /usr/sbin /usr/local/sbin /opt/local/sbin)
+    path=(/sbin /usr/sbin /usr/local/sbin $path)
 fi
 
-if [[ -e "/opt/local/bin" ]]; then
-    path=(/opt/local/bin $path)
-fi
+typeset -gU path manpath fpath
 
-typeset -U path
-
-manpath=(/usr/local/man /usr/share/man)
-manpath=($manpath /usr/man /usr/lib/perl5/man $HOME/local/man)
-
-if [[ -e "/opt/local/share/man" ]]; then
-    manpath=($manpath /opt/local/share/man)
-fi
-
-typeset -gU path cdpath manpath fpath
-
-fpath=(~/.zsh/functions $fpath)
 autoload -U ~/.zsh/functions/*(:t)
-
-unlimit
-limit coredumpsize 0
-umask 022
-
-PERIOD=3600
-periodic() { rehash }
 
 # {{{1 options
 
@@ -89,13 +68,11 @@ setopt \
 
 autoload -U compinit && compinit
 autoload -U promptinit && promptinit
+autoload -U url-quote-magic && zle -N self-insert url-quote-magic
 autoload -U zargs
 autoload -U zcalc
 autoload -U zmv
-autoload -U url-quote-magic && zle -N self-insert url-quote-magic
-autoload -U insert-files && zle -N insert-files && bindkey "^Xf" insert-files
 autoload -U zsh-mime-setup && zsh-mime-setup
-autoload -U edit-command-line && zle -N edit-command-line && bindkey "^Xe" edit-command-line
 
 zcalc () { print $(( ans = ${@:-ans} )) }
 alias calc='noglob zcalc'
@@ -123,10 +100,11 @@ bindkey '^Q' push-line
 bindkey '^[a' beginning-of-line
 bindkey '^[e' end-of-line
 bindkey "^@"  _history-complete-older
-bindkey -s '^F' '^Upushd >/dev/null; dirs -v^M'
-bindkey -s '^B' '^Upopd >/dev/null; dirs -v^M'
 bindkey "\ee" vi-find-next-char
 bindkey "\eE" vi-find-prev-char
+
+bindkey -s '^F' '^Upushd >/dev/null; dirs -v^M'
+bindkey -s '^B' '^Upopd >/dev/null; dirs -v^M'
 
 zmodload -i zsh/complist
 bindkey -M menuselect '^M' .accept-line # enter on the menu accepts the line
@@ -146,63 +124,22 @@ zle -N insert-last-command-output
 bindkey "^Xl" insert-last-command-output
 
 rationalise-dot() {
-  if [[ $LBUFFER = *.. ]]; then
-    LBUFFER+=/..
-  else
-    LBUFFER+=.
-  fi
+    if [[ $LBUFFER = *.. ]]; then
+        LBUFFER+=/..
+    else
+        LBUFFER+=.
+    fi
 }
 zle -N rationalise-dot
 bindkey . rationalise-dot
 
 # re-run the previous command with sudo
 rerun-with-sudo () {
-  LBUFFER="sudo !!"
-  zle accept-line
+    LBUFFER="sudo !!"
+    zle accept-line
 }
 zle -N rerun-with-sudo
 bindkey '^Xx' rerun-with-sudo
-
-if which pbpaste > /dev/null; then
-    CLIPBOARD=pbpaste
-elif which getclip > /dev/null; then
-    CLIPBOARD=getclip
-fi
-
-if [ -n "${CLIPBOARD+x}" ]; then
-
-    # insert wget with clipboard content
-    paste-clipboard() {
-        LBUFFER="$($CLIPBOARD)"
-    }
-    zle -N paste-clipboard
-    bindkey "^Xv" paste-clipboard
-
-    # insert wget with clipboard content
-    wget-clipboard() {
-        URL="$($CLIPBOARD)"
-        URL_BASE_NAME=$(basename $URL)
-        LBUFFER="nocorrect wget '$($CLIPBOARD)' -O $URL_BASE_NAME"
-    }
-    zle -N wget-clipboard
-    bindkey "^Xw" wget-clipboard
-
-    # build git clone command from clipboard
-    git-clone-clipboard() {
-        REPO_URL="$($CLIPBOARD)"
-        REPO_BASE_NAME=${$(basename $REPO_URL)%.git}
-        LBUFFER="nocorrect git clone $REPO_URL $REPO_BASE_NAME"
-    }
-    zle -N git-clone-clipboard
-    bindkey "^Xg" git-clone-clipboard
-
-    # mplayer youtube url from clipboard
-    youtube-dl-clipboard() {
-        LBUFFER="mplayer \$(noglob youtube-dl -g $($CLIPBOARD))"
-    }
-    zle -N youtube-dl-clipboard
-    bindkey "^Xy" youtube-dl-clipboard
-fi
 
 # git clone suffix
 git-clone-suffix() { git clone $1 ${$(basename $1)%.git} }
