@@ -1,26 +1,8 @@
 #!/bin/zsh
 # zsh completion rules
 
-_force_rehash() {
-    (( CURRENT == 1 )) && rehash
-    return 1    # Because we didn't really complete anything
-}
-
-# zstyle ':completion:*' insert-tab pending
-# zstyle -g completer ':completion:*' completer
-# zstyle ':completion:*' completer _listfiles ${completer}
-
-_listfiles() {
-    local ret=1
-    if [[ -z $BUFFER ]]; then
-        _files && ret=0
-    fi
-    return $ret
-}
-
 zstyle ":completion:*:commands" rehash 1
 zstyle '*' single-ignored show
-zstyle ':completion:*' _force_rehash
 zstyle ':completion:*' completer _complete _prefix _correct _prefix _match _approximate
 zstyle ':completion:*' expand 'yes'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
@@ -85,9 +67,6 @@ zstyle ':completion::prefix-1:*' completer _complete
 zstyle ':completion:incremental:*' completer _complete _correct
 zstyle ':completion:predict:*' completer _complete
 zstyle -e ':completion:*:(ssh|scp):*' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
-
-# Add any user configured accounts to the completion
-[[ -n $my_accounts ]] && zstyle ':completion:*:my-accounts' users-hosts $my_accounts
 
 # cygwin only: commands that auto-complete with and without .exe or .dll suffixes are annoying.
 # thanks Thorsten Kampe & Bart Schaefer (and 'Atom Smasher' for his zshrc)
