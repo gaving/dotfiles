@@ -115,9 +115,6 @@
 [submodule ".vim/bundle/vim-textobj-argument"]
 	path = .vim/bundle/vim-textobj-argument
 	url = https://github.com/gaving/vim-textobj-argument
-[submodule ".vim/bundle/vim-seek"]
-	path = .vim/bundle/vim-seek
-	url = https://github.com/goldfeld/vim-seek
 [submodule ".vim/bundle/vim-csv"]
 	path = .vim/bundle/vim-csv
 	url = https://github.com/chrisbra/csv.vim
