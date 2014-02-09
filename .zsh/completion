@@ -28,7 +28,7 @@ zstyle ':completion:*' matcher-list 'm:{A-Z}={a-z}' 'm:{a-z}={A-Z}' 'r:|[._-]=**
 zstyle ':completion:*' menu select=1
 zstyle ':completion:*' squeeze-slashes 'yes'
 
-zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS'
+zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)(CVS|.svn|.git)'
 zstyle ':completion:*:(gvim|vim|vi):*' ignored-patterns '*.(o|a|so|aux|dvi|log|swp|fig|bbl|blg|bst|idx|ind|out|toc|class|pdf|ps|eps|pyc)'
 zstyle ':completion:*:*:*:hosts-domain' ignored-patterns '<->.<->.<->.<->' '^*.*' '*@*'
 zstyle ':completion:*:*:*:hosts-host' ignored-patterns '*.*' loopback localhost
@@ -43,7 +43,7 @@ uucp vpopmail xfs
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:*:vtex:*' file-patterns '*.tex:tex-files' '*.toc:toc-files *.dvi:dvi-files' '%p:all-files'
-zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
+zstyle ':completion:*:cd:*' ignored-patterns '(*/)#(CVS|.svn|.git)'
 
 zstyle ':completion:*:cd:*' ignored-patterns '(*/)#lost+found'
 zstyle ':completion:*:complete:-command-::commands' ignored-patterns '*\~'
