@@ -2,11 +2,6 @@
 # zsh aliases
 
 alias a='ag -i'
-alias e='print -l **/*'
-alias g='git'
-alias h='history'
-alias v='vim'
-alias x='extract'
 
 for c in cp rm mv chmod chown rename; do
     alias $c="nocorrect $c -v"
@@ -24,10 +19,6 @@ alias mkdir='nocorrect mkdir -p'
 alias rscp="nocorrect rsync -aP --no-whole-file --inplace"
 alias rsmv="nocorrect rscp --remove-source-files"
 alias sudo='noglob do_sudo '
-
-if which htop >/dev/null; then
-    alias top='htop --sort-key PERCENT_CPU'
-fi
 
 # zmv
 
