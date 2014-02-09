@@ -1,16 +1,9 @@
 #!/bin/zsh
 # zsh aliases
 
-# general
-
-alias :q='exit'
-alias :wq='exit'
-alias a='ack -iar'
 alias e='print -l **/*'
-alias c='clear'
-alias h='history'
 alias g='git'
-alias u='uptime'
+alias h='history'
 alias v='vim'
 alias x='extract'
 
@@ -23,47 +16,24 @@ for c in alias expr find wget which; do
 done
 
 alias egrep='egrep -I --color=auto'
-alias gack='nocorrect noglob ack --pager=cat -g'
 alias grep='grep -I --color=auto'
-alias stats="last | sed 's/ .*//' | sort | uniq -c | sort -n -r"
-alias less='less -iM'
 alias man='nocorrect man'
 alias mirror="noglob wget --mirror --no-parent --recursive --timestamping --continue --recursive"
 alias mkdir='nocorrect mkdir -p'
-alias mmv='noglob zmv -W'
-alias myip='curl http://ifconfig.me/ip'
-alias path='echo -e ${PATH//:/\\n}'
-alias po="popd"
-alias psg="ps aux | grep"
-alias pu="pushd"
 alias rscp="nocorrect rsync -aP --no-whole-file --inplace"
 alias rsmv="nocorrect rscp --remove-source-files"
 alias sudo='noglob do_sudo '
-alias trail="tail -n 300 -f"
 alias tree='tree --noreport --dirsfirst -FCshu'
 
 if which htop >/dev/null; then
     alias top='htop --sort-key PERCENT_CPU'
 fi
 
-# Make head/tail output fill screen
-alias head='head -n $((LINES-2))'
-alias tail='tail -n $((LINES-2))'
-
 # zmv
 
+alias mmv='noglob zmv -W'
 alias zcp='zmv -C'
 alias zln='zmv -L'
-
-# python
-
-alias web='python -m SimpleHTTPServer'
-
-# typos
-
-alias xs='cd'
-alias vf='cd'
-alias cd..='cd ..'
 
 # global
 
@@ -79,7 +49,6 @@ alias -g S='| sort'
 alias -g A='&> /dev/null | at'
 alias -g CO='./configure --prefix=$HOME/local && make && sudo make install'
 alias -g DN='&> /dev/null'
-alias -g HE='2>>( sed -ue "s/.*/$fg_bold[red]&$reset_color/" 1>&2 )' # Highlight Errors
 
 if which pbcopy >/dev/null 2>&1 ; then
     alias -g X='| pbcopy'
@@ -91,9 +60,6 @@ fi
 
 # suffix
 
-alias -s htm=${BROWSER:-lynx}
-alias -s html=${BROWSER:-lynx}
-alias -s tex=${EDITOR:-vim}
 alias -s txt=${PAGER:-less}
 
 for c in bz2 gz tar zip tgz; do
@@ -106,26 +72,6 @@ alias rw-='chmod 600'
 alias rwx='chmod 700'
 alias r--='chmod 644'
 alias r-x='chmod 755'
-
-# ls
-
-typeset -A lsMap
-lsMap[lsa]='show hidden'
-lsMap[lsb]='display the biggest files'
-lsMap[lsc]='sort by change time'
-lsMap[lsd]='only show directories'
-lsMap[lse]='only show empty directories'
-lsMap[lsk]='sort by size'
-lsMap[lsl]='pipe through less'
-lsMap[lsn]='display the newest files'
-lsMap[lso]='display the oldest files'
-lsMap[lsr]='recursive ls'
-lsMap[lss]='display the smallest files'
-lsMap[lst]='sort by date'
-lsMap[lsu]='sort by access time'
-lsMap[lsx]='sort by extension'
-ls_() { for i in ${(k)lsMap}; printf "%s - %s\n" $i $lsMap[$i] }
-alias ls?=ls_
 
 # compatibility check for --group-directories-first
 ls --group-directories-first -d . >/dev/null 2>&1 && gdf=--group-directories-first
@@ -146,7 +92,7 @@ alias lst='ls -ltr'                # sort by date
 alias lsu='ls -lur'                # sort by access time
 alias lsx='ls -lXB'                # sort by extension
 
-# du
+# size
 
 alias du='du -kh'
 alias duh='du -slh'
@@ -155,9 +101,6 @@ alias duk='du -slk'
 alias dum='du -slm'
 alias dug='du -sl --block-size=1G'
 alias duf='du -sk * | sort -n | perl -ne '\''($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'
-
-# df
-
 alias df='df -kh'
 alias dfh='df -PTh'
 alias dfb='df -PT --block-size=1'
@@ -177,14 +120,7 @@ alias gds='git diff --staged'
 alias gdm='git diff HEAD\^..master'
 alias gl='git pull'
 alias gp='git push'
-alias gpcd='git push && cap deploy'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias gs='git status'
-
 alias gsa="git submodule add"
 alias gsu="git submodule foreach git pull origin master"
-
-# gpg
-
-alias encrypt='gpg --encrypt-files --default-recipient-self'
-alias decrypt='gpg --decrypt-files'
