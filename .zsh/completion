@@ -61,8 +61,6 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/s
 zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found --\e[0m'
 zstyle ':completion:*:zless:*' ignored-patterns '*.(o|a|so|dvi|fig|out|class|pdf|ps)'
 zstyle ':completion::complete:*' '\\'
-zstyle ':completion::complete:*' cache-path ~/.zsh/cache/$HOST
-zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::prefix-1:*' completer _complete
 zstyle ':completion:incremental:*' completer _complete _correct
 zstyle ':completion:predict:*' completer _complete
