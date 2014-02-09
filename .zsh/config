@@ -7,13 +7,13 @@ export ACK_PAGER="less -r"
 export COLORTERM=yes
 export EDITOR=vim
 export HISTFILE=~/.zsh/history
-export HISTSIZE=10000
+export HISTSIZE=1000000
 export HOST=${HOST:-$HOSTNAME}
 export LISTPROMPT=''
 export LOGCHECK=30
 export PAGER='less'
 export REPORTTIME=5
-export SAVEHIST=5000
+export SAVEHIST=$HISTSIZE
 export SPROMPT='...huh? you meant "%r", right? [yn] '
 
 if [[ -x `which lesspipe.sh` ]]; then
@@ -143,7 +143,7 @@ insert-last-command-output() {
     LBUFFER+="$(eval $history[$((HISTCMD-1))])"
 }
 zle -N insert-last-command-output
-bindkey "^X^L" insert-last-command-output
+bindkey "^Xl" insert-last-command-output
 
 rationalise-dot() {
   if [[ $LBUFFER = *.. ]]; then
