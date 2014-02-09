@@ -103,9 +103,6 @@
 [submodule ".vim/bundle/vim-sensible"]
 	path = .vim/bundle/vim-sensible
 	url = https://github.com/tpope/vim-sensible.git
-[submodule ".vim/bundle/vim-scriptease"]
-	path = .vim/bundle/vim-scriptease
-	url = https://github.com/tpope/vim-scriptease
 [submodule ".vim/bundle/vim-textobj-argument"]
 	path = .vim/bundle/vim-textobj-argument
 	url = https://github.com/gaving/vim-textobj-argument
