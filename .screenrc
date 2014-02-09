@@ -52,7 +52,3 @@ hardstatus alwayslastline "%-Lw%{+r}%50> %n%f %t %{-}%+Lw%< %-= %H | %{= kw}%0c,
 
 screen -t " zsh" 1 # Spawn 1 before screen spawns 0
 bind c screen 1
-
-# {{{1 custom
-
-source $HOME/.screen/custom
