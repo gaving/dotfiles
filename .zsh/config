@@ -22,7 +22,7 @@ unset LESSOPEN
 
 # {{{1 paths
 
-path=($HOME/local/bin /bin /usr/local/bin /usr/bin)
+path=($HOME/local/bin /bin /usr/local/bin /usr/bin $path)
 manpath=($HOME/local/man /usr/man /usr/local/man /usr/share/man)
 fpath=(~/.zsh/functions $fpath)
 
