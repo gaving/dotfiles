@@ -43,9 +43,6 @@
 [submodule ".vim/bundle/camelcasemotion"]
 	path = .vim/bundle/camelcasemotion
 	url = http://github.com/vim-scripts/camelcasemotion.git
-[submodule ".vim/bundle/indenttextobj"]
-	path = .vim/bundle/indenttextobj
-	url = http://github.com/michaeljsmith/vim-indent-object.git
 [submodule ".vim/bundle/tabular"]
 	path = .vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
