@@ -79,15 +79,9 @@
 [submodule ".vim/bundle/vim-textobj-indent"]
 	path = .vim/bundle/vim-textobj-indent
 	url = https://github.com/kana/vim-textobj-indent.git
-[submodule ".vim/bundle/vim-operator-replace"]
-	path = .vim/bundle/vim-operator-replace
-	url = https://github.com/kana/vim-operator-replace.git
 [submodule ".vim/bundle/vim-easymotion"]
 	path = .vim/bundle/vim-easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
-[submodule ".vim/bundle/vim-operator-user"]
-	path = .vim/bundle/vim-operator-user
-	url = https://github.com/kana/vim-operator-user
 [submodule ".vim/bundle/php.vim"]
 	path = .vim/bundle/php.vim
 	url = https://github.com/StanAngeloff/php.vim.git
