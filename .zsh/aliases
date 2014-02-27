@@ -1,7 +1,7 @@
 #!/bin/zsh
 # zsh aliases
 
-alias a='ag -i'
+alias a="ag --pager ${PAGER:-less} -i"
 
 for c in cp rm mv chmod chown rename; do
     alias $c="nocorrect $c -v"
