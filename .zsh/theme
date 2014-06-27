@@ -8,7 +8,8 @@ if [[ $ZSH_VERSION > 4.3.6 ]]; then
 fi
 
 # set some colors
-for COLOR in RED GREEN YELLOW WHITE BLACK CYAN; do
+# echo ${(o)color}
+for COLOR in MAGENTA BLUE RED GREEN YELLOW WHITE BLACK CYAN; do
     eval PR_$COLOR='%{$fg[${(L)COLOR}]%}'
     eval PR_BRIGHT_$COLOR='%{$fg_bold[${(L)COLOR}]%}'
 done
