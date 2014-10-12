@@ -5,10 +5,58 @@ if !has("unix")
   let &rtp = expand('~/.vim').','.&rtp.','.expand('~/.vim/after')
 endif
 
-call pathogen#infect()
-call pathogen#helptags()
-
 let mapleader = ","
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'chrisbra/csv.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'ervandew/supertab'
+Plug 'gaving/vim-schemery'
+Plug 'gaving/vim-textobj-argument'
+Plug 'honza/vim-snippets'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/vim-oblique'
+Plug 'junegunn/vim-pseudocl'
+Plug 'junegunn/vim-easy-align'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-user'
+Plug 'kchmck/vim-coffee-script'
+Plug 'lokaltog/vim-easymotion'
+Plug 'molok/vim-vombato-colorscheme'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
+Plug 'shougo/neomru.vim'
+Plug 'shougo/unite.vim'
+Plug 'sickill/vim-pasta'
+Plug 'sirver/ultisnips'
+Plug 'stanangeloff/php.vim'
+Plug 'stormherz/tablify'
+Plug 'tommcdo/vim-exchange'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'vim-scripts/camelcasemotion'
+Plug 'vim-scripts/unconditionalpaste'
+Plug 'zeis/vim-kolor'
+
+Plug 'romainl/apprentice'
+Plug 'junegunn/seoul256.vim'
+Plug 'sickill/vim-monokai'
+Plug 'stayradiated/vim-termorrow'
+Plug 'w0ng/vim-hybrid'
+Plug 'whatyouhide/vim-gotham'
+
+call plug#end()
 
 if exists('+autochdir')
     set autochdir
@@ -31,7 +79,6 @@ if has('spell')
 endif
 
 set autowriteall " Watch this!
-set clipboard+=unnamed
 set foldclose=all
 set foldmethod=marker
 set gcr=n:blinkon0
@@ -112,19 +159,42 @@ nmap <silent> w <Plug>CamelCaseMotion_w
 nmap <silent> b <Plug>CamelCaseMotion_b
 nmap <silent> e <Plug>CamelCaseMotion_e
 
-nnoremap <Leader>b :CtrlPBuffer<CR>
-nnoremap <Leader>f :CtrlPCurFile<CR>
-nnoremap <Leader>m :CtrlPMRUFiles<CR>
-nnoremap <Leader>M :CtrlPMixed<CR>
-nnoremap <Leader>t :CtrlPBufTagAll<CR>
-nnoremap <Leader>T :CtrlPTag<CR>
-nnoremap <Leader>p :CtrlPRoot<CR>
+nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async<CR>
+nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<CR>
+nnoremap <leader>m :<C-u>Unite -no-split -buffer-name=files   -start-insert file_mru<CR>
+nnoremap <leader>b :<C-u>Unite -no-split -buffer-name=buffer  -start-insert buffer<CR>
+nnoremap <leader>/ :<C-u>Unite -no-split -buffer-name=buffer  -start-insert line<CR>
+nnoremap <leader>a :<C-u>Unite -no-split -buffer-name=buffer  -start-insert grep:.<CR>
 
-let g:ctrlp_root_markers = ['.ctrlp']
-let g:ctrlp_working_path_mode = 'ra'
+let NERDMenuMode=0
 
 let g:UltiSnipsNoPythonWarning = 1
-let NERDMenuMode=0
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+let g:unite_enable_start_insert = 1
+let g:unite_split_rule = "botright"
+let g:unite_force_overwrite_statusline = 0
+let g:unite_winheight = 10
+
+call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+      \ 'ignore_pattern', join([
+      \ '\.git/',
+      \ ], '\|'))
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+
+autocmd FileType unite call s:unite_settings()
+
+function! s:unite_settings()
+  let b:SuperTabDisabled=1
+  nmap <buffer> <ESC> <Plug>(unite_exit)
+endfunction
+
+vmap <Enter> <Plug>(EasyAlign)
+nmap <Leader>a <Plug>(EasyAlign)
 
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local

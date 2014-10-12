@@ -1,6 +1,9 @@
 .gitconfig
 .vim/.netrwhist
+.vim/plugged
 .vimrc.local
 .zsh/custom
 .zsh/history*
 tags
+*.swp
+*.un~
