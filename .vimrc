@@ -140,8 +140,7 @@ nnoremap <Leader>vs :vsplit <C-r>=expand("%:p:h")<CR>/<C-d>
 nnoremap <Leader>dtw :%s/\s\+$//g<CR>:nohls<CR>
 nnoremap <Leader>dbl :g/^$/d<CR>:nohls<CR>
 
-nnoremap <Leader>e :e <C-r>=expand("%:p:h")<CR>/<C-d>
-nnoremap <Leader>E :Errors<CR><C-w>j
+nnoremap <Leader>e :Errors<CR><C-w>j
 nnoremap <Leader>r :%s/\<<c-r><c-w>\>//g<Left><Left>
 nnoremap <Leader>R :%S/<c-r><c-w>//g<Left><Left>
 
