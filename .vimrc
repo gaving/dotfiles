@@ -28,6 +28,7 @@ Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
+Plug 'shougo/vimproc.vim'
 Plug 'shougo/neomru.vim'
 Plug 'shougo/unite.vim'
 Plug 'sickill/vim-pasta'
@@ -47,8 +48,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/camelcasemotion'
 Plug 'vim-scripts/unconditionalpaste'
-Plug 'zeis/vim-kolor'
 
+Plug 'zeis/vim-kolor'
 Plug 'romainl/apprentice'
 Plug 'junegunn/seoul256.vim'
 Plug 'sickill/vim-monokai'
@@ -158,12 +159,12 @@ nmap <silent> w <Plug>CamelCaseMotion_w
 nmap <silent> b <Plug>CamelCaseMotion_b
 nmap <silent> e <Plug>CamelCaseMotion_e
 
-nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async<CR>
-nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<CR>
-nnoremap <leader>m :<C-u>Unite -no-split -buffer-name=files   -start-insert file_mru<CR>
-nnoremap <leader>b :<C-u>Unite -no-split -buffer-name=buffer  -start-insert buffer<CR>
-nnoremap <leader>/ :<C-u>Unite -no-split -buffer-name=buffer  -start-insert line<CR>
-nnoremap <leader>a :<C-u>Unite -no-split -buffer-name=buffer  -start-insert grep:.<CR>
+nnoremap <leader>t :<C-u>Unite -buffer-name=files   -start-insert file_rec/async<CR>
+nnoremap <leader>f :<C-u>Unite -buffer-name=files   -start-insert file_rec<CR>
+nnoremap <leader>m :<C-u>Unite -buffer-name=files   -start-insert file_mru<CR>
+nnoremap <leader>b :<C-u>Unite -buffer-name=buffer  -start-insert buffer<CR>
+nnoremap <leader>/ :<C-u>Unite -buffer-name=buffer  -start-insert line<CR>
+nnoremap <leader>a :<C-u>Unite -buffer-name=buffer  -start-insert grep:.<CR>
 
 let NERDMenuMode=0
 
