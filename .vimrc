@@ -164,7 +164,7 @@ nnoremap <leader>f :<C-u>Unite -buffer-name=files   -start-insert file_rec<CR>
 nnoremap <leader>m :<C-u>Unite -buffer-name=files   -start-insert file_mru<CR>
 nnoremap <leader>b :<C-u>Unite -buffer-name=buffer  -start-insert buffer<CR>
 nnoremap <leader>/ :<C-u>Unite -buffer-name=buffer  -start-insert line<CR>
-nnoremap <leader>a :<C-u>Unite -buffer-name=buffer  -start-insert grep:.<CR>
+nnoremap <leader>g :<C-u>Unite -buffer-name=buffer  -start-insert grep:.<CR>
 
 let NERDMenuMode=0
 
