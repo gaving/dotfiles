@@ -23,7 +23,6 @@ Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-user'
 Plug 'kchmck/vim-coffee-script'
 Plug 'lokaltog/vim-easymotion'
-Plug 'molok/vim-vombato-colorscheme'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdcommenter'
@@ -49,13 +48,15 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/camelcasemotion'
 Plug 'vim-scripts/unconditionalpaste'
 
-Plug 'zeis/vim-kolor'
-Plug 'romainl/apprentice'
+Plug 'chriskempson/base16-vim'
 Plug 'junegunn/seoul256.vim'
+Plug 'molok/vim-vombato-colorscheme'
+Plug 'romainl/apprentice'
 Plug 'sickill/vim-monokai'
 Plug 'stayradiated/vim-termorrow'
 Plug 'w0ng/vim-hybrid'
 Plug 'whatyouhide/vim-gotham'
+Plug 'zeis/vim-kolor'
 
 call plug#end()
 
@@ -152,19 +153,18 @@ nnoremap <Leader>V :e $HOME/.vimrc.local<CR>
 nnoremap <Leader>w :w<cr>
 nnoremap Y y$
 
-vnoremap <Leader>y "+y:let @+ = join(map(split(@+, '\n'), 'substitute(v:val, "^\\s\\+", "", "")'), " ")<CR>
-vnoremap <Leader>Y "+y:let @+ = join(map(split(@+, '\n'), 'substitute(v:val, "^\\s\\+\\\|\\s\\+$", "", "g")'), ",")<CR>
-
 nmap <silent> w <Plug>CamelCaseMotion_w
 nmap <silent> b <Plug>CamelCaseMotion_b
 nmap <silent> e <Plug>CamelCaseMotion_e
 
-nnoremap <leader>t :<C-u>Unite -buffer-name=files   -start-insert file_rec/async<CR>
-nnoremap <leader>f :<C-u>Unite -buffer-name=files   -start-insert file_rec<CR>
-nnoremap <leader>m :<C-u>Unite -buffer-name=files   -start-insert file_mru<CR>
-nnoremap <leader>b :<C-u>Unite -buffer-name=buffer  -start-insert buffer<CR>
-nnoremap <leader>/ :<C-u>Unite -buffer-name=buffer  -start-insert line<CR>
-nnoremap <leader>g :<C-u>Unite -buffer-name=buffer  -start-insert grep:.<CR>
+nnoremap <leader>t :<C-u>Unite -buffer-name=files  -start-insert file_rec/async<CR>
+nnoremap <leader>f :<C-u>Unite -buffer-name=files  -start-insert file_rec<CR>
+nnoremap <leader>m :<C-u>Unite -buffer-name=files  -start-insert file_mru<CR>
+nnoremap <leader>b :<C-u>Unite -buffer-name=buffer -start-insert buffer<CR>
+nnoremap <leader>B :<C-u>Unite -quick-match buffer<CR>
+nnoremap <leader>/ :<C-u>Unite -buffer-name=buffer -start-insert line<CR>
+nnoremap <leader>g :<C-u>Unite -buffer-name=buffer -start-insert grep:.<CR>
+nnoremap <leader>y :<C-u>Unite history/yank<CR>
 
 let NERDMenuMode=0
 
@@ -172,6 +172,8 @@ let g:UltiSnipsNoPythonWarning = 1
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+let g:unite_source_history_yank_enable = 1
 
 let g:unite_enable_start_insert = 1
 let g:unite_split_rule = "botright"
