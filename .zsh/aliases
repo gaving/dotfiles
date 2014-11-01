@@ -102,6 +102,7 @@ alias dfg='df -PT --block-size=1G'
 
 # git
 
+alias g=git
 alias gb='git branch'
 alias gba='git branch -a'
 alias gc='git commit -v -m'
