@@ -133,9 +133,9 @@ nnoremap g<backspace> <c-o>
 nnoremap g<return> <c-i>
 nnoremap gb :bnext<cr>
 nnoremap gB :bprev<cr>
-nnoremap gd :bd<cr>
-nnoremap gD :bd!<cr>
 
+nnoremap <Leader>d :bd<cr>
+nnoremap <Leader>D :bd!<cr>
 nnoremap <Leader>da :exec "1," . bufnr('$') . "bd"<cr>
 nnoremap <Leader>du :diffupdate<CR>
 nnoremap <Leader>ds :vertical diffsplit <C-r>=expand("%:p:h")<CR>/<C-d>
@@ -148,7 +148,6 @@ nnoremap <Leader>e :Errors<CR><C-w>j
 nnoremap <Leader>r :%s/\<<c-r><c-w>\>//g<Left><Left>
 nnoremap <Leader>R :%S/<c-r><c-w>//g<Left><Left>
 
-nnoremap <Leader>d :lcd %:p:h<cr>
 nnoremap <Leader>q 1z=<CR>
 nnoremap <Leader>v :e $MYVIMRC<CR>
 nnoremap <Leader>V :e $HOME/.vimrc.local<CR>
@@ -195,7 +194,7 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ ], '\|'))
 
 call unite#filters#matcher_default#use(['matcher_fuzzy', 'matcher_hide_hidden_files', 'matcher_project_files'])
-call unite#filters#sorter_default#use(['sorter_selecta'])
+call unite#filters#sorter_default#use(['sorter_rank'])
 
 call unite#custom#profile('default', 'context', {
     \ 'here': 1,
