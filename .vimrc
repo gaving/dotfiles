@@ -184,11 +184,31 @@ let g:unite_winheight = 10
 
 call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ 'ignore_pattern', join([
-      \ '\.git/',
+      \ '\.\(git\|svn\|vagrant\)\/', 
+      \ 'tmp\/',
+      \ 'app\/storage\/',
+      \ 'bower_components\/',
+      \ 'fonts\/',
+      \ 'sass-cache\/',
+      \ 'node_modules\/',
+      \ '\.\(jpe?g\|gif\|png\)$',
       \ ], '\|'))
 
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
+call unite#filters#matcher_default#use(['matcher_fuzzy', 'matcher_hide_hidden_files', 'matcher_project_files'])
+call unite#filters#sorter_default#use(['sorter_selecta'])
+
+call unite#custom#profile('default', 'context', {
+    \ 'here': 1,
+    \ 'prompt_direction': 'top'
+    \ })
+
+if executable('ag')
+    let g:unite_source_grep_command = 'ag'
+    let g:unite_source_grep_default_opts =
+    \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
+    \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+    let g:unite_source_grep_recursive_opt = ''
+endif
 
 autocmd FileType unite call s:unite_settings()
 
@@ -199,6 +219,8 @@ endfunction
 
 vmap <Enter> <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
+
+let g:syntastic_javascript_checkers = ['jsxhint']
 
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
