@@ -1,6 +1,7 @@
 .gitconfig
 .vim/.netrwhist
 .vim/plugged
+.vim/tmp
 .vimrc.local
 .zsh/custom
 .zsh/history*
