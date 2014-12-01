@@ -30,18 +30,14 @@ alias zln='noglob zmv -L'
 
 # global
 
-alias -g V='| vim'
-alias -g L='| less -REF'
-alias -g M='| more'
-alias -g H='| head'
-alias -g T='| tail'
-alias -g G='| grep'
-alias -g GI='| grep -i'
 alias -g C='| wc -l'
+alias -g G='| grep -i'
+alias -g H='| head'
+alias -g L='| less -REF'
+alias -g N='&> /dev/null'
 alias -g S='| sort'
-alias -g A='&> /dev/null | at'
-alias -g CO='./configure --prefix=$HOME/local && make && sudo make install'
-alias -g DN='&> /dev/null'
+alias -g T='| tail'
+alias -g V='| vim'
 
 if which pbcopy >/dev/null 2>&1 ; then
     alias -g X='| pbcopy'
