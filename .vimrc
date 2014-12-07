@@ -172,11 +172,6 @@ nnoremap <leader>y :<C-u>Unite history/yank<CR>
 
 let NERDMenuMode=0
 
-let g:UltiSnipsNoPythonWarning = 1
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
 let g:unite_source_history_yank_enable = 1
 let g:unite_enable_start_insert = 1
 let g:unite_split_rule = "botright"
