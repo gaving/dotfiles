@@ -85,7 +85,7 @@ if has('spell')
     set spellsuggest=best,10
 endif
 
-set autowriteall " Watch this!
+set autowriteall
 set foldclose=all
 set foldmethod=marker
 set gcr=n:blinkon0
