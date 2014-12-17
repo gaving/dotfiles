@@ -176,7 +176,7 @@ let g:unite_source_history_yank_enable = 1
 let g:unite_enable_start_insert = 1
 let g:unite_split_rule = "botright"
 let g:unite_force_overwrite_statusline = 0
-let g:unite_winheight = 10
+let g:unite_winheight = 20
 
 call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ 'ignore_pattern', join([
@@ -189,22 +189,6 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ 'node_modules\/',
       \ '\.\(jpe?g\|gif\|png\)$',
       \ ], '\|'))
-
-call unite#filters#matcher_default#use(['matcher_fuzzy', 'matcher_hide_hidden_files', 'matcher_project_files'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-
-call unite#custom#profile('default', 'context', {
-    \ 'here': 1,
-    \ 'prompt_direction': 'top'
-    \ })
-
-if executable('ag')
-    let g:unite_source_grep_command = 'ag'
-    let g:unite_source_grep_default_opts =
-    \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
-    \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-    let g:unite_source_grep_recursive_opt = ''
-endif
 
 autocmd FileType unite call s:unite_settings()
 
