@@ -5,7 +5,7 @@ if !has("unix")
   let &rtp = expand('~/.vim').','.&rtp.','.expand('~/.vim/after')
 endif
 
-let mapleader = ","
+let g:mapleader = ","
 
 call plug#begin('~/.vim/plugged')
 
@@ -170,7 +170,7 @@ nnoremap <leader>/ :<C-u>Unite -buffer-name=buffer line<CR>
 nnoremap <leader>g :<C-u>Unite -buffer-name=buffer grep:.<CR>
 nnoremap <leader>y :<C-u>Unite history/yank<CR>
 
-let NERDMenuMode=0
+let g:NERDMenuMode=0
 
 let g:unite_source_history_yank_enable = 1
 let g:unite_enable_start_insert = 1
