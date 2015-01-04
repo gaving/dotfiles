@@ -115,6 +115,8 @@ bindkey '^W' backward-kill-word-match
 zstyle ':zle:*' word-style normal
 zstyle ':zle:*' word-chars ${WORDCHARS//\//}
 
+zle_highlight=(isearch:fg="228",bold)
+
 # put the output of the last command on the command line
 zmodload -i zsh/parameter
 insert-last-command-output() {
