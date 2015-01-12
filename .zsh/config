@@ -117,6 +117,10 @@ zstyle ':zle:*' word-chars ${WORDCHARS//\//}
 
 zle_highlight=(isearch:fg="228",bold)
 
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
 # put the output of the last command on the command line
 zmodload -i zsh/parameter
 insert-last-command-output() {
