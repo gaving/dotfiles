@@ -182,7 +182,7 @@ let g:unite_winheight = 20
 
 call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ 'ignore_pattern', join([
-      \ '\.\(git\|svn\|vagrant\)\/', 
+      \ '\.\(git\|svn\|vagrant\)\/',
       \ 'tmp\/',
       \ 'app\/storage\/',
       \ 'bower_components\/',
@@ -201,8 +201,6 @@ endfunction
 
 vmap <Enter> <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
-
-let g:syntastic_javascript_checkers = ['jsxhint']
 
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
