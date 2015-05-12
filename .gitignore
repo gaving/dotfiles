@@ -1,5 +1,7 @@
 .gitconfig
 .vim/.netrwhist
+.vim/autoload/plug.vim.old
+.vim/spell
 .vim/plugged
 .vim/tmp
 .vimrc.local
