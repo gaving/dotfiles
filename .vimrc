@@ -9,62 +9,40 @@ let g:mapleader = ","
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'chrisbra/csv.vim'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'ervandew/supertab'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-Plug 'gaving/vim-schemery'
-Plug 'gaving/vim-textobj-argument'
-Plug 'gorkunov/smartpairs.vim'
-Plug 'honza/vim-snippets'
-Plug 'itchyny/lightline.vim'
-Plug 'junegunn/vim-oblique'
-Plug 'junegunn/vim-pseudocl'
-Plug 'junegunn/vim-easy-align'
-Plug 'justinmk/vim-gtfo'
-Plug 'justinmk/vim-sneak'
-Plug 'kana/vim-textobj-indent'
-Plug 'kana/vim-textobj-line'
-Plug 'kana/vim-textobj-user'
-Plug 'kchmck/vim-coffee-script'
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/syntastic'
-Plug 'shougo/vimproc.vim'
-Plug 'shougo/neomru.vim'
-Plug 'shougo/unite.vim'
-Plug 'sickill/vim-pasta'
-Plug 'stanangeloff/php.vim'
-Plug 'stormherz/tablify'
-Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-jdaddy'
 Plug 'tpope/vim-projectionist'
-Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'vim-scripts/camelcasemotion'
-Plug 'vim-scripts/unconditionalpaste'
 
-Plug 'chriskempson/base16-vim'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-user'
+Plug 'sgur/vim-textobj-parameter'
+
+Plug 'bkad/camelcasemotion'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-oblique'
+Plug 'junegunn/vim-pseudocl'
+Plug 'justinmk/vim-gtfo'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
+Plug 'shougo/neomru.vim'
+Plug 'shougo/unite.vim'
+Plug 'shougo/vimproc.vim'
+
+Plug 'stanangeloff/php.vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'pangloss/vim-javascript'
+
 Plug 'junegunn/seoul256.vim'
-Plug 'molok/vim-vombato-colorscheme'
 Plug 'romainl/apprentice'
-Plug 'sickill/vim-monokai'
-Plug 'stayradiated/vim-termorrow'
-Plug 'w0ng/vim-hybrid'
-Plug 'whatyouhide/vim-gotham'
-Plug 'zeis/vim-kolor'
 
 call plug#end()
 
@@ -196,7 +174,6 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
 autocmd FileType unite call s:unite_settings()
 
 function! s:unite_settings()
-  let b:SuperTabDisabled=1
   nmap <buffer> <ESC> <Plug>(unite_exit)
 endfunction
 
