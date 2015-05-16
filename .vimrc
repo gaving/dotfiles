@@ -10,6 +10,7 @@ let g:mapleader = ","
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
@@ -26,16 +27,18 @@ Plug 'kana/vim-textobj-user'
 Plug 'sgur/vim-textobj-parameter'
 
 Plug 'bkad/camelcasemotion'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-oblique'
 Plug 'junegunn/vim-pseudocl'
 Plug 'justinmk/vim-gtfo'
-Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 Plug 'shougo/neomru.vim'
 Plug 'shougo/unite.vim'
 Plug 'shougo/vimproc.vim'
+Plug 'szw/vim-g'
+Plug 'tommcdo/vim-exchange'
 
 Plug 'stanangeloff/php.vim'
 Plug 'kchmck/vim-coffee-script'
@@ -142,6 +145,7 @@ nmap <silent> w <Plug>CamelCaseMotion_w
 nmap <silent> b <Plug>CamelCaseMotion_b
 nmap <silent> e <Plug>CamelCaseMotion_e
 
+nnoremap <leader>p :<C-u>UniteWithProjectDir -buffer-name=files -no-split file_rec/async:!
 nnoremap <leader>t :<C-u>Unite -buffer-name=files -no-split file_rec/async:!<cr>
 nnoremap <leader>f :<C-u>Unite -buffer-name=files file_rec<CR>
 nnoremap <leader>m :<C-u>Unite -buffer-name=files file_mru<CR>
@@ -150,8 +154,6 @@ nnoremap <leader>B :<C-u>Unite -buffer-name=buffer -quick-match buffer<CR>
 nnoremap <leader>/ :<C-u>Unite -buffer-name=buffer line<CR>
 nnoremap <leader>g :<C-u>Unite -buffer-name=buffer grep:.<CR>
 nnoremap <leader>y :<C-u>Unite history/yank<CR>
-
-let g:NERDMenuMode=0
 
 let g:unite_source_history_yank_enable = 1
 let g:unite_enable_start_insert = 1
@@ -179,6 +181,9 @@ endfunction
 
 vmap <Enter> <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
+
+nnoremap <leader>G :Google
+vnoremap <leader>G :Google<CR>
 
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
