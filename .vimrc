@@ -33,11 +33,13 @@ Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-oblique'
 Plug 'junegunn/vim-pseudocl'
 Plug 'justinmk/vim-gtfo'
+Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'scrooloose/syntastic'
 Plug 'shougo/neomru.vim'
 Plug 'shougo/unite.vim'
 Plug 'shougo/vimproc.vim'
 Plug 'szw/vim-g'
+Plug 'szw/vim-tags'
 Plug 'tommcdo/vim-exchange'
 
 Plug 'stanangeloff/php.vim'
@@ -182,6 +184,7 @@ endfunction
 vmap <Enter> <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
 
+nnoremap <C-d> :Sayonara<CR>
 nnoremap <leader>G :Google
 vnoremap <leader>G :Google<CR>
 
