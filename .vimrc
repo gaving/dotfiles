@@ -31,6 +31,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-oblique'
+Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-pseudocl'
 Plug 'justinmk/vim-gtfo'
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
@@ -41,6 +42,7 @@ Plug 'shougo/vimproc.vim'
 Plug 'szw/vim-g'
 Plug 'szw/vim-tags'
 Plug 'tommcdo/vim-exchange'
+Plug 'tsukkee/unite-tag'
 
 Plug 'stanangeloff/php.vim'
 Plug 'kchmck/vim-coffee-script'
@@ -147,8 +149,8 @@ nmap <silent> w <Plug>CamelCaseMotion_w
 nmap <silent> b <Plug>CamelCaseMotion_b
 nmap <silent> e <Plug>CamelCaseMotion_e
 
-nnoremap <leader>p :<C-u>UniteWithProjectDir -buffer-name=files -no-split file_rec/async:!
-nnoremap <leader>t :<C-u>Unite -buffer-name=files -no-split file_rec/async:!<cr>
+nnoremap <leader>p :<C-u>UniteWithProjectDir -buffer-name=files -no-split file_rec/async:!<CR>
+nnoremap <leader>t :<C-u>Unite tag -buffer-name=tags<CR>
 nnoremap <leader>f :<C-u>Unite -buffer-name=files file_rec<CR>
 nnoremap <leader>m :<C-u>Unite -buffer-name=files file_mru<CR>
 nnoremap <leader>b :<C-u>Unite -buffer-name=buffer buffer<CR>
