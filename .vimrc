@@ -2,12 +2,12 @@ set nocompatible
 
 if !has("unix")
   set rtp&
-  let &rtp = expand('~/.vim').','.&rtp.','.expand('~/.vim/after')
+  let &rtp = expand('c:/gavin/dotfiles/.vim').','.&rtp
 endif
 
 let g:mapleader = ","
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('c:/gavin/dotfiles/.vim/plugged')
 
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
@@ -44,6 +44,7 @@ Plug 'szw/vim-g'
 Plug 'szw/vim-tags'
 Plug 'tommcdo/vim-exchange'
 Plug 'tsukkee/unite-tag'
+Plug 'AndrewRadev/splitjoin.vim'
 
 Plug 'stanangeloff/php.vim'
 Plug 'kchmck/vim-coffee-script'
