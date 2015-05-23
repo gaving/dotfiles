@@ -46,6 +46,7 @@ Plug 'tommcdo/vim-exchange'
 Plug 'tsukkee/unite-tag'
 Plug 'AndrewRadev/splitjoin.vim'
 
+Plug 'ap/vim-css-color'
 Plug 'stanangeloff/php.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'pangloss/vim-javascript'
