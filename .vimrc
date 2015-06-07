@@ -21,11 +21,12 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
 
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-user'
-Plug 'sgur/vim-textobj-parameter'
+Plug 'wellle/targets.vim'
 
 Plug 'bkad/camelcasemotion'
 Plug 'christoomey/vim-tmux-navigator'
@@ -35,6 +36,7 @@ Plug 'junegunn/vim-oblique'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-pseudocl'
 Plug 'justinmk/vim-gtfo'
+Plug 'junegunn/vim-after-object'
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'scrooloose/syntastic'
 Plug 'shougo/neomru.vim'
@@ -45,11 +47,13 @@ Plug 'szw/vim-tags'
 Plug 'tommcdo/vim-exchange'
 Plug 'tsukkee/unite-tag'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'terryma/vim-expand-region'
 
 Plug 'ap/vim-css-color'
 Plug 'stanangeloff/php.vim'
 Plug 'kchmck/vim-coffee-script'
-Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim'
+Plug 'othree/javascript-libraries-syntax.vim'
 
 Plug 'junegunn/seoul256.vim'
 Plug 'romainl/apprentice'
@@ -181,6 +185,7 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ ], '\|'))
 
 autocmd FileType unite call s:unite_settings()
+autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 
 function! s:unite_settings()
   nmap <buffer> <ESC> <Plug>(unite_exit)
