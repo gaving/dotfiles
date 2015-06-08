@@ -45,13 +45,19 @@ Plug 'szw/vim-tags'
 Plug 'tommcdo/vim-exchange'
 Plug 'tsukkee/unite-tag'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'ap/vim-css-color'
+Plug 'airblade/vim-gitgutter'
+Plug 'shumphrey/fugitive-gitlab.vim'
+Plug 'ajh17/VimCompletesMe'
 
 Plug 'stanangeloff/php.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'pangloss/vim-javascript'
+Plug 'maksimr/vim-jsbeautify'
 
 Plug 'junegunn/seoul256.vim'
 Plug 'romainl/apprentice'
+Plug 'trusktr/seti.vim'
 
 call plug#end()
 
@@ -158,7 +164,7 @@ nnoremap <leader>m :<C-u>Unite -buffer-name=files file_mru<CR>
 nnoremap <leader>b :<C-u>Unite -buffer-name=buffer buffer<CR>
 nnoremap <leader>B :<C-u>Unite -buffer-name=buffer -quick-match buffer<CR>
 nnoremap <leader>/ :<C-u>Unite -buffer-name=buffer line<CR>
-nnoremap <leader>g :<C-u>Unite -buffer-name=buffer grep:.<CR>
+" nnoremap <leader>g :<C-u>Unite -buffer-name=buffer grep:.<CR>
 nnoremap <leader>y :<C-u>Unite history/yank<CR>
 
 let g:unite_source_history_yank_enable = 1

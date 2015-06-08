@@ -4,7 +4,7 @@ setopt prompt_subst
 autoload colors; colors
 
 if [[ $ZSH_VERSION > 4.3.6 ]]; then
-    autoload -Uz vcs_info
+    # autoload -Uz vcs_info
 fi
 
 # set some colors
@@ -28,18 +28,18 @@ FMT_PATH="%R${PR_YELLOW}/%S"              # e.g. ~/repo/subdir
 
 # check-for-changes can be really slow.
 # you should disable it, if you work with large repositories
-zstyle ':vcs_info:*:prompt:*' check-for-changes true
-zstyle ':vcs_info:*:prompt:*' unstagedstr '¹'  # display ¹ if there are unstaged changes
-zstyle ':vcs_info:*:prompt:*' stagedstr '²'    # display ² if there are staged changes
-zstyle ':vcs_info:*:prompt:*' actionformats "${FMT_BRANCH}${FMT_ACTION}" "${FMT_PATH}"
-zstyle ':vcs_info:*:prompt:*' formats       "[${FMT_BRANCH}]"            "${FMT_PATH}"
-zstyle ':vcs_info:*:prompt:*' nvcsformats   ""                             "%~"
+# zstyle ':vcs_info:*:prompt:*' check-for-changes true
+# zstyle ':vcs_info:*:prompt:*' unstagedstr '¹'  # display ¹ if there are unstaged changes
+# zstyle ':vcs_info:*:prompt:*' stagedstr '²'    # display ² if there are staged changes
+# zstyle ':vcs_info:*:prompt:*' actionformats "${FMT_BRANCH}${FMT_ACTION}" "${FMT_PATH}"
+# zstyle ':vcs_info:*:prompt:*' formats       "[${FMT_BRANCH}]"            "${FMT_PATH}"
+# zstyle ':vcs_info:*:prompt:*' nvcsformats   ""                             "%~"
 
 function precmd {
     title zsh "$PWD"
-    if [[ $ZSH_VERSION > 4.3.6 ]]; then
-        vcs_info 'prompt'
-    fi
+    # if [[ $ZSH_VERSION > 4.3.6 ]]; then
+    #     vcs_info 'prompt'
+    # fi
 }
 
 function lprompt {
@@ -61,11 +61,12 @@ function lprompt {
 
 function rprompt {
     local git='$vcs_info_msg_0_'
-    RPROMPT="${PR_BRIGHT_RED}%(?..ツ)%}${PR_RESET} ${PR_RESET}${git}${PR_RESET} %T"
+    # RPROMPT="${PR_BRIGHT_RED}%(?..ツ)%}${PR_RESET} ${PR_RESET}${git}${PR_RESET} %T"
+    RPROMPT='${PR_RESET}$(git_super_status)${PR_RESET}'
 }
 
 lprompt $(eval echo \$$(echo PR_BRIGHT_$(echo ${PROMPT_COLOUR:-CYAN}))) $PR_WHITE
-#rprompt
+rprompt
 
 if [[ -f ~/.dircolors ]]; then
     eval $(dircolors -b ~/.dircolors)

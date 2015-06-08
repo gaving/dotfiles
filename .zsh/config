@@ -4,7 +4,7 @@
 # {{{1 environment
 
 unlimit
-limit coredumpsize 0
+#limit coredumpsize 0
 umask 022
 
 export EDITOR=vim
