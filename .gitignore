@@ -10,3 +10,4 @@
 tags
 *.swp
 *.un~
+.tmux
