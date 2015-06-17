@@ -48,12 +48,14 @@ Plug 'tommcdo/vim-exchange'
 Plug 'tsukkee/unite-tag'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'terryma/vim-expand-region'
+Plug 'mhinz/vim-startify'
 
 Plug 'ap/vim-css-color'
 Plug 'stanangeloff/php.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'othree/yajs.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
 Plug 'junegunn/seoul256.vim'
 Plug 'romainl/apprentice'
