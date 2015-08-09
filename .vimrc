@@ -6,6 +6,7 @@ if !has("unix")
 endif
 
 let g:mapleader = ","
+map <Space> <Leader>
 
 call plug#begin('~/.vim/plugged')
 
@@ -14,6 +15,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi'
@@ -30,43 +32,34 @@ Plug 'wellle/targets.vim'
 
 Plug 'bkad/camelcasemotion'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'itchyny/lightline.vim'
+Plug 'bling/vim-airline'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-oblique'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-pseudocl'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 Plug 'justinmk/vim-gtfo'
-Plug 'junegunn/vim-after-object'
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'scrooloose/syntastic'
+Plug 'Chiel92/vim-autoformat'
 Plug 'shougo/neomru.vim'
 Plug 'shougo/unite.vim'
 Plug 'shougo/vimproc.vim'
-Plug 'szw/vim-g'
-Plug 'szw/vim-tags'
 Plug 'tommcdo/vim-exchange'
-Plug 'tsukkee/unite-tag'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'terryma/vim-expand-region'
 Plug 'mhinz/vim-startify'
+Plug 'dyng/ctrlsf.vim'
+Plug 'airblade/vim-rooter'
 
 Plug 'ap/vim-css-color'
 Plug 'stanangeloff/php.vim'
-Plug 'kchmck/vim-coffee-script'
-Plug 'othree/yajs.vim'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
 Plug 'junegunn/seoul256.vim'
 Plug 'romainl/apprentice'
 
 call plug#end()
-
-if exists('+autochdir')
-    set autochdir
-else
-    autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
-endif
 
 autocmd FileType help wincmd L
 
@@ -75,36 +68,30 @@ if has('gui_running')
     set cursorline
 endif
 
-if has('spell')
-    set spell
-    set spelllang=en_gb
-    set spellfile=$HOME/.vim/spell/spellfile.add
-    set spellsuggest=best,10
-endif
-
+let &sbr = nr2char(8618).' '
 set autowriteall
-set foldclose=all
+set backupdir=~/.vim/tmp
+set clipboard+=unnamed
+set directory=~/.vim/tmp
 set foldmethod=marker
 set gcr=n:blinkon0
+set hidden
+set ignorecase
 set lazyredraw
 set list
-let &sbr = nr2char(8618).' '
-set hidden
-set icon
-set ignorecase
 set nojoinspaces
 set nowrap
 set nrformats+=alpha
 set number
 set scrolljump=5
-set shortmess+=I
 set smartindent
-set splitright
 set splitbelow
-set suffixes+=.class,.gz,.zip,.bz2,.tar,.pyc
-set suffixes-=.h
+set splitright
 set textwidth=79
 set ttyfast
+set undodir=~/.vim/tmp
+set undofile
+set undolevels=5000
 set viminfo='100,f1
 set wildignore+=*.o,*.r,*.class,*.pyc,*.so,*.sl,*.tar,*.tgz,*.gz,*.dmg,*.zip,*.pdf,*CVS/*,*.svn/*,*.toc,*.aux,*.dvi,*.log
 set wildmode=full
@@ -123,49 +110,26 @@ nnoremap ` <C-^>
 nnoremap Q gqap
 nnoremap q: :q
 nnoremap gp `[v`]
-nnoremap XX :w<bar>bd<cr>
-nnoremap XQ :bd!<cr>
+nnoremap Y y$
 
 noremap <Backspace> <C-y>
 xnoremap <Backspace> "_x
 
-nnoremap g<backspace> <c-o>
-nnoremap g<return> <c-i>
-nnoremap gb :bnext<cr>
-nnoremap gB :bprev<cr>
-
-nnoremap <Leader>d :bd<cr>
-nnoremap <Leader>D :bd!<cr>
-nnoremap <Leader>da :exec "1," . bufnr('$') . "bd"<cr>
-nnoremap <Leader>du :diffupdate<CR>
-nnoremap <Leader>ds :vertical diffsplit <C-r>=expand("%:p:h")<CR>/<C-d>
-nnoremap <Leader>vs :vsplit <C-r>=expand("%:p:h")<CR>/<C-d>
-
-nnoremap <Leader>dtw :%s/\s\+$//g<CR>:nohls<CR>
-nnoremap <Leader>dbl :g/^$/d<CR>:nohls<CR>
-
+nnoremap <Leader>d :vertical diffsplit <C-r>=expand("%:p:h")<CR>/<C-d>
 nnoremap <Leader>e :Errors<CR><C-w>j
-nnoremap <Leader>r :%s/\<<c-r><c-w>\>//g<Left><Left>
-nnoremap <Leader>R :%S/<c-r><c-w>//g<Left><Left>
-
-nnoremap <Leader>q 1z=<CR>
 nnoremap <Leader>v :e $MYVIMRC<CR>
 nnoremap <Leader>V :e $HOME/.vimrc.local<CR>
 nnoremap <Leader>w :w<cr>
-nnoremap Y y$
 
 nmap <silent> w <Plug>CamelCaseMotion_w
 nmap <silent> b <Plug>CamelCaseMotion_b
 nmap <silent> e <Plug>CamelCaseMotion_e
 
 nnoremap <leader>p :<C-u>UniteWithProjectDir -buffer-name=files -no-split file_rec/async:!<CR>
-nnoremap <leader>t :<C-u>Unite tag -buffer-name=tags<CR>
 nnoremap <leader>f :<C-u>Unite -buffer-name=files file_rec<CR>
 nnoremap <leader>m :<C-u>Unite -buffer-name=files file_mru<CR>
 nnoremap <leader>b :<C-u>Unite -buffer-name=buffer buffer<CR>
-nnoremap <leader>B :<C-u>Unite -buffer-name=buffer -quick-match buffer<CR>
 nnoremap <leader>/ :<C-u>Unite -buffer-name=buffer line<CR>
-nnoremap <leader>g :<C-u>Unite -buffer-name=buffer grep:.<CR>
 nnoremap <leader>y :<C-u>Unite history/yank<CR>
 
 let g:unite_source_history_yank_enable = 1
@@ -187,7 +151,6 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ ], '\|'))
 
 autocmd FileType unite call s:unite_settings()
-autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 
 function! s:unite_settings()
   nmap <buffer> <ESC> <Plug>(unite_exit)
@@ -195,10 +158,19 @@ endfunction
 
 vmap <Enter> <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
+nmap <Leader>g :Goyo<CR>
+nmap <Leader>l :Limelight!!<CR>
+xmap <Leader>l <Plug>(Limelight)
+
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 nnoremap <C-d> :Sayonara<CR>
-nnoremap <leader>G :Google
-vnoremap <leader>G :Google<CR>
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='bubblegum'
+let g:airline_powerline_fonts = 1
+let g:rooter_silent_chdir = 1
 
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
