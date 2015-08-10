@@ -2,12 +2,12 @@ set nocompatible
 
 if !has("unix")
   set rtp&
-  let &rtp = expand('~/.vim').','.&rtp.','.expand('~/.vim/after')
+  let &rtp = expand('c:/gavin/dotfiles/.vim').','.&rtp
 endif
 
 let g:mapleader = ","
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('c:/gavin/dotfiles/.vim/plugged')
 
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
@@ -21,15 +21,24 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+" Plug 'tpope/vim-obsession'
+" Plug 'dhruvasagar/vim-prosession'
+" Plug 'bling/vim-bufferline'
+Plug 'mhinz/vim-startify'
+Plug 'Chiel92/vim-autoformat'
 
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-user'
-Plug 'sgur/vim-textobj-parameter'
+Plug 'wellle/targets.vim'
+Plug 'junegunn/vim-after-object'
+Plug 'rking/ag.vim'
 
 Plug 'bkad/camelcasemotion'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
+Plug 'bling/vim-airline'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-oblique'
 Plug 'junegunn/vim-peekaboo'
@@ -39,6 +48,7 @@ Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'scrooloose/syntastic'
 Plug 'shougo/neomru.vim'
 Plug 'shougo/unite.vim'
+Plug 'shougo/unite-session'
 Plug 'shougo/vimproc.vim'
 Plug 'szw/vim-g'
 Plug 'szw/vim-tags'
@@ -46,7 +56,7 @@ Plug 'tommcdo/vim-exchange'
 Plug 'tsukkee/unite-tag'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ap/vim-css-color'
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'ajh17/VimCompletesMe'
 
@@ -55,6 +65,7 @@ Plug 'stanangeloff/php.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'pangloss/vim-javascript'
 Plug 'maksimr/vim-jsbeautify'
+Plug 'dyng/ctrlsf.vim'
 
 Plug 'junegunn/seoul256.vim'
 Plug 'romainl/apprentice'
@@ -187,6 +198,7 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ ], '\|'))
 
 autocmd FileType unite call s:unite_settings()
+autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 
 function! s:unite_settings()
   nmap <buffer> <ESC> <Plug>(unite_exit)
