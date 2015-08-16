@@ -50,7 +50,6 @@ setopt \
     hist_ignore_all_dups \
     hist_find_no_dups    \
     hist_save_no_dups    \
-    hist_ignore_space    \
     hist_reduce_blanks   \
     list_packed          \
     list_types           \
