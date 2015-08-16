@@ -2,6 +2,7 @@
 .vim/.netrwhist
 .vim/autoload/plug.vim.old
 .vim/spell
+.vim/session
 .vim/plugged
 .vim/tmp
 .vimrc.local
