@@ -16,7 +16,9 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-obsession' | Plug 'dhruvasagar/vim-prosession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-sensible'
@@ -115,6 +117,7 @@ nnoremap Y y$
 noremap <Backspace> <C-y>
 xnoremap <Backspace> "_x
 
+nnoremap <Leader>s :Prosession <Tab>
 nnoremap <Leader>d :vertical diffsplit <C-r>=expand("%:p:h")<CR>/<C-d>
 nnoremap <Leader>e :Errors<CR><C-w>j
 nnoremap <Leader>v :e $MYVIMRC<CR>
