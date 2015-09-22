@@ -16,7 +16,9 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-obsession' | Plug 'dhruvasagar/vim-prosession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-sensible'
@@ -116,6 +118,7 @@ nnoremap Y y$
 noremap <Backspace> <C-y>
 xnoremap <Backspace> "_x
 
+nnoremap <Leader>s :Prosession 
 nnoremap <Leader>d :vertical diffsplit <C-r>=expand("%:p:h")<CR>/<C-d>
 nnoremap <Leader>e :Errors<CR><C-w>j
 nnoremap <Leader>v :e $MYVIMRC<CR>
@@ -134,25 +137,30 @@ nnoremap <leader>/ :<C-u>Unite -buffer-name=buffer line<CR>
 nnoremap <leader>y :<C-u>Unite history/yank<CR>
 
 let g:unite_source_history_yank_enable = 1
-let g:unite_enable_start_insert = 1
-let g:unite_split_rule = "botright"
-let g:unite_force_overwrite_statusline = 0
-let g:unite_winheight = 20
+
+call unite#custom#profile('default', 'context', {
+\   'start_insert': 1,
+\   'winheight': 10,
+\   'sync': 1,
+\   'direction': 'dynamicbottom',
+\   'prompt_direction': 'botleft',
+\   'prompt' : '➤ '
+\ })
 
 call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ 'ignore_pattern', join([
       \ '\.\(git\|svn\|vagrant\)\/',
-      \ 'tmp\/',
+      \ '\.\(jpe?g\|gif\|png\)$',
       \ 'app\/storage\/',
       \ 'bower_components\/',
       \ 'fonts\/',
-      \ 'sass-cache\/',
+      \ 'jspm_packages\/',
       \ 'node_modules\/',
-      \ '\.\(jpe?g\|gif\|png\)$',
+      \ 'sass-cache\/',
+      \ 'tmp\/',
       \ ], '\|'))
 
 autocmd FileType unite call s:unite_settings()
-
 function! s:unite_settings()
   nmap <buffer> <ESC> <Plug>(unite_exit)
 endfunction
