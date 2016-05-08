@@ -16,7 +16,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-obsession' | Plug 'dhruvasagar/vim-prosession'
 Plug 'tpope/vim-repeat'
@@ -32,31 +31,32 @@ Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-user'
 Plug 'wellle/targets.vim'
 
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'Chiel92/vim-autoformat'
+Plug 'Shougo/unite-outline'
+Plug 'ap/vim-css-color'
 Plug 'bkad/camelcasemotion'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'bling/vim-airline'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'dyng/ctrlsf.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-oblique'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-pseudocl'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 Plug 'justinmk/vim-gtfo'
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
+Plug 'mhinz/vim-startify'
+Plug 'romainl/apprentice'
 Plug 'scrooloose/syntastic'
-Plug 'Chiel92/vim-autoformat'
+Plug 'sheerun/vim-polyglot'
 Plug 'shougo/neomru.vim'
 Plug 'shougo/unite.vim'
 Plug 'shougo/vimproc.vim'
-Plug 'tommcdo/vim-exchange'
-Plug 'AndrewRadev/splitjoin.vim'
 Plug 'terryma/vim-expand-region'
-Plug 'mhinz/vim-startify'
-Plug 'dyng/ctrlsf.vim'
-Plug 'airblade/vim-rooter'
-
-Plug 'ap/vim-css-color'
-Plug 'stanangeloff/php.vim'
+Plug 'tommcdo/vim-exchange'
 
 Plug 'junegunn/seoul256.vim'
 Plug 'romainl/apprentice'
@@ -134,6 +134,7 @@ nnoremap <leader>m :<C-u>Unite -buffer-name=files file_mru<CR>
 nnoremap <leader>b :<C-u>Unite -buffer-name=buffer buffer<CR>
 nnoremap <leader>/ :<C-u>Unite -buffer-name=buffer line<CR>
 nnoremap <leader>y :<C-u>Unite history/yank<CR>
+nnoremap <leader>o :<C-u>Unite outline<CR>
 
 let g:unite_source_history_yank_enable = 1
 
