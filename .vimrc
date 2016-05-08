@@ -165,7 +165,6 @@ nnoremap <C-d> :Sayonara<CR>
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:rooter_silent_chdir = 1
 
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
