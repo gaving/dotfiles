@@ -58,8 +58,6 @@ Plug 'shougo/vimproc.vim'
 Plug 'terryma/vim-expand-region'
 Plug 'tommcdo/vim-exchange'
 
-Plug 'junegunn/seoul256.vim'
-Plug 'romainl/apprentice'
 
 call plug#end()
 
