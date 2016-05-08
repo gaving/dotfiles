@@ -148,16 +148,10 @@ call unite#custom#profile('default', 'context', {
 
 call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ 'ignore_pattern', join([
-      \ '\.\(git\|svn\|vagrant\)\/',
-      \ '\.\(jpe?g\|gif\|png\)$',
-      \ 'app\/storage\/',
-      \ 'bower_components\/',
-      \ 'fonts\/',
-      \ 'jspm_packages\/',
-      \ 'node_modules\/',
-      \ 'sass-cache\/',
-      \ 'tmp\/',
+      \ '\.\(jpe?g\|gif\|png\|svg\)$',
       \ ], '\|'))
+
+let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
 
 autocmd FileType unite call s:unite_settings()
 function! s:unite_settings()
