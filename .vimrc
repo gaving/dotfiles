@@ -129,8 +129,6 @@ nnoremap <leader>/ :<C-u>Unite -buffer-name=buffer line<CR>
 nnoremap <leader>y :<C-u>Unite history/yank<CR>
 nnoremap <leader>o :<C-u>Unite outline<CR>
 
-let g:unite_source_history_yank_enable = 1
-
 call unite#custom#profile('default', 'context', {
 \   'start_insert': 1,
 \   'winheight': 10,
@@ -145,6 +143,7 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ '\.\(jpe?g\|gif\|png\|svg\)$',
       \ ], '\|'))
 
+let g:unite_source_history_yank_enable = 1
 let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
 
 autocmd FileType unite call s:unite_settings()
