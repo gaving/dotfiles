@@ -58,7 +58,6 @@ Plug 'shougo/vimproc.vim'
 Plug 'terryma/vim-expand-region'
 Plug 'tommcdo/vim-exchange'
 
-
 call plug#end()
 
 autocmd FileType help wincmd L
@@ -122,10 +121,6 @@ nnoremap <Leader>v :e $MYVIMRC<CR>
 nnoremap <Leader>V :e $HOME/.vimrc.local<CR>
 nnoremap <Leader>w :w<cr>
 
-nmap <silent> w <Plug>CamelCaseMotion_w
-nmap <silent> b <Plug>CamelCaseMotion_b
-nmap <silent> e <Plug>CamelCaseMotion_e
-
 nnoremap <leader>p :<C-u>UniteWithProjectDir -buffer-name=files -no-split file_rec/async:!<CR>
 nnoremap <leader>f :<C-u>Unite -buffer-name=files file_rec<CR>
 nnoremap <leader>m :<C-u>Unite -buffer-name=files file_mru<CR>
@@ -169,7 +164,6 @@ autocmd! User GoyoLeave Limelight!
 nnoremap <C-d> :Sayonara<CR>
 
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='bubblegum'
 let g:airline_powerline_fonts = 1
 let g:rooter_silent_chdir = 1
 
