@@ -11,3 +11,4 @@
 tags
 *.swp
 *.un~
+.DS_Store
