@@ -1,5 +1,3 @@
-set nocompatible
-
 if !has("unix")
   set rtp&
   let &rtp = expand('~/.vim').','.&rtp.','.expand('~/.vim/after')
@@ -15,7 +13,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-obsession' | Plug 'dhruvasagar/vim-prosession'
 Plug 'tpope/vim-repeat'
@@ -24,48 +22,46 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-vinegar'
-
-Plug 'kana/vim-textobj-indent'
-Plug 'kana/vim-textobj-line'
-Plug 'kana/vim-textobj-user'
-Plug 'wellle/targets.vim'
 
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'Chiel92/vim-autoformat'
-Plug 'Shougo/unite-outline'
 Plug 'ap/vim-css-color'
 Plug 'bkad/camelcasemotion'
 Plug 'bling/vim-airline'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'dyng/ctrlsf.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/seoul256.vim'
+Plug 'elzr/vim-json', { 'for': 'json' }
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-oblique'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-pseudocl'
+Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-gtfo'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-user'
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'mhinz/vim-startify'
-Plug 'romainl/apprentice'
-Plug 'scrooloose/syntastic'
-Plug 'sheerun/vim-polyglot'
+Plug 'moll/vim-node', { 'for': 'javascript' }
+Plug 'neomake/neomake'
+Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' }
+Plug 'othree/html5.vim', { 'for': 'html' }
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'shougo/neomru.vim'
 Plug 'shougo/unite.vim'
 Plug 'shougo/vimproc.vim'
-Plug 'terryma/vim-expand-region'
 Plug 'tommcdo/vim-exchange'
+Plug 'wellle/targets.vim'
+
+Plug 'romainl/apprentice'
+Plug 'junegunn/seoul256.vim'
+Plug 'morhetz/gruvbox'
+Plug 'mhartington/oceanic-next'
 
 call plug#end()
 
 autocmd FileType help wincmd L
-
-if has('gui_running')
-    set guioptions=cM
-    set cursorline
-endif
 
 let &sbr = nr2char(8618).' '
 set autowriteall
@@ -87,7 +83,7 @@ set smartindent
 set splitbelow
 set splitright
 set textwidth=79
-set ttyfast
+set termguicolors
 set undodir=~/.vim/tmp
 set undofile
 set undolevels=5000
@@ -110,6 +106,8 @@ nnoremap Q gqap
 nnoremap q: :q
 nnoremap gp `[v`]
 nnoremap Y y$
+nnoremap gt :bn<CR>
+nnoremap gT :bp<CR>
 
 noremap <Backspace> <C-y>
 xnoremap <Backspace> "_x
@@ -126,8 +124,6 @@ nnoremap <leader>f :<C-u>Unite -buffer-name=files file_rec<CR>
 nnoremap <leader>m :<C-u>Unite -buffer-name=files file_mru<CR>
 nnoremap <leader>b :<C-u>Unite -buffer-name=buffer buffer<CR>
 nnoremap <leader>/ :<C-u>Unite -buffer-name=buffer line<CR>
-nnoremap <leader>y :<C-u>Unite history/yank<CR>
-nnoremap <leader>o :<C-u>Unite outline<CR>
 
 call unite#custom#profile('default', 'context', {
 \   'start_insert': 1,
@@ -143,7 +139,6 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ '\.\(jpe?g\|gif\|png\|svg\)$',
       \ ], '\|'))
 
-let g:unite_source_history_yank_enable = 1
 let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
 
 autocmd FileType unite call s:unite_settings()
@@ -159,11 +154,16 @@ xmap <Leader>l <Plug>(Limelight)
 
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+autocmd! BufWritePost * Neomake
 
 nnoremap <C-d> :Sayonara<CR>
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+
+colorscheme OceanicNext
+set background=dark
+let g:airline_theme='oceanicnext'
 
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
