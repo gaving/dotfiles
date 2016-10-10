@@ -11,10 +11,8 @@ for c in alias expr find wget which; do
     alias $c="noglob $c"
 done
 
-alias cordova='nocorrect cordova'
 alias egrep='egrep -I --color=always'
 alias grep='grep -I --color=always'
-alias ionic='nocorrect ionic'
 alias jq='jq -C'
 alias mirror="noglob wget --mirror --no-parent --recursive --timestamping --continue --recursive"
 alias mkdir='nocorrect mkdir -p'
@@ -41,14 +39,6 @@ alias -g S='| sort'
 alias -g T='| tail'
 alias -g V='| vim'
 
-if which pbcopy >/dev/null 2>&1 ; then
-    alias -g X='| pbcopy'
-elif which xsel >/dev/null 2>&1 ; then
-    alias -g X='| xsel --input --clipboard'
-elif which putclip >/dev/null 2>&1 ; then
-    alias -g X='| putclip'
-fi
-
 # suffix
 
 alias -s txt=${PAGER:-less}
@@ -64,10 +54,7 @@ alias rwx='chmod 700'
 alias r--='chmod 644'
 alias r-x='chmod 755'
 
-# compatibility check for --group-directories-first
-ls --group-directories-first -d . >/dev/null 2>&1 && gdf=--group-directories-first
-
-alias ls="ls -hFG --color=auto $gdf"
+alias ls="ls -hFG --color=auto"
 alias lsa='ls -Al'                 # show hidden files
 alias lsb='ls -flh *(.OL[1,10])'   # display the biggest files
 alias lsc='ls -lcr'                # sort by change time
@@ -116,3 +103,23 @@ alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias gs='git status'
 alias gsa="git submodule add"
 alias gsu="git submodule foreach git pull origin master"
+
+# docker
+
+alias d=docker
+alias dl='docker ps -l -q'
+alias dps='docker ps'
+alias dpa='docker ps -a'
+alias di='docker images'
+alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
+alias dkd='docker run -d -P'
+alias dki='docker run -i -t -P'
+alias dex='docker exec -i -t'
+alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
+
+dstop() { docker stop $(docker ps -a -q); }
+drm() { docker rm $(docker ps -a -q); }
+dri() { docker rmi $(docker images -q); }
+dbu() { docker build -t=$1 .; }
+dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
+dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
