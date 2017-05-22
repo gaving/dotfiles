@@ -107,6 +107,7 @@ alias gsu="git submodule foreach git pull origin master"
 # docker
 
 alias d=docker
+alias dm=docker-machine
 alias dl='docker ps -l -q'
 alias dps='docker ps'
 alias dpa='docker ps -a'
