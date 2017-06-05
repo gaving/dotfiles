@@ -117,9 +117,8 @@ alias dki='docker run -i -t -P'
 alias dex='docker exec -i -t'
 alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
 
-dstop() { docker stop $(docker ps -a -q); }
-drm() { docker rm $(docker ps -a -q); }
-dri() { docker rmi $(docker images -q); }
+drm() { docker rm $1 }
+dri() { docker rmi $1 }
 dbu() { docker build -t=$1 .; }
 dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
