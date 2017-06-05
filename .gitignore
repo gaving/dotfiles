@@ -1,6 +1,7 @@
 .gitconfig
 .vim/.netrwhist
 .vim/autoload/plug.vim.old
+.vim/init.vim
 .vim/spell
 .vim/session
 .vim/plugged
@@ -12,3 +13,4 @@ tags
 *.swp
 *.un~
 .DS_Store
+.projections.json

@@ -84,7 +84,11 @@ set smartindent
 set splitbelow
 set splitright
 set textwidth=79
-set termguicolors
+
+if (has("termguicolors"))
+  set termguicolors
+endif
+  
 set undodir=~/.vim/tmp
 set undofile
 set undolevels=5000
