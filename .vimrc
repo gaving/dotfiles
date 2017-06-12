@@ -1,12 +1,12 @@
 if !has("unix")
   set rtp&
-  let &rtp = expand('c:/gavin/dotfiles/.vim').','.&rtp
+  let &rtp = expand('~/.vim').','.&rtp
 endif
 
 let g:mapleader = ","
 map <Space> <Leader>
 
-call plug#begin('c:/gavin/dotfiles/.vim/plugged')
+call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
@@ -50,7 +50,6 @@ Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'shougo/neomru.vim'
 Plug 'shougo/unite.vim'
-Plug 'shougo/unite-session'
 Plug 'shougo/vimproc.vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'wellle/targets.vim'
@@ -140,11 +139,9 @@ call unite#custom#profile('default', 'context', {
 \ })
 
 call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
-      \ 'ignore_pattern', join([
-      \ '\.\(jpe?g\|gif\|png\|svg\)$',
-      \ ], '\|'))
-
-let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
+\    'ignore_pattern', join([
+\    '\.\(jpe?g\|gif\|png\|svg\)$',
+\ ], '\|'))
 
 autocmd FileType unite call s:unite_settings()
 function! s:unite_settings()
@@ -165,10 +162,6 @@ nnoremap <C-d> :Sayonara<CR>
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-
-colorscheme OceanicNext
-set background=dark
-let g:airline_theme='oceanicnext'
 
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
