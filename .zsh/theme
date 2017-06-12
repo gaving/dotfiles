@@ -3,9 +3,9 @@
 setopt prompt_subst
 autoload colors; colors
 
-if [[ $ZSH_VERSION > 4.3.6 ]]; then
-    # autoload -Uz vcs_info
-fi
+# if [[ $ZSH_VERSION > 4.3.6 ]]; then
+#     autoload -Uz vcs_info
+# fi
 
 # set some colors
 # echo ${(o)color}
@@ -22,13 +22,14 @@ PR_RESET="%{${reset_color}%}";
 # %a - action (e.g. rebase-i)
 # %R - repository path
 # %S - path in the repository
-FMT_BRANCH="${PR_BRIGHT_CYAN}%b%u${PR_RESET}" # e.g. master¹²
-FMT_ACTION="(${PR_CYAN}%a${PR_RESET}%)"   # e.g. (rebase-i)
-FMT_PATH="%R${PR_YELLOW}/%S"              # e.g. ~/repo/subdir
+# FMT_BRANCH="${PR_BRIGHT_CYAN}%b%u${PR_RESET}" # e.g. master¹²
+# FMT_ACTION="(${PR_CYAN}%a${PR_RESET}%)"   # e.g. (rebase-i)
+# FMT_PATH="%R${PR_YELLOW}/%S"              # e.g. ~/repo/subdir
 
 # check-for-changes can be really slow.
 # you should disable it, if you work with large repositories
-# zstyle ':vcs_info:*:prompt:*' check-for-changes true
+# zstyle ':vcs_info:*' enable git
+# zstyle ':vcs_info:*:prompt:*' check-for-changes false
 # zstyle ':vcs_info:*:prompt:*' unstagedstr '¹'  # display ¹ if there are unstaged changes
 # zstyle ':vcs_info:*:prompt:*' stagedstr '²'    # display ² if there are staged changes
 # zstyle ':vcs_info:*:prompt:*' actionformats "${FMT_BRANCH}${FMT_ACTION}" "${FMT_PATH}"
@@ -61,8 +62,8 @@ function lprompt {
 
 function rprompt {
     local git='$vcs_info_msg_0_'
-    # RPROMPT="${PR_BRIGHT_RED}%(?..ツ)%}${PR_RESET} ${PR_RESET}${git}${PR_RESET} %T"
-    RPROMPT='${PR_RESET}${PR_RESET}'
+    RPROMPT="${PR_BRIGHT_RED}%(?..ツ)%}${PR_RESET} ${PR_RESET}${git}${PR_RESET} %T"
+    # RPROMPT='${PR_RESET}${PR_RESET}'
 }
 
 lprompt $(eval echo \$$(echo PR_BRIGHT_$(echo ${PROMPT_COLOUR:-CYAN}))) $PR_WHITE
