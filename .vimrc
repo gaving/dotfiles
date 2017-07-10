@@ -43,7 +43,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'mhinz/vim-startify'
 Plug 'moll/vim-node', { 'for': 'javascript' }
-Plug 'neomake/neomake'
+Plug 'w0rp/ale'
 Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' }
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
@@ -58,6 +58,7 @@ Plug 'romainl/apprentice'
 Plug 'junegunn/seoul256.vim'
 Plug 'morhetz/gruvbox'
 Plug 'mhartington/oceanic-next'
+Plug 'trevordmiller/nova-vim'
 
 call plug#end()
 
@@ -156,7 +157,6 @@ xmap <Leader>l <Plug>(Limelight)
 
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
-autocmd! BufWritePost * Neomake
 
 nnoremap <C-d> :Sayonara<CR>
 
