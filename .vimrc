@@ -88,7 +88,7 @@ set textwidth=79
 if (has("termguicolors"))
   set termguicolors
 endif
-  
+
 set undodir=~/.vim/tmp
 set undofile
 set undolevels=5000
@@ -117,7 +117,7 @@ nnoremap gT :bp<CR>
 noremap <Backspace> <C-y>
 xnoremap <Backspace> "_x
 
-nnoremap <Leader>s :Prosession 
+nnoremap <Leader>s :Prosession
 nnoremap <Leader>d :vertical diffsplit <C-r>=expand("%:p:h")<CR>/<C-d>
 nnoremap <Leader>e :Errors<CR><C-w>j
 nnoremap <Leader>v :e $MYVIMRC<CR>
