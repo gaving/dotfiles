@@ -25,14 +25,13 @@ Plug 'tpope/vim-unimpaired'
 
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ap/vim-css-color'
-Plug 'bkad/camelcasemotion'
 Plug 'bling/vim-airline'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/vim-oblique'
+Plug 'junegunn/vim-slash'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-pseudocl'
 Plug 'justinmk/vim-dirvish'
@@ -42,23 +41,20 @@ Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-user'
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'mhinz/vim-startify'
-Plug 'moll/vim-node', { 'for': 'javascript' }
-Plug 'w0rp/ale'
-Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' }
-Plug 'othree/html5.vim', { 'for': 'html' }
-Plug 'othree/yajs.vim', { 'for': 'javascript' }
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'shougo/neomru.vim'
-Plug 'shougo/unite.vim'
-Plug 'shougo/vimproc.vim'
+Plug 'Shougo/denite.nvim'
 Plug 'tommcdo/vim-exchange'
+Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
 
 Plug 'romainl/apprentice'
-Plug 'junegunn/seoul256.vim'
-Plug 'morhetz/gruvbox'
-Plug 'mhartington/oceanic-next'
-Plug 'trevordmiller/nova-vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'yuttie/hydrangea-vim'
+Plug 'fcpg/vim-fahrenheit'
+Plug 'jacoborus/tender.vim'
+Plug 'dracula/vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -117,37 +113,18 @@ nnoremap gT :bp<CR>
 noremap <Backspace> <C-y>
 xnoremap <Backspace> "_x
 
-nnoremap <Leader>s :Prosession
+nnoremap <Leader>s :Startify<CR>
 nnoremap <Leader>d :vertical diffsplit <C-r>=expand("%:p:h")<CR>/<C-d>
 nnoremap <Leader>e :Errors<CR><C-w>j
 nnoremap <Leader>v :e $MYVIMRC<CR>
 nnoremap <Leader>V :e $HOME/.vimrc.local<CR>
 nnoremap <Leader>w :w<cr>
 
-nnoremap <leader>p :<C-u>UniteWithProjectDir -buffer-name=files -no-split file_rec/async:!<CR>
-nnoremap <leader>f :<C-u>Unite -buffer-name=files file_rec<CR>
-nnoremap <leader>m :<C-u>Unite -buffer-name=files file_mru<CR>
-nnoremap <leader>b :<C-u>Unite -buffer-name=buffer buffer<CR>
-nnoremap <leader>/ :<C-u>Unite -buffer-name=buffer line<CR>
-
-call unite#custom#profile('default', 'context', {
-\   'start_insert': 1,
-\   'winheight': 10,
-\   'sync': 1,
-\   'direction': 'dynamicbottom',
-\   'prompt_direction': 'botleft',
-\   'prompt' : '➤ '
-\ })
-
-call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
-\    'ignore_pattern', join([
-\    '\.\(jpe?g\|gif\|png\|svg\)$',
-\ ], '\|'))
-
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-  nmap <buffer> <ESC> <Plug>(unite_exit)
-endfunction
+nnoremap <leader>b :<C-u>Denite buffer<CR>
+nnoremap <leader>c :<C-u>Denite colorscheme<CR>
+nnoremap <leader>f :<C-v>Denite file_rec<CR>
+nnoremap <leader>m :<C-u>Denite file_mru<CR>
+nnoremap <leader>p :<C-u>DeniteProjectDir file_rec<CR>
 
 vmap <Enter> <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
@@ -162,6 +139,8 @@ nnoremap <C-d> :Sayonara<CR>
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+
+colorscheme tender
 
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local

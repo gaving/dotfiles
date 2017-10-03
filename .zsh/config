@@ -102,6 +102,9 @@ bindkey "^@"  _history-complete-older
 bindkey "\ee" vi-find-next-char
 bindkey "\eE" vi-find-prev-char
 
+bindkey '^R' history-incremental-pattern-search-backward
+bindkey '^S' history-incremental-pattern-search-forward
+
 bindkey -s '^F' '^Upushd >/dev/null; dirs -v^M'
 bindkey -s '^B' '^Upopd >/dev/null; dirs -v^M'
 
