@@ -4,22 +4,28 @@
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "git.enableSmartCommit": true,
-  "vim.disableAnnoyingNeovimMessage": true,
   "vim.enableNeovim": true,
   "vim.leader": ",",
   "vim.useSystemClipboard": true,
   "window.zoomLevel": 0,
-  "workbench.colorTheme": "One Dark Pro",
   "workbench.fontAliasing": "antialiased",
   "vim.insertModeKeyBindings": [
     {
-      "before": ["j", "j"],
-      "after": ["<Esc>"]
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
     }
   ],
   "vim.otherModesKeyBindingsNonRecursive": [
     {
-      "before": ["leader", "w"],
+      "before": [
+        "leader",
+        "w"
+      ],
       "after": [],
       "commands": [
         {
@@ -28,5 +34,12 @@
         }
       ]
     }
-  ]
+  ],
+  "prettier.eslintIntegration": true,
+  "files.trimFinalNewlines": true,
+  "explorer.confirmDragAndDrop": false,
+  "cSpell.language": "en-GB",
+  "git.autofetch": true,
+  "workbench.colorTheme": "Default Light+",
+  "editor.wordWrap": "on"
 }
