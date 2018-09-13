@@ -1,3 +1,0 @@
-trace() {
-  strace -fe verbose=all -e write=all -p $1 2>&1 | tee ${2:="${1}_strace.log"}
-}

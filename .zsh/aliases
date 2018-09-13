@@ -19,6 +19,8 @@ alias mkdir='nocorrect mkdir -p'
 alias rscp="nocorrect rsync -aP --no-whole-file --inplace"
 alias rsmv="nocorrect rscp --remove-source-files"
 alias sudo='noglob do_sudo '
+alias scp='scp -r'
+alias vim='nvim'
 
 # zmv
 
@@ -43,66 +45,15 @@ alias -g V='| vim'
 
 alias -s txt=${PAGER:-less}
 
-for c in bz2 gz tar zip tgz; do
-    alias -s $c=show-archive
-done
-
 # chmod
-
-alias rw-='chmod 600'
-alias rwx='chmod 700'
-alias r--='chmod 644'
-alias r-x='chmod 755'
 
 alias ls="ls -hFG --color=auto"
 alias lsa='ls -Al'                 # show hidden files
-alias lsb='ls -flh *(.OL[1,10])'   # display the biggest files
-alias lsc='ls -lcr'                # sort by change time
-alias lsd='ls -d *(/)'             # only show directories
-alias lse='ls -d *(/^F)'           # only show empty directories
-alias lsk='ls -lSr'                # sort by size
-alias lsl='ls -Al L'               # pipe through 'less'
-alias lsn='ls -rl *(D.om[1,10])'   # display the nest files
-alias lso='ls -rtlh *(D.om[1,10])' # display the oldest files
-alias lsr='ls -lR'                 # recursive ls
-alias lss='ls -Srl *(.oL[1,10])'   # display the smallest files
-alias lst='ls -ltr'                # sort by date
-alias lsu='ls -lur'                # sort by access time
-alias lsx='ls -lXB'                # sort by extension
 
 # size
 
 alias du='du -kh'
 alias duh='du -slh'
-alias dub='du -slb'
-alias duk='du -slk'
-alias dum='du -slm'
-alias dug='du -sl --block-size=1G'
-alias duf='du -sk * | sort -n | perl -ne '\''($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'
-alias df='df -kh'
-alias dfh='df -PTh'
-alias dfb='df -PT --block-size=1'
-alias dfk='df -PTk'
-alias dfm='df -PTm'
-alias dfg='df -PT --block-size=1G'
-
-# git
-
-alias g=git
-alias gb='git branch'
-alias gba='git branch -a'
-alias gc='git commit -v -m'
-alias gca='git commit -v -a -m'
-alias gco='git checkout'
-alias gd='git diff'
-alias gds='git diff --staged'
-alias gdm='git diff HEAD\^..master'
-alias gl='git pull'
-alias gp='git push'
-alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
-alias gs='git status'
-alias gsa="git submodule add"
-alias gsu="git submodule foreach git pull origin master"
 
 # docker
 
@@ -123,3 +74,10 @@ dri() { docker rmi $1 }
 dbu() { docker build -t=$1 .; }
 dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
+
+# brew
+
+alias bin="brew install"
+alias bun="brew uninstall"
+alias bug="brew upgrade"
+alias bup="brew update"

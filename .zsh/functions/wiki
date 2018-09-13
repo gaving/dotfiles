@@ -1,3 +1,0 @@
-wiki() {
-    dig +short txt $(echo $* | sed 's/ /_/g').wp.dg.cx|sed -E "s/\" \"|^\"|\"$|\\\\//g"|fmt;
-}

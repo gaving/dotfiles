@@ -1,3 +1,0 @@
-dut() {
-    du -sb .* * | sort -nr | head | awk -F'\t' '{print $2}' | tr '\n' '\0' | xargs -0 du -sh
-}
