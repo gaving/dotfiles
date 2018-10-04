@@ -15,10 +15,13 @@ so these are my dotfiles
 * `cp ~/dotfiles/.gitconfig.skel ~/.gitconfig`
 * `shopt -s extglob`
 * `ln -sv ~/dotfiles/.zshrc ~/.oh-my-zsh/custom/entry`
-* `ln -sv ~/dotfiles/.!(.|..|git*|zshrc|vs*) ~/`
+* `ln -sv ~/dotfiles/.!(.|..|git*|zshrc|vim*|vs*) ~/`
 * `ln -sv ~/dotfiles/.vscode.settings.json ~/Library/Application\ Support/Code/User/settings.json`
+* `ln -sv ~/dotfiles/config ~/.config`
+* `ln -sv ~/dotfiles/config/nvim ~/.vim`
 
 # run
 
+* `nvim +PlugInstall +qall`
 * `tmux`
 * install plugins with `<prefix + I>`
