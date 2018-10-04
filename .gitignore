@@ -7,7 +7,6 @@
 .zsh/history*
 config/nvim/.netrwhist
 config/nvim/autoload/plug.vim.old
-config/nvim/init.vim
 config/nvim/plugged
 config/nvim/session
 config/nvim/spell
