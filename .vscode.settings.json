@@ -1,14 +1,19 @@
 {
+  "cSpell.language": "en-GB",
   "editor.fontFamily": "FiraCode-Retina",
   "editor.fontLigatures": true,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
+  "editor.wordWrap": "on",
+  "explorer.confirmDragAndDrop": false,
+  "files.trimFinalNewlines": true,
+  "git.autofetch": true,
   "git.enableSmartCommit": true,
+  "prettier.eslintIntegration": true,
+  "workbench.colorTheme": "Jingle (rainglow)",
   "vim.enableNeovim": true,
+  "vim.hlsearch": true,
   "vim.leader": ",",
-  "vim.useSystemClipboard": true,
-  "window.zoomLevel": 0,
-  "workbench.fontAliasing": "antialiased",
   "vim.insertModeKeyBindings": [
     {
       "before": [
@@ -20,26 +25,35 @@
       ]
     }
   ],
-  "vim.otherModesKeyBindingsNonRecursive": [
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [
+        "Y"
+      ],
+      "after": [
+        "y$"
+      ]
+    },
     {
       "before": [
         "leader",
         "w"
       ],
-      "after": [],
       "commands": [
-        {
-          "command": "workbench.action.files.save",
-          "args": []
-        }
+        ":w"
+      ]
+    },
+    {
+      "before": [
+        "Z",
+        "Z"
+      ],
+      "commands": [
+        ":wq"
       ]
     }
   ],
-  "prettier.eslintIntegration": true,
-  "files.trimFinalNewlines": true,
-  "explorer.confirmDragAndDrop": false,
-  "cSpell.language": "en-GB",
-  "git.autofetch": true,
-  "workbench.colorTheme": "Joker (rainglow)",
-  "editor.wordWrap": "on"
+  "vim.useSystemClipboard": true,
+  "window.zoomLevel": 0,
+  "workbench.fontAliasing": "antialiased"
 }
