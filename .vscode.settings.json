@@ -10,7 +10,7 @@
   "git.autofetch": true,
   "git.enableSmartCommit": true,
   "prettier.eslintIntegration": true,
-  "workbench.colorTheme": "Newton Light (rainglow)",
+  "workbench.colorTheme": "Earthsong Light (rainglow)",
   "vim.enableNeovim": true,
   "vim.hlsearch": true,
   "vim.leader": ",",
@@ -39,6 +39,7 @@
     }
   ],
   "vim.useSystemClipboard": true,
+  "vim.neovimPath": "/usr/local/bin/nvim",
   "window.zoomLevel": 0,
   "workbench.fontAliasing": "antialiased",
   "editor.tokenColorCustomizations": {
