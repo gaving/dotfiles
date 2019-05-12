@@ -10,7 +10,7 @@
   "git.autofetch": true,
   "git.enableSmartCommit": true,
   "prettier.eslintIntegration": true,
-  "workbench.colorTheme": "Earthsong Light (rainglow)",
+  "workbench.colorTheme": "Volatile (rainglow)",
   "vim.enableNeovim": true,
   "vim.hlsearch": true,
   "vim.leader": ",",

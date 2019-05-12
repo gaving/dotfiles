@@ -59,8 +59,8 @@ alias calc='noglob zcalc'
 
 bindkey -e
 bindkey '^Q' push-line
-bindkey '^R' history-incremental-search-backward
-bindkey '^S' history-incremental-search-forward
+# bindkey '^R' history-incremental-search-backward # replaced by zdharma/history-search-multi-word
+# bindkey '^S' history-incremental-search-forward
 bindkey -s '^F' '^Upushd >/dev/null; dirs -v^M'
 bindkey -s '^B' '^Upopd >/dev/null; dirs -v^M'
 

@@ -21,6 +21,7 @@ alias rsmv="nocorrect rscp --remove-source-files"
 alias sudo='noglob sudo '
 alias scp='scp -r'
 alias vim='nvim'
+alias k='k -Ah'
 
 # zmv
 
