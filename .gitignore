@@ -11,4 +11,5 @@ config/nvim/plugged
 config/nvim/session
 config/nvim/spell
 config/nvim/tmp
+config/configstore/
 tags
