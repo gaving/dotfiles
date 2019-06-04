@@ -20,6 +20,19 @@ so these are my dotfiles
 * `ln -sv ~/dotfiles/config/nvim ~/.vim`
 * `ln -sv ~/dotfiles/.!(.|..|config|git*|zshrc|vim*|vs*) ~/`
 
+## omz plugins
+
+```bash
+plugins=(
+  git
+  docker
+  docker-compose
+  k
+  zsh-z
+  history-search-multi-word
+)
+```
+
 # run
 
 * `nvim +PlugInstall +qall`
