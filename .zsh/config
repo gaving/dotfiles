@@ -30,6 +30,7 @@ setopt \
     chase_links          \
     clobber              \
     complete_aliases     \
+    extended_glob        \
     hist_find_no_dups    \
     hist_save_no_dups    \
     hist_reduce_blanks   \
