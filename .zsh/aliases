@@ -1,7 +1,9 @@
 #!/bin/zsh
-# zsh aliases
 
-alias a="rg -p -uu"
+alias a='rg -p'
+alias f='fd'
+alias h='http'
+alias v='vim'
 
 for c in cp rm mv chmod chown rename; do
     alias $c="nocorrect $c -v"
@@ -11,17 +13,16 @@ for c in alias expr find wget which; do
     alias $c="noglob $c"
 done
 
-alias egrep='egrep -I --color=always'
-alias grep='grep -I --color=always'
-alias jq='jq -C'
+alias di='docker images'
+alias dpa='docker ps -a'
+alias du='du -kh'
+alias duh='du -slh'
 alias mirror="noglob wget --mirror --no-parent --recursive --timestamping --continue --recursive"
 alias mkdir='nocorrect mkdir -p'
 alias rscp="nocorrect rsync -aP --no-whole-file --inplace"
-alias rsmv="nocorrect rscp --remove-source-files"
-alias sudo='noglob sudo '
 alias scp='scp -r'
+alias sudo='noglob sudo '
 alias vim='nvim'
-alias k='k -Ah'
 
 # zmv
 
@@ -41,44 +42,3 @@ alias -g N='&> /dev/null'
 alias -g S='| sort'
 alias -g T='| tail'
 alias -g V='| vim'
-
-# suffix
-
-alias -s txt=${PAGER:-less}
-
-# chmod
-
-alias ls="ls -hFG --color=auto"
-alias lsa='ls -Al'                 # show hidden files
-
-# size
-
-alias du='du -kh'
-alias duh='du -slh'
-
-# docker
-
-alias d=docker
-alias dm=docker-machine
-alias dl='docker ps -l -q'
-alias dps='docker ps'
-alias dpa='docker ps -a'
-alias di='docker images'
-alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
-alias dkd='docker run -d -P'
-alias dki='docker run -i -t -P'
-alias dex='docker exec -i -t'
-alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
-
-drm() { docker rm $1 }
-dri() { docker rmi $1 }
-dbu() { docker build -t=$1 .; }
-dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
-dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
-
-# brew
-
-alias bin="brew install"
-alias bun="brew uninstall"
-alias bug="brew upgrade"
-alias bup="brew update"

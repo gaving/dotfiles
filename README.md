@@ -29,7 +29,6 @@ plugins=(
   extract
   git
   history-search-multi-word
-  k
   thefuck
   zsh-z
 )
