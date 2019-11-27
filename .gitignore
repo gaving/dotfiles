@@ -13,4 +13,5 @@ config/nvim/spell
 config/nvim/tmp
 config/configstore/
 config/thefuck
+config/yarn
 tags
