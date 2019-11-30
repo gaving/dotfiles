@@ -99,24 +99,16 @@ nnoremap Q gqap
 nnoremap q: :q
 nnoremap gp `[v`]
 nnoremap Y y$
-nnoremap gt :bn<CR>
-nnoremap gT :bp<CR>
 
 noremap <Backspace> <C-y>
 xnoremap <Backspace> "_x
 
-nnoremap <Leader>s :Startify<CR>
 nnoremap <Leader>d :vertical diffsplit <C-r>=expand("%:p:h")<CR>/<C-d>
-nnoremap <Leader>e :Errors<CR><C-w>j
 nnoremap <Leader>v :e $MYVIMRC<CR>
 nnoremap <Leader>V :e $HOME/.vimrc.local<CR>
 nnoremap <Leader>w :w<cr>
-
-nnoremap <leader>b :<C-u>Denite buffer<CR>
-nnoremap <leader>c :<C-u>Denite colorscheme<CR>
-nnoremap <leader>f :<C-v>Denite file_rec<CR>
-nnoremap <leader>m :<C-u>Denite file_mru<CR>
-nnoremap <leader>p :<C-u>DeniteProjectDir file_rec<CR>
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>p :GFiles<CR>
 
 vmap <Enter> <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
@@ -124,10 +116,10 @@ nmap <Leader>g :Goyo<CR>
 nmap <Leader>l :Limelight!!<CR>
 xmap <Leader>l <Plug>(Limelight)
 
+nnoremap <C-d> :Sayonara<CR>
+
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
-
-nnoremap <C-d> :Sayonara<CR>
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
