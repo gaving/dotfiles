@@ -1,6 +1,7 @@
 #!/bin/zsh
 
 alias a='rg -p'
+alias b='bat'
 alias f='fd'
 alias h='http'
 alias v='vim'
