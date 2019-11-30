@@ -9,9 +9,7 @@
   "files.trimFinalNewlines": true,
   "git.autofetch": true,
   "git.enableSmartCommit": true,
-  "prettier.eslintIntegration": true,
-  "workbench.colorTheme": "Volatile (rainglow)",
-  "vim.enableNeovim": true,
+  "workbench.colorTheme": "Crisp Light (rainglow)",
   "vim.hlsearch": true,
   "vim.leader": ",",
   "vim.insertModeKeyBindings": [
@@ -121,5 +119,13 @@
         }
       }
     ]
-  }
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "markdown-preview-enhanced.mermaidTheme": "forest",
+  "extensions.ignoreRecommendations": false,
+  "python.jediEnabled": false,
+  "vim.enableNeovim": true,
+  "vscode-neovim.neovimPath": "/usr/local/bin/nvim"
 }
