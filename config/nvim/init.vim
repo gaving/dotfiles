@@ -18,36 +18,33 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'ap/vim-css-color'
-Plug 'bling/vim-airline'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'elzr/vim-json', { 'for': 'json' }
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-slash'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-pseudocl'
+
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-gtfo'
+
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-user'
+
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'mhinz/vim-startify'
-Plug 'shougo/neomru.vim'
-Plug 'Shougo/denite.nvim'
+
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'ap/vim-css-color'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'tommcdo/vim-exchange'
 Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
 
-Plug 'romainl/apprentice'
-Plug 'leafgarland/typescript-vim'
-Plug 'yuttie/hydrangea-vim'
-Plug 'fcpg/vim-fahrenheit'
 Plug 'jacoborus/tender.vim'
-Plug 'dracula/vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
