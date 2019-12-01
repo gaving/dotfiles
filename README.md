@@ -22,6 +22,10 @@ so these are my dotfiles
 
 ## omz plugins
 
+- `git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z`
+- `git clone https://github.com/MichaelAquilina/zsh-you-should-use.git $ZSH_CUSTOM/plugins/you-should-use`
+- `git clone https://github.com/zdharma/history-search-multi-word $ZSH_CUSTOM/plugins/history-search-multi-word`
+
 ```bash
 plugins=(
   docker
@@ -30,6 +34,7 @@ plugins=(
   git
   history-search-multi-word
   thefuck
+  you-should-use
   zsh-z
 )
 ```
