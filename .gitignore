@@ -5,13 +5,14 @@
 .vimrc.local
 .zsh/custom
 .zsh/history*
+config/configstore/
 config/nvim/.netrwhist
 config/nvim/autoload/plug.vim.old
 config/nvim/plugged
 config/nvim/session
 config/nvim/spell
 config/nvim/tmp
-config/configstore/
 config/thefuck
 config/yarn
+node_modules
 tags

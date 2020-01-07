@@ -1,9 +1,11 @@
 #!/bin/zsh
 
+alias @='grt'
 alias a='rg -p'
 alias b='bat'
 alias f='fd'
 alias h='http'
+alias l='exa -all --git -l --icons'
 alias t='tree'
 alias v='vim'
 
@@ -17,21 +19,14 @@ done
 
 alias di='docker images'
 alias dpa='docker ps -a'
-alias du='du -kh'
-alias duh='du -slh'
-alias mirror="noglob wget --mirror --no-parent --recursive --timestamping --continue --recursive"
+
+alias fzf=fzf-tmux
+alias gs=gst
 alias mkdir='nocorrect mkdir -p'
+alias mmv='noglob zmv -W'
 alias rscp="nocorrect rsync -aP --no-whole-file --inplace"
 alias scp='scp -r'
 alias sudo='noglob sudo '
-alias vim='nvim'
-
-# zmv
-
-alias mmv='noglob zmv -W'
-alias zmv='noglob zmv'
-alias zcp='noglob zmv -C'
-alias zln='noglob zmv -L'
 
 # global
 
