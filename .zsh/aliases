@@ -4,6 +4,7 @@ alias a='rg -p'
 alias b='bat'
 alias f='fd'
 alias h='http'
+alias t='tree'
 alias v='vim'
 
 for c in cp rm mv chmod chown rename; do
