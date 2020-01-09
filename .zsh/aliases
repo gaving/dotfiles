@@ -7,7 +7,7 @@ alias f='fd'
 alias h='http'
 alias l='exa -all --git -l --icons'
 alias t='tree'
-alias v='vim'
+alias v='nvim'
 
 for c in cp rm mv chmod chown rename; do
     alias $c="nocorrect $c -v"
