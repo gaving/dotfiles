@@ -38,16 +38,18 @@ Plug 'kana/vim-textobj-user'
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'mhinz/vim-startify'
 
+Plug 'airblade/vim-rooter'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ap/vim-css-color'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tommcdo/vim-exchange'
-Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
 
 Plug 'jacoborus/tender.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+Plug 'alok/notational-fzf-vim'
 
 call plug#end()
 
