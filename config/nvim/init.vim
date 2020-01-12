@@ -42,6 +42,7 @@ Plug 'airblade/vim-rooter'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ap/vim-css-color'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'tommcdo/vim-exchange'
 Plug 'wellle/targets.vim'
 
