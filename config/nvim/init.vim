@@ -49,6 +49,13 @@ Plug 'wellle/targets.vim'
 Plug 'jacoborus/tender.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'scrooloose/nerdtree'
+Plug 'pangloss/vim-javascript'
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'sheerun/vim-polyglot'
+Plug 'liuchengxu/vim-clap'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'alok/notational-fzf-vim'
 
