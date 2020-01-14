@@ -120,6 +120,7 @@ nnoremap <Leader>V :e $HOME/.vimrc.local<CR>
 nnoremap <Leader>w :w<cr>
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>p :GFiles<CR>
+nnoremap <Leader>b :Buffers<CR>
 
 vmap <Enter> <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
