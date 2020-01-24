@@ -85,6 +85,8 @@ set splitright
 set textwidth=79
 
 if (has("termguicolors"))
+  let &t_8f = "\[38;2;%lu;%lu;%lum"
+  let &t_8b = "\[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
 
