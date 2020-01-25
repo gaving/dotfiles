@@ -1,5 +1,3 @@
-.gitconfig
-.vimrc.local
+.zsh/history
 .zsh/custom
-.zsh/history*
 config
