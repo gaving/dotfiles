@@ -2,7 +2,7 @@
 # zsh config
 
 if [ -d ~/.zsh ]; then
-    . ~/.zsh/aliases
     . ~/.zsh/config
+    . ~/.zsh/aliases
     [[ -f ~/.zsh/custom ]] && . ~/.zsh/custom
 fi

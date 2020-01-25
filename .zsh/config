@@ -12,14 +12,17 @@ path=(
   $path
 )
 
-export EDITOR=nvim
+export VISUAL=nvim
+export EDITOR=$VISUAL
+export GIT_EDITOR=$VISUAL
+
 export FZFZ_SUBDIR_LIMIT=0 # dont add directories to fzfz
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git" --glob "!node_modules/*"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--ansi --select-1 --exit-0 --height 40% --reverse --cycle"
 export FZF_COMPLETION_OPTS="--preview '(bat --color=always {} || cat {} || tree -C {}) 2> /dev/null | head -200'"
 export FZF_CTRL_T_OPTS="$FZF_COMPLETION_OPTS"
-export GIT_EDITOR=nvim
+
 export HISTFILE=~/.zsh/history
 export HISTSIZE=1000000
 export HOST=${HOST:-$HOSTNAME}
@@ -90,11 +93,11 @@ alias -s 'git'='git-clone-suffix'
 
 # No arguments: `git status`
 # With arguments: acts like `git`
-unalias g # unalias zsh git plugin
-g() {
+_g() {
   if [[ $# -gt 0 ]]; then
     git "$@"
   else
     git status
   fi
 }
+compdef g=git

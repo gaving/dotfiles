@@ -1,2 +1,4 @@
+[core]
+  pager = delta --dark --hunk-style=plain --file-style=underline
 [include]
   path = ~/.gitconfig.local

@@ -1,14 +1,15 @@
 #!/bin/zsh
 
 alias @='grt'
-alias a='rg -p'
 alias b='bat'
+alias e=$EDITOR
 alias f='fd'
-alias g='git'
+alias g='_g'
 alias h='http'
 alias l='exa --all --git --long --icons'
+alias r='rg -p'
 alias t='tree'
-alias v='nvim'
+alias v=$VISUAL
 
 for c in cp rm mv chmod chown rename; do
     alias $c="nocorrect $c -v"
@@ -27,8 +28,6 @@ alias mmv='noglob zmv -W'
 alias rscp="nocorrect rsync -aP --no-whole-file --inplace"
 alias scp='scp -r'
 alias sudo='noglob sudo '
-
-# global
 
 alias -g C='| wc -l'
 alias -g G='| grep -i'
