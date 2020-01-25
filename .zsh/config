@@ -87,3 +87,14 @@ bindkey . rationalise-dot
 # git clone suffix
 git-clone-suffix() { git clone $1 ${$(basename $1)%.git} }
 alias -s 'git'='git-clone-suffix'
+
+# No arguments: `git status`
+# With arguments: acts like `git`
+unalias g # unalias zsh git plugin
+g() {
+  if [[ $# -gt 0 ]]; then
+    git "$@"
+  else
+    git status
+  fi
+}
