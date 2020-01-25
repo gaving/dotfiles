@@ -1,1 +1,5 @@
 .DS_Store
+*.sw[nop]
+node_modules
+tags
+*.pyc
