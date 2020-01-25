@@ -7,18 +7,16 @@ so these are my dotfiles
 - `git clone https://github.com/gaving/dotfiles ~/dotfiles`
 - `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 - `brew install tmux`
-- `brew tap homebrew/cask-fonts`
-- `brew cask install font-fira-code font-fira-mono-for-powerline font-fira-mono font-fira-sans`
 
 # configure
 
-- `cp ~/dotfiles/.gitconfig.skel ~/.gitconfig`
-- `shopt -s extglob`
+- `ln -sv ~/dotfiles/.gitconfig ~/.gitconfig`
+- `cp ~/dotfiles/.gitconfig.local.example ~/.gitconfig.local`
 - `ln -sv ~/dotfiles/.zshrc ~/.oh-my-zsh/custom/entry.zsh`
-- `ln -sv ~/dotfiles/.vscode.settings.json ~/Library/Application\ Support/Code/User/settings.json`
 - `ln -sv ~/dotfiles/config ~/.config`
 - `ln -sv ~/dotfiles/config/nvim ~/.vim`
-- `ln -sv ~/dotfiles/.!(.|..|config|git*|zshrc|vim*|vs*) ~/`
+- `shopt -s extglob`
+- `ln -sv ~/dotfiles/.!(.|..|git*|zshrc|vim*) ~/`
 
 ## omz plugins
 
