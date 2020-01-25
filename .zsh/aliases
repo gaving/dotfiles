@@ -6,7 +6,7 @@ alias b='bat'
 alias f='fd'
 alias g='git'
 alias h='http'
-alias l='exa -all --git -l --icons'
+alias l='exa --all --git --long --icons'
 alias t='tree'
 alias v='nvim'
 
