@@ -8,7 +8,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-obsession' | Plug 'dhruvasagar/vim-prosession'
 Plug 'tpope/vim-repeat'
@@ -56,6 +55,8 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'sheerun/vim-polyglot'
 Plug 'liuchengxu/vim-clap'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 Plug 'alok/notational-fzf-vim'
 
@@ -123,6 +124,7 @@ nnoremap <Leader>w :w<cr>
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>p :GFiles<CR>
 nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>s :Startify<CR>
 
 vmap <Enter> <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
