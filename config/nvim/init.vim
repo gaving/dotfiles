@@ -29,6 +29,7 @@ Plug 'junegunn/vim-pseudocl'
 
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-gtfo'
+Plug 'justinmk/vim-sneak'
 
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-line'
