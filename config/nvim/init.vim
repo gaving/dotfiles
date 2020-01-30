@@ -45,6 +45,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'tommcdo/vim-exchange'
 Plug 'wellle/targets.vim'
+Plug 'ntpeters/vim-better-whitespace'
 
 Plug 'jacoborus/tender.vim'
 Plug 'vim-airline/vim-airline'
@@ -137,6 +138,9 @@ nnoremap <C-d> :Sayonara<CR>
 
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gd :Gvdiffsplit<CR>
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
