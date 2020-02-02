@@ -3,6 +3,8 @@ map <Space> <Leader>
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'wincent/terminus'
+
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
@@ -20,8 +22,6 @@ Plug 'tpope/vim-unimpaired'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
-Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-slash'
 Plug 'junegunn/vim-peekaboo'
@@ -37,32 +37,39 @@ Plug 'kana/vim-textobj-user'
 
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'mhinz/vim-startify'
+Plug 'mhinz/vim-signify'
 
-Plug 'airblade/vim-rooter'
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'ap/vim-css-color'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'edkolev/tmuxline.vim'
+
+Plug 'andrewradev/splitjoin.vim'
+Plug 'airblade/vim-rooter'
+Plug 'alok/notational-fzf-vim'
+Plug 'bkad/CamelCaseMotion'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'rhysd/git-messenger.vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'wellle/targets.vim'
-Plug 'ntpeters/vim-better-whitespace'
 
+Plug 'ap/vim-css-color'
+Plug 'blueyed/vim-diminactive'
 Plug 'jacoborus/tender.vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'noah/vim256-color'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown'
+Plug 'psliwka/vim-smoothie'
+Plug 'ryanoasis/vim-devicons'
+Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'noah/vim256-color'
-Plug 'scrooloose/nerdtree'
-Plug 'pangloss/vim-javascript'
-Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'sheerun/vim-polyglot'
-Plug 'liuchengxu/vim-clap'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'plasticboy/vim-markdown'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'xolox/vim-misc'
 Plug 'xolox/vim-colorscheme-switcher'
-
-Plug 'alok/notational-fzf-vim'
+Plug 'xolox/vim-misc'
 
 call plug#end()
 
@@ -74,7 +81,6 @@ set backupdir=~/.vim/tmp
 set clipboard+=unnamed
 set directory=~/.vim/tmp
 set foldmethod=marker
-set gcr=n:blinkon0
 set hidden
 set ignorecase
 set lazyredraw
@@ -87,7 +93,6 @@ set scrolljump=5
 set smartindent
 set splitbelow
 set splitright
-set textwidth=79
 
 if (has("termguicolors"))
   let &t_8f = "\[38;2;%lu;%lu;%lum"
@@ -95,24 +100,16 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
+set textwidth=79
 set undodir=~/.vim/tmp
 set undofile
 set undolevels=5000
-set viminfo='100,f1
-set wildignore+=*.o,*.r,*.class,*.pyc,*.so,*.sl,*.tar,*.tgz,*.gz,*.dmg,*.zip,*.pdf,*CVS/*,*.svn/*,*.toc,*.aux,*.dvi,*.log
-set wildmode=full
-
-cabbrev ~? ~/
-
-command! -bang -nargs=* -complete=file E :e <args>
-command! -bang -nargs=* -complete=help He :he <args>
-command! -bang -nargs=* -complete=option Set :set <args>
 
 inoremap jj <Esc>
 inoremap <S-Up> <C-o><C-y>
 inoremap <S-Down> <C-o><C-e>
 
-nnoremap ` <C-^>
+nnoremap <nowait> ` <C-^>
 nnoremap Q gqap
 nnoremap q: :q
 nnoremap gp `[v`]
@@ -121,32 +118,45 @@ nnoremap Y y$
 noremap <Backspace> <C-y>
 xnoremap <Backspace> "_x
 
-nnoremap <Leader>d :vertical diffsplit <C-r>=expand("%:p:h")<CR>/<C-d>
-nnoremap <Leader>v :e $MYVIMRC<CR>
-nnoremap <Leader>V :e $HOME/.vimrc.local<CR>
-nnoremap <Leader>w :w<cr>
-nnoremap <Leader>f :Files<CR>
-nnoremap <Leader>p :GFiles<CR>
-nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>s :Startify<CR>
-
-vmap <Enter> <Plug>(EasyAlign)
-nmap <Leader>a <Plug>(EasyAlign)
-nmap <Leader>g :Goyo<CR>
-nmap <Leader>l :Limelight!!<CR>
-xmap <Leader>l <Plug>(Limelight)
+nnoremap <Left>  :vertical resize +2<CR>
+nnoremap <Right> :vertical resize -2<CR>
+nnoremap <Up>    :resize +2<CR>
+nnoremap <Down>  :resize -2<CR>
 
 nnoremap <C-d> :Sayonara<CR>
 
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
+nnoremap <Leader><Leader> :w<CR>
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>d :Gvdiffsplit<CR>
+nnoremap <Leader>g :Gstatus<CR>
+nnoremap <Leader>o :only<CR>
+nnoremap <Leader>p :GFiles<CR>
+nnoremap <Leader>s :Startify<CR>
+nnoremap <Leader>v :e $MYVIMRC<CR>
+nnoremap <Leader>V :e $HOME/.vimrc.local<CR>
 
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gd :Gvdiffsplit<CR>
+nnoremap [c :PrevColorScheme<CR>
+nnoremap ]c :NextColorScheme<CR>
+
+vmap <Enter> <Plug>(EasyAlign)
 
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#left_sep = ' '
+let g:camelcasemotion_key = '<Leader>'
+let g:diminactive_enable_focus = 1
+let g:rooter_silent_chdir = 1
+let g:tmuxline_powerline_separators = 0
+let g:tmuxline_preset = {
+      \'a'    : '#[bold]#S',
+      \'b'    : '#(whoami)',
+      \'win'  : '#W',
+      \'cwin' : '#W',
+      \'y'    : ['%R', '%a', '%d/%m/%y']}
 
+let base16colorspace=256
+let g:airline_theme='tender'
 colorscheme tender
 
 if filereadable(expand("~/.vimrc.local"))
