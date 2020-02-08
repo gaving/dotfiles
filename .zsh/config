@@ -107,7 +107,7 @@ compdef g=git
 # Pipe r to pager
 _r() {
   if [[ -t 1 ]] && [[ $# -gt 0 ]]; then
-    command rg -p "$@" | less -RMFXK
+    command rg -p "$@" | bat -p
   else
     command rg "$@"
   fi

@@ -30,6 +30,7 @@ alias rscp="nocorrect rsync -aP --no-whole-file --inplace"
 alias scp='scp -r'
 alias sudo='noglob sudo '
 
+alias -g B='| bat'
 alias -g C='| wc -l'
 alias -g G='| grep -i'
 alias -g H='| head'
