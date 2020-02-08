@@ -97,9 +97,9 @@ alias -s 'git'='git-clone-suffix'
 # With arguments: acts like `git`
 _g() {
   if [[ $# -gt 0 ]]; then
-    git "$@"
+    command git "$@"
   else
-    git status
+    command git status
   fi
 }
 compdef g=git
