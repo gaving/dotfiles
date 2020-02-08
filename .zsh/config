@@ -33,6 +33,8 @@ export SPROMPT='uh, you meant "%r", right? [yn] '
 export WATCH=notme
 export WATCHFMT="[%B%t%b] %B%n%b has %a %B%l%b from %B%M%b"
 
+disable r # disable r zsh builtin
+
 setopt \
   auto_name_dirs       \
   braceccl             \
@@ -101,3 +103,13 @@ _g() {
   fi
 }
 compdef g=git
+
+# Pipe r to pager
+_r() {
+  if [[ -t 1 ]] && [[ $# -gt 0 ]]; then
+    command rg -p "$@" | less -RMFXK
+  else
+    command rg "$@"
+  fi
+}
+compdef r=rg
