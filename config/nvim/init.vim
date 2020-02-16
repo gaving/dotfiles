@@ -58,7 +58,6 @@ Plug 'blueyed/vim-diminactive'
 Plug 'jacoborus/tender.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'noah/vim256-color'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pangloss/vim-javascript'
