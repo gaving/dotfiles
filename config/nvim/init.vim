@@ -133,6 +133,8 @@ nnoremap <Leader>p :GFiles<CR>
 nnoremap <Leader>s :Startify<CR>
 nnoremap <Leader>v :e $MYVIMRC<CR>
 nnoremap <Leader>V :e $HOME/.vimrc.local<CR>
+nnoremap <Leader>z :e $HOME/.zshrc<CR>
+nnoremap <Leader>Z :e $HOME/.zsh/custom<CR>
 
 nnoremap [c :PrevColorScheme<CR>
 nnoremap ]c :NextColorScheme<CR>
