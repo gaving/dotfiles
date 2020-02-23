@@ -124,6 +124,8 @@ nnoremap <Down>  :resize -2<CR>
 nnoremap <C-d> :Sayonara<CR>
 
 nnoremap <Leader><Leader> :w<CR>
+nnoremap <Leader>/ :Rg<CR>
+nnoremap <Leader>c :Commands<CR>
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>d :Gvdiffsplit<CR>
 nnoremap <Leader>g :Gstatus<CR>
