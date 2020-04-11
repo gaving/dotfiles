@@ -9,7 +9,7 @@ alias h='http'
 alias l='exa --all --git --long --icons'
 alias r='_r'
 alias t='tree'
-alias u='v .git/index'
+alias u='$EDITOR "$(git rev-parse --show-toplevel 2>/dev/null || echo .)/.git/index"'
 alias v=$VISUAL
 
 for c in cp rm mv chmod chown rename; do
