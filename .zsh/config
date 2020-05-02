@@ -113,3 +113,7 @@ _r() {
   fi
 }
 compdef r=rg
+
+s() {
+  ssh -t "$@" tmux attach-session -t gavin
+}
