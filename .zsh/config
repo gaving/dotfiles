@@ -112,7 +112,7 @@ _r() {
     command rg "$@"
   fi
 }
-compdef r=rg
+compdef r=rg &> /dev/null
 
 s() {
   ssh -t "$@" tmux attach-session -t gavin
