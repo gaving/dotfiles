@@ -142,6 +142,7 @@ nnoremap ]c :NextColorScheme<CR>
 
 vmap <Enter> <Plug>(EasyAlign)
 
+let g:airline#extensions#tmuxline#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#left_alt_sep = '|'
