@@ -6,6 +6,7 @@ alias e=$EDITOR
 alias f='fd'
 alias g='_g'
 alias h='http'
+alias k='kubectl'
 alias l='exa --all --git --long --icons'
 alias r='_r'
 alias t='tree'
