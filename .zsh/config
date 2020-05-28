@@ -103,6 +103,7 @@ _g() {
   fi
 }
 compdef g=git
+compdef k=kubectl
 
 # Pipe r to pager
 _r() {
