@@ -103,7 +103,7 @@ _g() {
   fi
 }
 compdef g=git
-compdef k=kubectl
+compdef k=kubectl &> /dev/null
 
 # Pipe r to pager
 _r() {
