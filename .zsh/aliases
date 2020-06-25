@@ -2,7 +2,7 @@
 
 alias @='grt'
 alias b='bat'
-alias e=$EDITOR
+alias e="tmux split-window -h $EDITOR"
 alias f='fd'
 alias g='_g'
 alias h='http'
