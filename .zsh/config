@@ -118,3 +118,14 @@ compdef r=rg &> /dev/null
 s() {
   ssh -t "$@" tmux attach-session -t gavin
 }
+
+rr () {
+  if [ $# -lt 2 ]
+  then
+    echo "rg with interactive text replacement"
+    echo "Usage: rgr text replacement-text"
+    return
+  fi
+  nvim -c ":execute ':argdo %S%$1%$2%gc | update' | :q" -- $(rg -i $1 -l ${@:3})
+}
+compdef rr=rg &> /dev/null
