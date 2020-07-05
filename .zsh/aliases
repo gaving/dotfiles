@@ -2,6 +2,7 @@
 
 alias @='grt'
 alias b='bat'
+alias d='docker'
 alias e="tmux split-window -h $EDITOR"
 alias f='fd'
 alias g='_g'

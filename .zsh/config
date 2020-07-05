@@ -102,6 +102,7 @@ _g() {
     command git status
   fi
 }
+compdef d=docker
 compdef g=git
 compdef k=kubectl &> /dev/null
 
