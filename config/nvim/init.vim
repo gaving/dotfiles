@@ -46,7 +46,7 @@ Plug 'andrewradev/splitjoin.vim'
 Plug 'airblade/vim-rooter'
 Plug 'alok/notational-fzf-vim'
 Plug 'bkad/CamelCaseMotion'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'rhysd/git-messenger.vim'
 Plug 'tommcdo/vim-exchange'
