@@ -44,7 +44,6 @@ Plug 'edkolev/tmuxline.vim'
 
 Plug 'andrewradev/splitjoin.vim'
 Plug 'airblade/vim-rooter'
-Plug 'alok/notational-fzf-vim'
 Plug 'bkad/CamelCaseMotion'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
@@ -150,7 +149,6 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:camelcasemotion_key = '<Leader>'
 let g:diminactive_enable_focus = 1
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-let g:nv_create_note_window = 'split'
 let g:rooter_silent_chdir = 1
 let g:tmuxline_powerline_separators = 0
 let g:tmuxline_preset = {
