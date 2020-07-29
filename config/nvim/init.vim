@@ -1,6 +1,3 @@
-let g:mapleader = ","
-map <Space> <Leader>
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'wincent/terminus'
@@ -42,20 +39,19 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'edkolev/tmuxline.vim'
 
-Plug 'andrewradev/splitjoin.vim'
 Plug 'airblade/vim-rooter'
+Plug 'andrewradev/splitjoin.vim'
 Plug 'bkad/CamelCaseMotion'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'liuchengxu/vim-which-key'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'rhysd/git-messenger.vim'
-Plug 'tommcdo/vim-exchange'
 Plug 'wellle/targets.vim'
 
 Plug 'ap/vim-css-color'
 Plug 'blueyed/vim-diminactive'
 Plug 'jacoborus/tender.vim'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'noah/vim256-color'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pangloss/vim-javascript'
@@ -90,6 +86,7 @@ set scrolljump=5
 set smartindent
 set splitbelow
 set splitright
+set timeoutlen=500
 
 if (has("termguicolors"))
   let &t_8f = "\[38;2;%lu;%lu;%lum"
@@ -108,8 +105,6 @@ inoremap <S-Down> <C-o><C-e>
 
 nnoremap <nowait> ` <C-^>
 nnoremap Q gqap
-nnoremap q: :q
-nnoremap gp `[v`]
 nnoremap Y y$
 
 noremap <Backspace> <C-y>
@@ -122,24 +117,39 @@ nnoremap <Down>  :resize -2<CR>
 
 nnoremap <C-d> :Sayonara<CR>
 
-nnoremap <Leader><Leader> :w<CR>
-nnoremap <Leader>/ :Rg<CR>
-nnoremap <Leader>c :Commands<CR>
-nnoremap <Leader>f :Files<CR>
-nnoremap <Leader>d :Gvdiffsplit<CR>
-nnoremap <Leader>g :Gstatus<CR>
-nnoremap <Leader>o :only<CR>
-nnoremap <Leader>p :GFiles<CR>
-nnoremap <Leader>s :Startify<CR>
-nnoremap <Leader>v :e $MYVIMRC<CR>
-nnoremap <Leader>V :e $HOME/.vimrc.local<CR>
-nnoremap <Leader>z :e $HOME/.zshrc<CR>
-nnoremap <Leader>Z :e $HOME/.zsh/custom<CR>
-
 nnoremap [c :PrevColorScheme<CR>
 nnoremap ]c :NextColorScheme<CR>
 
 vmap <Enter> <Plug>(EasyAlign)
+
+let g:mapleader = ","
+let g:maplocalleader = "\<Space>"
+nnoremap <silent><Leader> :<c-u>WhichKey ','<CR>
+nnoremap <silent><LocalLeader> :<c-u>WhichKey '<Space>'<CR>
+
+let g:which_key_map =  {}
+let g:which_key_sep = '→'
+let g:which_key_use_floating_win = 0
+
+let g:which_key_map[','] = [':w', 'write']
+let g:which_key_map['/'] = [':Rg', 'ripgrep']
+let g:which_key_map['b'] = 'camelcasemotion-b'
+let g:which_key_map['c'] = [':Commands', 'commands']
+let g:which_key_map['d'] = [':Gvdiffsplit', 'split diff']
+let g:which_key_map['e'] = 'camelcasemotion-e'
+let g:which_key_map['f'] = [':Files', 'files']
+let g:which_key_map['g'] = [':Gstatus', 'git']
+let g:which_key_map['m'] = [':GitMessenger', 'git messenger']
+let g:which_key_map['o'] = [':only', 'only']
+let g:which_key_map['p'] = [':GFiles', 'git files']
+let g:which_key_map['s'] = [':Startify', 'startify']
+let g:which_key_map['v'] = [':e $MYVIMRC', 'open .vimrc']
+let g:which_key_map['V'] = [':e $HOME/.vimrc.local', 'open .vimrc.local']
+let g:which_key_map['w'] = 'camelcasemotion-w'
+let g:which_key_map['z'] = [':e $HOME/.zshrc', 'open .zshrc']
+let g:which_key_map['Z'] = [':e $HOME/.zsh/custom', 'open .zsh/custom']
+
+call which_key#register(',', 'g:which_key_map')
 
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
@@ -149,6 +159,7 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:camelcasemotion_key = '<Leader>'
 let g:diminactive_enable_focus = 1
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+let g:git_messenger_no_default_mappings = 1
 let g:rooter_silent_chdir = 1
 let g:tmuxline_powerline_separators = 0
 let g:tmuxline_preset = {
