@@ -1,6 +1,8 @@
+# ~/.*
+
 so these are my dotfiles
 
-# install
+## install
 
 - `ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/install/master/install)"`
 - `sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
@@ -8,7 +10,7 @@ so these are my dotfiles
 - `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 - `brew install tmux`
 
-# configure
+## configure
 
 - `ln -sv ~/dotfiles/.gitconfig ~/.gitconfig`
 - `cp ~/dotfiles/.gitconfig.local.example ~/.gitconfig.local`
@@ -18,7 +20,7 @@ so these are my dotfiles
 - `shopt -s extglob`
 - `ln -sv ~/dotfiles/.!(.|..|git*|zshrc|vim*) ~/`
 
-## omz plugins
+### omz plugins
 
 - `git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z`
 - `git clone https://github.com/MichaelAquilina/zsh-you-should-use.git $ZSH_CUSTOM/plugins/you-should-use`
@@ -37,7 +39,7 @@ plugins=(
 )
 ```
 
-# run
+## run
 
 - `nvim +PlugInstall +qall`
 - `tmux`
