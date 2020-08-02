@@ -1,3 +1,6 @@
 [user]
     name = Gavin Gilmour
     email = your@example.com
+    signingKey = keyid
+[commit]
+    gpgSign = true
