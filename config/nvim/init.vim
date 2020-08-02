@@ -110,11 +110,6 @@ nnoremap Y y$
 noremap <Backspace> <C-y>
 xnoremap <Backspace> "_x
 
-nnoremap <Left>  :vertical resize +2<CR>
-nnoremap <Right> :vertical resize -2<CR>
-nnoremap <Up>    :resize +2<CR>
-nnoremap <Down>  :resize -2<CR>
-
 nnoremap <C-d> :Sayonara<CR>
 
 nnoremap [c :PrevColorScheme<CR>
@@ -125,7 +120,9 @@ vmap <Enter> <Plug>(EasyAlign)
 let g:mapleader = ","
 let g:maplocalleader = "\<Space>"
 nnoremap <silent><Leader> :<c-u>WhichKey ','<CR>
+vnoremap <silent><Leader> :<c-u>WhichKey ','<CR>
 nnoremap <silent><LocalLeader> :<c-u>WhichKey '<Space>'<CR>
+vnoremap <silent><LocalLeader> :<c-u>WhichKeyVisual '<Space>'<CR>
 
 let g:which_key_map =  {}
 let g:which_key_sep = '→'
