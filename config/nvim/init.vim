@@ -48,15 +48,13 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'rhysd/git-messenger.vim'
 Plug 'wellle/targets.vim'
 
-Plug 'ap/vim-css-color'
 Plug 'blueyed/vim-diminactive'
-Plug 'jacoborus/tender.vim'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'noah/vim256-color'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
 Plug 'psliwka/vim-smoothie'
+Plug 'rafi/awesome-vim-colorschemes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
@@ -158,6 +156,7 @@ let g:diminactive_enable_focus = 1
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 let g:git_messenger_no_default_mappings = 1
 let g:rooter_silent_chdir = 1
+let g:tmux_navigator_save_on_switch = 2
 let g:tmuxline_powerline_separators = 0
 let g:tmuxline_preset = {
       \'a'    : '#[bold]#S',
@@ -169,8 +168,6 @@ let g:vim_markdown_folding_level = 2
 let g:vim_markdown_no_default_key_mappings = 1
 
 let base16colorspace=256
-let g:airline_theme='tender'
-colorscheme tender
 
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
