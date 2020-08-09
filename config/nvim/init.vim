@@ -165,6 +165,8 @@ let g:tmuxline_preset = {
       \'win'  : '#W',
       \'cwin' : '#W',
       \'y'    : ['%R', '%a', '%d/%m/%y']}
+let g:vim_markdown_folding_level = 2
+let g:vim_markdown_no_default_key_mappings = 1
 
 let base16colorspace=256
 let g:airline_theme='tender'
