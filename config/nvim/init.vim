@@ -129,7 +129,8 @@ let g:which_key_use_floating_win = 0
 let g:which_key_map[','] = [':w', 'write']
 let g:which_key_map['/'] = [':Rg', 'ripgrep']
 let g:which_key_map['b'] = 'camelcasemotion-b'
-let g:which_key_map['c'] = [':Commands', 'commands']
+let g:which_key_map['b'] = [':BCommits', 'buffers']
+let g:which_key_map['c'] = [':Commits', 'commits']
 let g:which_key_map['d'] = [':Gvdiffsplit', 'split diff']
 let g:which_key_map['e'] = 'camelcasemotion-e'
 let g:which_key_map['f'] = [':Files', 'files']
@@ -141,7 +142,7 @@ let g:which_key_map['s'] = [':Startify', 'startify']
 let g:which_key_map['v'] = [':e $MYVIMRC', 'open .vimrc']
 let g:which_key_map['V'] = [':e $HOME/.vimrc.local', 'open .vimrc.local']
 let g:which_key_map['w'] = 'camelcasemotion-w'
-let g:which_key_map['z'] = [':e $HOME/.zshrc', 'open .zshrc']
+let g:which_key_map['z'] = [':e $HOME/.zsh/config', 'open .zsh/config']
 let g:which_key_map['Z'] = [':e $HOME/.zsh/custom', 'open .zsh/custom']
 
 call which_key#register(',', 'g:which_key_map')
