@@ -41,7 +41,7 @@ Plug 'edkolev/tmuxline.vim'
 
 Plug 'airblade/vim-rooter'
 Plug 'andrewradev/splitjoin.vim'
-Plug 'bkad/CamelCaseMotion'
+Plug 'chaoren/vim-wordmotion'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'liuchengxu/vim-which-key'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
@@ -127,21 +127,20 @@ let g:which_key_sep = '→'
 let g:which_key_use_floating_win = 0
 
 let g:which_key_map[','] = [':w', 'write']
-let g:which_key_map['/'] = [':Rg', 'ripgrep']
-let g:which_key_map['b'] = 'camelcasemotion-b'
-let g:which_key_map['b'] = [':BCommits', 'buffers']
+let g:which_key_map['.'] = [':Dirvish %', 'open pwd']
+let g:which_key_map['/'] = [':Rg', 'rg']
+let g:which_key_map['b'] = [':GitMessenger', 'blame']
 let g:which_key_map['c'] = [':Commits', 'commits']
-let g:which_key_map['d'] = [':Gvdiffsplit', 'split diff']
-let g:which_key_map['e'] = 'camelcasemotion-e'
+let g:which_key_map['C'] = [':BCommits', 'buffer commits']
+let g:which_key_map['d'] = [':Gvdiffsplit', 'diff']
 let g:which_key_map['f'] = [':Files', 'files']
-let g:which_key_map['g'] = [':Gstatus', 'git']
-let g:which_key_map['m'] = [':GitMessenger', 'git messenger']
+let g:which_key_map['g'] = [':Gstatus', 'fugitive']
 let g:which_key_map['o'] = [':only', 'only']
-let g:which_key_map['p'] = [':GFiles', 'git files']
+let g:which_key_map['p'] = [':GFiles', 'ls-files']
+let g:which_key_map['r'] = [':RandomColorScheme', 'random colorscheme']
 let g:which_key_map['s'] = [':Startify', 'startify']
 let g:which_key_map['v'] = [':e $MYVIMRC', 'open .vimrc']
 let g:which_key_map['V'] = [':e $HOME/.vimrc.local', 'open .vimrc.local']
-let g:which_key_map['w'] = 'camelcasemotion-w'
 let g:which_key_map['z'] = [':e $HOME/.zsh/config', 'open .zsh/config']
 let g:which_key_map['Z'] = [':e $HOME/.zsh/custom', 'open .zsh/custom']
 
@@ -152,7 +151,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#left_sep = ' '
-let g:camelcasemotion_key = '<Leader>'
 let g:diminactive_enable_focus = 1
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 let g:git_messenger_no_default_mappings = 1
