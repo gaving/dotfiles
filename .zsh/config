@@ -25,6 +25,7 @@ export FZF_CTRL_T_OPTS="$FZF_COMPLETION_OPTS"
 export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
 
+export GPG_TTY=$TTY
 export HISTFILE=~/.zsh/history
 export HISTSIZE=1000000
 export HOST=${HOST:-$HOSTNAME}

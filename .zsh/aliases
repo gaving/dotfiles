@@ -31,11 +31,18 @@ alias dsl='docker stack ls'
 alias dpa='docker ps -a'
 
 alias fzf=fzf-tmux
+alias ipinfo='curl -s ipinfo.io | jq .'
 alias mkdir='nocorrect mkdir -p'
 alias mmv='noglob zmv -W'
+alias panic="curl -s https://corona-stats.online\?format=json | jq '.data[] | select(.countryCode==\"GB\") | { cases, todayCases, deaths, todayDeaths, oneDeathPerPeople }'"
+alias pubkey="pbcopy < ~/.ssh/id_rsa.pub && echo '=> Public key yanked.'"
 alias rscp="nocorrect rsync -aP --no-whole-file --inplace"
 alias scp='scp -r'
 alias sudo='noglob sudo '
+alias ungzip='gzip -d'
+alias untar='tar xvf'
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+alias weather='curl -s v2.wttr.in/Glasgow,UK'
 
 alias -g B='| bat'
 alias -g C='| wc -l'
@@ -45,6 +52,7 @@ alias -g J="| jq '.'"
 alias -g L='| less -REF'
 alias -g LS='| less -RS'
 alias -g N='&> /dev/null'
+alias -g NF='./*(oc[1])'
 alias -g NN='> /dev/null 2>&1'
 alias -g P='| column -t'
 alias -g S='| sort'
