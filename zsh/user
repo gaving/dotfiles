@@ -1,0 +1,8 @@
+#!/bin/zsh
+# zsh config
+
+if [ -d $ZDOTDIR ]; then
+    . $ZDOTDIR/config
+    . $ZDOTDIR/aliases
+    [[ -f $ZDOTDIR/custom ]] && . $ZDOTDIR/custom
+fi

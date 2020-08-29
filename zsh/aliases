@@ -5,11 +5,9 @@ alias b='bat'
 alias d='docker'
 alias e="tmux split-window -h $EDITOR"
 alias f='fd'
-alias g='_g'
 alias h='http'
 alias k='kubectl'
 alias l='exa --all --git --long --icons'
-alias r='_r'
 alias t='tree'
 alias u='$EDITOR "$(git rev-parse --show-toplevel 2>/dev/null || echo .)/.git/index"'
 alias v=$VISUAL
@@ -30,6 +28,7 @@ alias dnl='docker network ls'
 alias dsl='docker stack ls'
 alias dpa='docker ps -a'
 
+alias calc='noglob zcalc'
 alias fzf=fzf-tmux
 alias ipinfo='curl -s ipinfo.io | jq .'
 alias mkdir='nocorrect mkdir -p'
@@ -43,6 +42,8 @@ alias ungzip='gzip -d'
 alias untar='tar xvf'
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 alias weather='curl -s v2.wttr.in/Glasgow,UK'
+
+alias -s git='git clone'
 
 alias -g B='| bat'
 alias -g C='| wc -l'
@@ -59,6 +60,7 @@ alias -g S='| sort'
 alias -g T='| tail'
 alias -g U='| uniq'
 alias -g V='| v'
+alias -g Z='| fzf-tmux'
 
 alias -g CF1="| tr -s ' ' | cut -d' ' -f1"
 alias -g CF2="| tr -s ' ' | cut -d' ' -f2"

@@ -14,6 +14,7 @@
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextPrefix": " ❯❯❯ ",
   "diagnostic.warningSign": "",
+  "eslint.trace.server": "verbose",
   "git.addGBlameToBufferVar": true,
   "git.addGBlameToVirtualText": false,
   "git.addedSign.hlGroup": "SignifyLineAdd",
@@ -30,8 +31,7 @@
   "prettier.statusItemText": "★ ",
   "prettier.stylelintIntegration": true,
   "prettier.tslintIntegration": true,
-  "eslint.trace.server": "verbose",
-
+  "session.directory": "~/.local/share/nvim/session",
   "suggest.completionItemKindLabels": {
     "function": "\uf794",
     "method": "\uf6a6",

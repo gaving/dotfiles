@@ -1,3 +1,14 @@
-.zsh/history
-.zsh/custom
-config
+base16*
+coc
+configstore
+docker
+git/local
+httpie
+karabiner
+lab*
+npm
+nvim/local.vim
+thefuck
+tmux/plugins
+yarn
+zsh/custom

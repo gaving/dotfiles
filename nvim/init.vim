@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'wincent/terminus'
 
@@ -68,9 +68,7 @@ autocmd FileType help wincmd L
 
 let &sbr = nr2char(8618).' '
 set autowriteall
-set backupdir=~/.vim/tmp
 set clipboard+=unnamed
-set directory=~/.vim/tmp
 set foldmethod=marker
 set hidden
 set ignorecase
@@ -93,7 +91,6 @@ if (has("termguicolors"))
 endif
 
 set textwidth=79
-set undodir=~/.vim/tmp
 set undofile
 set undolevels=5000
 
@@ -137,12 +134,13 @@ let g:which_key_map['f'] = [':Files', 'files']
 let g:which_key_map['g'] = [':Gstatus', 'fugitive']
 let g:which_key_map['o'] = [':only', 'only']
 let g:which_key_map['p'] = [':GFiles', 'ls-files']
+let g:which_key_map['q'] = [':q', 'quit']
 let g:which_key_map['r'] = [':RandomColorScheme', 'random colorscheme']
 let g:which_key_map['s'] = [':Startify', 'startify']
 let g:which_key_map['v'] = [':e $MYVIMRC', 'open .vimrc']
-let g:which_key_map['V'] = [':e $HOME/.vimrc.local', 'open .vimrc.local']
-let g:which_key_map['z'] = [':e $HOME/.zsh/config', 'open .zsh/config']
-let g:which_key_map['Z'] = [':e $HOME/.zsh/custom', 'open .zsh/custom']
+let g:which_key_map['V'] = [':e $HOME/.config/nvim/local.vim', 'open local.vim']
+let g:which_key_map['z'] = [':e $HOME/.config/zsh/config', 'open zsh config']
+let g:which_key_map['Z'] = [':e $HOME/.config/zsh/custom', 'open zsh custom']
 
 call which_key#register(',', 'g:which_key_map')
 
@@ -168,6 +166,6 @@ let g:vim_markdown_no_default_key_mappings = 1
 
 let base16colorspace=256
 
-if filereadable(expand("~/.vimrc.local"))
-    source ~/.vimrc.local
+if filereadable(stdpath('config') . '/local.vim')
+    exe 'source ' . stdpath('config') . '/local.vim'
 endif

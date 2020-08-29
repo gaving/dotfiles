@@ -1,0 +1,6 @@
+# Pipe r to pager
+if [[ -t 1 ]] && [[ $# -gt 0 ]]; then
+  command rg -p "$@" | bat -p
+else
+  command rg "$@"
+fi

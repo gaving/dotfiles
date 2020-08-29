@@ -3,13 +3,19 @@
 unlimit
 umask 022
 
+typeset -U path
+
 path=(
   $HOME/.local/bin
-  $HOME/local/bin
-  /bin
   /usr/local/bin
   /usr/bin
+  /bin
   $path
+)
+
+fpath=(
+  $ZDOTDIR/functions
+  $fpath
 )
 
 export VISUAL=nvim
@@ -26,7 +32,7 @@ export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
 
 export GPG_TTY=$TTY
-export HISTFILE=~/.zsh/history
+export HISTFILE="$XDG_DATA_HOME/zsh/history"
 export HISTSIZE=1000000
 export HOST=${HOST:-$HOSTNAME}
 export LESS="-R -M --shift 5"
@@ -59,25 +65,31 @@ setopt \
   rec_exact            \
   rm_star_silent
 
+autoload -U $ZDOTDIR/functions/*(:t)
+autoload -U backward-kill-word-match && zle -N backward-kill-word-match
+autoload -U tetriscurses
 autoload -U url-quote-magic && zle -N self-insert url-quote-magic
 autoload -U zargs
 autoload -U zcalc
 autoload -U zmv
 autoload -U zsh-mime-setup && zsh-mime-setup
 
-zcalc () { print $(( ans = ${@:-ans} )) }
-alias calc='noglob zcalc'
+compdef b=bat &> /dev/null
+compdef f=fd &> /dev/null
+compdef d=docker &> /dev/null
+compdef g=git &> /dev/null
+compdef k=kubectl &> /dev/null
+compdef s=ssh &> /dev/null
+compdef r=rg &> /dev/null
+compdef rr=rg &> /dev/null
+compdef v=nvim &> /dev/null
 
 bindkey -e
 bindkey '^Q' push-line
+bindkey '^W' backward-kill-word-match
 bindkey -s '^F' '^Upushd >/dev/null; dirs -v^M'
 bindkey -s '^B' '^Upopd >/dev/null; dirs -v^M'
-
 bindkey -M menuselect '^M' .accept-line # enter on the menu accepts the line
-
-autoload -U backward-kill-word-match
-zle -N backward-kill-word-match
-bindkey '^W' backward-kill-word-match
 
 zstyle ':zle:*' word-style normal
 zstyle ':zle:*' word-chars ${WORDCHARS//\//}
@@ -91,45 +103,3 @@ rationalise-dot() {
 }
 zle -N rationalise-dot
 bindkey . rationalise-dot
-
-# git clone suffix
-git-clone-suffix() { git clone $1 ${$(basename $1)%.git} }
-alias -s 'git'='git-clone-suffix'
-
-# No arguments: `git status`
-# With arguments: acts like `git`
-_g() {
-  if [[ $# -gt 0 ]]; then
-    command git "$@"
-  else
-    command git status
-  fi
-}
-compdef d=docker
-compdef g=git
-compdef k=kubectl &> /dev/null
-
-# Pipe r to pager
-_r() {
-  if [[ -t 1 ]] && [[ $# -gt 0 ]]; then
-    command rg -p "$@" | bat -p
-  else
-    command rg "$@"
-  fi
-}
-compdef r=rg &> /dev/null
-
-s() {
-  ssh -t "$@" tmux attach-session -t gavin
-}
-
-rr () {
-  if [ $# -lt 2 ]
-  then
-    echo "rg with interactive text replacement"
-    echo "Usage: rgr text replacement-text"
-    return
-  fi
-  nvim -c ":execute ':argdo %S%$1%$2%gc | update' | :q" -- $(rg -i $1 -l ${@:3})
-}
-compdef rr=rg &> /dev/null

@@ -1,0 +1,7 @@
+if [ $# -lt 2 ]
+then
+  echo "rg with interactive text replacement"
+  echo "Usage: rr text replacement-text"
+  return
+fi
+nvim -c ":execute ':argdo %S%$1%$2%gc | update' | :q" -- $(rg -i $1 -l ${@:3})
