@@ -60,6 +60,7 @@ alias -g S='| sort'
 alias -g T='| tail'
 alias -g U='| uniq'
 alias -g V='| v'
+alias -g X='| clipcopy'
 alias -g Z='| fzf-tmux'
 
 alias -g CF1="| tr -s ' ' | cut -d' ' -f1"
