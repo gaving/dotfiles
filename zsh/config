@@ -6,6 +6,8 @@ umask 022
 typeset -U path
 
 path=(
+  $CARGO_HOME/bin
+  $GOPATH/bin
   $HOME/.local/bin
   /usr/local/bin
   /usr/bin

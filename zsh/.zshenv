@@ -11,7 +11,9 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 
 # Data locations
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export GEM_HOME="$XDG_DATA_HOME/gem"
+export GOPATH="$XDG_DATA_HOME/go"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export TMUX_PLUGIN_MANAGER_PATH="$XDG_DATA_HOME/tmux/plugins/"
 
