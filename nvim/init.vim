@@ -44,7 +44,7 @@ Plug 'andrewradev/splitjoin.vim'
 Plug 'chaoren/vim-wordmotion'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'liuchengxu/vim-which-key'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rhysd/git-messenger.vim'
 Plug 'wellle/targets.vim'
 
