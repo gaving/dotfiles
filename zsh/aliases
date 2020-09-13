@@ -22,6 +22,7 @@ done
 
 alias hd='h -d'
 alias vd='v -d'
+alias ri='r -i'
 
 alias di='docker images'
 alias dnl='docker network ls'
