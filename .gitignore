@@ -6,9 +6,11 @@ git/local
 httpie
 karabiner
 lab*
+htop
 npm
 nvim/local.vim
 thefuck
 tmux/plugins
 yarn
 zsh/custom
+zsh/.zcomp*
