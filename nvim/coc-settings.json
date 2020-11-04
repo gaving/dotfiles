@@ -27,6 +27,7 @@
   "git.virtualTextPrefix": " ❯❯❯ ",
   "list.source.files.defaultOptions": ["--auto-preview"],
   "list.source.outline.defaultOptions": ["--auto-preview"],
+  "list.source.symbols.excludes": ["/home/gavin/.cache/**", "/Users/gavin/.cache/**", "**/node_modules/**"],
   "prettier.eslintIntegration": true,
   "prettier.statusItemText": "★ ",
   "prettier.stylelintIntegration": true,
