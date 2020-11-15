@@ -121,7 +121,9 @@ unalias g
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+if [[ -r "${ZDOTDIR:-$HOME}/.p10k.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.p10k.zsh"
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
