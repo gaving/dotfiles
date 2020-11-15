@@ -14,3 +14,4 @@ tmux/plugins
 yarn
 zsh/custom
 zsh/.zcomp*
+zsh/.zsh_sessions
