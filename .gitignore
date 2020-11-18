@@ -15,3 +15,4 @@ yarn
 zsh/custom
 zsh/.zcomp*
 zsh/.zsh_sessions
+zsh/.p10k.zsh
