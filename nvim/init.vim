@@ -2,6 +2,11 @@ call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'wincent/terminus'
 
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/completion-treesitter'
+
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
@@ -44,7 +49,6 @@ Plug 'andrewradev/splitjoin.vim'
 Plug 'chaoren/vim-wordmotion'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'liuchengxu/vim-which-key'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rhysd/git-messenger.vim'
 Plug 'wellle/targets.vim'
 
@@ -67,8 +71,10 @@ call plug#end()
 autocmd FileType help wincmd L
 
 let &sbr = nr2char(8618).' '
+
 set autowriteall
 set clipboard+=unnamed
+set completeopt=menuone,noinsert,noselect
 set foldmethod=marker
 set hidden
 set ignorecase
@@ -79,6 +85,7 @@ set nowrap
 set nrformats+=alpha
 set number
 set scrolljump=5
+set shortmess+=c
 set smartindent
 set splitbelow
 set splitright
@@ -109,6 +116,10 @@ nnoremap <C-d> :Sayonara<CR>
 
 nnoremap [c :PrevColorScheme<CR>
 nnoremap ]c :NextColorScheme<CR>
+
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 vmap <Enter> <Plug>(EasyAlign)
 
@@ -166,6 +177,29 @@ let g:vim_markdown_no_default_key_mappings = 1
 
 let base16colorspace=256
 
+let g:projectionist_heuristics = {}
+let g:projectionist_heuristics['package.json'] = {
+  \ 'README.markdown': {'type': 'doc'},
+  \ 'README.md': {'type': 'doc'},
+  \ 'package.json': { 'type': 'package' }
+  \ }
+
+" Load further configuration
+luafile $HOME/.config/nvim/lua/lsp.lua
+luafile $HOME/.config/nvim/lua/treesitter.lua
+luafile $HOME/.config/nvim/lua/projectionist.lua
+
+" Load custom configuration
 if filereadable(stdpath('config') . '/local.vim')
     exe 'source ' . stdpath('config') . '/local.vim'
 endif
+
+" Chain completion list
+let g:completion_chain_complete_list = {
+  \ 'default' : {
+  \   'default': [
+  \       {'complete_items': ['lsp', 'snippet']},
+  \       {'mode': '<c-p>'},
+  \       {'mode': '<c-n>'}],
+  \   'comment': [],
+  \   'string' : [{'complete_items': ['path']}]}}
