@@ -1,127 +1,165 @@
-local nvim_lsp = require('lspconfig')
-vim.lsp.set_log_level("debug")
+local lspconfig = require('lspconfig')
 
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+local util = lspconfig.util
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-  client.resolved_capabilities.document_formatting = true
-
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
-      -- disable virtual text
-      virtual_text = true,
-
-      -- show signs
-      signs = true,
-
-      -- delay update diagnostics
-      update_in_insert = false,
-    }
-  )
-  require'completion'.on_attach()
-
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings
-  local opts = { noremap=true, silent=true }
-  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-
-  -- Set some keybinds conditional on server capabilities
-  if client.resolved_capabilities.document_formatting then
-    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-  elseif client.resolved_capabilities.document_range_formatting then
-    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+vim.lsp.handlers["textDocument/formatting"] = function(err, _, result, _, bufnr)
+  if err ~= nil or result == nil then
+    return
   end
-
-  -- Set autocommands conditional on server_capabilities
-  if client.resolved_capabilities.document_highlight then
-    require('lspconfig').util.nvim_multiline_command [[
-      :hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
-      :hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
-      :hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
-      augroup lsp_document_highlight
-      autocmd!
-      autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-      autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-  ]]
+  if not vim.api.nvim_buf_get_option(bufnr, "modified") then
+    local view = vim.fn.winsaveview()
+    vim.lsp.util.apply_text_edits(result, bufnr)
+    vim.fn.winrestview(view)
+    if bufnr == vim.api.nvim_get_current_buf() then
+      vim.api.nvim_command("noautocmd :update")
+    end
   end
-
-  -- Format on save
-  require('lspconfig').util.nvim_multiline_command [[
-    autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 1000)
-]]
 end
 
--- Use a loop to conveniently both setup defined servers
--- and map buffer local keybindings when the language server attaches
-local servers = { "bashls", "dockerls", "jsonls", "yamlls", "tsserver" }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup { on_attach = on_attach }
+local on_attach = function(_, bufnr)
+  require('completion').on_attach()
+  local function bufnoremap(type, input, output)
+    vim.api.nvim_buf_set_keymap(bufnr, type, input, output, { noremap=true, silent=true })
+  end
+  bufnoremap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<cr>')
+  bufnoremap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>')
+  bufnoremap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
+  bufnoremap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
+  bufnoremap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
+  bufnoremap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
+  bufnoremap('n','<Space>a','<cmd>lua vim.lsp.buf.code_action()<cr>')
+  bufnoremap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
+  bufnoremap('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
+  bufnoremap('n', 'L', '<cmd>lua vim.lsp.buf.hover()<cr>')
+  bufnoremap('n', '<Space>rn', '<cmd>lua vim.lsp.buf.rename()<cr>')
+  bufnoremap('n', '<Space>f', '<cmd>lua vim.lsp.buf.formatting()<cr>')
+  vim.api.nvim_command [[augroup Format]]
+  vim.api.nvim_command [[autocmd! * <buffer>]]
+  vim.api.nvim_command [[autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()]]
+  vim.api.nvim_command [[augroup END]]
 end
 
-local efm_settings = {
-  languages = {}
-}
-
-local js_filetypes = {
-  "javascript",
-  "javascriptreact",
-  "javascript.jsx",
-  "typescript",
-  "typescript.tsx",
-  "typescriptreact"
-}
-
-local eslint_config = {
-  lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
-  lintStdin = true,
-  lintFormats = {"%f:%l:%c: %m"},
-  lintIgnoreExitCode = true,
-  formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
-  formatStdin = true
-}
-
-local prettier_config = {
-  formatCommand = "prettier --parser typescript",
-  formatStdin = true
-}
-
-local js_config = vim.fn.glob(".prettierrc*") == "" and {eslint_config} or {eslint_config, prettier_config}
-
-for _, ft in ipairs(js_filetypes) do
-  efm_settings.languages[ft] = js_config
-end
-
-nvim_lsp.efm.setup {
+lspconfig.jdtls.setup{
   on_attach = on_attach,
-  default_config = {
-    cmd = {
-      "efm-langserver",
-      "-c",
-      [["$HOME/.config/efm-langserver/config.yaml"]]
+}
+
+lspconfig.pyls.setup{
+  on_attach = on_attach,
+}
+
+lspconfig.rust_analyzer.setup{
+  on_attach = on_attach,
+}
+
+lspconfig.clangd.setup{
+  on_attach = on_attach,
+}
+
+lspconfig.sumneko_lua.setup{
+  settings = { Lua = { diagnostics = { globals = { 'vim', 'use' } } } },
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+lspconfig.tsserver.setup {
+  on_attach = on_attach,
+  root_dir = util.root_pattern("package.json", "tsconfig.json", ".git") or vim.loop.cwd();
+  capabilities = capabilities
+}
+
+lspconfig.html.setup {
+  on_attach = on_attach,
+  root_dir = util.root_pattern("package.json", "tsconfig.json", ".git") or vim.loop.cwd();
+  capabilities = capabilities
+}
+
+lspconfig.cssls.setup {
+  on_attach = on_attach,
+  root_dir = util.root_pattern("package.json", "tsconfig.json", ".git") or vim.loop.cwd();
+  capabilities = capabilities
+}
+
+local shellcheck = {
+  lintCommand = "shellcheck -f gcc -x -",
+  lintStdin = true,
+  lintFormats = {"%f=%l:%c: %trror: %m", "%f=%l:%c: %tarning: %m", "%f=%l:%c: %tote: %m"}
+}
+
+local black = {
+  formatCommand = "black -",
+  formatStdin = true
+}
+
+local isort = {
+  formatCommand = "isort --stdout --profile black -",
+  formatStdin = true
+}
+
+local flake8 = {
+  lintCommand = "flake8 --max-line-length 160 --stdin-display-name ${INPUT} -",
+  lintStdin = true,
+  lintIgnoreExitCode = true,
+  lintFormats = {"%f=%l:%c: %m"}
+}
+
+local mypy = {
+  lintCommand = "mypy --show-column-numbers --ignore-missing-imports",
+  lintFormats = {"%f=%l:%c: %trror: %m", "%f=%l:%c: %tarning: %m", "%f=%l:%c: %tote: %m"}
+}
+
+local prettier = {
+  formatCommand = ([[
+  ./node_modules/.bin/prettier
+  ]]):gsub(
+    "\n",
+    ""
+  )
+}
+
+-- run prettier and eslint --fix
+local prettierEslint = {
+  formatCommand = ([[
+  ./node_modules/.bin/prettier-eslint --prettier-last
+  ]]):gsub(
+    "\n",
+    ""
+  )
+}
+
+local eslint =  {
+  -- lintCommand = "./node_modules/.bin/eslint -f unix --stdin",
+  -- eslint_d = faster eslint
+  lintCommand = 'eslint_d -f unix --stdin --stdin-filename ${INPUT}',
+  lintIgnoreExitCode = true,
+  lintStdin = true
+}
+
+local luafmt = {
+  formatCommand = "luafmt --stdin",
+  formatStdin = true
+}
+
+lspconfig.efm.setup {
+  on_attach = on_attach,
+  init_options = {documentFormatting = true},
+  settings = {
+    rootMarkers = {".git/"},
+    languages = {
+      lua = {luafmt},
+      python = {flake8, black, isort, mypy},
+      typescript = {prettierEslint, eslint},
+      javascript = {prettierEslint, eslint},
+      typescriptreact = {prettierEslint, eslint},
+      javascriptreact = {prettierEslint, eslint},
+      yaml = {prettier},
+      json = {prettier},
+      html = {prettier},
+      scss = {prettier},
+      css = {prettier},
+      markdown = {prettier},
+      sh = {shellcheck},
     }
-  },
-  root_dir = function()
-    return vim.fn.getcwd()
-  end,
-  settings = efm_settings,
-  filetypes = js_filetypes
+  }
 }
