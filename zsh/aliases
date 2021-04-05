@@ -48,6 +48,7 @@ alias -s git='git clone'
 
 alias -g B='| bat'
 alias -g C='| wc -l'
+alias -g CA='2>&1 | cat -A'
 alias -g G='| rg -i'
 alias -g H='| head'
 alias -g J="| jq '.'"
