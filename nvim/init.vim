@@ -55,6 +55,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'liuchengxu/vim-which-key'
 Plug 'rhysd/git-messenger.vim'
 Plug 'wellle/targets.vim'
+Plug 'dstein64/nvim-scrollview'
 
 Plug 'blueyed/vim-diminactive'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -69,6 +70,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'xolox/vim-misc'
+Plug 'EdenEast/nightfox.nvim'
 
 call plug#end()
 
@@ -140,15 +142,15 @@ let g:which_key_use_floating_win = 0
 
 let g:which_key_map[','] = [':w', 'write']
 let g:which_key_map['.'] = [':Dirvish %', 'open pwd']
-let g:which_key_map['/'] = [':Rg', 'rg']
+let g:which_key_map['/'] = [':Telescope live_grep', 'rg']
 let g:which_key_map['b'] = [':GitMessenger', 'blame']
-let g:which_key_map['c'] = [':Commits', 'commits']
-let g:which_key_map['C'] = [':BCommits', 'buffer commits']
+let g:which_key_map['c'] = [':Telescope git_commits', 'commits']
+let g:which_key_map['C'] = [':Telescope git_bcommits', 'buffer commits']
 let g:which_key_map['d'] = [':Gvdiffsplit', 'diff']
-let g:which_key_map['f'] = [':Files', 'files']
+let g:which_key_map['f'] = [':Telescope find_files', 'files']
 let g:which_key_map['g'] = [':Gstatus', 'fugitive']
 let g:which_key_map['o'] = [':only', 'only']
-let g:which_key_map['p'] = [':GFiles', 'ls-files']
+let g:which_key_map['p'] = [':Telescope git_files', 'ls-files']
 let g:which_key_map['q'] = [':q', 'quit']
 let g:which_key_map['r'] = [':RandomColorScheme', 'random colorscheme']
 let g:which_key_map['s'] = [':Startify', 'startify']
@@ -185,7 +187,8 @@ let g:projectionist_heuristics = {}
 let g:projectionist_heuristics['package.json'] = {
   \ 'README.markdown': {'type': 'doc'},
   \ 'README.md': {'type': 'doc'},
-  \ 'package.json': { 'type': 'package' }
+  \ 'package.json': { 'type': 'package' },
+  \ 'Dockerfile': { 'type': 'docker' }
   \ }
 
 " Load further configuration
