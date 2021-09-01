@@ -82,7 +82,6 @@ plugins=(
   git
   history-search-multi-word
   kubectl
-  thefuck
   you-should-use
   zsh-autosuggestions
   zsh-z

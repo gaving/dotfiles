@@ -30,8 +30,8 @@ local on_attach = function(_, bufnr)
     bufnoremap("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
     bufnoremap("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>")
     bufnoremap("n", "<Space>a", "<cmd>lua vim.lsp.buf.code_action()<cr>")
-    bufnoremap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>")
-    bufnoremap("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<cr>")
+    -- bufnoremap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>")
+    -- bufnoremap("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<cr>")
     bufnoremap("n", "L", "<cmd>lua vim.lsp.buf.hover()<cr>")
     bufnoremap("n", "<Space>rn", "<cmd>lua vim.lsp.buf.rename()<cr>")
     bufnoremap("n", "<Space>f", "<cmd>lua vim.lsp.buf.formatting()<cr>")
@@ -45,7 +45,7 @@ lspconfig.jdtls.setup {
     on_attach = on_attach
 }
 
-lspconfig.pyls.setup {
+lspconfig.pyright.setup {
     on_attach = on_attach
 }
 
@@ -143,10 +143,10 @@ lspconfig.efm.setup {
         languages = {
             lua = {luafmt},
             python = {flake8, black, isort, mypy},
-            typescript = {prettierEslint, eslint},
-            javascript = {prettierEslint, eslint},
-            typescriptreact = {prettierEslint, eslint},
-            javascriptreact = {prettierEslint, eslint},
+            typescript = {prettier, eslint},
+            javascript = {prettier, eslint},
+            typescriptreact = {prettier, eslint},
+            javascriptreact = {prettier, eslint},
             yaml = {prettier},
             json = {prettier},
             html = {prettier},
