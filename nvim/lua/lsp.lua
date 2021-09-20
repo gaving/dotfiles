@@ -63,11 +63,11 @@ lspconfig.sumneko_lua.setup {
     capabilities = capabilities
 }
 
-lspconfig.tsserver.setup {
-    on_attach = on_attach,
-    root_dir = util.root_pattern("package.json", "tsconfig.json", ".git") or vim.loop.cwd(),
-    capabilities = capabilities
-}
+-- lspconfig.tsserver.setup {
+--     on_attach = on_attach,
+--     root_dir = util.root_pattern("package.json", "tsconfig.json", ".git") or vim.loop.cwd(),
+--     capabilities = capabilities
+-- }
 
 lspconfig.html.setup {
     on_attach = on_attach,
