@@ -37,7 +37,7 @@ local on_attach = function(_, bufnr)
     bufnoremap("n", "<Space>f", "<cmd>lua vim.lsp.buf.formatting()<cr>")
     vim.api.nvim_command [[augroup Format]]
     vim.api.nvim_command [[autocmd! * <buffer>]]
-    vim.api.nvim_command [[autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()]]
+    vim.api.nvim_command [[autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
     vim.api.nvim_command [[augroup END]]
 end
 
