@@ -17,6 +17,7 @@ path=(
 
 fpath=(
   $ZDOTDIR/functions
+  $ZDOTDIR/functions/custom
   $fpath
 )
 
@@ -68,6 +69,7 @@ setopt \
   rm_star_silent
 
 autoload -U $ZDOTDIR/functions/*(:t)
+autoload -U $ZDOTDIR/functions/custom/*(:t)
 autoload -U backward-kill-word-match && zle -N backward-kill-word-match
 autoload -U tetriscurses
 autoload -U url-quote-magic && zle -N self-insert url-quote-magic
