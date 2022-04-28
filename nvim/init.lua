@@ -1,4 +1,4 @@
-vim.lsp.set_log_level("debug")
+require("impatient").enable_profile()
 require("bootstrap")
 require("deps")
 

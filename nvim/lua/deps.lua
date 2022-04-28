@@ -14,6 +14,7 @@ require("paq") {
   "jose-elias-alvarez/nvim-lsp-ts-utils",
   "junegunn/vim-easy-align",
   "kyazdani42/nvim-web-devicons",
+  "lewis6991/impatient.nvim",
   "luukvbaal/stabilize.nvim",
   "machakann/vim-sandwich",
   "mhinz/vim-sayonara",

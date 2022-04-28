@@ -27,6 +27,7 @@ o.wrap           = false -- don't wrap lines
 o.writebackup    = false -- disable backup
 o.swapfile       = false -- disable swap
 o.backupcopy     = "yes" -- fix weirdness for stuff that replaces the entire file when hot reloading
+o.clipboard      = "unnamed"
 o.completeopt    = {
   "menu",
   "menuone",
