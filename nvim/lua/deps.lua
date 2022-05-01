@@ -13,6 +13,7 @@ require("paq") {
   "jose-elias-alvarez/null-ls.nvim",
   "jose-elias-alvarez/nvim-lsp-ts-utils",
   "junegunn/vim-easy-align",
+  'kdheepak/lazygit.nvim',
   "kyazdani42/nvim-web-devicons",
   "lewis6991/impatient.nvim",
   "luukvbaal/stabilize.nvim",
