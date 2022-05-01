@@ -4,9 +4,11 @@ configstore
 docker
 git/local
 httpie
+iterm2
 karabiner
 lab*
 htop
+lazygit
 npm
 nvim/local.vim
 thefuck
