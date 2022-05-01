@@ -132,3 +132,6 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+typeset -g ZSH_CUSTOM_AUTOUPDATE_QUIET=true
