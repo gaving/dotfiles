@@ -29,6 +29,8 @@ nnoremap("<Leader><Leader>", "<CMD>write<CR>", { desc = "Write" })
 nnoremap("[c", "<CMD>PrevColorScheme<CR>", { desc = "Previous colorscheme" })
 nnoremap("]c", "<CMD>NextColorScheme<CR>", { desc = "Next colorscheme" })
 nnoremap("`", "<C-^><CR>", { desc = "Toggle file" })
+nnoremap("<Leader>g", "<CMD>Git<CR>", { desc = "Fugitive" })
+
 
 -- TERMINAL MAPPINGS
 tnoremap("<C-h>", "<C-\\><C-n><C-w><C-h>", {
