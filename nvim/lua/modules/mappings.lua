@@ -21,7 +21,8 @@ nnoremap("?", "ms?", { desc = "Keeps jumplist after backward searching" })
 
 nnoremap("<C-n>", "<CMD>NeoTreeRevealToggle<CR>", { desc = "Toggle NeoTree" })
 nnoremap("<C-d>", "<CMD>Sayonara<CR>", { desc = "Sayonara!" })
-nnoremap("<Leader>f", "<CMD>Telescope find_files<CR>", { desc = "Telescope" })
+nnoremap("<Leader>f", "<CMD>Telescope find_files<CR>", { desc = "Find files" })
+nnoremap("<Leader>p", "<CMD>Telescope git_files<CR>", { desc = "Find git files" })
 nnoremap("<Leader>q", "<CMD>q<CR>", { desc = "Quit" })
 nnoremap("<Leader>s", "<CMD>Startify<CR>", { desc = "Quit" })
 nnoremap("<Leader>/", "<CMD>Telescope live_grep<CR>", { desc = "Quit" })
@@ -30,6 +31,10 @@ nnoremap("[c", "<CMD>PrevColorScheme<CR>", { desc = "Previous colorscheme" })
 nnoremap("]c", "<CMD>NextColorScheme<CR>", { desc = "Next colorscheme" })
 nnoremap("`", "<C-^><CR>", { desc = "Toggle file" })
 nnoremap("<Leader>g", "<CMD>Git<CR>", { desc = "Fugitive" })
+nnoremap("<Leader>v", "<CMD>e $MYVIMRC<CR>", { desc = "open .vimrc" })
+nnoremap("<Leader>V", "<CMD>e $HOME/.config/nvim/local.vim<CR>", { desc = "open local.vim" })
+nnoremap("<Leader>z", "<CMD>e $HOME/.config/zsh/config<CR>", { desc = "open zsh config" })
+nnoremap("<Leader>Z", "<CMD>e $HOME/.config/zsh/custom<CR>", { desc = "open zsh custom" })
 
 
 -- TERMINAL MAPPINGS
@@ -116,10 +121,15 @@ inoremap("<C-W>", "<C-S-W>", {
   desc = "Delete word backwards (this is needed for telescope prompt)",
 })
 
+
+-- " Use <Tab> and <S-Tab> to navigate through popup menu
+-- inoremap("<expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+-- inoremap("<expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 vnoremap("<", "<gv", { desc = "Dedent current selection" })
 vnoremap(">", ">gv", { desc = "Indent current selection" })
 
-nnoremap("<Leader>v", function()
+nnoremap("<Leader>S", function()
   vim.cmd [[
     vnew
     setlocal buftype=nofile bufhidden=hide
