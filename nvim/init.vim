@@ -71,6 +71,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'xolox/vim-misc'
 Plug 'EdenEast/nightfox.nvim'
+Plug 'memgraph/cypher.vim'
 
 call plug#end()
 
