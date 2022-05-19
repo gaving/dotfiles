@@ -8,7 +8,7 @@ so these are my dotfiles
 - `sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
 - `git clone https://github.com/gaving/dotfiles ~/dotfiles`
 - `ln -sv ~/dotfiles ~/.config`
-- `git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm`
+- `git clone https://github.com/tmux-plugins/tpm $XDG_DATA_HOME/tmux/plugins/tpm`
 - `brew install tmux`
 
 ## configure
