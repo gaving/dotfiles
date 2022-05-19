@@ -119,7 +119,7 @@ nnoremap Y y$
 noremap <Backspace> <C-y>
 xnoremap <Backspace> "_x
 
-nnoremap <C-d> :Sayonara<CR>
+nnoremap <C-d> :silent! Sayonara<CR>
 
 nnoremap [c :PrevColorScheme<CR>
 nnoremap ]c :NextColorScheme<CR>

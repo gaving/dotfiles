@@ -77,6 +77,7 @@ plugins=(
   docker
   docker-compose
   extract
+  insight
   fzf-docker
   fzf-tab
   git
