@@ -18,7 +18,7 @@ runtime! lua/modules/mappings.lua
 runtime! lua/modules/statusline.lua
 ]]
 
-vim.cmd [[ colorscheme afterglow ]]
+vim.cmd [[ colorscheme yellow-moon ]]
 
 -- call plug#begin(stdpath('data') . '/plugged')
 -- 
