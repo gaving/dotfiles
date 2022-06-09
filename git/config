@@ -143,7 +143,7 @@
     abbrev = 12
     autocrlf = input
     editor = nvim
-    pager = delta --dark --hunk-style=plain --file-style=underline
+    pager = delta --dark --hunk-header-style=plain --file-style=underline
 
 [diff]
 
