@@ -1,0 +1,198 @@
+vim.lsp.set_log_level("debug")
+require("bootstrap")
+require("deps")
+
+-- enable filetype.lua
+vim.g.do_filetype_lua = 1
+
+-- map leader key to comma
+vim.g.mapleader = ","
+vim.g.maplocalleader = "<Space>"
+
+-- order matters
+vim.cmd [[
+runtime! lua/modules/options.lua
+runtime! lua/modules/util.lua
+runtime! lua/modules/mappings.lua
+runtime! lua/modules/statusline.lua
+]]
+
+vim.cmd [[ colorscheme afterglow ]]
+
+-- call plug#begin(stdpath('data') . '/plugged')
+-- 
+-- Plug 'wincent/terminus'
+-- 
+-- Plug 'neovim/nvim-lspconfig'
+-- Plug 'nvim-lua/completion-nvim'
+-- Plug 'nvim-treesitter/nvim-treesitter'
+-- Plug 'nvim-treesitter/completion-treesitter'
+-- 
+-- Plug 'nvim-lua/popup.nvim'
+-- Plug 'nvim-lua/plenary.nvim'
+-- Plug 'nvim-telescope/telescope.nvim'
+-- 
+-- Plug 'tpope/vim-abolish'
+-- Plug 'tpope/vim-commentary'
+-- Plug 'tpope/vim-dispatch'
+-- Plug 'tpope/vim-eunuch'
+-- Plug 'tpope/vim-fugitive'
+-- Plug 'tpope/vim-projectionist'
+-- Plug 'tpope/vim-repeat'
+-- Plug 'tpope/vim-rsi'
+-- Plug 'tpope/vim-rhubarb'
+-- Plug 'tpope/vim-sensible'
+-- Plug 'tpope/vim-sleuth'
+-- Plug 'tpope/vim-surround'
+-- Plug 'tpope/vim-unimpaired'
+-- 
+-- Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+-- Plug 'junegunn/fzf.vim'
+-- Plug 'junegunn/vim-easy-align'
+-- Plug 'junegunn/vim-slash'
+-- Plug 'junegunn/vim-peekaboo'
+-- Plug 'junegunn/vim-pseudocl'
+-- 
+-- Plug 'justinmk/vim-dirvish'
+-- Plug 'justinmk/vim-gtfo'
+-- Plug 'justinmk/vim-sneak'
+-- 
+-- Plug 'kana/vim-textobj-indent'
+-- Plug 'kana/vim-textobj-line'
+-- Plug 'kana/vim-textobj-user'
+-- 
+-- Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
+-- Plug 'mhinz/vim-startify'
+-- Plug 'mhinz/vim-signify'
+-- 
+-- Plug 'christoomey/vim-tmux-navigator'
+-- Plug 'tmux-plugins/vim-tmux-focus-events'
+-- Plug 'edkolev/tmuxline.vim'
+-- 
+-- Plug 'airblade/vim-rooter'
+-- Plug 'andrewradev/splitjoin.vim'
+-- Plug 'chaoren/vim-wordmotion'
+-- Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+-- Plug 'liuchengxu/vim-which-key'
+-- Plug 'rhysd/git-messenger.vim'
+-- Plug 'wellle/targets.vim'
+-- Plug 'dstein64/nvim-scrollview'
+-- 
+-- Plug 'blueyed/vim-diminactive'
+-- Plug 'maxmellon/vim-jsx-pretty'
+-- Plug 'ntpeters/vim-better-whitespace'
+-- Plug 'pangloss/vim-javascript'
+-- Plug 'plasticboy/vim-markdown'
+-- Plug 'psliwka/vim-smoothie'
+-- Plug 'rafi/awesome-vim-colorschemes'
+-- Plug 'ryanoasis/vim-devicons'
+-- Plug 'sheerun/vim-polyglot'
+-- Plug 'vim-airline/vim-airline'
+-- Plug 'vim-airline/vim-airline-themes'
+-- Plug 'xolox/vim-colorscheme-switcher'
+-- Plug 'xolox/vim-misc'
+-- Plug 'EdenEast/nightfox.nvim'
+-- 
+-- call plug#end()
+-- 
+-- autocmd FileType help wincmd L
+-- 
+-- let &sbr = nr2char(8618).' '
+-- 
+-- set autowriteall
+-- set clipboard+=unnamed
+-- set completeopt=menuone,noinsert,noselect
+-- set foldmethod=marker
+-- set hidden
+-- set ignorecase
+-- set lazyredraw
+-- set list
+-- set nojoinspaces
+-- set nowrap
+-- set nrformats+=alpha
+-- set number
+-- set scrolljump=5
+-- set shortmess+=c
+-- set smartindent
+-- set splitbelow
+-- set splitright
+-- set timeoutlen=500
+-- 
+-- if (has("termguicolors"))
+--   let &t_8f = "\[38;2;%lu;%lu;%lum"
+--   let &t_8b = "\[48;2;%lu;%lu;%lum"
+--   set termguicolors
+-- endif
+-- 
+-- set textwidth=79
+-- set undofile
+-- set undolevels=5000
+-- 
+-- inoremap jj <Esc>
+-- inoremap <S-Up> <C-o><C-y>
+-- inoremap <S-Down> <C-o><C-e>
+-- 
+-- nnoremap <nowait> ` <C-^>
+-- nnoremap Q gqap
+-- nnoremap Y y$
+-- 
+-- noremap <Backspace> <C-y>
+-- xnoremap <Backspace> "_x
+-- 
+-- nnoremap <C-d> :Sayonara<CR>
+-- 
+-- nnoremap [c :PrevColorScheme<CR>
+-- nnoremap ]c :NextColorScheme<CR>
+-- 
+-- " Use <Tab> and <S-Tab> to navigate through popup menu
+-- inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+-- inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+-- 
+-- vmap <Enter> <Plug>(EasyAlign)
+-- 
+-- nnoremap <silent><Leader> :<c-u>WhichKey ','<CR>
+-- vnoremap <silent><Leader> :<c-u>WhichKey ','<CR>
+-- nnoremap <silent><LocalLeader> :<c-u>WhichKey '<Space>'<CR>
+-- vnoremap <silent><LocalLeader> :<c-u>WhichKeyVisual '<Space>'<CR>
+-- 
+-- let g:which_key_map =  {}
+-- let g:which_key_sep = '→'
+-- let g:which_key_use_floating_win = 0
+-- 
+-- let g:which_key_map['.'] = [':Dirvish %', 'open pwd']
+-- let g:which_key_map['b'] = [':GitMessenger', 'blame']
+-- let g:which_key_map['c'] = [':Telescope git_commits', 'commits']
+-- let g:which_key_map['C'] = [':Telescope git_bcommits', 'buffer commits']
+-- let g:which_key_map['d'] = [':Gvdiffsplit', 'diff']
+-- let g:which_key_map['g'] = [':Git', 'fugitive']
+-- let g:which_key_map['v'] = [':e $MYVIMRC', 'open .vimrc']
+-- let g:which_key_map['V'] = [':e $HOME/.config/nvim/local.vim', 'open local.vim']
+-- let g:which_key_map['z'] = [':e $HOME/.config/zsh/config', 'open zsh config']
+-- let g:which_key_map['Z'] = [':e $HOME/.config/zsh/custom', 'open zsh custom']
+-- 
+-- call which_key#register(',', 'g:which_key_map')
+-- 
+-- let g:diminactive_enable_focus = 1
+-- let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+-- let g:git_messenger_no_default_mappings = 1
+-- let g:rooter_silent_chdir = 1
+-- let g:tmux_navigator_save_on_switch = 2
+-- let g:tmuxline_powerline_separators = 0
+-- let g:tmuxline_preset = {
+--       \'a'    : '#[bold]#S',
+--       \'b'    : '#(whoami)',
+--       \'win'  : '#W',
+--       \'cwin' : '#W',
+--       \'y'    : ['%R', '%a', '%d/%m/%y']}
+-- 
+-- let base16colorspace=256
+-- 
+-- " Load further configuration
+-- luafile $HOME/.config/nvim/lua/lsp.lua
+-- luafile $HOME/.config/nvim/lua/treesitter.lua
+-- luafile $HOME/.config/nvim/lua/projectionist.lua
+-- 
+-- " Load custom configuration
+-- if filereadable(stdpath('config') . '/local.vim')
+--     exe 'source ' . stdpath('config') . '/local.vim'
+-- endif
