@@ -1,7 +1,6 @@
 require("impatient").enable_profile()
 require("bootstrap")
 require("deps")
-require("luasnip.loaders.from_vscode").lazy_load()
 
 -- enable filetype.lua
 vim.g.do_filetype_lua = 1
