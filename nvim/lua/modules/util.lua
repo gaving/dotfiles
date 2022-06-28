@@ -97,7 +97,7 @@ Util.lsp_on_init = function(client)
     or client.name == "volar"
     or client.name == "tsserver"
   then
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.documentFormatting = false
   end
 
   vim.notify(
@@ -116,7 +116,7 @@ Util.lsp_on_attach = function(client, bufnr)
     ts_utils.setup_client(client)
   end
 
-  if client.resolved_capabilities.code_lens then
+  if client.server_capabilities.code_lens then
     vim.cmd [[
     augroup CodeLens
       au!
@@ -125,7 +125,7 @@ Util.lsp_on_attach = function(client, bufnr)
     ]]
   end
 
-  if client.resolved_capabilities.document_highlight then
+  if client.server_capabilities.documentHighlightProvider then
     vim.cmd [[
     augroup DocumentHighlight
       au!
