@@ -21,6 +21,7 @@ require("paq") {
   "kana/vim-textobj-user",
   "kyazdani42/nvim-web-devicons",
   "lewis6991/impatient.nvim",
+  "lewis6991/gitsigns.nvim",
   "luukvbaal/stabilize.nvim",
   "machakann/vim-sandwich",
   "mhinz/vim-sayonara",

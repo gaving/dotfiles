@@ -1,6 +1,7 @@
 require("impatient").enable_profile()
 require("bootstrap")
 require("deps")
+require('gitsigns').setup()
 
 vim.g.do_filetype_lua = 1
 vim.g.mapleader = ","
