@@ -25,6 +25,7 @@ require("paq") {
   "lewis6991/impatient.nvim",
   "lewis6991/gitsigns.nvim",
   "luukvbaal/stabilize.nvim",
+  "lukas-reineke/indent-blankline.nvim",
   "machakann/vim-sandwich",
   "mhinz/vim-sayonara",
   "mhinz/vim-startify",
