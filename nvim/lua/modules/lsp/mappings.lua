@@ -11,11 +11,11 @@ M.lsp_mappings = function(bufnr)
     silent = true,
   })
 
---  map(bufnr, "n", "K", vim.lsp.buf.hover, {
---    desc = "Trigger hover window from the language server",
---    noremap = true,
---    silent = true,
---  })
+  map(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", {
+    desc = "Trigger hover window from the language server",
+    noremap = true,
+    silent = true,
+  })
 
   map(bufnr, "n", "<Leader>ga", "", {
     callback = vim.lsp.buf.code_action,
