@@ -14,9 +14,9 @@ vim.cmd [[
   runtime! lua/modules/statusline.lua
 ]]
 
-vim.cmd [[ colorscheme yellow-moon ]]
 -- Make argument objects work with braces (i.e. destructuring)
 vim.cmd [[ autocmd User targets#mappings#user call targets#mappings#extend({
   \ 'a': {'argument': [{'o': '[{([]', 'c': '[])}]', 's': ','}]},
 \ }) ]]
 
+vim.cmd [[ colorscheme dracula ]]
