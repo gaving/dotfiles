@@ -4,6 +4,7 @@ require("paq") {
   "L3MON4D3/LuaSnip",
   "akinsho/nvim-bufferline.lua",
   "andymass/vim-matchup",
+  "chaoren/vim-wordmotion",
   "christianchiarulli/nvcode-color-schemes.vim",
   "christoomey/vim-tmux-navigator",
   "edkolev/tmuxline.vim",
