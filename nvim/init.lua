@@ -15,3 +15,8 @@ vim.cmd [[
 ]]
 
 vim.cmd [[ colorscheme yellow-moon ]]
+-- Make argument objects work with braces (i.e. destructuring)
+vim.cmd [[ autocmd User targets#mappings#user call targets#mappings#extend({
+  \ 'a': {'argument': [{'o': '[{([]', 'c': '[])}]', 's': ','}]},
+\ }) ]]
+

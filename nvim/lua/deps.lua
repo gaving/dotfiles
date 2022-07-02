@@ -56,6 +56,7 @@ require("paq") {
   "tpope/vim-unimpaired",
   "williamboman/nvim-lsp-installer",
   "windwp/nvim-ts-autotag",
+  "wellle/targets.vim",
   "xolox/vim-colorscheme-switcher",
   "xolox/vim-misc",
   'kdheepak/lazygit.nvim',
