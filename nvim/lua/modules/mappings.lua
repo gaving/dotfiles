@@ -19,7 +19,6 @@ noremap("N", '"nN"[v:searchforward]', {
 nnoremap("/", "ms/", { desc = "Keeps jumplist after forward searching" })
 nnoremap("?", "ms?", { desc = "Keeps jumplist after backward searching" })
 
-nnoremap("<C-n>", "<CMD>NeoTreeRevealToggle<CR>", { desc = "Toggle NeoTree" })
 nnoremap("<C-d>", "<CMD>Sayonara<CR>", { desc = "Sayonara!" })
 nnoremap("<Leader>f", "<CMD>Telescope find_files<CR>", { desc = "Find files" })
 nnoremap("<Leader>p", "<CMD>Telescope git_files<CR>", { desc = "Find git files" })
