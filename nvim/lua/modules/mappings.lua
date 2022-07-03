@@ -23,10 +23,12 @@ nnoremap("-", "<CMD>Switch<CR>", { desc = "Switch" })
 nnoremap("<C-d>", "<CMD>Sayonara<CR>", { desc = "Sayonara!" })
 nnoremap("<Leader>b", "<CMD>Telescope buffers<CR>", { desc = "Find buffers" })
 nnoremap("<Leader>f", "<CMD>Telescope find_files<CR>", { desc = "Find files" })
+nnoremap("<Leader>t", "<CMD>TroubleToggle<CR>", { desc = "Toggle issues" })
 nnoremap("<Leader>p", "<CMD>Telescope git_files<CR>", { desc = "Find git files" })
 nnoremap("<Leader>q", "<CMD>q<CR>", { desc = "Quit" })
 nnoremap("<Leader>s", "<CMD>Startify<CR>", { desc = "Quit" })
-nnoremap("<Leader>/", "<CMD>Telescope live_grep<CR>", { desc = "Quit" })
+nnoremap("<Leader>/", "<CMD>Telescope live_grep<CR>", { desc = "Grep for string" })
+nnoremap("<Leader>?", "<CMD>Telescope grep_string<CR>", { desc = "Grep string under cursor" })
 nnoremap("<Leader><Leader>", "<CMD>write<CR>", { desc = "Write" })
 nnoremap("[c", "<CMD>PrevColorScheme<CR>", { desc = "Previous colorscheme" })
 nnoremap("]c", "<CMD>NextColorScheme<CR>", { desc = "Next colorscheme" })
@@ -36,7 +38,7 @@ nnoremap("<Leader>v", "<CMD>e $MYVIMRC<CR>", { desc = "open .vimrc" })
 nnoremap("<Leader>V", "<CMD>e $HOME/.config/nvim/local.vim<CR>", { desc = "open local.vim" })
 nnoremap("<Leader>z", "<CMD>e $HOME/.config/zsh/config<CR>", { desc = "open zsh config" })
 nnoremap("<Leader>Z", "<CMD>e $HOME/.config/zsh/custom<CR>", { desc = "open zsh custom" })
-
+nnoremap("<leader>gb", '<CMD>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {silent = true})
 
 -- TERMINAL MAPPINGS
 tnoremap("<C-h>", "<C-\\><C-n><C-w><C-h>", {
@@ -147,3 +149,6 @@ nnoremap("<F2>", function()
 end, {
   desc = "Toggle whitespace stripping",
 })
+
+
+

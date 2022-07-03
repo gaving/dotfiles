@@ -4,6 +4,7 @@ local o = vim.opt
 -- o.relativenumber = true -- enable relative line number
 o.undofile       = true -- persistent undo
 o.backup         = false -- disable backup
+-- o.cmdheight      = 0     -- disable cmdheight
 o.cursorline     = true -- enable cursor line
 o.expandtab      = true -- use spaces instead of tabs
 o.autowrite      = true -- auto write buffer when it's not focused

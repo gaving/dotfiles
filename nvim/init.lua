@@ -1,7 +1,11 @@
 require("impatient").enable_profile()
 require("bootstrap")
 require("deps")
-require('gitsigns').setup()
+
+require("gitsigns").setup()
+require("stabilize").setup()
+require("gitlinker").setup()
+require("nvim-ts-autotag").setup()
 
 vim.g.do_filetype_lua = 1
 vim.g.mapleader = ","
@@ -19,4 +23,7 @@ vim.cmd [[ autocmd User targets#mappings#user call targets#mappings#extend({
   \ 'a': {'argument': [{'o': '[{([]', 'c': '[])}]', 's': ','}]},
 \ }) ]]
 
-vim.cmd [[ colorscheme dracula ]]
+vim.cmd [[ colorscheme onedark ]]
+
+-- Let emojis complete
+vim.cmd [[ set completefunc=emoji#complete ]]

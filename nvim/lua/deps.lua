@@ -39,7 +39,6 @@ require("paq") {
   "nvim-treesitter/nvim-treesitter",
   "nvim-treesitter/nvim-treesitter-textobjects",
   "nvim-treesitter/playground",
-  "phaazon/hop.nvim",
   "ruifm/gitlinker.nvim",
   "tami5/sqlite.lua",
   "tmux-plugins/vim-tmux-focus-events",
