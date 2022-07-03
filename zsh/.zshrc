@@ -77,12 +77,12 @@ plugins=(
   docker
   docker-compose
   extract
-  insight
   fzf-docker
   fzf-tab
   git
   history-search-multi-word
   kubectl
+  thefuck
   you-should-use
   zsh-autosuggestions
   zsh-z
