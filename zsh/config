@@ -87,6 +87,7 @@ compdef s=ssh &> /dev/null
 compdef r=rg &> /dev/null
 compdef rr=rg &> /dev/null
 compdef v=nvim &> /dev/null
+compdef y=yarn &> /dev/null
 
 bindkey -e
 bindkey '^Q' push-line

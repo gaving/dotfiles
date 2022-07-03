@@ -11,6 +11,7 @@ alias l='exa --all --git --long --icons'
 alias t='tree'
 alias u='$EDITOR "$(git rev-parse --show-toplevel 2>/dev/null || echo .)/.git/index"'
 alias v=$VISUAL
+alias y='yarn'
 
 for c in cp rm mv chmod chown rename; do
     alias $c="nocorrect $c -v"
