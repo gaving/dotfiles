@@ -2,10 +2,12 @@ require("impatient").enable_profile()
 require("bootstrap")
 require("deps")
 
-require("gitsigns").setup()
-require("stabilize").setup()
+-- Plugins
+require("alpha").setup(require'alpha.themes.startify'.config)
 require("gitlinker").setup()
+require("gitsigns").setup()
 require("nvim-ts-autotag").setup()
+require("stabilize").setup()
 require("typescript").setup()
 
 vim.g.do_filetype_lua = 1
