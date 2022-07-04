@@ -26,7 +26,7 @@ nnoremap("<Leader>f", "<CMD>Telescope find_files<CR>", { desc = "Find files" })
 nnoremap("<Leader>t", "<CMD>TroubleToggle<CR>", { desc = "Toggle issues" })
 nnoremap("<Leader>p", "<CMD>Telescope git_files<CR>", { desc = "Find git files" })
 nnoremap("<Leader>q", "<CMD>q<CR>", { desc = "Quit" })
-nnoremap("<Leader>s", "<CMD>Startify<CR>", { desc = "Quit" })
+nnoremap("<Leader>s", "<CMD>Alpha<CR>", { desc = "Startscreen" })
 nnoremap("<Leader>/", "<CMD>Telescope live_grep<CR>", { desc = "Grep for string" })
 nnoremap("<Leader>?", "<CMD>Telescope grep_string<CR>", { desc = "Grep string under cursor" })
 nnoremap("<Leader><Leader>", "<CMD>write<CR>", { desc = "Write" })
@@ -151,6 +151,3 @@ nnoremap("<F2>", function()
 end, {
   desc = "Toggle whitespace stripping",
 })
-
-
-
