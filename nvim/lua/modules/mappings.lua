@@ -39,7 +39,8 @@ nnoremap("<Leader>v", "<CMD>e $MYVIMRC<CR>", { desc = "open .vimrc" })
 nnoremap("<Leader>V", "<CMD>e $HOME/.config/nvim/local.vim<CR>", { desc = "open local.vim" })
 nnoremap("<Leader>z", "<CMD>e $HOME/.config/zsh/config<CR>", { desc = "open zsh config" })
 nnoremap("<Leader>Z", "<CMD>e $HOME/.config/zsh/custom<CR>", { desc = "open zsh custom" })
-nnoremap("<leader>gb", '<CMD>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {silent = true})
+nnoremap("<Leader>gb", '<CMD>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {silent = true})
+vnoremap("<Leader>gb", '<CMD>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {silent = true})
 
 -- TERMINAL MAPPINGS
 tnoremap("<C-h>", "<C-\\><C-n><C-w><C-h>", {
