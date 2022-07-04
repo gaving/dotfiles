@@ -1,4 +1,5 @@
 require("paq") {
+  "jose-elias-alvarez/typescript.nvim",
   "AndrewRadev/splitjoin.vim",
   "AndrewRadev/switch.vim",
   "L3MON4D3/LuaSnip",

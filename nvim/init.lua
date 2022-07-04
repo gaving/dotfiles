@@ -6,6 +6,7 @@ require("gitsigns").setup()
 require("stabilize").setup()
 require("gitlinker").setup()
 require("nvim-ts-autotag").setup()
+require("typescript").setup()
 
 vim.g.do_filetype_lua = 1
 vim.g.mapleader = ","
