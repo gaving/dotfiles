@@ -21,12 +21,14 @@ vim.cmd [[
   runtime! lua/modules/statusline.lua
 ]]
 
+vim.cmd [[
+  colorscheme onedark
+  set completefunc=emoji#complete
+]]
+
 -- Make argument objects work with braces (i.e. destructuring)
-vim.cmd [[ autocmd User targets#mappings#user call targets#mappings#extend({
-  \ 'a': {'argument': [{'o': '[{([]', 'c': '[])}]', 's': ','}]},
-\ }) ]]
-
-vim.cmd [[ colorscheme onedark ]]
-
--- Let emojis complete
-vim.cmd [[ set completefunc=emoji#complete ]]
+vim.cmd [[
+  autocmd User targets#mappings#user call targets#mappings#extend({
+    \ 'a': {'argument': [{'o': '[{([]', 'c': '[])}]', 's': ','}]},
+  \ })
+]]
