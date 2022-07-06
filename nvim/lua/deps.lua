@@ -18,6 +18,7 @@ require("paq") {
   "jose-elias-alvarez/null-ls.nvim",
   "jose-elias-alvarez/nvim-lsp-ts-utils",
   "jose-elias-alvarez/typescript.nvim",
+  "jparise/vim-graphql",
   "junegunn/vim-easy-align",
   "kachyz/vim-gitmoji",
   "kana/vim-textobj-indent",
