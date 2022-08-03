@@ -15,6 +15,7 @@ require("paq") {
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/nvim-cmp",
   "hrsh7th/vim-vsnip",
+  "iamcco/markdown-preview.nvim",
   "jose-elias-alvarez/null-ls.nvim",
   "jose-elias-alvarez/nvim-lsp-ts-utils",
   "jose-elias-alvarez/typescript.nvim",
@@ -63,6 +64,6 @@ require("paq") {
   "windwp/nvim-ts-autotag",
   "xolox/vim-colorscheme-switcher",
   "xolox/vim-misc",
-  'kdheepak/lazygit.nvim',
+  "kdheepak/lazygit.nvim",
   { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
 }
