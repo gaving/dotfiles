@@ -25,6 +25,7 @@ require("paq") {
   "kana/vim-textobj-indent",
   "kana/vim-textobj-line",
   "kana/vim-textobj-user",
+  "kdheepak/lazygit.nvim",
   "kyazdani42/nvim-web-devicons",
   "lewis6991/gitsigns.nvim",
   "lewis6991/impatient.nvim",
@@ -64,6 +65,5 @@ require("paq") {
   "windwp/nvim-ts-autotag",
   "xolox/vim-colorscheme-switcher",
   "xolox/vim-misc",
-  "kdheepak/lazygit.nvim",
   { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
 }
