@@ -50,6 +50,7 @@ require("paq") {
   "tmux-plugins/vim-tmux-focus-events",
   "tpope/vim-abolish",
   "tpope/vim-commentary",
+  "tpope/vim-dadbod",
   "tpope/vim-dispatch",
   "tpope/vim-eunuch",
   "tpope/vim-fugitive",
