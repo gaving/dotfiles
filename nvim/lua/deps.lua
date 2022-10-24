@@ -32,6 +32,7 @@ require("paq") {
   "lukas-reineke/indent-blankline.nvim",
   "luukvbaal/stabilize.nvim",
   "machakann/vim-sandwich",
+  "memgraph/cypher.vim",
   "mhinz/vim-sayonara",
   "neovim/nvim-lspconfig",
   "norcalli/nvim-colorizer.lua",
