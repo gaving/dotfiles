@@ -22,7 +22,7 @@ vim.cmd [[
 ]]
 
 vim.cmd [[
-  colorscheme onedark
+  colorscheme aurora
   set completefunc=emoji#complete
 ]]
 
