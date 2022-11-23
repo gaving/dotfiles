@@ -6,6 +6,11 @@ require("deps")
 require("alpha").setup(require'alpha.themes.startify'.config)
 require("gitlinker").setup()
 require("gitsigns").setup()
+require("gitlinker").setup({
+  callbacks = {
+    ["git.spnet.local"] = require"gitlinker.hosts".get_gitlab_type_url
+  },
+})
 require("nvim-ts-autotag").setup()
 require("stabilize").setup()
 require("typescript").setup({})

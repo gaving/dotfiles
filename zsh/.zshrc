@@ -81,8 +81,8 @@ plugins=(
   fzf-tab
   git
   history-search-multi-word
+  insight
   kubectl
-  thefuck
   you-should-use
   zsh-autosuggestions
   zsh-z

@@ -29,6 +29,7 @@ alias di='docker images'
 alias dnl='docker network ls'
 alias dsl='docker stack ls'
 alias dpa='docker ps -a'
+alias dpaf='docker ps -a --format "table {{.Names}}\t{{.ID}}\t{{.Image}}\t{{.Status}}" | (sed -u 1q; sort)'
 
 alias calc='noglob zcalc'
 alias fzf=fzf-tmux
