@@ -36,6 +36,7 @@ require("paq") {
   "mhinz/vim-sayonara",
   "neovim/nvim-lspconfig",
   "norcalli/nvim-colorizer.lua",
+  "ntpeters/vim-better-whitespace",
   "nvim-lua/plenary.nvim",
   "nvim-lua/popup.nvim",
   "nvim-lualine/lualine.nvim",
