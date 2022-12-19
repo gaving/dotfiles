@@ -47,6 +47,7 @@ require("paq") {
   "nvim-treesitter/playground",
   "ruifm/gitlinker.nvim",
   "savq/paq-nvim",
+  "shortcuts/no-neck-pain.nvim",
   "tami5/sqlite.lua",
   "tmux-plugins/vim-tmux-focus-events",
   "tpope/vim-abolish",
