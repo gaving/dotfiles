@@ -25,7 +25,6 @@ local servers = {
       },
     },
   },
-  sumneko_lua = require("modules.lsp.sumneko").config,
   jsonls = require("modules.lsp.json").config,
   html = {
     cmd = { "vscode-html-language-server", "--stdio" },
