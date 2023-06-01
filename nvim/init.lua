@@ -1,6 +1,19 @@
-require("impatient").enable_profile()
-require("bootstrap")
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
 require("deps")
+require("bootstrap")
+require("impatient").enable_profile()
 
 -- Plugins
 require("alpha").setup(require'alpha.themes.startify'.config)
@@ -14,6 +27,17 @@ require("gitlinker").setup({
 require("nvim-ts-autotag").setup()
 require("stabilize").setup()
 require("typescript").setup({})
+require("nvim-tmux-navigation").setup({
+  keybindings = {
+    left = "<C-h>",
+    down = "<C-j>",
+    up = "<C-k>",
+    right = "<C-l>",
+    last_active = "<C-\\>",
+    next = "<C-Space>",
+  }
+})
+require("lualine").setup()
 
 vim.g.do_filetype_lua = 1
 vim.g.mapleader = ","
@@ -27,7 +51,6 @@ vim.cmd [[
 ]]
 
 vim.cmd [[
-  colorscheme aurora
   set completefunc=emoji#complete
 ]]
 
