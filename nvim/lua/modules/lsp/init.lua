@@ -35,8 +35,8 @@ local servers = {
   pyright = {},
   eslint = {},
   dockerls = {},
-  grammarly = {},
-  remark_ls = {},
+  -- grammarly = {},
+  -- remark_ls = {},
 }
 
 for name, opts in pairs(servers) do

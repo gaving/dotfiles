@@ -79,10 +79,10 @@ tnoremap("<Esc><Esc>", "<C-\\><C-n>", {
 })
 
 -- Better movement between windows
-nnoremap("<C-h>", "<C-w><C-h>", { desc = "Go to the left window" })
-nnoremap("<C-l>", "<C-w><C-l>", { desc = "Go to the right window" })
-nnoremap("<C-j>", "<C-w><C-j>", { desc = "Go to the bottom window" })
-nnoremap("<C-k>", "<C-w><C-k>", { desc = "Go to the top window" })
+-- nnoremap("<C-h>", "<C-w><C-h>", { desc = "Go to the left window" })
+-- nnoremap("<C-l>", "<C-w><C-l>", { desc = "Go to the right window" })
+-- nnoremap("<C-j>", "<C-w><C-j>", { desc = "Go to the bottom window" })
+-- nnoremap("<C-k>", "<C-w><C-k>", { desc = "Go to the top window" })
 
 -- Resize buffer easier
 nnoremap("<Left>", ":vertical resize +2<CR>", {

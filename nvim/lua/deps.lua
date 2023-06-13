@@ -1,19 +1,36 @@
-require("paq") {
+require("lazy").setup({
+  "alexghergh/nvim-tmux-navigation",
   "AndrewRadev/splitjoin.vim",
   "AndrewRadev/switch.vim",
+  "cljoly/telescope-repo.nvim",
   "L3MON4D3/LuaSnip",
-  "akinsho/nvim-bufferline.lua",
+  {
+    'akinsho/bufferline.nvim',
+    dependencies = 'nvim-tree/nvim-web-devicons'
+  },
   "andymass/vim-matchup",
   "chaoren/vim-wordmotion",
   "christianchiarulli/nvcode-color-schemes.vim",
-  "christoomey/vim-tmux-navigator",
   "edkolev/tmuxline.vim",
   "folke/trouble.nvim",
   "folke/zen-mode.nvim",
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd([[colorscheme tokyonight]])
+    end,
+  },
   "goolord/alpha-nvim",
-  "hrsh7th/cmp-buffer",
-  "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/nvim-cmp",
+  {
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+    },
+  },
   "hrsh7th/vim-vsnip",
   "iamcco/markdown-preview.nvim",
   "jose-elias-alvarez/null-ls.nvim",
@@ -22,11 +39,19 @@ require("paq") {
   "jparise/vim-graphql",
   "junegunn/vim-easy-align",
   "kachyz/vim-gitmoji",
-  "kana/vim-textobj-indent",
-  "kana/vim-textobj-line",
-  "kana/vim-textobj-user",
+  {
+    "kana/vim-textobj-indent",
+    dependencies = {
+      "kana/vim-textobj-user",
+    },
+  },
+  {
+    "kana/vim-textobj-line",
+    dependencies = {
+      "kana/vim-textobj-user",
+    },
+  },
   "kdheepak/lazygit.nvim",
-  "kyazdani42/nvim-web-devicons",
   "lewis6991/gitsigns.nvim",
   "lewis6991/impatient.nvim",
   "lukas-reineke/indent-blankline.nvim",
@@ -39,14 +64,16 @@ require("paq") {
   "ntpeters/vim-better-whitespace",
   "nvim-lua/plenary.nvim",
   "nvim-lua/popup.nvim",
-  "nvim-lualine/lualine.nvim",
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+  },
   "nvim-telescope/telescope-ui-select.nvim",
   "nvim-telescope/telescope.nvim",
   "nvim-treesitter/nvim-treesitter",
   "nvim-treesitter/nvim-treesitter-textobjects",
   "nvim-treesitter/playground",
   "ruifm/gitlinker.nvim",
-  "savq/paq-nvim",
   "shortcuts/no-neck-pain.nvim",
   "tami5/sqlite.lua",
   "tmux-plugins/vim-tmux-focus-events",
@@ -67,7 +94,11 @@ require("paq") {
   "wellle/targets.vim",
   "williamboman/nvim-lsp-installer",
   "windwp/nvim-ts-autotag",
-  "xolox/vim-colorscheme-switcher",
-  "xolox/vim-misc",
-  { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
-}
+  {
+    "xolox/vim-colorscheme-switcher",
+    dependencies = {
+      "xolox/vim-misc",
+    },
+  },
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }
+})
