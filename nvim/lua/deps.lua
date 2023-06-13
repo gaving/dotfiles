@@ -2,6 +2,7 @@ require("lazy").setup({
   "alexghergh/nvim-tmux-navigation",
   "AndrewRadev/splitjoin.vim",
   "AndrewRadev/switch.vim",
+  "cljoly/telescope-repo.nvim",
   "L3MON4D3/LuaSnip",
   {
     'akinsho/bufferline.nvim',

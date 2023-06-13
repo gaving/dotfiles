@@ -38,6 +38,7 @@ require("nvim-tmux-navigation").setup({
   }
 })
 require("lualine").setup()
+require("telescope").load_extension'repo'
 
 vim.g.do_filetype_lua = 1
 vim.g.mapleader = ","
