@@ -3,7 +3,6 @@ require("lazy").setup({
   "AndrewRadev/splitjoin.vim",
   "AndrewRadev/switch.vim",
   "cljoly/telescope-repo.nvim",
-  "L3MON4D3/LuaSnip",
   {
     'akinsho/bufferline.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons'
@@ -18,9 +17,9 @@ require("lazy").setup({
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    config = function()
-      vim.cmd([[colorscheme tokyonight]])
-    end,
+    -- config = function()
+      -- vim.cmd([[colorscheme tokyonight]])
+    -- end,
   },
   "goolord/alpha-nvim",
   {
@@ -31,7 +30,6 @@ require("lazy").setup({
       "hrsh7th/cmp-buffer",
     },
   },
-  "hrsh7th/vim-vsnip",
   "iamcco/markdown-preview.nvim",
   "jose-elias-alvarez/null-ls.nvim",
   "jose-elias-alvarez/nvim-lsp-ts-utils",
