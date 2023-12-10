@@ -98,5 +98,23 @@ require("lazy").setup({
       "xolox/vim-misc",
     },
   },
-  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  {
+    "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("chatgpt").setup()
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  },
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = {
+      "kevinhwang91/promise-async"
+    }
+  }
 })
