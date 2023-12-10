@@ -90,7 +90,8 @@ require("lazy").setup({
   "tpope/vim-surround",
   "tpope/vim-unimpaired",
   "wellle/targets.vim",
-  "williamboman/nvim-lsp-installer",
+  "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
   "windwp/nvim-ts-autotag",
   {
     "xolox/vim-colorscheme-switcher",
