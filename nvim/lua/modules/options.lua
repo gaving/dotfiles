@@ -1,6 +1,6 @@
 local o = vim.opt
 
--- o.number         = true -- enable line number
+o.number         = true -- enable line number
 -- o.relativenumber = true -- enable relative line number
 o.undofile       = true -- persistent undo
 o.backup         = false -- disable backup
