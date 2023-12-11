@@ -15,6 +15,7 @@ lazygit
 npm
 nvim/local.vim
 nvim/spell
+nvim/lazy-lock.json
 nvm
 package*
 thefuck
