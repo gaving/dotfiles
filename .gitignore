@@ -13,9 +13,7 @@ karabiner
 lab*
 lazygit
 npm
-nvim/local.vim
-nvim/spell
-nvim/lazy-lock.json
+nvim
 nvm
 package*
 thefuck

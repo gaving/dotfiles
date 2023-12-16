@@ -16,6 +16,7 @@ so these are my dotfiles
 - `ln -sv ~/.config/zsh/.zshenv`
 - `cp ~/.config/git/local.example ~/.config/git/local`
 - `ln -sv ~/.config/zsh/user ~/.oh-my-zsh/custom/entry.zsh`
+- `ln -sv ~/.config/nvchad ~/Dotfiles/nvim/lua/custom`
 
 ### plugins
 
