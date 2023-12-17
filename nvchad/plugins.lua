@@ -20,6 +20,13 @@ local plugins = {
     end,
   },
   {
+    "chrisgrieser/nvim-various-textobjs",
+    event = "VeryLazy",
+    config = function()
+      require("various-textobjs").setup({ useDefaultKeymaps = true })
+    end,
+  },
+  {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
     config = function()
