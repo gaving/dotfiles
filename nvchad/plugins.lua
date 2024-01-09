@@ -23,7 +23,10 @@ local plugins = {
     "chrisgrieser/nvim-various-textobjs",
     event = "VeryLazy",
     config = function()
-      require("various-textobjs").setup({ useDefaultKeymaps = true })
+      require("various-textobjs").setup({
+        useDefaultKeymaps = true,
+        disabledKeymaps = { "gc" }
+      })
     end,
   },
   {
