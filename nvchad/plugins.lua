@@ -33,7 +33,19 @@ local plugins = {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
     config = function()
-      require("chatgpt").setup()
+      require("chatgpt").setup({
+        popup_input = {
+          submit = "<C-s>",
+        },
+        openai_params = {
+          model = "gpt-4-turbo-preview",
+          max_tokens = 4096,
+        },
+        openai_edit_params = {
+          model = "gpt-4-turbo-preview",
+          max_tokens = 4096,
+        },
+      })
     end,
     dependencies = {
       "MunifTanjim/nui.nvim",
