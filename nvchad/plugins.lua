@@ -152,6 +152,10 @@ local plugins = {
       })
     end,
   },
+  { 'tpope/vim-repeat', event = 'VeryLazy' },
+  { 'tpope/vim-sleuth', event = 'VeryLazy' },
+  { 'tpope/vim-abolish', event = 'VeryLazy' },
+  { 'tpope/vim-surround', event = 'VeryLazy' },
 }
 
 return plugins
