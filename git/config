@@ -88,6 +88,12 @@
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+    recent = "!f() { \
+      git branch --sort=-committerdate --format='%(committerdate:relative)%09%(refname:short)' | head -10; \
+    }; f"
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
     # Remove the tag with the specified tag name if
     # exists and tag the latest commit with that name.
 
