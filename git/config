@@ -145,6 +145,10 @@
     editor = nvim
     pager = delta --dark --hunk-header-style=plain --file-style=underline
 
+[commit]
+
+    verbose = true
+
 [diff]
 
     # Show blocks of moved text of at least 20
